@@ -200,7 +200,7 @@ export default function ApplyForm() {
       <div className="container">
         <div className="section-header">
           <span className="chapter-label">X · Prijava</span>
-          <h2 className="section-title">Prijavi se. 60 sekundi.</h2>
+          <h2 className="section-title">Prijavi Se. 60 Sekundi.</h2>
           <p className="section-sub">Primamo manje od 2% prijava. Ako odgovaraš, biraš termin za discovery poziv odmah na sledećem ekranu.</p>
         </div>
 

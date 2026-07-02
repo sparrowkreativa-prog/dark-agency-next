@@ -25,7 +25,7 @@ export const siteData = {
 
   problem: {
     label: 'I · Pitanje',
-    title: 'Većina ljudi koji razmišljaju o ovome nikada nigde ne aplicira.',
+    title: 'Većina Ljudi Koji Razmišljaju o Ovome Nikada Nigde Ne Aplicira.',
     sub: 'Ne zato što nisu zainteresovani. Već zato što svaka agencija kojoj se obrate ne prođe ni prvi test. Mi smo agencija koja je izgrađena oko tog pitanja.',
     items: [
       { num: '01', h: 'Da li me neko može pronaći?',       p: 'Razdvajanje identiteta je temelj, ne opcija. Inženjerišemo ga pre prvog dana.' },
@@ -36,7 +36,7 @@ export const siteData = {
 
   included: {
     label: "I.V · Šta je uključeno",
-    title: 'Svaki sistem koji ti treba — već radi.',
+    title: 'Svaki Sistem Koji Ti Treba - Već Radi.',
     sub: 'Tri stuba, izgrađena i kojima upravljamo pre nego što objaviš ijednu objavu.',
     cards: [
       {
@@ -54,7 +54,7 @@ export const siteData = {
       {
         num: '02',
         title: 'Tvoj content engine',
-        desc: 'Strategija, raspoređivanje i produkcija — sve u rukama tvog tima, da se ti možeš fokusirati na ono što samo ti možeš da radiš.',
+        desc: 'Strategija, raspoređivanje i produkcija -sve u rukama tvog tima, da se ti možeš fokusirati na ono što samo ti možeš da radiš.',
         items: [
           'Kompletan content kalendar planiran svakih 30 dana',
           'Raspoređivanje objava, opisi i optimizacija',
@@ -67,12 +67,12 @@ export const siteData = {
       {
         num: '03',
         title: 'Tvoj sistem zarade',
-        desc: 'Od strategije cena do prve nedelje — tvoj tim gradi i vodi sloj monetizacije dok ti zarađuješ.',
+        desc: 'Od strategije cena do prve nedelje - tvoj tim gradi i vodi sloj monetizacije dok ti zarađuješ.',
         items: [
           'Izbor niše i arhitektura cena',
           'Cilj $20K+ u prvoj nedelji, ostvareno 60+ puta',
-          'Samo podela prihoda — ništa unapred, nikad',
-          'Bez ugovora — odi kad hoćeš, bez penala',
+          'Samo podela prihoda - ništa unapred, nikad',
+          'Bez ugovora - odlaziš kad hoćeš, bez penala',
         ],
         link: { label: 'Počni da zarađuješ', href: '#' },
       },
@@ -81,7 +81,7 @@ export const siteData = {
 
   masina: {
     label: 'II · Mašina',
-    title: 'Naša infrastruktura radi 24/7 za tebe.',
+    title: 'Naša Infrastruktura Radi 24/7 Za Tebe.',
     sub: 'Dok spavaš, naš sistem aktivno upravlja tvojim nalogom — content, poruke, analitika, zaštita.',
     crm: {
       totalRevenue: '612.847',
@@ -126,7 +126,7 @@ export const siteData = {
 
   roster: {
     label: 'III · Roster',
-    title: 'Pravi kreatori. Pravi brojevi.',
+    title: 'Pravi Kreatori. Pravi Brojevi.',
     sub: 'Svaki rezultat je verifikovan. Na prvom pozivu možeš odabrati bilo kog klijenta — logujemo se uživo.',
     cases: [
       {
@@ -174,7 +174,7 @@ export const siteData = {
 
   services: {
     label: 'IV · Naše usluge',
-    title: 'Sve je inženjerisano pre tvog prvog dana.',
+    title: 'Sve je Inženjerisano Pre Tvog Prvog Dana.',
     sub: 'Sedam sistema u pogonu pre nego što ijedan tvoj rad dospe do sveta.',
     quote: '4+ godine. 60+ klijenata. Nula curenja identiteta.',
     items: [
@@ -190,7 +190,7 @@ export const siteData = {
 
   qualify: {
     label: 'V · Kvalifikacija',
-    title: 'Primamo manje od 2% prijava.',
+    title: 'Primamo Manje od 2% Prijava.',
     sub: 'Kada se pridružiš, čitav tim se gradi oko tebe. To možemo da radimo samo za ljude koji su potpuno posvećeni.',
     yesHeading: 'Odgovaraš ako…',
     noHeading: 'Ne odgovaraš ako…',
@@ -211,7 +211,7 @@ export const siteData = {
 
   testimonials: {
     label: 'VI · Priče',
-    title: 'Troje ljudi koji nikad nisu mislili da je ovo za njih.',
+    title: 'Troje Ljudi Koji Nikad Nisu Mislili Da Je Ovo Za Njih.',
     sub: 'Bez pratioca. Bez iskustva. Pravi strahovi. Jedino što se promenilo bio je tim iza njih.',
     items: [
       {
@@ -241,7 +241,7 @@ export const siteData = {
   guarantee: {
     label: 'VII · Garancije',
     bigNum: '$20K',
-    title: 'Tri garancije. Složene. Bez sitnog slova.',
+    title: 'Tri Garancije. Složene. Bez Sitnog Slova.',
     items: [
       { label: 'I · Lansiranje',  text: 'Cilj $20K+ u prvoj nedelji, ostvareno 60+ puta od nule. Ništa unapred — zaradimo samo kada i ti zaradiš.' },
       { label: 'II · Podrška',    text: 'Ispod 5 minuta odgovora, 24/7. Ne cilj — mereni operativni standard.' },
@@ -252,7 +252,7 @@ export const siteData = {
 
   faq: {
     label: 'VIII · Pitanja',
-    title: 'Direktni odgovori. Bez sitnog slova.',
+    title: 'Direktni Odgovori. Bez Sitnog Slova.',
     sub: 'Pitanja koja sebi već postavljaš — odgovorena direktno.',
     items: [
       {
@@ -292,7 +292,7 @@ export const siteData = {
 
   finalCta: {
     label: 'IX · Tvoj potez',
-    title: 'Za dvanaest meseci, jedna od dve stvari će biti tačna.',
+    title: 'Za Dvanaest Meseci, Jedna Od Dve Stvari Će Biti Tačna.',
     col1: {
       heading: 'Bez tima',
       items: [

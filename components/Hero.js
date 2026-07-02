@@ -96,12 +96,13 @@ export default function Hero() {
       <div className="hero-orb hero-orb-2" aria-hidden="true" />
       <div className="hero-inner">
         <div className="hero-glass">
-          <h1 className="hero-headline">
+          <h1 className="hero-headline" style={{ fontFamily: 'DM Serif Display, serif', fontSize: '100px', marginBottom: '0px' }}>
             {hero.headline.split('\n').map((line, i) =>
               line.startsWith('Your Story') ? <em key={i}>{line}</em> : (
                 <span
                   key={i}
                   className={`headline-line ${line === 'Tvoja Priča.' ? 'headline-line--accent' : ''}`}
+                  style={i === 0 ? { fontStyle: 'italic' } : {}}
                 >
                   {line}
                 </span>
