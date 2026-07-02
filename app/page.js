@@ -11,6 +11,7 @@ builder.init(BUILDER_API_KEY);
 import FAQ from '@/components/FAQ';
 import ApplyForm from '@/components/ApplyForm';
 import PressBar from '@/components/PressBar';
+import CinematicImage from '@/components/CinematicImage';
 import { siteData } from '@/data/content';
 
 export default function Home() {
@@ -46,6 +47,8 @@ export default function Home() {
             </div>
           </section>
         </SectionFade>
+
+        <CinematicImage />
 
         {/* What's Included */}
         <SectionFade>
