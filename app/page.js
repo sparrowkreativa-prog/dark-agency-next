@@ -66,6 +66,16 @@ export default function Home() {
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center',
                         backgroundSize: 'cover',
+                      } : card.num === '02' ? {
+                        backgroundImage: 'url(https://cdn.builder.io/api/v1/image/assets%2F0edeb660c80b4a5dab3575372c668fe0%2F9667429a1f2c47ae90a4261a11de827c)',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover',
+                      } : card.num === '03' ? {
+                        backgroundImage: 'url(https://cdn.builder.io/api/v1/image/assets%2F0edeb660c80b4a5dab3575372c668fe0%2F3eb3210231cb42bd86b1b78a62a078a4)',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover',
                       } : {}}
                     />
                     <span className="included-badge">{card.num}</span>
@@ -76,7 +86,6 @@ export default function Home() {
                     <ul className="included-list">
                       {card.items.map((item) => <li key={item}>{item}</li>)}
                     </ul>
-                    <a href={card.link.href} className="included-link">{card.link.label} <span>→</span></a>
                   </div>
                 </div>
               ))}
