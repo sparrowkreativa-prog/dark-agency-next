@@ -259,7 +259,7 @@ export default function Home() {
         <div className="footer-inner">
           <div className="footer-top">
             <div>
-              <div className="footer-brand-name">Dark Agency</div>
+              <div className="footer-brand-name">{siteData.nav.logo}</div>
               <p className="footer-tagline">{footer.tagline}</p>
             </div>
             <a href={footer.cta.href} className="btn-outline">

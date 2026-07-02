@@ -41,6 +41,7 @@ em { font-style: italic; color: var(--color-accent-pink); }
 
 /* ── Layout ── */
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+@media (max-width: 480px) { .container { padding: 0 16px; } }
 
 /* ── Buttons ── */
 .btn-primary {
@@ -81,7 +82,10 @@ em { font-style: italic; color: var(--color-accent-pink); }
 /* ── Press Bar ── */
 .press-bar { padding: 24px 0 20px; background: var(--color-dark-1); border-bottom: 1px solid var(--color-border); overflow: hidden; }
 .press-bar-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-text-muted); opacity: 0.55; text-align: center; margin-bottom: 16px; }
-.press-marquee-outer { overflow: hidden; width: 100%; }
+.press-marquee-outer { overflow: hidden; width: 100%; position: relative; }
+.press-marquee-outer::before, .press-marquee-outer::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none; }
+.press-marquee-outer::before { left: 0; background: linear-gradient(to right, var(--color-dark-1), transparent); }
+.press-marquee-outer::after { right: 0; background: linear-gradient(to left, var(--color-dark-1), transparent); }
 .press-marquee-track { display: flex; align-items: center; gap: 64px; width: max-content; animation: marquee-scroll 22s linear infinite; }
 .press-marquee-track:hover { animation-play-state: paused; }
 @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
@@ -96,6 +100,7 @@ em { font-style: italic; color: var(--color-accent-pink); }
 .cinematic-caption { position: absolute; bottom: 80px; left: 0; right: 0; z-index: 2; text-align: center; padding: 0 24px; }
 .cinematic-headline { font-family: var(--font-display); font-size: clamp(26px, 4vw, 48px); font-weight: 400; line-height: 1.2; margin-bottom: 12px; text-shadow: 0 2px 20px rgba(0,0,0,0.25); }
 .cinematic-headline-plain { color: #1a1a1a; font-style: normal; }
+.cinematic-headline-plain-italic { color: #1a1a1a; font-style: italic; }
 .cinematic-headline-em { color: #d65f91; -webkit-text-fill-color: #d65f91; font-style: italic; }
 .cinematic-sub { font-size: clamp(10px, 1.2vw, 13px); text-transform: uppercase; letter-spacing: 0.22em; color: #1a1a1a; }
 
@@ -140,7 +145,8 @@ em { font-style: italic; color: var(--color-accent-pink); }
 .hero-inner { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; width: 100%; }
 .hero-glass { background: rgba(248,247,245,0.55); backdrop-filter: blur(20px) saturate(1.8); -webkit-backdrop-filter: blur(20px) saturate(1.8); border: 1px solid rgba(255,255,255,0.65); border-radius: 28px; padding: 52px 56px 48px; box-shadow: 0 8px 48px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.8); }
 @media (max-width: 640px) { .hero-glass { padding: 36px 24px 32px; border-radius: 20px; } }
-.hero-headline { font-size: clamp(36px,9vw,106px); line-height: 1.1; margin-bottom: 50px; white-space: pre-line; }
+.hero-headline { font-size: clamp(28px,8vw,106px); line-height: 1.1; margin-bottom: 50px; white-space: pre-line; }
+@media (max-width: 480px) { .hero-headline { font-size: clamp(24px,7.5vw,40px); } }
 .headline-line { display: block; font-family: 'DM Serif Display', serif; font-style: italic; }
 .headline-line--accent { border-width: 1px; border-color: #d65f91; border-style: none; color: #d65f91; padding: 8px 16px; border-radius: 8px; }
 .hero-headline em { display: block; background: linear-gradient(135deg, var(--color-accent-pink), #f7a8c9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-bottom: 0.18em; }
@@ -207,7 +213,6 @@ em { font-style: italic; color: var(--color-accent-pink); }
 .crm-metric-val--pink { color: var(--color-accent-pink); }
 .crm-metric-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-text-muted); margin-top: 4px; }
 .phone-farm-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 6px; }
-@media (max-width: 480px) { .phone-farm-grid { grid-template-columns: repeat(2,1fr); } }
 .phone-device { aspect-ratio: 9/16; border-radius: 8px; border: 1px solid var(--color-border); background: var(--color-dark-1); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding: 5px 3px; font-size: 7px; color: var(--color-text-muted); text-align: center; gap: 3px; }
 .phone-device--active { border-color: rgba(34,197,94,0.5); background: rgba(34,197,94,0.04); }
 .phone-device-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--color-dark-3); flex-shrink: 0; }

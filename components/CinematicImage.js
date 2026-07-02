@@ -15,7 +15,7 @@ export default function CinematicImage() {
       <div className="cinematic-fade-bottom" />
       <div className="cinematic-caption">
         <p className="cinematic-headline">
-          <span className="cinematic-headline-plain">Pronađi I Ti </span><em className="cinematic-headline-em">Svoje Mesto.</em>
+          <em className="cinematic-headline-plain-italic">Pronađi I Ti </em><em className="cinematic-headline-em">Svoje Mesto.</em>
         </p>
         <p className="cinematic-sub">Napravljena za ženu koja nikoga ne može da pita za ovo</p>
       </div>
