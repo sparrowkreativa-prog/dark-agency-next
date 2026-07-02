@@ -9,6 +9,7 @@ import Roster from '@/components/Roster';
 
 builder.init(BUILDER_API_KEY);
 import FAQ from '@/components/FAQ';
+import ApplyForm from '@/components/ApplyForm';
 import { siteData } from '@/data/content';
 
 export default function Home() {
@@ -196,6 +197,9 @@ export default function Home() {
 
         {/* FAQ */}
         <FAQ />
+
+        {/* Apply Form */}
+        <ApplyForm />
 
         {/* Final CTA */}
         <SectionFade>

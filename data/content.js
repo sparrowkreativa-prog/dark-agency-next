@@ -8,13 +8,13 @@ export const siteData = {
       { label: 'Usluge', href: '#services' },
       { label: 'FAQ', href: '#faq' },
     ],
-    cta: { label: 'Apliciraj', href: '#apply' },
+    cta: { label: 'Prijavi se', href: '#apply' },
   },
 
   hero: {
     headline: 'Tvoja Agencija.\nTvoj Brend.\nTvoja Priča.',
     subtext: 'Najpromišljeniji način da razviješ svoj brend — a da niko ne sazna.',
-    cta: { label: 'Počni danas', href: '#apply' },
+    cta: { label: 'Prijavi se', href: '#apply' },
     microcopy: '60-sekundi prijava · manje od 2% primljenih · nula troškova unapred',
     stats: [
       { num: '$3M+', label: 'Godišnji prihod', idx: 1 },
@@ -247,7 +247,7 @@ export const siteData = {
       { label: 'II · Podrška',    text: 'Ispod 5 minuta odgovora, 24/7. Ne cilj — mereni operativni standard.' },
       { label: 'III · Izlaz',     text: 'Odi kad hoćeš. Nula naknada, nula penala, nula pitanja. Bez ugovora, ikad.' },
     ],
-    cta: { label: 'Počni svoju prijavu', href: '#apply' },
+    cta: { label: 'Prijavi se', href: '#apply' },
   },
 
   faq: {
@@ -310,13 +310,13 @@ export const siteData = {
       ],
     },
     line: 'Isti dvanaest meseci u svakom slučaju. Jedina promenljiva je da li tim stoji iza tebe.',
-    cta: { label: 'Počni svoju prijavu', href: '#apply' },
+    cta: { label: 'Prijavi se', href: '#apply' },
     disclaimer: '*Rezultati variraju u zavisnosti od niše, publike i truda. Prošli rezultati ne garantuju buduće.',
   },
 
   footer: {
     tagline: 'Promenila je sve. Niko nikad nije saznao.',
-    cta: { label: 'Počni svoju prijavu', href: '#apply' },
+    cta: { label: 'Prijavi se', href: '#apply' },
     copy: `© ${new Date().getFullYear()} Dark Agency. Sva prava zadržana.`,
     legal: [
       { label: 'Politika privatnosti', href: '/privacy' },
