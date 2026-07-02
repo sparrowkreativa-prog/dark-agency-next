@@ -17,7 +17,7 @@ export default function CinematicImage() {
         <p className="cinematic-headline">
           <span className="cinematic-headline-plain">Pronađi I Ti </span><em className="cinematic-headline-em">Svoje Mesto.</em>
         </p>
-        <p className="cinematic-sub">Napravljena za ženu koja ni od koga ne može da pita za ovo</p>
+        <p className="cinematic-sub">Napravljena za ženu koja nikoga ne može da pita za ovo</p>
       </div>
     </div>
   );
