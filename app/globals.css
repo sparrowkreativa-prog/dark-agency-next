@@ -232,11 +232,39 @@ em { font-style: italic; color: var(--color-accent-pink); }
 .masina-metric-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--color-text-muted); margin-top: 6px; }
 
 /* ── ROSTER ── */
-.section-roster { padding: 80px 24px; background: var(--color-dark-2); }
+.section-roster { padding: 80px 0; background: var(--color-dark-2); }
+/* old grid kept for compat */
 .roster-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
 @media (min-width: 640px) { .roster-grid { grid-template-columns: repeat(2,1fr); } }
 @media (min-width: 1024px) { .roster-grid { grid-template-columns: repeat(4,1fr); } }
-.roster-card { background: var(--color-dark-1); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; gap: 20px; transition: transform var(--transition), box-shadow var(--transition); }
+.roster-card { background: var(--color-dark-1); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; gap: 20px; }
+
+/* New animated roster */
+.roster-grid-new { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 640px) { .roster-grid-new { grid-template-columns: repeat(2,1fr); } }
+@media (min-width: 1024px) { .roster-grid-new { grid-template-columns: repeat(4,1fr); } }
+
+.roster-card-new { background: var(--color-dark-1); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; gap: 16px; transition: transform var(--transition), box-shadow var(--transition); }
+.roster-card-new:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+
+.roster-card-header { display: flex; align-items: center; justify-content: space-between; }
+.roster-duration-tag { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-text-muted); }
+.roster-niche-tag { font-size: 11px; font-weight: 600; color: var(--color-accent-pink); background: rgba(232,83,143,0.07); border: 1px solid rgba(232,83,143,0.15); border-radius: 999px; padding: 3px 10px; }
+
+.roster-revenue-row { display: flex; align-items: flex-end; gap: 6px; flex-wrap: wrap; }
+.roster-before-val { font-family: var(--font-display); font-size: 18px; color: var(--color-text-muted); text-decoration: line-through; text-decoration-thickness: 1px; line-height: 1; margin-bottom: 4px; }
+.roster-after-val { font-family: var(--font-display); font-size: 32px; line-height: 1; background: linear-gradient(135deg, var(--color-accent-pink), #f7a8c9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.roster-after-unit { font-size: 13px; color: var(--color-text-muted); margin-bottom: 3px; }
+
+.roster-chart-wrap { color: var(--color-text-muted); }
+
+.roster-card-footer { display: flex; flex-direction: column; gap: 10px; margin-top: auto; }
+.roster-rank-tag { font-size: 11px; font-weight: 700; color: var(--color-accent-pink); text-transform: uppercase; letter-spacing: 0.1em; }
+.roster-quote-new { font-size: 12px; color: var(--color-text-muted); line-height: 1.6; font-style: italic; }
+
+.roster-disclaimer { font-size: 11px; color: var(--color-text-muted); margin-top: 24px; max-width: 560px; }
+
+@keyframes roster-dot-in { from { transform: scale(0); } to { transform: scale(1); } }
 .roster-card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px rgba(0,0,0,0.1); }
 .roster-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .roster-id { font-family: var(--font-display); font-size: 22px; }
