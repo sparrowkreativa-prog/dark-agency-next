@@ -1,6 +1,6 @@
 export const siteData = {
   nav: {
-    logo: 'Dark Agency',
+    logo: 'Velluto Nero',
     links: [
       { label: 'Rezultati', href: '#results' },
       { label: 'Mašina', href: '#masina' },
@@ -317,7 +317,7 @@ export const siteData = {
   footer: {
     tagline: 'Promenila je sve. Niko nikad nije saznao.',
     cta: { label: 'Prijavi se', href: '#apply' },
-    copy: `© ${new Date().getFullYear()} Dark Agency. Sva prava zadržana.`,
+    copy: `© ${new Date().getFullYear()} Velluto Nero. Sva prava zadržana.`,
     legal: [
       { label: 'Politika privatnosti', href: '/privacy' },
       { label: 'Uslovi korišćenja', href: '/terms' },
