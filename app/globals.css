@@ -105,6 +105,11 @@ em { font-style: italic; color: var(--color-accent-pink); }
 
 /* ── Hero ── */
 .hero-section { position: relative; min-height: 90vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 120px 24px 64px; text-align: center; background: var(--color-dark-1); }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.has-video .hero-bg { z-index: 1; }
+.has-video .hero-orb { z-index: 1; opacity: 0.4; }
+.has-video .hero-inner { z-index: 2; }
+.has-video .hero-glass { background: rgba(248,247,245,0.62); }
 .hero-bg { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(232,83,143,0.07) 0%, transparent 70%), radial-gradient(ellipse 60% 40% at 80% 70%, rgba(140,37,83,0.05) 0%, transparent 70%); }
 .hero-orb { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(40px); }
 .hero-orb-1 { width: 300px; height: 300px; top: 15%; left: 10%; background: radial-gradient(circle, rgba(232,83,143,0.06), transparent 70%); animation: drift 20s ease-in-out infinite; }
