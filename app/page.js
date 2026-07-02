@@ -1,8 +1,13 @@
+'use client';
+import { builder, BuilderComponent } from '@builder.io/react';
+import { BUILDER_API_KEY } from '@/lib/builder';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import SectionFade from '@/components/SectionFade';
 import Masina from '@/components/Masina';
 import Roster from '@/components/Roster';
+
+builder.init(BUILDER_API_KEY);
 import FAQ from '@/components/FAQ';
 import { siteData } from '@/data/content';
 
