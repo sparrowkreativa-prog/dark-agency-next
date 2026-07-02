@@ -98,7 +98,14 @@ export default function Hero() {
         <div className="hero-glass">
           <h1 className="hero-headline">
             {hero.headline.split('\n').map((line, i) =>
-              line.startsWith('Your Story') ? <em key={i}>{line}</em> : <span key={i} style={{ display: 'block' }}>{line}</span>
+              line.startsWith('Your Story') ? <em key={i}>{line}</em> : (
+                <span
+                  key={i}
+                  className={`headline-line ${line === 'Tvoja Priča.' ? 'headline-line--accent' : ''}`}
+                >
+                  {line}
+                </span>
+              )
             )}
           </h1>
           <p className="hero-sub">{hero.subtext}</p>
