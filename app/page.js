@@ -10,6 +10,7 @@ import Roster from '@/components/Roster';
 builder.init(BUILDER_API_KEY);
 import FAQ from '@/components/FAQ';
 import ApplyForm from '@/components/ApplyForm';
+import PressBar from '@/components/PressBar';
 import { siteData } from '@/data/content';
 
 export default function Home() {
@@ -21,6 +22,8 @@ export default function Home() {
       <main id="main-content" style={{ paddingTop: 80 }}>
 
         <Hero />
+
+        <PressBar />
 
         {/* Problem */}
         <SectionFade>
