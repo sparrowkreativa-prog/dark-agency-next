@@ -56,7 +56,15 @@ export default function Home() {
               {included.cards.map((card) => (
                 <div key={card.num} className={`included-card${card.reverse ? ' included-card--reverse' : ''}`}>
                   <div className="included-card-media">
-                    <div className="included-card-placeholder" />
+                    <div
+                      className="included-card-placeholder"
+                      style={card.num === '01' ? {
+                        backgroundImage: 'url(https://cdn.builder.io/api/v1/image/assets%2F0edeb660c80b4a5dab3575372c668fe0%2Fa53b3630f0dc4451bd07c24fd84314cf)',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center',
+                        backgroundSize: 'cover',
+                      } : {}}
+                    />
                     <span className="included-badge">{card.num}</span>
                   </div>
                   <div className="included-card-body">
