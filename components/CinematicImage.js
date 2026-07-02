@@ -13,6 +13,12 @@ export default function CinematicImage() {
       />
       <div className="cinematic-fade-top" />
       <div className="cinematic-fade-bottom" />
+      <div className="cinematic-caption">
+        <p className="cinematic-headline">
+          Ona pronađe ovu stranicu u <em>1 ujutru.</em>
+        </p>
+        <p className="cinematic-sub">Napravljena za ženu koja ni od koga ne može da pita za ovo</p>
+      </div>
     </div>
   );
 }
