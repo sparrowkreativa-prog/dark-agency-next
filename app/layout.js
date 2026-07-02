@@ -10,7 +10,7 @@ const dmSerifDisplay = DM_Serif_Display({
 });
 
 export const metadata = {
-  title: 'Dark Agency',
+  title: 'Velluto Nero',
   description: 'The most considered way to grow your brand, without anyone missing a beat.',
 };
 
