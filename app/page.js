@@ -11,7 +11,7 @@ builder.init(BUILDER_API_KEY);
 import FAQ from '@/components/FAQ';
 import ApplyForm from '@/components/ApplyForm';
 import PressBar from '@/components/PressBar';
-import CinematicImage from '@/components/CinematicImage';
+import SplitHero from '@/components/SplitHero';
 import FreeTools from '@/components/FreeTools';
 import { siteData } from '@/data/content';
 
@@ -49,7 +49,7 @@ export default function Home() {
           </section>
         </SectionFade>
 
-        <CinematicImage />
+        <SplitHero />
 
         {/* What's Included */}
         <SectionFade>
