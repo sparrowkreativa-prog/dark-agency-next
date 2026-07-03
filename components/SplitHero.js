@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
-const crmMonths = [50, 46.9, 47.9, 42.7, 38.5, 39.5, 31.1, 23.8, 14.4, 6.0];
+const crmMonths = [6.0, 10.2, 14.4, 23.8, 31.1, 36.5, 40.8, 44.5, 47.9, 50];
 
 function buildPath(pts, W = 300, H = 56, pad = 6) {
   const max = Math.max(...pts), min = Math.min(...pts);
@@ -26,7 +26,7 @@ function CrmCard({ animate }) {
       </div>
       <div className="sh-crm-period">Ovog meseca</div>
       <div className="sh-crm-amount"
-        style={{ opacity: animate ? 1 : 0, transition: 'opacity 0.6s ease 0.8s' }}>
+        style={{ opacity: animate ? 1 : 0, transition: 'opacity 0.9s ease 1.6s' }}>
         $182,400
       </div>
       <svg viewBox="0 0 300 56" preserveAspectRatio="none" style={{ width: '100%', height: 56 }}>
@@ -40,13 +40,13 @@ function CrmCard({ animate }) {
           <line key={y} x1="6" x2="294" y1={y} y2={y} stroke="currentColor" strokeOpacity="0.1" strokeWidth="1" />
         ))}
         <path d={fill} fill="url(#crm_fill)"
-          style={{ opacity: animate ? 1 : 0, transition: 'opacity 0.5s ease 0.5s' }} />
+          style={{ opacity: animate ? 1 : 0, transition: 'opacity 0.8s ease 1.4s' }} />
         <path d={line} fill="none" stroke="#e8538f" strokeWidth="2.5"
           strokeLinecap="round" strokeLinejoin="round"
           pathLength="1" strokeDasharray="1 1"
           strokeDashoffset={animate ? 0 : 1}
           style={{
-            transition: animate ? 'stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1) 0.2s' : 'none',
+            transition: animate ? 'stroke-dashoffset 2.2s cubic-bezier(0.4,0,0.2,1) 0.8s' : 'none',
             filter: 'drop-shadow(0 0 5px rgba(232,83,143,0.5))',
           }} />
       </svg>
@@ -135,7 +135,7 @@ export default function SplitHero() {
             style={{
               opacity: animate ? 1 : 0,
               transform: animate ? 'translateY(0) rotate(-6deg)' : 'translateY(-12px) rotate(-6deg)',
-              transition: 'opacity 0.5s ease 0.6s, transform 0.5s ease 0.6s',
+              transition: 'opacity 0.8s ease 1.4s, transform 0.8s ease 1.4s',
             }}>
             <span className="sh-badge-top-icon">👑</span>
             <div>
@@ -149,7 +149,7 @@ export default function SplitHero() {
             style={{
               opacity: animate ? 1 : 0,
               transform: animate ? 'translateY(0)' : 'translateY(10px)',
-              transition: 'opacity 0.5s ease 0.9s, transform 0.5s ease 0.9s',
+              transition: 'opacity 0.8s ease 1.9s, transform 0.8s ease 1.9s',
             }}>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/>
@@ -166,7 +166,7 @@ export default function SplitHero() {
             style={{
               opacity: animate ? 1 : 0,
               transform: animate ? 'none' : 'translateY(16px)',
-              transition: `opacity 0.5s ease ${0.3 + i * 0.1}s, transform 0.5s ease ${0.3 + i * 0.1}s`,
+              transition: `opacity 0.8s ease ${1.2 + i * 0.15}s, transform 0.8s ease ${1.2 + i * 0.15}s`,
             }}>
             <div className="sh-stat-num">{s.num}</div>
             <div className="sh-stat-label">{s.label}</div>

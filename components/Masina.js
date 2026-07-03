@@ -30,7 +30,7 @@ function useFadeIn(threshold = 0.2) {
 /* ── CRM panel ── */
 function CrmPanel({ vis }) {
   return (
-    <div className="m-panel" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity .6s ease, transform .6s ease' }}>
+    <div className="m-panel" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity 1s ease 0.3s, transform 1s ease 0.3s' }}>
       {/* title bar */}
       <div className="m-panel-bar">
         <span className="m-dots"><span style={{background:'#ff5f57'}}/><span style={{background:'#febc2e'}}/><span style={{background:'#28c840'}}/></span>
@@ -55,14 +55,14 @@ function CrmPanel({ vis }) {
           <polyline points={rosterRevPts} fill="none" stroke="rgba(232,83,143,0.8)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
             pathLength="1" strokeDasharray="1 1"
             strokeDashoffset={vis ? 0 : 1}
-            style={{ transition: vis ? 'stroke-dashoffset 1.2s ease 0.3s' : 'none' }} />
+            style={{ transition: vis ? 'stroke-dashoffset 2.4s ease 0.8s' : 'none' }} />
         </svg>
       </div>
 
       {/* Creator rows */}
       <div className="m-creator-list">
         {creatorsData.map((c, i) => (
-          <div key={c.init} className="m-creator-row" style={{ opacity: vis ? 1 : 0, transition: `opacity .4s ease ${0.4 + i * 0.12}s` }}>
+          <div key={c.init} className="m-creator-row" style={{ opacity: vis ? 1 : 0, transition: `opacity 0.9s ease ${1.0 + i * 0.2}s` }}>
             <span className="m-avatar">{c.init}</span>
             <svg viewBox="0 0 120 26" className="m-creator-spark" preserveAspectRatio="none">
               <polyline points={c.pts} fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"
@@ -83,7 +83,7 @@ function CrmPanel({ vis }) {
 /* ── Phone farm panel ── */
 function PhoneFarmPanel({ vis }) {
   return (
-    <div className="m-panel" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity .6s ease .15s, transform .6s ease .15s' }}>
+    <div className="m-panel" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity 1s ease 0.5s, transform 1s ease 0.5s' }}>
       <div className="m-panel-bar" style={{ marginBottom: 16 }}>
         <span className="m-panel-title">Phone farm</span>
         <span style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.45)' }}>10+ uređaja / kreatorka</span>
@@ -113,7 +113,7 @@ function PhoneFarmPanel({ vis }) {
 /* ── Live revenue chart ── */
 function LiveRevPanel({ vis }) {
   return (
-    <div className="m-panel" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity .6s ease .3s, transform .6s ease .3s', display: 'flex', flexDirection: 'column' }}>
+    <div className="m-panel" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity 1s ease 0.7s, transform 1s ease 0.7s', display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 4 }}>
         <span style={{ fontSize: '0.72rem', fontWeight: 700, color: '#fff' }}>Live prihod</span>
         <span className="m-live-pill"><span className="m-live-dot"/>realtime</span>
@@ -131,12 +131,12 @@ function LiveRevPanel({ vis }) {
           ))}
           <path d={`M${liveRevPts.split(' ').map(p => p).join(' L')} L294,144 L6,144 Z`}
             fill="url(#m_live_fill)"
-            style={{ opacity: vis ? 1 : 0, transition: 'opacity .5s ease .4s' }} />
+            style={{ opacity: vis ? 1 : 0, transition: 'opacity 0.9s ease 1.2s' }} />
           <polyline points={liveRevPts} fill="none" stroke="#e8538f" strokeWidth="2.5"
             strokeLinecap="round" strokeLinejoin="round"
             pathLength="1" strokeDasharray="1 1"
             strokeDashoffset={vis ? 0 : 1}
-            style={{ transition: vis ? 'stroke-dashoffset 1.4s ease .3s' : 'none', filter: 'drop-shadow(0 0 6px rgba(232,83,143,0.5))' }} />
+            style={{ transition: vis ? 'stroke-dashoffset 2.6s ease 0.8s' : 'none', filter: 'drop-shadow(0 0 6px rgba(232,83,143,0.5))' }} />
           {vis && <circle cx="294" cy="6" r="4" fill="#e8538f" stroke="#fff" strokeWidth="1.5"
             style={{ animation: 'roster-dot-in .3s ease 1.5s both' }} />}
         </svg>
@@ -168,7 +168,7 @@ export default function Masina() {
 
       <div className="m-wrap">
         {/* Header */}
-        <div className="m-header" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity .6s ease, transform .6s ease' }}>
+        <div className="m-header" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity 1s ease, transform 1s ease' }}>
           <div className="chapter-label" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 12 }}>Mašina ⚙️</div>
           <h2 className="section-title" style={{ color: '#fff', maxWidth: 680 }}>
             Nismo kupili softver. Sami smo ga napravili.
@@ -190,7 +190,7 @@ export default function Masina() {
           <div className="m-feature-grid">
             {features.map((f, i) => (
               <div key={i} className="m-feature-card"
-                style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: `opacity .5s ease ${.5 + i * .1}s, transform .5s ease ${.5 + i * .1}s` }}>
+                style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: `opacity 0.9s ease ${1.0 + i * 0.15}s, transform 0.9s ease ${1.0 + i * 0.15}s` }}>
                 <div className="m-feature-icon">{f.icon}</div>
                 <h3 className="m-feature-title">{f.title}</h3>
                 <p className="m-feature-desc">{f.desc}</p>

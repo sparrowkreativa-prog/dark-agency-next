@@ -36,7 +36,7 @@ function RosterChart({ months, id, animate }) {
       ))}
       {/* Fill */}
       <path d={fill} fill={`url(#${gradId})`}
-        style={{ opacity: animate ? 1 : 0, transition: 'opacity 0.6s ease 0.3s' }} />
+        style={{ opacity: animate ? 1 : 0, transition: 'opacity 0.9s ease 1.0s' }} />
       {/* Line */}
       <path
         d={line}
@@ -49,7 +49,7 @@ function RosterChart({ months, id, animate }) {
         strokeDasharray="1 1"
         strokeDashoffset={animate ? 0 : 1}
         style={{
-          transition: animate ? 'stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1)' : 'none',
+          transition: animate ? 'stroke-dashoffset 2.4s cubic-bezier(0.4,0,0.2,1) 0.3s' : 'none',
           filter: 'drop-shadow(0 0 6px rgba(232,83,143,0.45))',
         }}
       />
@@ -84,7 +84,7 @@ function RosterCard({ c, index }) {
     <div
       ref={ref}
       className="roster-card-new"
-      style={{ opacity: animate ? 1 : 0, transform: animate ? 'none' : 'translateY(24px)', transition: `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s` }}
+      style={{ opacity: animate ? 1 : 0, transform: animate ? 'none' : 'translateY(24px)', transition: `opacity 1s ease ${0.2 + index * 0.18}s, transform 1s ease ${0.2 + index * 0.18}s` }}
     >
       {/* Top row */}
       <div className="roster-card-header">
