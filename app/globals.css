@@ -439,13 +439,37 @@ em { font-style: italic; color: var(--color-accent-pink); }
 .apply-disqualify-sub { font-size: 13px; color: var(--color-text-muted) !important; }
 
 /* ── Footer ── */
-#site-footer { padding: 64px 24px 40px; border-top: 1px solid var(--color-border); background: var(--color-dark-2); }
+#site-footer { padding: 64px 24px 40px; border-top: none; background: #111111; }
 .footer-inner { max-width: var(--max-w); margin: 0 auto; }
 .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-bottom: 48px; }
-.footer-brand-name { font-family: var(--font-display); font-size: 18px; margin-bottom: 10px; font-style: italic; }
-.footer-tagline { font-size: 14px; color: var(--color-text-muted); max-width: 240px; line-height: 1.6; }
-.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 32px; border-top: 1px solid var(--color-border); }
-.footer-copy { font-size: 12px; color: var(--color-text-muted); }
+.footer-brand-name { font-family: var(--font-display); font-size: 18px; margin-bottom: 10px; font-style: italic; color: #ffffff; }
+.footer-tagline { font-size: 14px; color: rgba(255,255,255,0.45); max-width: 240px; line-height: 1.6; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.35); }
 .footer-legal { display: flex; gap: 20px; }
-.footer-legal a { font-size: 12px; color: var(--color-text-muted); transition: color var(--transition); }
-.footer-legal a:hover { color: var(--color-text-primary); }
+.footer-legal a { font-size: 12px; color: rgba(255,255,255,0.35); transition: color var(--transition); }
+.footer-legal a:hover { color: rgba(255,255,255,0.7); }
+.btn-outline { border: 1.5px solid #e8538f !important; color: #e8538f !important; background: transparent !important; }
+.btn-outline:hover { background: rgba(232,83,143,0.08) !important; }
+
+/* ── Free Tools section ── */
+.section-free-tools { background: #e8538f; padding: 80px 0 88px; }
+.ft-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
+.ft-heading { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); color: #ffffff; font-style: italic; margin-bottom: 14px; line-height: 1.15; }
+.ft-sub { font-size: 1rem; color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+.ft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 900px) { .ft-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } }
+@media (min-width: 600px) and (max-width: 900px) { .ft-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; } }
+.ft-card-link { display: block; height: 100%; text-decoration: none; }
+.ft-card { background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.12); display: flex; flex-direction: column; height: 100%; transition: box-shadow 0.3s ease, transform 0.3s ease; }
+.ft-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.18); transform: translateY(-3px); }
+.ft-card:hover .ft-card-img { transform: scale(1.05); }
+.ft-card-img-wrap { position: relative; aspect-ratio: 16/10; overflow: hidden; flex-shrink: 0; }
+.ft-card-img { transition: transform 0.5s ease; }
+.ft-card-img-fade { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(255,255,255,0.3) 100%); pointer-events: none; }
+.ft-card-body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.ft-card-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #e8538f; margin-bottom: 8px; display: block; }
+.ft-card-title { font-size: 1.05rem; font-weight: 700; color: #1a1a1a; margin-bottom: 8px; line-height: 1.3; }
+.ft-card-desc { font-size: 0.85rem; color: #666; line-height: 1.6; flex: 1; margin: 0; }
+.ft-card-cta { margin-top: 16px; padding-top: 12px; border-top: 1px solid #f0f0f0; display: flex; align-items: center; gap: 6px; color: #e8538f; font-size: 0.85rem; font-weight: 700; transition: gap 0.2s ease; }
+.ft-card-link:hover .ft-card-cta { gap: 10px; }

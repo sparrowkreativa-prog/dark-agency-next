@@ -12,6 +12,7 @@ import FAQ from '@/components/FAQ';
 import ApplyForm from '@/components/ApplyForm';
 import PressBar from '@/components/PressBar';
 import CinematicImage from '@/components/CinematicImage';
+import FreeTools from '@/components/FreeTools';
 import { siteData } from '@/data/content';
 
 export default function Home() {
@@ -224,6 +225,9 @@ export default function Home() {
         {/* Apply Form */}
         <ApplyForm />
 
+        {/* Free Tools */}
+        <FreeTools />
+
         {/* Final CTA */}
         <SectionFade>
           <section className="section-final-cta">
@@ -262,7 +266,7 @@ export default function Home() {
               <div className="footer-brand-name">{siteData.nav.logo}</div>
               <p className="footer-tagline">{footer.tagline}</p>
             </div>
-            <a href={footer.cta.href} className="btn-outline">
+            <a href={footer.cta.href} className="btn-outline" style={{ borderColor: '#e8538f', color: '#e8538f' }}>
               {footer.cta.label} <span>→</span>
             </a>
           </div>
