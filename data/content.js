@@ -7,7 +7,6 @@ export const siteData = {
       { label: 'Roster', href: '#roster' },
       { label: 'Usluge', href: '#services' },
       { label: 'FAQ', href: '#faq' },
-      { label: 'Čet Strategija', href: '/cet-strategija' },
     ],
     cta: { label: 'Prijavi se', href: '#apply' },
   },
