@@ -17,6 +17,7 @@ import FreeTools from '@/components/FreeTools';
 import ProblemSection from '@/components/ProblemSection';
 import ServicesSection from '@/components/ServicesSection';
 import RezultatiScreenshots from '@/components/RezultatiScreenshots';
+import Bezbednost from '@/components/Bezbednost';
 import { siteData } from '@/data/content';
 
 export default function Home() {
@@ -95,6 +96,9 @@ export default function Home() {
 
         {/* Services */}
         <ServicesSection services={services} />
+
+        {/* Bezbednost */}
+        <Bezbednost />
 
         {/* Qualify */}
         <SectionFade>
