@@ -2,9 +2,9 @@
 import { useEffect, useRef, useState } from 'react';
 
 const SCREENSHOTS = [
-  { src: '/screenshots/of-stats-1.jpg', alt: 'OnlyFans statistika 1' },
-  { src: '/screenshots/of-stats-2.jpg', alt: 'OnlyFans statistika 2' },
-  { src: '/screenshots/of-stats-3.jpg', alt: 'OnlyFans statistika 3' },
+  { src: '/screenshots/of-stats-01.jpg', alt: 'OnlyFans statistika 1' },
+  { src: '/screenshots/of-stats-02.jpg', alt: 'OnlyFans statistika 2' },
+  { src: '/screenshots/of-stats-03.jpg', alt: 'OnlyFans statistika 3' },
 ];
 
 export default function RezultatiScreenshots() {
