@@ -16,7 +16,7 @@ export default function RezultatiScreenshots() {
     if (!el) return;
     const io = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { setVis(true); io.disconnect(); }
-    }, { threshold: 0.1 });
+    }, { threshold: 0.05 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
@@ -24,6 +24,7 @@ export default function RezultatiScreenshots() {
   return (
     <section className="rz-section" ref={ref}>
       <div className="rz-inner">
+
         {/* Header */}
         <div
           className="rz-header"
@@ -39,32 +40,33 @@ export default function RezultatiScreenshots() {
           </h2>
         </div>
 
-        {/* Desktop / tablet: 3 columns, 9:16 */}
-        <div className="rz-cards-desktop">
+        {/* ── Desktop / tablet: 3 columns, true 9:16 ── */}
+        <div className="rz-desktop">
           {SCREENSHOTS.map((s, i) => (
             <div
               key={i}
-              className="rz-card-desktop"
+              className="rz-desktop-card"
               style={{
                 opacity: vis ? 1 : 0,
                 transform: vis ? 'none' : 'translateY(28px)',
-                transition: `opacity 0.9s cubic-bezier(0.16,0.84,0.44,1) ${i * 0.14}s, transform 0.9s cubic-bezier(0.16,0.84,0.44,1) ${i * 0.14}s`,
+                transition: `opacity 0.9s ease ${i * 0.14}s, transform 0.9s ease ${i * 0.14}s`,
               }}
             >
-              <img src={s.src} alt={s.alt} className="rz-img" />
+              <img src={s.src} alt={s.alt} />
             </div>
           ))}
         </div>
 
-        {/* Mobile: sticky card stack */}
-        <div className="rz-cards-mobile">
+        {/* ── Mobile: sticky card stack ── */}
+        <div className="rz-mobile">
           {SCREENSHOTS.map((s, i) => (
-            <div
-              key={i}
-              className="rz-card-mobile"
-              style={{ top: `calc(72px + ${i * 20}px)`, zIndex: i + 1 }}
-            >
-              <img src={s.src} alt={s.alt} className="rz-img" />
+            <div key={i} className="rz-mobile-track">
+              <div
+                className="rz-mobile-card"
+                style={{ top: `${72 + i * 18}px`, zIndex: i + 1 }}
+              >
+                <img src={s.src} alt={s.alt} />
+              </div>
             </div>
           ))}
         </div>
@@ -90,7 +92,10 @@ export default function RezultatiScreenshots() {
         }
 
         /* header */
-        .rz-header { text-align: center; margin-bottom: 48px; }
+        .rz-header {
+          text-align: center;
+          margin-bottom: 48px;
+        }
         .rz-title {
           font-family: var(--font-display);
           font-size: clamp(28px, 5vw, 42px);
@@ -100,23 +105,24 @@ export default function RezultatiScreenshots() {
           line-height: 1.1;
         }
 
-        /* ── Desktop / tablet ── */
-        .rz-cards-desktop {
+        /* ── Desktop: 3 columns, 9:16 ── */
+        .rz-desktop {
           display: flex;
           gap: 20px;
           justify-content: center;
           align-items: flex-start;
         }
-        .rz-card-desktop {
-          flex: 1;
-          max-width: 320px;
-          aspect-ratio: 9 / 16;
+        .rz-desktop-card {
+          flex: 1 1 0;
+          min-width: 0;
+          max-width: 300px;
           border-radius: 18px;
           border: 1px solid rgba(169,135,92,0.18);
           box-shadow: 0 20px 60px rgba(0,0,0,0.13);
           overflow: hidden;
+          aspect-ratio: 9 / 16;
         }
-        .rz-img {
+        .rz-desktop-card img {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -124,32 +130,45 @@ export default function RezultatiScreenshots() {
           display: block;
         }
 
-        /* Mobile — hidden on desktop */
-        .rz-cards-mobile { display: none; }
+        /* Mobile hidden on desktop */
+        .rz-mobile { display: none; }
 
         /* ── Mobile: sticky card stack ── */
         @media (max-width: 640px) {
-          .rz-cards-desktop { display: none; }
+          .rz-desktop { display: none; }
 
-          .rz-cards-mobile {
-            display: flex;
-            flex-direction: column;
-            /* enough height for 3 stacked cards to scroll through */
-            height: calc(100svh * 2.2);
-            position: relative;
+          .rz-mobile {
+            display: block;
           }
 
-          .rz-card-mobile {
+          /* Each track gives scroll room for that card */
+          .rz-mobile-track {
+            height: 80vh;
+          }
+          .rz-mobile-track:last-child {
+            /* last card: just enough to show it fully */
+            height: auto;
+            padding-bottom: 32px;
+          }
+
+          .rz-mobile-card {
             position: sticky;
             width: 100%;
-            max-width: 340px;
+            max-width: 320px;
             margin: 0 auto;
             aspect-ratio: 9 / 16;
             border-radius: 20px;
             border: 1px solid rgba(169,135,92,0.18);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.18);
             overflow: hidden;
-            background: #111;
+          }
+
+          .rz-mobile-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
           }
         }
 
