@@ -98,7 +98,7 @@ export default function SplitHero() {
             <a href="#apply" className="btn-primary btn-large">
               Prijavi se za 60 sekundi <span className="btn-arrow">→</span>
             </a>
-            <a href="#results" className="sh-ghost-btn">
+            <a href="#roster" className="sh-ghost-btn">
               Pogledaj kako radi
             </a>
           </div>
@@ -177,7 +177,7 @@ export default function SplitHero() {
       <style>{`
         .sh-section { padding: 40px 0 64px; }
         .sh-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
-        @media (max-width: 900px) { .sh-inner { grid-template-columns: 1fr; gap: 40px; } }
+        @media (max-width: 900px) { .sh-inner { grid-template-columns: 1fr; gap: 40px; } .sh-left { text-align: center; } .sh-ctas { justify-content: center; } .sh-trust { justify-content: center; } .sh-body { margin-left: auto; margin-right: auto; } .sh-badge { display: inline-flex; } }
 
         /* Left */
         .sh-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; color: #c43a7a; background: #fdf0f6; border: 1px solid #f8d0e8; border-radius: 999px; padding: 6px 14px; margin-bottom: 20px; }
@@ -186,8 +186,8 @@ export default function SplitHero() {
         .sh-headline-em { font-style: italic; color: #e8538f; display: block; }
         .sh-body { font-size: 1rem; color: #555; line-height: 1.75; max-width: 480px; margin: 0 0 28px; }
         .sh-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
-        .sh-ghost-btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; color: #555; border: 1.5px solid #ddd; background: transparent; text-decoration: none; transition: border-color 0.2s, color 0.2s; }
-        .sh-ghost-btn:hover { border-color: #e8538f; color: #e8538f; }
+        .sh-ghost-btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border-radius: 999px; font-size: 0.95rem; font-weight: 600; color: #e8538f; border: 1.5px solid #e8538f; background: transparent; text-decoration: none; transition: background 0.2s, color 0.2s; }
+        .sh-ghost-btn:hover { background: #e8538f; color: #fff; }
         .sh-trust { display: flex; flex-wrap: wrap; gap: 16px; }
         .sh-trust span { font-size: 0.85rem; color: #666; display: flex; align-items: center; gap: 6px; }
 
