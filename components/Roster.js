@@ -1,141 +1,269 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import SectionFade from './SectionFade';
-import { siteData } from '@/data/content';
 
-function buildSvgPath(months, W = 300, H = 90, pad = 6) {
-  const max = Math.max(...months);
-  const min = 0;
+/* ── chart helpers ── */
+function buildPath(months, W = 300, H = 90, pad = 6) {
+  const max = Math.max(...months), min = 0;
   const pts = months.map((v, i) => {
     const x = pad + (i / (months.length - 1)) * (W - pad * 2);
     const y = H - pad - ((v - min) / (max - min)) * (H - pad * 2);
     return [x, y];
   });
   const line = pts.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
-  const fill = `${line} L${pts[pts.length - 1][0].toFixed(1)},${H - pad} L${pad},${H - pad} Z`;
+  const fill = `${line} L${pts[pts.length-1][0].toFixed(1)},${H-pad} L${pad},${H-pad} Z`;
   return { line, fill, pts };
 }
 
-function RosterChart({ months, id, animate }) {
-  const W = 300, H = 90;
-  const { line, fill } = buildSvgPath(months, W, H);
-  const gradId = `fill_roster_${id}`;
-
+let _chartId = 0;
+function MiniChart({ months, animate, H = 90 }) {
+  const W = 300;
+  const id = useRef(`rc_${++_chartId}`).current;
+  const { line, fill } = buildPath(months, W, H);
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" style={{ width: '100%', height: 90 }}>
+    <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" style={{ width: '100%', height: H }}>
       <defs>
-        <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#e8538f" stopOpacity="0.25" />
+        <linearGradient id={id} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#e8538f" stopOpacity="0.35" />
           <stop offset="100%" stopColor="#e8538f" stopOpacity="0" />
         </linearGradient>
       </defs>
-      {/* Grid lines */}
-      {[0.25, 0.5, 0.75].map(f => (
-        <line key={f} x1="6" x2={W - 6} y1={H * f} y2={H * f}
-          stroke="currentColor" strokeOpacity="0.1" strokeWidth="1" />
+      {[H*0.25, H*0.5, H*0.75].map(y => (
+        <line key={y} x1="6" x2={W-6} y1={y} y2={y} stroke="currentColor" strokeOpacity="0.1" strokeWidth="1" />
       ))}
-      {/* Fill */}
-      <path d={fill} fill={`url(#${gradId})`}
-        style={{ opacity: animate ? 1 : 0, transition: 'opacity 0.9s ease 1.0s' }} />
-      {/* Line */}
-      <path
-        d={line}
-        fill="none"
-        stroke="#e8538f"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        pathLength="1"
-        strokeDasharray="1 1"
+      <path d={fill} fill={`url(#${id})`}
+        style={{ opacity: animate ? 1 : 0, transition: 'opacity 0.9s ease 0.8s' }} />
+      <path d={line} fill="none" stroke="#e8538f" strokeWidth="2.5"
+        strokeLinecap="round" strokeLinejoin="round"
+        pathLength="1" strokeDasharray="1 1"
         strokeDashoffset={animate ? 0 : 1}
         style={{
-          transition: animate ? 'stroke-dashoffset 2.4s cubic-bezier(0.4,0,0.2,1) 0.3s' : 'none',
+          transition: animate ? 'stroke-dashoffset 2.2s cubic-bezier(0.4,0,0.2,1) 0.3s' : 'none',
           filter: 'drop-shadow(0 0 6px rgba(232,83,143,0.45))',
-        }}
-      />
-      {/* End dot */}
-      {animate && (() => {
-        const pts = buildSvgPath(months, W, H).pts;
-        const [ex, ey] = pts[pts.length - 1];
-        return (
-          <circle cx={ex} cy={ey} r="4" fill="#e8538f" stroke="#fff" strokeWidth="1.5"
-            style={{ animation: 'roster-dot-in 0.3s ease 1.1s both' }} />
-        );
-      })()}
+        }} />
     </svg>
   );
 }
 
-function RosterCard({ c, index }) {
-  const ref = useRef(null);
-  const [animate, setAnimate] = useState(false);
+/* ── top 3 revenue cards ── */
+const TOP_CASES = [
+  { duration: 'za 6 meseci',  niche: 'Lifestyle', before: '$0',   after: '$84K',  months: [0, 4, 9, 18, 38, 68, 84] },
+  { duration: 'za 9 meseci',  niche: 'Fitnes',    before: '$12K', after: '$210K', months: [12, 28, 45, 80, 120, 165, 195, 210] },
+  { duration: 'za 5 meseci',  niche: 'Glamur',    before: '$3K',  after: '$128K', months: [3, 12, 35, 68, 110, 128] },
+];
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) { setAnimate(true); obs.disconnect(); }
-    }, { threshold: 0.3 });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+/* ── carousel slides ── */
+const SLIDES = [
+  { platform: 'Instagram', metric: '0 → 214K',    unit: 'pratilaca', period: 'za 3 meseca',  months: [0, 5, 15, 35, 80, 145, 190, 214] },
+  { platform: 'OnlyFans',  metric: '$0 → $161K',  unit: 'mesečno',   period: 'za 3 meseca',  months: [0, 12, 28, 45, 72, 110, 145, 161] },
+  { platform: 'OnlyFans',  metric: '$12K → $254K', unit: 'mesečno',  period: 'za 12 meseci', months: [12, 28, 45, 75, 110, 155, 200, 230, 245, 254] },
+  { platform: 'Instagram', metric: '0 → 89K',     unit: 'pratilaca', period: 'za 2 meseca',  months: [0, 8, 22, 45, 68, 89] },
+  { platform: 'OnlyFans',  metric: '$3K → $65K',  unit: 'mesečno',   period: 'za 4 meseca',  months: [3, 12, 28, 45, 55, 65] },
+  { platform: 'OnlyFans',  metric: '$0 → $84K',   unit: 'mesečno',   period: 'za 6 meseci',  months: [0, 8, 22, 40, 58, 72, 84] },
+];
 
+const IgIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+  </svg>
+);
+
+const OfIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+  </svg>
+);
+
+function RevenueCard({ c, animate, index }) {
   return (
-    <div
-      ref={ref}
-      className="roster-card-new"
-      style={{ opacity: animate ? 1 : 0, transform: animate ? 'none' : 'translateY(24px)', transition: `opacity 1s ease ${0.2 + index * 0.18}s, transform 1s ease ${0.2 + index * 0.18}s` }}
-    >
-      {/* Top row */}
-      <div className="roster-card-header">
-        <span className="roster-duration-tag">{c.duration}</span>
-        <span className="roster-niche-tag">{c.niche}</span>
+    <div className="rc-card" style={{
+      opacity: animate ? 1 : 0,
+      transform: animate ? 'none' : 'translateY(24px)',
+      transition: `opacity 0.7s ease ${0.1 + index * 0.12}s, transform 0.7s ease ${0.1 + index * 0.12}s`,
+    }}>
+      <div className="rc-card-top">
+        <span className="rc-duration">{c.duration}</span>
+        <span className="rc-niche">{c.niche}</span>
       </div>
-
-      {/* Revenue */}
-      <div className="roster-revenue-row">
-        <span className="roster-before-val">{c.before}</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: '#e8538f', flexShrink: 0, marginBottom: 4 }}>
+      <div className="rc-revenue">
+        <span className="rc-before">{c.before}</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e8538f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginBottom: 4 }}>
           <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
         </svg>
-        <span className="roster-after-val">{c.after.replace('/mes', '')}</span>
-        <span className="roster-after-unit">/mes</span>
+        <span className="rc-after">{c.after}</span>
+        <span className="rc-mo">/mes</span>
+      </div>
+      <div className="rc-chart">
+        <MiniChart months={c.months} animate={animate} H={90} />
+      </div>
+    </div>
+  );
+}
+
+function Carousel({ animate }) {
+  const [active, setActive] = useState(5);
+  const prev = () => setActive(i => (i - 1 + SLIDES.length) % SLIDES.length);
+  const next = () => setActive(i => (i + 1) % SLIDES.length);
+  const s = SLIDES[active];
+
+  return (
+    <div className="rc-carousel" style={{
+      opacity: animate ? 1 : 0,
+      transform: animate ? 'none' : 'translateY(24px)',
+      transition: 'opacity 0.7s ease 0.45s, transform 0.7s ease 0.45s',
+    }}>
+      <div className="rc-slide">
+        <div className="rc-slide-left">
+          <span className="rc-platform-tag">
+            {s.platform === 'Instagram' ? <IgIcon /> : <OfIcon />}
+            {s.platform}
+          </span>
+          <div className="rc-slide-metric">{s.metric}</div>
+          <div className="rc-slide-unit">{s.unit}</div>
+          <div className="rc-slide-period">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/>
+            </svg>
+            {s.period}
+          </div>
+        </div>
+        <div className="rc-slide-right">
+          <MiniChart months={s.months} animate={animate} H={150} />
+        </div>
       </div>
 
-      {/* Chart */}
-      <div className="roster-chart-wrap">
-        <RosterChart months={c.months} id={c.id} animate={animate} />
-      </div>
+      <button className="rc-nav rc-nav--prev" onClick={prev} aria-label="Prethodni">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m15 18-6-6 6-6"/>
+        </svg>
+      </button>
+      <button className="rc-nav rc-nav--next" onClick={next} aria-label="Sledeći">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m9 18 6-6-6-6"/>
+        </svg>
+      </button>
 
-      {/* Rank + quote */}
-      <div className="roster-card-footer">
-        <span className="roster-rank-tag">{c.rank}</span>
-        <p className="roster-quote-new">"{c.quote}"</p>
+      <div className="rc-dots">
+        {SLIDES.map((_, i) => (
+          <button key={i} className={`rc-dot${i === active ? ' rc-dot--active' : ''}`}
+            onClick={() => setActive(i)} aria-label={`Slide ${i + 1}`} />
+        ))}
       </div>
     </div>
   );
 }
 
 export default function Roster() {
-  const { roster } = siteData;
+  const ref = useRef(null);
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setAnimate(true); io.disconnect(); }
+    }, { threshold: 0.1 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   return (
     <SectionFade id="roster">
-      <section className="section-roster">
+      <section className="rc-section" ref={ref}>
         <div className="container">
-          <div className="section-header">
-            <span className="chapter-label">{roster.label}</span>
-            <h2 className="section-title">{roster.title}</h2>
-            <p className="section-sub">{roster.sub}</p>
+          <div className="section-header" style={{ maxWidth: 640, margin: '0 0 48px', textAlign: 'left' }}>
+            <span className="chapter-label">Roster</span>
+            <h2 className="section-title">Tihi luksuz. Glasni rezultati. 📈</h2>
+            <p className="section-sub">Stvarne krive rasta sa našeg rostera (anonimizovano). Provereno, ne izmišljeno.</p>
           </div>
-          <div className="roster-grid-new">
-            {roster.cases.map((c, i) => (
-              <RosterCard key={c.id} c={c} index={i} />
+
+          <div className="rc-grid">
+            {TOP_CASES.map((c, i) => (
+              <RevenueCard key={i} c={c} animate={animate} index={i} />
             ))}
           </div>
-          <p className="roster-disclaimer">Zarada nije zagarantovana i varira prema trudu, niši i početnoj publici. Zato smo selektivni.</p>
+
+          <div className="rc-carousel-wrap">
+            <Carousel animate={animate} />
+          </div>
+
+          <p className="rc-disclaimer">Zarada nije zagarantovana i varira prema trudu, niši i početnoj publici. Zato smo selektivni.</p>
         </div>
       </section>
+
+      <style>{`
+        .rc-section { padding: 96px 0; background: var(--color-dark-1, #f8f7f5); }
+
+        .rc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        @media (max-width: 860px) { .rc-grid { grid-template-columns: 1fr; } }
+
+        .rc-card {
+          background: #fff; border: 1px solid rgba(0,0,0,0.07);
+          border-radius: 18px; padding: 24px;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+          transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+        }
+        .rc-card:hover { box-shadow: 0 8px 32px rgba(232,83,143,0.12); transform: translateY(-3px); border-color: rgba(232,83,143,0.2); }
+
+        .rc-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+        .rc-duration { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; }
+        .rc-niche { font-size: 0.68rem; font-weight: 700; color: #e8538f; background: #fdf0f6; border: 1px solid #f8d0e8; border-radius: 999px; padding: 3px 10px; }
+
+        .rc-revenue { display: flex; align-items: flex-end; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+        .rc-before { font-family: var(--font-display); font-size: 1.3rem; font-style: italic; color: #bbb; text-decoration: line-through; text-decoration-thickness: 1px; }
+        .rc-after { font-family: var(--font-display); font-size: 2.2rem; font-style: italic; color: #e8538f; line-height: 1; }
+        .rc-mo { font-size: 0.8rem; color: #aaa; margin-bottom: 4px; }
+        .rc-chart { color: #e8538f; }
+
+        .rc-carousel-wrap { margin-top: 20px; }
+        .rc-carousel {
+          position: relative; background: #fff;
+          border: 1px solid rgba(0,0,0,0.07); border-radius: 18px;
+          padding: 32px 56px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); overflow: hidden;
+        }
+        @media (max-width: 600px) { .rc-carousel { padding: 28px 44px; } }
+
+        .rc-slide { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
+        @media (max-width: 640px) { .rc-slide { grid-template-columns: 1fr; } }
+
+        .rc-platform-tag {
+          display: inline-flex; align-items: center; gap: 6px;
+          font-size: 0.72rem; font-weight: 700; color: #e8538f;
+          background: #fdf0f6; border: 1px solid #f8d0e8;
+          border-radius: 999px; padding: 4px 12px; margin-bottom: 16px;
+        }
+        .rc-slide-metric {
+          font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem);
+          font-style: italic; color: #e8538f; line-height: 1; margin-bottom: 4px;
+        }
+        .rc-slide-unit { font-size: 0.9rem; color: #888; margin-bottom: 12px; }
+        .rc-slide-period { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: #22c55e; }
+        .rc-slide-right { color: #e8538f; }
+
+        .rc-nav {
+          position: absolute; top: 50%; transform: translateY(-50%);
+          width: 36px; height: 36px; border-radius: 50%;
+          background: #fff; border: 1px solid rgba(0,0,0,0.1);
+          box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+          display: flex; align-items: center; justify-content: center;
+          color: #888; cursor: pointer; transition: color 0.2s, border-color 0.2s;
+        }
+        .rc-nav:hover { color: #e8538f; border-color: #e8538f; }
+        .rc-nav--prev { left: 10px; }
+        .rc-nav--next { right: 10px; }
+
+        .rc-dots { display: flex; justify-content: center; gap: 6px; margin-top: 20px; }
+        .rc-dot {
+          height: 8px; border-radius: 999px; border: none; cursor: pointer;
+          background: rgba(232,83,143,0.2); width: 8px;
+          transition: width 0.3s, background 0.3s; padding: 0;
+        }
+        .rc-dot--active { width: 24px; background: #e8538f; }
+
+        .rc-disclaimer { font-size: 0.72rem; color: #aaa; margin-top: 24px; max-width: 520px; }
+      `}</style>
     </SectionFade>
   );
 }
