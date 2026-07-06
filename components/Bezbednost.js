@@ -41,7 +41,7 @@ export default function Bezbednost() {
         <div className="bz-left"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateX(-28px)', transition: 'opacity 0.9s ease 0.1s, transform 0.9s ease 0.1s' }}>
           <span className="chapter-label">BEZBEDNOST I PRIVATNOST</span>
-          <h2 className="bz-title">Tvoj identitet.<br />Tvoja pravila.</h2>
+          <h2 className="bz-title">Tvoj Identitet.<br /><span style={{ color: '#e8538f' }}>Tvoja Pravila.</span></h2>
 
           <div className="bz-paras">
             {PARAGRAPHS.map((p, i) => (
@@ -117,6 +117,9 @@ export default function Bezbednost() {
         }
         @media (max-width: 860px) {
           .bz-inner { grid-template-columns: 1fr; gap: 40px; }
+          .bz-left { text-align: center; }
+          .bz-shields { justify-content: center; display: grid; grid-template-columns: 1fr 1fr; }
+          .bz-paras { text-align: left; }
         }
 
         /* Left */
