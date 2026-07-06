@@ -87,11 +87,11 @@ export default function Home() {
         {/* MAŠINA */}
         <Masina />
 
-        {/* ROSTER */}
-        <Roster />
-
         {/* Rezultati screenshots */}
         <RezultatiScreenshots />
+
+        {/* ROSTER */}
+        <Roster />
 
         {/* Services */}
         <ServicesSection services={services} />

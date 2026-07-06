@@ -27,7 +27,7 @@ export default function RezultatiScreenshots() {
         {/* Header */}
         <div className="rz-header"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity 0.9s ease, transform 0.9s ease' }}>
-          <div className="rz-label">DIREKTNO SA PLATFORME</div>
+          <span className="chapter-label">DIREKTNO SA PLATFORME</span>
           <h2 className="rz-title">Rezultati, ne obećanja</h2>
         </div>
 
@@ -65,14 +65,6 @@ export default function RezultatiScreenshots() {
 
         /* header */
         .rz-header { text-align: center; margin-bottom: 44px; }
-        .rz-label {
-          font-size: clamp(11px, 3vw, 13px);
-          letter-spacing: clamp(2px, 1vw, 4px);
-          color: #e8538f;
-          font-weight: 700;
-          text-transform: uppercase;
-          margin-bottom: 14px;
-        }
         .rz-title {
           font-family: var(--font-display);
           font-size: clamp(28px, 5vw, 42px);
