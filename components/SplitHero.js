@@ -1,5 +1,4 @@
 'use client';
-import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
 const crmMonths = [6.0, 10.2, 14.4, 23.8, 31.1, 36.5, 40.8, 44.5, 47.9, 50];
@@ -27,7 +26,7 @@ function CrmCard({ animate }) {
       <div className="sh-crm-period">Ovog meseca</div>
       <div className="sh-crm-amount"
         style={{ opacity: animate ? 1 : 0, transition: 'opacity 0.9s ease 1.6s' }}>
-        $182,400
+        $378,765
       </div>
       <svg viewBox="0 0 300 56" preserveAspectRatio="none" style={{ width: '100%', height: 56 }}>
         <defs>
@@ -114,15 +113,15 @@ export default function SplitHero() {
           {/* Glow blob */}
           <div className="sh-glow" />
 
-          {/* Photo */}
+          {/* Video */}
           <div className="sh-photo-wrap">
-            <Image
-              src="/split-hero.jpg"
-              alt="Kreatorka"
-              fill
-              sizes="(max-width: 768px) 90vw, 45vw"
-              style={{ objectFit: 'cover', objectPosition: 'center top' }}
-              priority
+            <video
+              src="/rasti-na-of.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
             />
           </div>
 
