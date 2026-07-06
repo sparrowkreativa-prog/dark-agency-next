@@ -11,6 +11,7 @@ builder.init(BUILDER_API_KEY);
 import FAQ from '@/components/FAQ';
 import ApplyForm from '@/components/ApplyForm';
 import PressBar from '@/components/PressBar';
+import ONama from '@/components/ONama';
 import SplitHero from '@/components/SplitHero';
 import FreeTools from '@/components/FreeTools';
 import { siteData } from '@/data/content';
@@ -26,6 +27,8 @@ export default function Home() {
         <Hero />
 
         <PressBar />
+
+        <ONama />
 
         {/* Problem */}
         <SectionFade>

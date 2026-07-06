@@ -12,8 +12,8 @@ export const siteData = {
   },
 
   hero: {
-    headline: 'Tvoja Agencija.\nTvoj Brend.\nTvoja Priča.',
-    subtext: 'Najpromišljeniji način da razviješ svoj brend — a da niko ne sazna.',
+    headline: 'BUILDING EMPIRES\nTOGETHER',
+    subtext: 'Ne gradimo ti nalog. Gradimo ti sledeći život.\nObezbeđujemo ti standard iza brojki: slobodu da živiš gde poželiš, luksuz kakav si zamišljala, slobodno vreme, zaštitu identiteta i brend koji izgleda kao naslovna strana magazina.',
     cta: { label: 'Prijavi se', href: '#apply' },
     microcopy: '60-sekundi prijava · manje od 2% primljenih · nula troškova unapred',
     stats: [

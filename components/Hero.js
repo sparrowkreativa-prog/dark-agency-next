@@ -7,7 +7,7 @@ export default function Hero() {
   const statsRef = useRef([]);
 
   useEffect(() => {
-    const CYCLE = ['10K','20K','50K','100K','250K','500K','1M','1.5M'];
+    const CYCLE = ['10K','20K','50K','100K','250K','500K','1M','1.5M','2M','2.5M','3M'];
 
     function animateStat1(el) {
       const raw = el.dataset.raw;
@@ -96,18 +96,11 @@ export default function Hero() {
       <div className="hero-orb hero-orb-2" aria-hidden="true" />
       <div className="hero-inner">
         <div className="hero-glass">
+          <p className="hero-locations">NEW YORK &nbsp;—&nbsp; MILANO &nbsp;—&nbsp; BEOGRAD</p>
           <h1 className="hero-headline" style={{ fontFamily: 'DM Serif Display, serif', fontSize: '100px', marginBottom: '0px' }}>
-            {hero.headline.split('\n').map((line, i) =>
-              line.startsWith('Your Story') ? <em key={i}>{line}</em> : (
-                <span
-                  key={i}
-                  className={`headline-line ${line === 'Tvoja Priča.' ? 'headline-line--accent' : ''}`}
-                  style={i === 0 ? { fontStyle: 'italic' } : {}}
-                >
-                  {line}
-                </span>
-              )
-            )}
+            {hero.headline.split('\n').map((line, i) => (
+              <span key={i} className="headline-line">{line}</span>
+            ))}
           </h1>
           <p className="hero-sub">{hero.subtext}</p>
           <div className="hero-cta-wrap">
