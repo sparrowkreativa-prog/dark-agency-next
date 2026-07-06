@@ -18,6 +18,7 @@ import ProblemSection from '@/components/ProblemSection';
 import ServicesSection from '@/components/ServicesSection';
 import RezultatiScreenshots from '@/components/RezultatiScreenshots';
 import Bezbednost from '@/components/Bezbednost';
+import Tim from '@/components/Tim';
 import { siteData } from '@/data/content';
 
 export default function Home() {
@@ -139,6 +140,9 @@ export default function Home() {
             </div>
           </section>
         </SectionFade>
+
+        {/* Tim */}
+        <Tim />
 
         {/* Testimonials */}
         <SectionFade>
