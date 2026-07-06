@@ -57,7 +57,7 @@ const stats = [
   { num: '7 cifara', label: 'kreatorskog prihoda godišnje' },
   { num: '50+',     label: 'sadržaja nedeljno' },
   { num: '12',      label: 'zemalja u kojima radimo' },
-  { num: '90 dana', label: 'da stranica krene od nule' },
+  { num: '14 dana', label: 'da stranica krene od nule' },
 ];
 
 export default function SplitHero() {
