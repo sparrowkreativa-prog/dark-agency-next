@@ -173,9 +173,9 @@ export default function Roster() {
     <SectionFade id="roster">
       <section className="rc-section" ref={ref}>
         <div className="container">
-          <div className="section-header" style={{ maxWidth: 640, margin: '0 0 48px', textAlign: 'left' }}>
+          <div className="section-header" style={{ maxWidth: 640, margin: '0 auto 48px', textAlign: 'center' }}>
             <span className="chapter-label">Roster</span>
-            <h2 className="section-title">Tihi luksuz. Glasni rezultati. 📈</h2>
+            <h2 className="section-title">Tihi luksuz.<br />Glasni rezultati.</h2>
             <p className="section-sub">Stvarne krive rasta sa našeg rostera (anonimizovano). Provereno, ne izmišljeno.</p>
           </div>
 
