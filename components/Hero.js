@@ -1,13 +1,46 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { siteData } from '@/data/content';
+
+function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+function Row2Stat({ end, label, delay, trigger }) {
+  const [val, setVal] = useState(0);
+  const rafRef = useRef(null);
+
+  useEffect(() => {
+    if (!trigger) return;
+    const timer = setTimeout(() => {
+      const duration = 1800;
+      const startTime = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - startTime) / duration, 1);
+        setVal(Math.round(easeOutCubic(p) * end));
+        if (p < 1) rafRef.current = requestAnimationFrame(tick);
+        else setVal(end);
+      };
+      rafRef.current = requestAnimationFrame(tick);
+    }, delay);
+    return () => { clearTimeout(timer); if (rafRef.current) cancelAnimationFrame(rafRef.current); };
+  }, [trigger]); // eslint-disable-line
+
+  return (
+    <div className="stat-item">
+      <p className="stat-number">{val}+</p>
+      <p className="stat-label">{label}</p>
+    </div>
+  );
+}
 
 export default function Hero() {
   const { hero } = siteData;
   const statsRef = useRef([]);
+  const statsBoxRef = useRef(null);
+  const [row2Trigger, setRow2Trigger] = useState(false);
 
   useEffect(() => {
-    const CYCLE = ['10K','20K','50K','100K','250K','500K','1M','1.5M','2M','2.5M','3M'];
+    /* ── cycle for $11M+ ── */
+    const CYCLE = ['1M','2M','3M','4M','5M','6M','7M','8M','9M','10M','11M'];
 
     function animateStat1(el) {
       const raw = el.dataset.raw;
@@ -30,14 +63,14 @@ export default function Hero() {
 
     function animateStat2(el) {
       const raw = el.dataset.raw;
-      const suffix = /[^0-9]$/.test(raw) ? raw.slice(-1) : '';
+      const suffix = raw.endsWith('+') ? '+' : '';
       const target = parseInt(raw.replace(/\D/g, ''), 10) || 0;
-      const dur = 2500;
+      const dur = 2000;
       let start = null;
       const step = (ts) => {
         if (!start) start = ts;
         const p = Math.min((ts - start) / dur, 1);
-        const ease = p < 0.5 ? 2*p*p : 1 - Math.pow(-2*p+2,2)/2;
+        const ease = easeOutCubic(p);
         el.textContent = Math.round(ease * target) + suffix;
         if (p < 1) requestAnimationFrame(step);
       };
@@ -61,11 +94,19 @@ export default function Hero() {
             if (fn) fn(e.target);
           }
         });
-      }, { threshold: 0.5 });
+      }, { threshold: 0.3 });
       statsRef.current.forEach((el) => { if (el) obs.observe(el); });
     }
 
-    // scroll progress bar
+    /* ── row2 trigger ── */
+    if (statsBoxRef.current && 'IntersectionObserver' in window) {
+      const obs2 = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) { setRow2Trigger(true); obs2.disconnect(); }
+      }, { threshold: 0.3 });
+      obs2.observe(statsBoxRef.current);
+    }
+
+    /* ── scroll progress ── */
     const bar = document.createElement('div');
     bar.id = 'scroll-progress';
     document.body.prepend(bar);
@@ -80,38 +121,44 @@ export default function Hero() {
 
   return (
     <section className="hero-section has-video">
-      <video
-        className="hero-video"
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden="true"
-        poster="/hero-bg.jpg"
-      >
+      <video className="hero-video" autoPlay muted loop playsInline aria-hidden="true" poster="/hero-bg.jpg">
         <source src="/hero-bg.mp4" type="video/mp4" />
       </video>
       <div className="hero-bg" aria-hidden="true" />
       <div className="hero-orb hero-orb-1" aria-hidden="true" />
       <div className="hero-orb hero-orb-2" aria-hidden="true" />
+
       <div className="hero-inner">
+        {/* Locations — outside glass */}
+        <p className="hero-locations">NEW YORK &nbsp;—&nbsp; MILANO &nbsp;—&nbsp; BEOGRAD</p>
+
+        {/* Headline — outside glass */}
+        <h1 className="hero-headline">
+          {hero.headline.split('\n').map((line, i) => (
+            <span key={i} className={`headline-line${i === 2 ? ' headline-line--pink' : ''}`}>{line}</span>
+          ))}
+        </h1>
+
+        {/* Glass box — sub + CTA only */}
         <div className="hero-glass">
-          <p className="hero-locations">NEW YORK &nbsp;—&nbsp; MILANO &nbsp;—&nbsp; BEOGRAD</p>
-          <h1 className="hero-headline">
-            {hero.headline.split('\n').map((line, i) => (
-              <span key={i} className={`headline-line${i === 2 ? ' headline-line--pink' : ''}`}>{line}</span>
-            ))}
-          </h1>
           <p className="hero-sub">{hero.subtext}</p>
           <div className="hero-cta-wrap">
             <a href={hero.cta.href} className="btn-primary btn-large">
               {hero.cta.label} <span className="btn-arrow">→</span>
             </a>
             <p className="hero-microcopy">
-              <span className="pulse-dot" aria-hidden="true" />
-              {hero.microcopy}
+              <span className="hm-first">
+                <span className="pulse-dot" aria-hidden="true" />
+                60-sekundi prijava
+              </span>
+              <span className="hm-rest">&nbsp;·&nbsp;manje od 2% primljenih&nbsp;·&nbsp;nula troškova unapred</span>
             </p>
           </div>
+        </div>
+
+        {/* Stats — separate box */}
+        <div className="hero-stats-box" ref={statsBoxRef}>
+          {/* Row 1 */}
           <div className="hero-stats">
             {hero.stats.map((s, i) => (
               <div key={s.label} className={`stat-item${i === 1 ? ' stat-item--bordered' : ''}`}>
@@ -128,8 +175,105 @@ export default function Hero() {
               </div>
             ))}
           </div>
+
+          {/* Divider */}
+          <div className="hero-stats-divider" />
+
+          {/* Row 2 */}
+          <div className="hero-stats">
+            {hero.statsRow2.map((s, i) => (
+              <div key={s.label} className={`stat-item${i === 1 ? ' stat-item--bordered' : ''}`}>
+                <Row2Stat end={s.end} label={s.label} delay={i * 150} trigger={row2Trigger} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+
+      <style>{`
+        .hero-inner {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0;
+        }
+        .hero-locations {
+          margin-bottom: 20px;
+        }
+        .hero-headline {
+          margin-bottom: 24px;
+        }
+        .hero-glass {
+          margin-bottom: 20px;
+          padding: 32px 48px 28px;
+        }
+        @media (max-width: 640px) {
+          .hero-glass { padding: 24px 20px 20px; }
+        }
+        .hero-cta-wrap {
+          margin-bottom: 0;
+        }
+
+        /* Microcopy mobile split */
+        .hero-microcopy {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          gap: 0;
+        }
+        .hm-first {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          white-space: nowrap;
+        }
+        .hm-rest {
+          white-space: nowrap;
+        }
+        @media (max-width: 600px) {
+          .hero-microcopy {
+            flex-direction: column;
+            gap: 4px;
+          }
+          .hm-rest {
+            white-space: normal;
+            text-align: center;
+          }
+        }
+
+        /* Stats box */
+        .hero-stats-box {
+          width: 100%;
+          max-width: 520px;
+          background: rgba(250,250,248,0.55);
+          backdrop-filter: blur(20px) saturate(1.8);
+          -webkit-backdrop-filter: blur(20px) saturate(1.8);
+          border: 1px solid rgba(255,255,255,0.65);
+          border-radius: 20px;
+          padding: 20px 24px;
+          box-shadow: 0 8px 48px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+        }
+        .hero-stats {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          max-width: 100%;
+          margin: 0;
+        }
+        .hero-stats-divider {
+          height: 1px;
+          background: rgba(0,0,0,0.08);
+          margin: 14px 0;
+        }
+        .stat-item--bordered {
+          border-left: 1px solid var(--color-border);
+          border-right: 1px solid var(--color-border);
+        }
+        .stat-item {
+          text-align: center;
+          padding: 8px 12px;
+        }
+      `}</style>
     </section>
   );
 }

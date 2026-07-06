@@ -17,9 +17,14 @@ export const siteData = {
     cta: { label: 'Prijavi se', href: '#apply' },
     microcopy: '60-sekundi prijava · manje od 2% primljenih · nula troškova unapred',
     stats: [
-      { num: '$3M+', label: 'Godišnji prihod', idx: 1 },
-      { num: '60+',  label: 'Klijenata',       idx: 2 },
-      { num: '0',    label: 'Curenja identiteta', idx: 3, accent: true },
+      { num: '$11M+', label: 'Generisano za kreatore', idx: 1 },
+      { num: '140+',  label: 'Klijenata',              idx: 2 },
+      { num: '0',     label: 'Curenja identiteta',     idx: 3, accent: true },
+    ],
+    statsRow2: [
+      { num: '5+',   end: 5,   label: 'Godina iskustva' },
+      { num: '12+',  end: 12,  label: 'Zemalja' },
+      { num: '230+', end: 230, label: 'Zaposlenih' },
     ],
   },
 
