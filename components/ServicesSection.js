@@ -143,6 +143,7 @@ export default function ServicesSection({ services }) {
           box-shadow: 0 2px 12px rgba(0,0,0,0.05);
           transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
           cursor: default;
+          position: relative;
         }
         .svc-card:hover {
           box-shadow: 0 8px 32px rgba(232,83,143,0.13);
@@ -165,17 +166,19 @@ export default function ServicesSection({ services }) {
         }
 
         .svc-num {
-          font-size: 10px;
+          position: absolute;
+          top: 20px;
+          right: 22px;
+          font-size: 11px;
           font-weight: 700;
-          letter-spacing: 0.14em;
+          letter-spacing: 0.1em;
           color: #ccc;
-          margin-bottom: 6px;
-          display: block;
         }
 
         .svc-title {
-          font-size: 1rem;
+          font-size: 1.1rem;
           font-weight: 700;
+          font-style: italic;
           color: #1a1a1a;
           margin: 0 0 10px;
           line-height: 1.3;
