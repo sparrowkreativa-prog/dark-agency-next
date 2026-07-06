@@ -22,7 +22,7 @@ function CrmCard({ animate }) {
     <div className="sh-crm-card">
       <div className="sh-crm-live">
         <span className="sh-crm-dot" />
-        <span className="sh-crm-live-label">Blossom CRM · live</span>
+        <span className="sh-crm-live-label">Velluto Nero CRM · live</span>
       </div>
       <div className="sh-crm-period">Ovog meseca</div>
       <div className="sh-crm-amount"
