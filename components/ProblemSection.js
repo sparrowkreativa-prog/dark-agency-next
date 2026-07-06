@@ -87,6 +87,11 @@ export default function ProblemSection({ problem }) {
           .ps-stats-row {
             grid-template-columns: 1fr 1fr;
           }
+          .ps-stat-col:last-child {
+            grid-column: 1 / -1;
+            border-right: none;
+            border-top: 1px solid rgba(232,83,143,0.12);
+          }
         }
 
         .ps-stat-col {

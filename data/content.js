@@ -31,8 +31,8 @@ export const siteData = {
       { num: '5.000+',   label: 'Primljenih prijava' },
       { num: '0,4%',     label: 'Stopa prihvatanja' },
       { num: '2/mesečno', label: 'Novih klijenata' },
-      { num: '11M+ USD', label: 'Generisano za kreatore' },
       { num: '3+ god',   label: 'Prosečno partnerstvo' },
+      { num: '$11M+',    label: 'Generisano za kreatore' },
     ],
   },
 
