@@ -81,7 +81,7 @@ em { font-style: italic; color: var(--color-accent-pink); }
 
 /* ── Press Bar ── */
 .press-bar { padding: 24px 0 20px; background: var(--color-dark-1); border-bottom: 1px solid var(--color-border); overflow: hidden; }
-.press-bar-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em; color: var(--color-text-muted); opacity: 0.55; text-align: center; margin-bottom: 16px; }
+.press-bar-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.22em; color: #911f39; text-align: center; margin-bottom: 16px; font-weight: 700; }
 .press-marquee-outer { overflow: hidden; width: 100%; position: relative; }
 .press-marquee-outer::before, .press-marquee-outer::after { content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2; pointer-events: none; }
 .press-marquee-outer::before { left: 0; background: linear-gradient(to right, var(--color-dark-1), transparent); }
