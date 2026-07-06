@@ -175,7 +175,7 @@ export default function Roster() {
         <div className="container">
           <div className="section-header" style={{ maxWidth: 640, margin: '0 auto 48px', textAlign: 'center' }}>
             <span className="chapter-label">Roster</span>
-            <h2 className="section-title">Tihi luksuz.<br />Glasni rezultati.</h2>
+            <h2 className="section-title">Tihi Luksuz.<br /><span style={{ color: '#e8538f' }}>Glasni Rezultati.</span></h2>
             <p className="section-sub">Stvarne krive rasta sa našeg rostera (anonimizovano). Provereno, ne izmišljeno.</p>
           </div>
 

@@ -45,7 +45,10 @@ export default function Home() {
             <div className="container">
               <div className="section-header">
                 <span className="chapter-label">{included.label}</span>
-                <h2 className="section-title">{included.title}</h2>
+                <h2 className="section-title">
+                  Svaki Sistem Koji Ti Treba —<br />
+                  <span style={{ color: '#e8538f' }}>Već Radi.</span>
+                </h2>
                 <p className="section-sub">{included.sub}</p>
               </div>
               {included.cards.map((card) => (
@@ -73,7 +76,7 @@ export default function Home() {
                     <span className="included-badge">{card.num}</span>
                   </div>
                   <div className="included-card-body">
-                    <h3 className="included-title">{card.title}</h3>
+                    <h3 className="included-title" style={{ fontStyle: 'italic' }}>{card.title}</h3>
                     <p className="included-desc">{card.desc}</p>
                     <ul className="included-list">
                       {card.items.map((item) => <li key={item}>{item}</li>)}

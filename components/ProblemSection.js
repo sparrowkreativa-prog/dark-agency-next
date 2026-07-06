@@ -46,7 +46,10 @@ export default function ProblemSection({ problem }) {
       <div className="container">
         <div className="section-header">
           <span className="chapter-label">{problem.label}</span>
-          <h2 className="section-title">{problem.title}</h2>
+          <h2 className="section-title">
+            {problem.title.split('za Žene.')[0]}
+            <span style={{ color: '#e8538f' }}>za Žene.</span>
+          </h2>
           <p className="section-sub">{problem.sub}</p>
         </div>
 

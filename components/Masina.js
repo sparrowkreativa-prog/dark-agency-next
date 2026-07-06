@@ -179,7 +179,7 @@ export default function Masina() {
         <div className="m-header" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity 1s ease, transform 1s ease' }}>
           <div className="chapter-label" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 12 }}>Mašina</div>
           <h2 className="section-title" style={{ color: '#fff' }}>
-            Nismo kupili softver. Sami smo ga napravili.
+            Nismo Kupili Softver.<br />Sami Smo Ga Napravili.
           </h2>
           <p className="section-sub" style={{ color: 'rgba(255,255,255,0.65)' }}>
             Većina agencija vodi tvoju stranicu s telefonom i tabelom. Mi tvoju vodimo na infrastrukturi koju smo sami napravili — pa ništa ne promakne i sve skalira.

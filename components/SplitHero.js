@@ -87,7 +87,7 @@ export default function SplitHero() {
 
           <h2 className="sh-headline">
             Rasti na OnlyFans-u{' '}
-            <em className="sh-headline-em">uz sistem koji već radi.</em>
+            <em className="sh-headline-em">Uz Sistem Koji Već Radi.</em>
           </h2>
 
           <p className="sh-body">

@@ -28,7 +28,7 @@ export default function RezultatiScreenshots() {
         <div className="rz-header"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity 0.9s ease, transform 0.9s ease' }}>
           <span className="chapter-label">DIREKTNO SA PLATFORME</span>
-          <h2 className="rz-title">Rezultati, ne obećanja</h2>
+          <h2 className="rz-title">Rezultati,<br /><span style={{ color: '#e8538f' }}>Ne Obećanja.</span></h2>
         </div>
 
         {/* Cards */}

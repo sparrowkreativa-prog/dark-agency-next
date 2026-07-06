@@ -101,7 +101,10 @@ export default function ServicesSection({ services }) {
       <div className="container">
         <div className="section-header">
           <span className="chapter-label">{services.label}</span>
-          <h2 className="section-title">{services.title}</h2>
+          <h2 className="section-title">
+            Full Management,<br />
+            <span style={{ color: '#e8538f' }}>u Potpunosti.</span>
+          </h2>
           <p className="section-sub" style={{ maxWidth: 720 }}>{services.sub}</p>
         </div>
 
@@ -111,7 +114,11 @@ export default function ServicesSection({ services }) {
           ))}
         </div>
 
-        <blockquote className="pull-quote">{services.quote}</blockquote>
+        <div className="svc-quote">
+          <div className="svc-quote-line">4+ Godine.</div>
+          <div className="svc-quote-line">60+ Klijenata.</div>
+          <div className="svc-quote-line svc-quote-pink">Nula Curenja Identiteta.</div>
+        </div>
       </div>
 
       <style>{`
@@ -189,6 +196,24 @@ export default function ServicesSection({ services }) {
           color: #777;
           line-height: 1.65;
           margin: 0;
+        }
+
+        .svc-quote {
+          margin-top: 64px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+        .svc-quote-line {
+          font-family: var(--font-display);
+          font-style: italic;
+          font-size: clamp(2rem, 4vw, 3.2rem);
+          color: #1a1a1a;
+          line-height: 1.15;
+        }
+        .svc-quote-pink {
+          color: #e8538f;
         }
       `}</style>
     </section>

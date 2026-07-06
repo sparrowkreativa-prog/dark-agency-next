@@ -39,7 +39,7 @@ export default function ONama() {
           style={{ opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateX(32px)', transition: 'opacity 0.9s ease 0.25s, transform 0.9s ease 0.25s' }}
         >
           <span className="on-label">O NAMA</span>
-          <h2 className="on-title">Porodična priča,<br />globalni domet</h2>
+          <h2 className="on-title">Porodična Priča.<br /><span style={{ color: '#e8538f' }}>Globalni Domen.</span></h2>
           <p className="on-text">
             Naša agencija je porodični biznis, a jedan od osnivača je žena — agencija sa 8-cifrenim godišnjim prihodom kreatora, 5+ godina iskustva i poslovanjem u 12 zemalja. Imamo sopstveni CRM sistem i tim od 230+ zaposlenih.
           </p>
