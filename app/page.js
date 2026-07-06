@@ -12,6 +12,7 @@ import FAQ from '@/components/FAQ';
 import ApplyForm from '@/components/ApplyForm';
 import PressBar from '@/components/PressBar';
 import ONama from '@/components/ONama';
+import MarqueeBar from '@/components/MarqueeBar';
 import SplitHero from '@/components/SplitHero';
 import FreeTools from '@/components/FreeTools';
 import ProblemSection from '@/components/ProblemSection';
@@ -34,6 +35,8 @@ export default function Home() {
         <PressBar />
 
         <ONama />
+
+        <MarqueeBar />
 
         {/* Problem / Zašto */}
         <ProblemSection problem={problem} />
