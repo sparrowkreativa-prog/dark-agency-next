@@ -40,16 +40,16 @@ function CrmPanel({ vis }) {
 
       {/* 3 metrics */}
       <div className="m-metrics3">
-        <div className="m-metric-chip"><div className="m-chip-label">Revenue</div><div className="m-chip-val">€612K</div></div>
-        <div className="m-metric-chip"><div className="m-chip-label">Kreatorke</div><div className="m-chip-val">340</div></div>
-        <div className="m-metric-chip"><div className="m-chip-label">Danas</div><div className="m-chip-val">+18</div></div>
+        <div className="m-metric-chip"><div className="m-chip-label">Revenue</div><div className="m-chip-val">€698K</div></div>
+        <div className="m-metric-chip"><div className="m-chip-label">Kreatorke</div><div className="m-chip-val">388</div></div>
+        <div className="m-metric-chip"><div className="m-chip-label">Danas</div><div className="m-chip-val">+21</div></div>
       </div>
 
       {/* Roster revenue row */}
       <div className="m-rev-row">
         <div>
           <div className="m-rev-label">Roster prihod</div>
-          <div className="m-rev-val">€182,400</div>
+          <div className="m-rev-val">€207,936</div>
         </div>
         <svg viewBox="0 0 120 26" className="m-sparkline" preserveAspectRatio="none">
           <polyline points={rosterRevPts} fill="none" stroke="rgba(169,135,92,0.8)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
@@ -150,9 +150,9 @@ function LiveRevPanel({ vis }) {
         </svg>
       </div>
       <div className="m-metrics3" style={{ marginTop: 12 }}>
-        <div className="m-metric-chip"><div className="m-chip-label">MRR</div><div className="m-chip-val">$612K</div></div>
+        <div className="m-metric-chip"><div className="m-chip-label">MRR</div><div className="m-chip-val">$698K</div></div>
         <div className="m-metric-chip"><div className="m-chip-label">Retencija</div><div className="m-chip-val">97%</div></div>
-        <div className="m-metric-chip"><div className="m-chip-label">Nalozi</div><div className="m-chip-val">340+</div></div>
+        <div className="m-metric-chip"><div className="m-chip-label">Nalozi</div><div className="m-chip-val">388+</div></div>
       </div>
     </div>
   );
