@@ -1,16 +1,95 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
-const STAT_COLORS = ['#a9875c', '#a9875c', '#a9875c', '#a9875c', '#a9875c'];
+/* Parse a stat string into { end, format }
+   "5.000+"      → end=5000,  format(n) → "5.000+"
+   "0,4%"        → end=0.4,   format(n) → "0,4%"
+   "2/mesečno"   → end=2,     format(n) → "2/mesečno"
+   "3+ god"      → end=3,     format(n) → "3+ god"
+   "$11M+"       → end=11,    format(n) → "$11M+"
+*/
+function parseStat(raw) {
+  if (raw === '5.000+') {
+    return {
+      end: 5000,
+      format: (n) => Math.round(n).toLocaleString('de-DE').replace(/,/g, '.') + '+',
+    };
+  }
+  if (raw === '0,4%') {
+    return {
+      end: 0.4,
+      format: (n) => n.toFixed(1).replace('.', ',') + '%',
+    };
+  }
+  if (raw === '2/mesečno') {
+    return {
+      end: 2,
+      format: (n) => Math.round(n) + '/mesečno',
+    };
+  }
+  if (raw === '3+ god') {
+    return {
+      end: 3,
+      format: (n) => Math.round(n) + '+ god',
+    };
+  }
+  if (raw === '$11M+') {
+    return {
+      end: 11,
+      format: (n) => '$' + Math.round(n) + 'M+',
+    };
+  }
+  // fallback — no animation
+  return { end: null, format: () => raw };
+}
+
+function easeOutCubic(t) {
+  return 1 - Math.pow(1 - t, 3);
+}
 
 function StatCard({ num, label, index, trigger }) {
   const [show, setShow] = useState(false);
+  const [displayNum, setDisplayNum] = useState(() => {
+    const { format } = parseStat(num);
+    return format(0);
+  });
+  const rafRef = useRef(null);
+  const timerRef = useRef(null);
 
   useEffect(() => {
     if (!trigger) return;
-    const t = setTimeout(() => setShow(true), index * 120);
-    return () => clearTimeout(t);
-  }, [trigger, index]);
+
+    const stagger = index * 120;
+    const duration = 1800;
+    const { end, format } = parseStat(num);
+
+    timerRef.current = setTimeout(() => {
+      setShow(true);
+
+      if (end === null) return; // no animation for unknown formats
+
+      const startTime = performance.now();
+
+      const tick = (now) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = easeOutCubic(progress);
+        setDisplayNum(format(end * eased));
+        if (progress < 1) {
+          rafRef.current = requestAnimationFrame(tick);
+        } else {
+          setDisplayNum(format(end)); // ensure exact final value
+        }
+      };
+
+      rafRef.current = requestAnimationFrame(tick);
+    }, stagger);
+
+    return () => {
+      clearTimeout(timerRef.current);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [trigger]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div
@@ -21,7 +100,7 @@ function StatCard({ num, label, index, trigger }) {
         transition: `opacity 0.65s cubic-bezier(0.34,1.56,0.64,1), transform 0.65s cubic-bezier(0.34,1.56,0.64,1)`,
       }}
     >
-      <div className="ps-stat-num">{num}</div>
+      <div className="ps-stat-num">{displayNum}</div>
       <div className="ps-stat-label">{label}</div>
     </div>
   );
@@ -36,7 +115,7 @@ export default function ProblemSection({ problem }) {
     if (!el) return;
     const io = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { setTrigger(true); io.disconnect(); }
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
@@ -71,7 +150,7 @@ export default function ProblemSection({ problem }) {
           grid-template-columns: repeat(5, 1fr);
           gap: 0;
           margin-top: 56px;
-          border: 1px solid rgba(232,83,143,0.15);
+          border: 1px solid rgba(169,135,92,0.15);
           border-radius: 20px;
           overflow: hidden;
           background: #fff;
@@ -93,14 +172,14 @@ export default function ProblemSection({ problem }) {
           .ps-stat-col:last-child {
             grid-column: 1 / -1;
             border-right: none;
-            border-top: 1px solid rgba(232,83,143,0.12);
+            border-top: 1px solid rgba(169,135,92,0.12);
           }
         }
 
         .ps-stat-col {
           padding: 36px 28px;
           text-align: center;
-          border-right: 1px solid rgba(232,83,143,0.12);
+          border-right: 1px solid rgba(169,135,92,0.12);
           position: relative;
         }
         .ps-stat-col:last-child {
@@ -108,7 +187,7 @@ export default function ProblemSection({ problem }) {
         }
         @media (max-width: 900px) {
           .ps-stat-col {
-            border-bottom: 1px solid rgba(232,83,143,0.12);
+            border-bottom: 1px solid rgba(169,135,92,0.12);
           }
         }
 
