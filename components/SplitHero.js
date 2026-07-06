@@ -222,7 +222,7 @@ export default function SplitHero() {
         @media (max-width: 700px) { .sh-stats-row { grid-template-columns: repeat(2, 1fr); } }
         .sh-stat-card { background: #fff; border-radius: 14px; padding: 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
         .sh-stat-num { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.9rem); font-style: italic; color: #a9875c; line-height: 1.1; }
-        .sh-stat-label { font-size: 0.72rem; color: #888; margin-top: 6px; line-height: 1.4; }
+        .sh-stat-label { margin-top: 6px; font-size: 9px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--color-text-muted); line-height: 1.4; }
       `}</style>
     </section>
   );

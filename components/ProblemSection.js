@@ -201,11 +201,12 @@ export default function ProblemSection({ problem }) {
           letter-spacing: -0.01em;
         }
         .ps-stat-label {
-          font-size: 0.8rem;
-          color: #888;
+          margin-top: 6px;
+          font-size: 9px;
+          text-transform: uppercase;
+          letter-spacing: 0.16em;
+          color: var(--color-text-muted);
           line-height: 1.4;
-          font-weight: 500;
-          letter-spacing: 0.02em;
         }
       `}</style>
     </section>
