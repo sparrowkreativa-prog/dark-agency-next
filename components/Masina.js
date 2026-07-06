@@ -52,7 +52,7 @@ function CrmPanel({ vis }) {
           <div className="m-rev-val">€182,400</div>
         </div>
         <svg viewBox="0 0 120 26" className="m-sparkline" preserveAspectRatio="none">
-          <polyline points={rosterRevPts} fill="none" stroke="rgba(232,83,143,0.8)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+          <polyline points={rosterRevPts} fill="none" stroke="rgba(169,135,92,0.8)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
             pathLength="1" strokeDasharray="1 1"
             strokeDashoffset={vis ? 0 : 1}
             style={{ transition: vis ? 'stroke-dashoffset 2.4s ease 0.8s' : 'none' }} />
@@ -130,8 +130,8 @@ function LiveRevPanel({ vis }) {
         <svg viewBox="0 0 300 150" preserveAspectRatio="none" style={{ width: '100%', height: 150 }}>
           <defs>
             <linearGradient id="m_live_fill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor="#e8538f" stopOpacity="0.35" />
-              <stop offset="100%" stopColor="#e8538f" stopOpacity="0" />
+              <stop offset="0%" stopColor="#a9875c" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#a9875c" stopOpacity="0" />
             </linearGradient>
           </defs>
           {[37.5, 75, 112.5].map(y => (
@@ -140,12 +140,12 @@ function LiveRevPanel({ vis }) {
           <path d={`M${liveRevPts.split(' ').map(p => p).join(' L')} L294,144 L6,144 Z`}
             fill="url(#m_live_fill)"
             style={{ opacity: vis ? 1 : 0, transition: 'opacity 0.9s ease 1.2s' }} />
-          <polyline points={liveRevPts} fill="none" stroke="#e8538f" strokeWidth="2.5"
+          <polyline points={liveRevPts} fill="none" stroke="#a9875c" strokeWidth="2.5"
             strokeLinecap="round" strokeLinejoin="round"
             pathLength="1" strokeDasharray="1 1"
             strokeDashoffset={vis ? 0 : 1}
-            style={{ transition: vis ? 'stroke-dashoffset 2.6s ease 0.8s' : 'none', filter: 'drop-shadow(0 0 6px rgba(232,83,143,0.5))' }} />
-          {vis && <circle cx="294" cy="6" r="4" fill="#e8538f" stroke="#fff" strokeWidth="1.5"
+            style={{ transition: vis ? 'stroke-dashoffset 2.6s ease 0.8s' : 'none', filter: 'drop-shadow(0 0 6px rgba(169,135,92,0.5))' }} />
+          {vis && <circle cx="294" cy="6" r="4" fill="#a9875c" stroke="#fff" strokeWidth="1.5"
             style={{ animation: 'roster-dot-in .3s ease 1.5s both' }} />}
         </svg>
       </div>
@@ -177,7 +177,7 @@ export default function Masina() {
       <div className="m-wrap">
         {/* Header */}
         <div className="m-header" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity 1s ease, transform 1s ease' }}>
-          <div className="chapter-label" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 12 }}>Mašina</div>
+          <div className="chapter-label" style={{ marginBottom: 12 }}>Mašina</div>
           <h2 className="section-title" style={{ color: '#fff' }}>
             Nismo Kupili Softver.<br />Sami Smo Ga Napravili.
           </h2>
@@ -209,7 +209,7 @@ export default function Masina() {
       </div>
 
       <style>{`
-        .m-section { position: relative; background: #e8538f; color: #fff; overflow: hidden; padding: 80px 0 88px; }
+        .m-section { position: relative; background: #0a0a0a; color: #fff; overflow: hidden; padding: 80px 0 88px; }
         .m-glow { position: absolute; top: 0; right: 0; width: 40rem; height: 40rem; background: rgba(255,255,255,0.12); filter: blur(120px); border-radius: 50%; pointer-events: none; }
         .m-wrap { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
@@ -243,12 +243,12 @@ export default function Masina() {
         .m-rev-row { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 10px 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
         .m-rev-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.45); }
         .m-rev-val { font-size: 1rem; font-weight: 700; color: #fff; }
-        .m-sparkline { height: 26px; flex: 1; max-width: 120px; color: rgba(232,83,143,0.7); }
+        .m-sparkline { height: 26px; flex: 1; max-width: 120px; color: rgba(169,135,92,0.7); }
 
         /* Creator list */
         .m-creator-list { display: flex; flex-direction: column; gap: 7px; }
         .m-creator-row { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 7px 12px; }
-        .m-avatar { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg,#f7a8c9,#e8538f); display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 800; color: #fff; flex-shrink: 0; }
+        .m-avatar { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg,#f7a8c9,#a9875c); display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 800; color: #fff; flex-shrink: 0; }
         .m-creator-spark { height: 26px; flex: 1; color: rgba(255,255,255,0.6); }
         .m-pct { font-size: 0.72rem; font-weight: 700; color: #4ade80; margin-left: auto; white-space: nowrap; }
 
@@ -258,7 +258,7 @@ export default function Masina() {
         .m-phone-screen { height: 100%; width: 100%; border-radius: 5px; background: #0d0d0d; overflow: hidden; position: relative; display: flex; flex-direction: column; }
         /* instagram dummy */
         .m-ig-top { display: flex; align-items: center; gap: 3px; padding: 3px 3px 2px; flex-shrink: 0; }
-        .m-ig-avatar { width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg,#f09433,#e8538f,#bc1888); flex-shrink: 0; }
+        .m-ig-avatar { width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg,#f09433,#a9875c,#bc1888); flex-shrink: 0; }
         .m-ig-name { height: 3px; width: 28px; border-radius: 2px; background: rgba(255,255,255,0.3); }
         .m-ig-img { flex: 1; min-height: 0; }
         .m-ig-actions { display: flex; gap: 3px; padding: 2px 3px 1px; flex-shrink: 0; }

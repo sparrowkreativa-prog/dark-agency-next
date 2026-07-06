@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
-const STAT_COLORS = ['#e8538f', '#e8538f', '#e8538f', '#e8538f', '#e8538f'];
+const STAT_COLORS = ['#a9875c', '#a9875c', '#a9875c', '#a9875c', '#a9875c'];
 
 function StatCard({ num, label, index, trigger }) {
   const [show, setShow] = useState(false);
@@ -48,7 +48,7 @@ export default function ProblemSection({ problem }) {
           <span className="chapter-label">{problem.label}</span>
           <h2 className="section-title">
             {problem.title.split('za Žene.')[0]}
-            <span style={{ color: '#e8538f' }}>za Žene.</span>
+            <span style={{ color: '#a9875c' }}>za Žene.</span>
           </h2>
           <p className="section-sub">{problem.sub}</p>
         </div>
@@ -64,7 +64,7 @@ export default function ProblemSection({ problem }) {
       <style>{`
         .ps-section {
           padding: 80px 0 96px;
-          background: var(--color-dark-1, #f8f7f5);
+          background: #fafaf8;
         }
         .ps-stats-row {
           display: grid;
@@ -116,7 +116,7 @@ export default function ProblemSection({ problem }) {
           font-family: var(--font-display);
           font-style: italic;
           font-size: clamp(1.6rem, 2.5vw, 2.4rem);
-          color: #e8538f;
+          color: #a9875c;
           line-height: 1.1;
           margin-bottom: 10px;
           letter-spacing: -0.01em;

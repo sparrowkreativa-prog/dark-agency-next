@@ -24,8 +24,8 @@ function MiniChart({ months, animate, H = 90 }) {
     <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" style={{ width: '100%', height: H }}>
       <defs>
         <linearGradient id={id} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#e8538f" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#e8538f" stopOpacity="0" />
+          <stop offset="0%" stopColor="#a9875c" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#a9875c" stopOpacity="0" />
         </linearGradient>
       </defs>
       {[H*0.25, H*0.5, H*0.75].map(y => (
@@ -33,13 +33,13 @@ function MiniChart({ months, animate, H = 90 }) {
       ))}
       <path d={fill} fill={`url(#${id})`}
         style={{ opacity: animate ? 1 : 0, transition: 'opacity 0.9s ease 0.8s' }} />
-      <path d={line} fill="none" stroke="#e8538f" strokeWidth="2.5"
+      <path d={line} fill="none" stroke="#a9875c" strokeWidth="2.5"
         strokeLinecap="round" strokeLinejoin="round"
         pathLength="1" strokeDasharray="1 1"
         strokeDashoffset={animate ? 0 : 1}
         style={{
           transition: animate ? 'stroke-dashoffset 2.2s cubic-bezier(0.4,0,0.2,1) 0.3s' : 'none',
-          filter: 'drop-shadow(0 0 6px rgba(232,83,143,0.45))',
+          filter: 'drop-shadow(0 0 6px rgba(169,135,92,0.45))',
         }} />
     </svg>
   );
@@ -89,7 +89,7 @@ function RevenueCard({ c, animate, index }) {
       </div>
       <div className="rc-revenue">
         <span className="rc-before">{c.before}</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e8538f" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginBottom: 4 }}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a9875c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginBottom: 4 }}>
           <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
         </svg>
         <span className="rc-after">{c.after}</span>
@@ -175,7 +175,7 @@ export default function Roster() {
         <div className="container">
           <div className="section-header" style={{ maxWidth: 640, margin: '0 auto 48px', textAlign: 'center' }}>
             <span className="chapter-label">Roster</span>
-            <h2 className="section-title">Tihi Luksuz.<br /><span style={{ color: '#e8538f' }}>Glasni Rezultati.</span></h2>
+            <h2 className="section-title">Tihi Luksuz.<br /><span style={{ color: '#a9875c' }}>Glasni Rezultati.</span></h2>
             <p className="section-sub">Stvarne krive rasta sa našeg rostera (anonimizovano). Provereno, ne izmišljeno.</p>
           </div>
 
@@ -194,7 +194,7 @@ export default function Roster() {
       </section>
 
       <style>{`
-        .rc-section { padding: 96px 0; background: var(--color-dark-1, #f8f7f5); }
+        .rc-section { padding: 96px 0; background: #fafaf8; }
 
         .rc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         @media (max-width: 860px) { .rc-grid { grid-template-columns: 1fr; } }
@@ -205,17 +205,17 @@ export default function Roster() {
           box-shadow: 0 2px 12px rgba(0,0,0,0.05);
           transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
         }
-        .rc-card:hover { box-shadow: 0 8px 32px rgba(232,83,143,0.12); transform: translateY(-3px); border-color: rgba(232,83,143,0.2); }
+        .rc-card:hover { box-shadow: 0 8px 32px rgba(169,135,92,0.12); transform: translateY(-3px); border-color: rgba(169,135,92,0.2); }
 
         .rc-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
         .rc-duration { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; }
-        .rc-niche { font-size: 0.68rem; font-weight: 700; color: #e8538f; background: #fdf0f6; border: 1px solid #f8d0e8; border-radius: 999px; padding: 3px 10px; }
+        .rc-niche { font-size: 0.68rem; font-weight: 700; color: #a9875c; background: #fdf0f6; border: 1px solid #f8d0e8; border-radius: 999px; padding: 3px 10px; }
 
         .rc-revenue { display: flex; align-items: flex-end; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
         .rc-before { font-family: var(--font-display); font-size: 1.3rem; font-style: italic; color: #bbb; text-decoration: line-through; text-decoration-thickness: 1px; }
-        .rc-after { font-family: var(--font-display); font-size: 2.2rem; font-style: italic; color: #e8538f; line-height: 1; }
+        .rc-after { font-family: var(--font-display); font-size: 2.2rem; font-style: italic; color: #a9875c; line-height: 1; }
         .rc-mo { font-size: 0.8rem; color: #aaa; margin-bottom: 4px; }
-        .rc-chart { color: #e8538f; }
+        .rc-chart { color: #a9875c; }
 
         .rc-carousel-wrap { margin-top: 20px; }
         .rc-carousel {
@@ -230,17 +230,17 @@ export default function Roster() {
 
         .rc-platform-tag {
           display: inline-flex; align-items: center; gap: 6px;
-          font-size: 0.72rem; font-weight: 700; color: #e8538f;
+          font-size: 0.72rem; font-weight: 700; color: #a9875c;
           background: #fdf0f6; border: 1px solid #f8d0e8;
           border-radius: 999px; padding: 4px 12px; margin-bottom: 16px;
         }
         .rc-slide-metric {
           font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem);
-          font-style: italic; color: #e8538f; line-height: 1; margin-bottom: 4px;
+          font-style: italic; color: #a9875c; line-height: 1; margin-bottom: 4px;
         }
         .rc-slide-unit { font-size: 0.9rem; color: #888; margin-bottom: 12px; }
         .rc-slide-period { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: #22c55e; }
-        .rc-slide-right { color: #e8538f; }
+        .rc-slide-right { color: #a9875c; }
 
         .rc-nav {
           position: absolute; top: 50%; transform: translateY(-50%);
@@ -250,17 +250,17 @@ export default function Roster() {
           display: flex; align-items: center; justify-content: center;
           color: #888; cursor: pointer; transition: color 0.2s, border-color 0.2s;
         }
-        .rc-nav:hover { color: #e8538f; border-color: #e8538f; }
+        .rc-nav:hover { color: #a9875c; border-color: #a9875c; }
         .rc-nav--prev { left: 10px; }
         .rc-nav--next { right: 10px; }
 
         .rc-dots { display: flex; justify-content: center; gap: 6px; margin-top: 20px; }
         .rc-dot {
           height: 8px; border-radius: 999px; border: none; cursor: pointer;
-          background: rgba(232,83,143,0.2); width: 8px;
+          background: rgba(169,135,92,0.2); width: 8px;
           transition: width 0.3s, background 0.3s; padding: 0;
         }
-        .rc-dot--active { width: 24px; background: #e8538f; }
+        .rc-dot--active { width: 24px; background: #a9875c; }
 
         .rc-disclaimer { font-size: 0.72rem; color: #aaa; margin-top: 24px; max-width: 520px; }
       `}</style>

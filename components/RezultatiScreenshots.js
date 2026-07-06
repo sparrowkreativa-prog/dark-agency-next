@@ -28,7 +28,7 @@ export default function RezultatiScreenshots() {
         <div className="rz-header"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity 0.9s ease, transform 0.9s ease' }}>
           <span className="chapter-label">DIREKTNO SA PLATFORME</span>
-          <h2 className="rz-title">Rezultati,<br /><span style={{ color: '#e8538f' }}>Ne Obećanja.</span></h2>
+          <h2 className="rz-title">Rezultati,<br /><span style={{ color: '#a9875c' }}>Ne Obećanja.</span></h2>
         </div>
 
         {/* Cards */}
@@ -55,7 +55,7 @@ export default function RezultatiScreenshots() {
       <style>{`
         .rz-section {
           padding: 96px 0;
-          background: var(--color-dark-1, #f8f7f5);
+          background: #fafaf8;
         }
         .rz-inner {
           max-width: 1180px;
@@ -86,7 +86,7 @@ export default function RezultatiScreenshots() {
           max-width: 30vw;
           height: 420px;
           border-radius: 18px;
-          border: 1px solid rgba(232,83,143,0.18);
+          border: 1px solid rgba(169,135,92,0.18);
           box-shadow: 0 20px 60px rgba(0,0,0,0.13);
           overflow: hidden;
           flex-shrink: 0;

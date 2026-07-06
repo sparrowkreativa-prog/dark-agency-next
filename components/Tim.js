@@ -33,7 +33,7 @@ export default function Tim() {
           <span className="chapter-label">TIM</span>
           <h2 className="tm-title">
             Posvećen Tim Iza Svakog Naloga.<br />
-            <span style={{ color: '#e8538f' }}>Niko Od Njih Nisi Ti.</span>
+            <span style={{ color: '#a9875c' }}>Niko Od Njih Nisi Ti.</span>
           </h2>
           <p className="tm-sub">Kada tvoj nalog krene, ovo su ljudi koji rade na tvom biznisu — dok ti nastavljaš da živiš normalno.</p>
         </div>
@@ -71,7 +71,7 @@ export default function Tim() {
         <div className="tm-bottom"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(16px)', transition: 'opacity 0.8s ease 0.7s, transform 0.8s ease 0.7s' }}>
           <h3 className="tm-bottom-title">
-            Deo koji je <span style={{ fontStyle: 'italic', color: '#e8538f' }}>zaista ti</span>
+            Deo koji je <span style={{ fontStyle: 'italic', color: '#a9875c' }}>zaista ti</span>
           </h3>
           <p className="tm-bottom-body">
             Evo šta većina agencija neće reći naglas: novac dolazi od konekcije, a ne samo od sadržaja. Tvoj tim se bavi objavljivanjem, porukama, zaštitom — svime. Ono što ti donosiš je jedino što ne može da se prepusti nekome drugom: prava, topla ličnost kojoj se ljudi rado vraćaju. Ako ti je prirodno da neke ko se oseća viđenim, dobro ćeš proći ovde.
@@ -83,7 +83,7 @@ export default function Tim() {
       <style>{`
         .tm-section {
           padding: 96px 0;
-          background: #fff;
+          background: #fafaf8;
         }
 
         /* Header */
@@ -143,7 +143,7 @@ export default function Tim() {
           font-size: 10px;
           font-weight: 700;
           letter-spacing: 0.22em;
-          color: #e8538f;
+          color: #a9875c;
           margin: 0 0 10px;
         }
         .tm-role-title {
@@ -177,7 +177,7 @@ export default function Tim() {
         .tm-bar-you {
           flex: 0 0 28%;
           padding: 24px 28px;
-          background: linear-gradient(135deg, #e8538f 0%, #c23a72 100%);
+          background: linear-gradient(135deg, #a9875c 0%, #c23a72 100%);
         }
         @media (max-width: 500px) {
           .tm-bar-you { flex: 0 0 38%; padding: 18px 16px; }

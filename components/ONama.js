@@ -17,6 +17,10 @@ export default function ONama() {
 
   return (
     <section className="on-section" ref={ref}>
+      <div className="on-top-label">
+        <span className="chapter-label">O NAMA</span>
+      </div>
+
       <div className="on-inner">
         {/* Left — video */}
         <div
@@ -38,8 +42,7 @@ export default function ONama() {
           className="on-body"
           style={{ opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateX(32px)', transition: 'opacity 0.9s ease 0.25s, transform 0.9s ease 0.25s' }}
         >
-          <span className="on-label">O NAMA</span>
-          <h2 className="on-title">Porodična Priča.<br /><span style={{ color: '#e8538f' }}>Globalni Domen.</span></h2>
+          <h2 className="on-title">Porodična Priča.<br /><span style={{ color: '#a9875c' }}>Globalni Domen.</span></h2>
           <p className="on-text">
             Naša agencija je porodični biznis, a jedan od osnivača je žena — agencija sa 8-cifrenim godišnjim prihodom kreatora, 5+ godina iskustva i poslovanjem u 12 zemalja. Imamo sopstveni CRM sistem i tim od 230+ zaposlenih.
           </p>
@@ -55,7 +58,11 @@ export default function ONama() {
       <style>{`
         .on-section {
           padding: 80px 0;
-          background: var(--color-dark-1, #f8f7f5);
+          background: #fafaf8;
+        }
+        .on-top-label {
+          text-align: center;
+          padding-bottom: 8px;
         }
         .on-inner {
           max-width: 1100px;
@@ -98,18 +105,6 @@ export default function ONama() {
           display: block;
         }
 
-        .on-label {
-          display: inline-flex;
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.2em;
-          color: #e8538f;
-          background: #fdf0f6;
-          border: 1px solid #f8d0e8;
-          border-radius: 999px;
-          padding: 5px 14px;
-          margin-bottom: 18px;
-        }
         .on-title {
           font-family: var(--font-display);
           font-size: clamp(1.8rem, 3.5vw, 2.8rem);

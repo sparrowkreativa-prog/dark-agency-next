@@ -103,7 +103,7 @@ export default function ServicesSection({ services }) {
           <span className="chapter-label">{services.label}</span>
           <h2 className="section-title">
             Full Management,<br />
-            <span style={{ color: '#e8538f' }}>u Potpunosti.</span>
+            <span style={{ color: '#a9875c' }}>u Potpunosti.</span>
           </h2>
           <p className="section-sub" style={{ maxWidth: 720 }}>{services.sub}</p>
         </div>
@@ -124,7 +124,7 @@ export default function ServicesSection({ services }) {
       <style>{`
         .svc-section {
           padding: 96px 0;
-          background: var(--color-dark-1, #f8f7f5);
+          background: #fafaf8;
         }
         .svc-grid {
           display: grid;
@@ -153,9 +153,9 @@ export default function ServicesSection({ services }) {
           position: relative;
         }
         .svc-card:hover {
-          box-shadow: 0 8px 32px rgba(232,83,143,0.13);
+          box-shadow: 0 8px 32px rgba(169,135,92,0.13);
           transform: translateY(-3px);
-          border-color: rgba(232,83,143,0.25);
+          border-color: rgba(169,135,92,0.25);
         }
 
         .svc-icon-wrap {
@@ -167,7 +167,7 @@ export default function ServicesSection({ services }) {
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #e8538f;
+          color: #a9875c;
           margin-bottom: 16px;
           flex-shrink: 0;
         }
@@ -213,7 +213,7 @@ export default function ServicesSection({ services }) {
           line-height: 1.15;
         }
         .svc-quote-pink {
-          color: #e8538f;
+          color: #a9875c;
         }
       `}</style>
     </section>

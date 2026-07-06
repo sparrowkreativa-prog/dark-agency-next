@@ -32,8 +32,8 @@ function CrmCard({ animate }) {
       <svg viewBox="0 0 300 56" preserveAspectRatio="none" style={{ width: '100%', height: 56 }}>
         <defs>
           <linearGradient id="crm_fill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#e8538f" stopOpacity="0.35" />
-            <stop offset="100%" stopColor="#e8538f" stopOpacity="0" />
+            <stop offset="0%" stopColor="#a9875c" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#a9875c" stopOpacity="0" />
           </linearGradient>
         </defs>
         {[14, 28, 42].map(y => (
@@ -41,13 +41,13 @@ function CrmCard({ animate }) {
         ))}
         <path d={fill} fill="url(#crm_fill)"
           style={{ opacity: animate ? 1 : 0, transition: 'opacity 0.8s ease 1.4s' }} />
-        <path d={line} fill="none" stroke="#e8538f" strokeWidth="2.5"
+        <path d={line} fill="none" stroke="#a9875c" strokeWidth="2.5"
           strokeLinecap="round" strokeLinejoin="round"
           pathLength="1" strokeDasharray="1 1"
           strokeDashoffset={animate ? 0 : 1}
           style={{
             transition: animate ? 'stroke-dashoffset 2.2s cubic-bezier(0.4,0,0.2,1) 0.8s' : 'none',
-            filter: 'drop-shadow(0 0 5px rgba(232,83,143,0.5))',
+            filter: 'drop-shadow(0 0 5px rgba(169,135,92,0.5))',
           }} />
       </svg>
     </div>
@@ -77,14 +77,13 @@ export default function SplitHero() {
 
   return (
     <section className="sh-section">
+      <div className="sh-top-label">
+        <span className="chapter-label">Primamo Nove Kreatorke</span>
+      </div>
+
       <div className="sh-inner">
         {/* Left column */}
         <div className="sh-left">
-          <span className="sh-badge">
-            <span className="sh-badge-dot" />
-            Primamo nove kreatorke 🌸
-          </span>
-
           <h2 className="sh-headline">
             Rasti na OnlyFans-u{' '}
             <em className="sh-headline-em">Uz Sistem Koji Već Radi.</em>
@@ -175,7 +174,8 @@ export default function SplitHero() {
       </div>
 
       <style>{`
-        .sh-section { padding: 40px 0 64px; }
+        .sh-section { padding: 20px 0 64px; }
+        .sh-top-label { text-align: center; margin-bottom: 24px; }
         .sh-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
         @media (max-width: 900px) { .sh-inner { grid-template-columns: 1fr; gap: 40px; } .sh-left { text-align: center; } .sh-ctas { justify-content: center; } .sh-trust { justify-content: center; } .sh-body { margin-left: auto; margin-right: auto; } .sh-badge { display: inline-flex; } }
 
@@ -183,17 +183,17 @@ export default function SplitHero() {
         .sh-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; color: #c43a7a; background: #fdf0f6; border: 1px solid #f8d0e8; border-radius: 999px; padding: 6px 14px; margin-bottom: 20px; }
         .sh-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; animation: dot-blink 1.2s ease-in-out infinite; flex-shrink: 0; }
         .sh-headline { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.1; color: #1a1a1a; margin: 0 0 20px; }
-        .sh-headline-em { font-style: italic; color: #e8538f; display: block; }
+        .sh-headline-em { font-style: italic; color: #a9875c; display: block; }
         .sh-body { font-size: 1rem; color: #555; line-height: 1.75; max-width: 480px; margin: 0 0 28px; }
         .sh-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
-        .sh-ghost-btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border-radius: 999px; font-size: 0.95rem; font-weight: 600; color: #e8538f; border: 1.5px solid #e8538f; background: transparent; text-decoration: none; transition: background 0.2s, color 0.2s; }
-        .sh-ghost-btn:hover { background: #e8538f; color: #fff; }
+        .sh-ghost-btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border-radius: 999px; font-size: 0.95rem; font-weight: 600; color: #a9875c; border: 1.5px solid #a9875c; background: transparent; text-decoration: none; transition: background 0.2s, color 0.2s; }
+        .sh-ghost-btn:hover { background: #a9875c; color: #fff; }
         .sh-trust { display: flex; flex-wrap: wrap; gap: 16px; }
         .sh-trust span { font-size: 0.85rem; color: #666; display: flex; align-items: center; gap: 6px; }
 
         /* Right */
         .sh-right { position: relative; }
-        .sh-glow { position: absolute; inset: -24px; background: rgba(232,83,143,0.15); filter: blur(60px); border-radius: 3rem; pointer-events: none; }
+        .sh-glow { position: absolute; inset: -24px; background: rgba(169,135,92,0.15); filter: blur(60px); border-radius: 3rem; pointer-events: none; }
         .sh-photo-wrap { position: relative; aspect-ratio: 4/5; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
         @media (max-width: 900px) { .sh-photo-wrap { max-width: 420px; margin: 0 auto; } }
 
@@ -207,7 +207,7 @@ export default function SplitHero() {
         .sh-crm-amount { font-family: var(--font-display); font-size: 1.5rem; color: #1a1a1a; line-height: 1.1; margin-bottom: 4px; }
 
         /* Top badge */
-        .sh-badge-top { position: absolute; top: -12px; right: -8px; background: #e8538f; border-radius: 14px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 20px rgba(232,83,143,0.4); }
+        .sh-badge-top { position: absolute; top: -12px; right: -8px; background: #a9875c; border-radius: 14px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 20px rgba(169,135,92,0.4); }
         @media (max-width: 900px) { .sh-badge-top { right: 8px; } }
         .sh-badge-top-icon { font-size: 1.2rem; }
         .sh-badge-top-sub { font-size: 0.6rem; color: rgba(255,255,255,0.8); line-height: 1; }
@@ -222,7 +222,7 @@ export default function SplitHero() {
         .sh-stats-row { max-width: 1200px; margin: 48px auto 0; padding: 0 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
         @media (max-width: 700px) { .sh-stats-row { grid-template-columns: repeat(2, 1fr); } }
         .sh-stat-card { background: #fff; border-radius: 14px; padding: 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
-        .sh-stat-num { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.9rem); font-style: italic; color: #e8538f; line-height: 1.1; }
+        .sh-stat-num { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.9rem); font-style: italic; color: #a9875c; line-height: 1.1; }
         .sh-stat-label { font-size: 0.72rem; color: #888; margin-top: 6px; line-height: 1.4; }
       `}</style>
     </section>

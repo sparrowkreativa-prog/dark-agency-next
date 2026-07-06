@@ -48,7 +48,7 @@ export default function Home() {
                 <span className="chapter-label">{included.label}</span>
                 <h2 className="section-title">
                   Svaki Sistem Koji Ti Treba —<br />
-                  <span style={{ color: '#e8538f' }}>Već Radi.</span>
+                  <span style={{ color: '#a9875c' }}>Već Radi.</span>
                 </h2>
                 <p className="section-sub">{included.sub}</p>
               </div>
@@ -245,7 +245,7 @@ export default function Home() {
               <div className="footer-brand-name">{siteData.nav.logo}</div>
               <p className="footer-tagline">{footer.tagline}</p>
             </div>
-            <a href={footer.cta.href} className="btn-outline" style={{ borderColor: '#e8538f', color: '#e8538f' }}>
+            <a href={footer.cta.href} className="btn-outline" style={{ borderColor: '#a9875c', color: '#a9875c' }}>
               {footer.cta.label} <span>→</span>
             </a>
           </div>

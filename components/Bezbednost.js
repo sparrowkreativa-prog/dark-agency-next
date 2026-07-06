@@ -35,13 +35,16 @@ export default function Bezbednost() {
 
   return (
     <section className="bz-section" ref={ref}>
+      <div className="bz-top-label">
+        <span className="chapter-label">BEZBEDNOST I PRIVATNOST</span>
+      </div>
+
       <div className="bz-inner">
 
         {/* Left — text */}
         <div className="bz-left"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateX(-28px)', transition: 'opacity 0.9s ease 0.1s, transform 0.9s ease 0.1s' }}>
-          <span className="chapter-label">BEZBEDNOST I PRIVATNOST</span>
-          <h2 className="bz-title">Tvoj Identitet.<br /><span style={{ color: '#e8538f' }}>Tvoja Pravila.</span></h2>
+          <h2 className="bz-title">Tvoj Identitet.<br /><span style={{ color: '#a9875c' }}>Tvoja Pravila.</span></h2>
 
           <div className="bz-paras">
             {PARAGRAPHS.map((p, i) => (
@@ -104,7 +107,13 @@ export default function Bezbednost() {
       <style>{`
         .bz-section {
           padding: 96px 0;
-          background: #fff;
+          background: #fafaf8;
+        }
+        .bz-top-label {
+          text-align: center;
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 24px 8px;
         }
         .bz-inner {
           max-width: 1100px;
@@ -137,7 +146,7 @@ export default function Bezbednost() {
         .bz-shields { display: flex; flex-wrap: wrap; gap: 10px; }
         .bz-shield {
           display: inline-flex; align-items: center; gap: 6px;
-          font-size: 0.78rem; font-weight: 600; color: #e8538f;
+          font-size: 0.78rem; font-weight: 600; color: #a9875c;
           background: #fdf0f6; border: 1px solid #f8d0e8;
           border-radius: 999px; padding: 6px 14px;
         }
@@ -163,15 +172,15 @@ export default function Bezbednost() {
 
         .bz-stat-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
         .bz-stat-item { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 14px; }
-        .bz-stat-num { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; color: #e8538f; line-height: 1.1; margin-bottom: 4px; }
+        .bz-stat-num { font-family: var(--font-display); font-size: 1.15rem; font-style: italic; color: #a9875c; line-height: 1.1; margin-bottom: 4px; }
         .bz-stat-label { font-size: 0.65rem; color: rgba(255,255,255,0.45); line-height: 1.4; }
 
         .bz-bar-wrap { display: flex; flex-direction: column; gap: 10px; }
         .bz-bar-row { display: flex; align-items: center; gap: 10px; }
         .bz-bar-lbl { font-size: 0.65rem; color: rgba(255,255,255,0.45); width: 72px; flex-shrink: 0; }
         .bz-bar-track { flex: 1; height: 4px; background: rgba(255,255,255,0.08); border-radius: 999px; overflow: hidden; }
-        .bz-bar-fill { height: 100%; background: linear-gradient(90deg, #e8538f, #f7a8c9); border-radius: 999px; transition-timing-function: ease; }
-        .bz-bar-val { font-size: 0.65rem; font-weight: 700; color: #e8538f; width: 32px; text-align: right; flex-shrink: 0; }
+        .bz-bar-fill { height: 100%; background: linear-gradient(90deg, #a9875c, #f7a8c9); border-radius: 999px; transition-timing-function: ease; }
+        .bz-bar-val { font-size: 0.65rem; font-weight: 700; color: #a9875c; width: 32px; text-align: right; flex-shrink: 0; }
       `}</style>
     </section>
   );
