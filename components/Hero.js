@@ -97,9 +97,9 @@ export default function Hero() {
       <div className="hero-inner">
         <div className="hero-glass">
           <p className="hero-locations">NEW YORK &nbsp;—&nbsp; MILANO &nbsp;—&nbsp; BEOGRAD</p>
-          <h1 className="hero-headline" style={{ fontFamily: 'DM Serif Display, serif', fontSize: '100px', marginBottom: '0px' }}>
+          <h1 className="hero-headline">
             {hero.headline.split('\n').map((line, i) => (
-              <span key={i} className="headline-line">{line}</span>
+              <span key={i} className={`headline-line${i === 2 ? ' headline-line--pink' : ''}`}>{line}</span>
             ))}
           </h1>
           <p className="hero-sub">{hero.subtext}</p>

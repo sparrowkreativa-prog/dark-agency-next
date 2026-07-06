@@ -12,7 +12,7 @@ export const siteData = {
   },
 
   hero: {
-    headline: 'BUILDING EMPIRES\nTOGETHER',
+    headline: 'BUILDING\nEMPIRES\nTOGETHER',
     subtext: 'Ne gradimo ti nalog. Gradimo ti sledeći život.\nObezbeđujemo ti standard iza brojki: slobodu da živiš gde poželiš, luksuz kakav si zamišljala, slobodno vreme, zaštitu identiteta i brend koji izgleda kao naslovna strana magazina.',
     cta: { label: 'Prijavi se', href: '#apply' },
     microcopy: '60-sekundi prijava · manje od 2% primljenih · nula troškova unapred',
