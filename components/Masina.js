@@ -10,8 +10,8 @@ const creatorsData  = [
 ];
 const liveRevPts    = "6,144 38,134 70,137 102,121 134,108 166,111 198,85 230,62 262,32 294,6";
 
-/* phone farm — 10 devices, indices that have green dot */
-const activeDots = new Set([0, 3, 5, 8]);
+/* phone farm — 10 devices, indices that have green dot (6 live) */
+const activeDots = new Set([0, 2, 3, 5, 7, 9]);
 
 function useFadeIn(threshold = 0.2) {
   const ref = useRef(null);
@@ -34,7 +34,7 @@ function CrmPanel({ vis }) {
       {/* title bar */}
       <div className="m-panel-bar">
         <span className="m-dots"><span style={{background:'#ff5f57'}}/><span style={{background:'#febc2e'}}/><span style={{background:'#28c840'}}/></span>
-        <span className="m-panel-title">Blossom CRM</span>
+        <span className="m-panel-title">Velluto Nero CRM</span>
         <span className="m-live-pill"><span className="m-live-dot"/>live</span>
       </div>
 
@@ -92,11 +92,19 @@ function PhoneFarmPanel({ vis }) {
         {Array.from({ length: 10 }, (_, i) => (
           <div key={i} className="m-phone">
             <div className="m-phone-screen">
-              <div className="m-phone-bar m-phone-bar--top" />
-              <div className="m-phone-bar m-phone-bar--mid" />
-              <div className="m-phone-bar m-phone-bar--bot" />
+              {/* Instagram dummy UI */}
+              <div className="m-ig-top">
+                <div className="m-ig-avatar" />
+                <div className="m-ig-name" />
+              </div>
+              <div className="m-ig-img" style={{ background: `hsl(${(i * 37 + 10) % 360},35%,22%)` }} />
+              <div className="m-ig-actions">
+                <div className="m-ig-act-dot" /><div className="m-ig-act-dot" /><div className="m-ig-act-dot" />
+              </div>
+              <div className="m-ig-likes" />
+              <div className="m-ig-caption" />
             </div>
-            {activeDots.has(i) && <span className="m-phone-dot" style={{ animationDelay: `${i * 0.3}s` }} />}
+            {activeDots.has(i) && <span className="m-phone-dot" style={{ animationDelay: `${i * 0.4}s` }} />}
           </div>
         ))}
       </div>
@@ -169,11 +177,11 @@ export default function Masina() {
       <div className="m-wrap">
         {/* Header */}
         <div className="m-header" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity 1s ease, transform 1s ease' }}>
-          <div className="chapter-label" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 12 }}>Mašina ⚙️</div>
-          <h2 className="section-title" style={{ color: '#fff', maxWidth: 680 }}>
+          <div className="chapter-label" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: 12 }}>Mašina</div>
+          <h2 className="section-title" style={{ color: '#fff' }}>
             Nismo kupili softver. Sami smo ga napravili.
           </h2>
-          <p className="section-sub" style={{ color: 'rgba(255,255,255,0.65)', maxWidth: 580 }}>
+          <p className="section-sub" style={{ color: 'rgba(255,255,255,0.65)' }}>
             Većina agencija vodi tvoju stranicu s telefonom i tabelom. Mi tvoju vodimo na infrastrukturi koju smo sami napravili — pa ništa ne promakne i sve skalira.
           </p>
         </div>
@@ -205,9 +213,10 @@ export default function Masina() {
         .m-glow { position: absolute; top: 0; right: 0; width: 40rem; height: 40rem; background: rgba(255,255,255,0.12); filter: blur(120px); border-radius: 50%; pointer-events: none; }
         .m-wrap { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
-        /* Header */
-        .m-header { max-width: 680px; margin-bottom: 40px; }
+        /* Header — centered */
+        .m-header { margin-bottom: 40px; text-align: center; }
         .m-header .section-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
+        .m-header .section-sub { margin-left: auto; margin-right: auto; }
 
         /* Grids */
         .m-grid-top { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
@@ -246,12 +255,28 @@ export default function Masina() {
         /* Phone farm */
         .m-phone-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 10px; flex: 1; align-content: center; margin-bottom: 16px; }
         .m-phone { position: relative; aspect-ratio: 9/19; border-radius: 7px; background: #0a1020; border: 1px solid rgba(255,255,255,0.15); padding: 3px; }
-        .m-phone-screen { height: 100%; width: 100%; border-radius: 5px; background: linear-gradient(to bottom, rgba(232,83,143,0.25), #10182e, #0a1020); overflow: hidden; position: relative; }
-        .m-phone-bar { position: absolute; left: 4px; right: 4px; border-radius: 3px; background: rgba(255,255,255,0.1); }
-        .m-phone-bar--top { top: 0; height: 14%; border-radius: 0; }
-        .m-phone-bar--mid { top: 22%; height: 38%; }
-        .m-phone-bar--bot { bottom: 4px; height: 9%; border-radius: 2px; background: rgba(255,255,255,0.15); }
-        .m-phone-dot { position: absolute; top: -4px; right: -4px; width: 9px; height: 9px; border-radius: 50%; background: #22c55e; border: 1.5px solid #0a1020; animation: dot-blink 1.2s ease-in-out infinite; }
+        .m-phone-screen { height: 100%; width: 100%; border-radius: 5px; background: #0d0d0d; overflow: hidden; position: relative; display: flex; flex-direction: column; }
+        /* instagram dummy */
+        .m-ig-top { display: flex; align-items: center; gap: 3px; padding: 3px 3px 2px; flex-shrink: 0; }
+        .m-ig-avatar { width: 8px; height: 8px; border-radius: 50%; background: linear-gradient(135deg,#f09433,#e8538f,#bc1888); flex-shrink: 0; }
+        .m-ig-name { height: 3px; width: 28px; border-radius: 2px; background: rgba(255,255,255,0.3); }
+        .m-ig-img { flex: 1; min-height: 0; }
+        .m-ig-actions { display: flex; gap: 3px; padding: 2px 3px 1px; flex-shrink: 0; }
+        .m-ig-act-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+        .m-ig-likes { height: 2.5px; width: 24px; margin: 0 3px 2px; border-radius: 2px; background: rgba(255,255,255,0.2); }
+        .m-ig-caption { height: 2px; width: 80%; margin: 0 3px 3px; border-radius: 2px; background: rgba(255,255,255,0.12); }
+        /* live dot — pulse ring animation */
+        .m-phone-dot {
+          position: absolute; top: -4px; right: -4px;
+          width: 9px; height: 9px; border-radius: 50%;
+          background: #22c55e; border: 1.5px solid #1a1a2e;
+          animation: phone-dot-pulse 2s ease-in-out infinite;
+        }
+        @keyframes phone-dot-pulse {
+          0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); }
+          50%  { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+          100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+        }
         .m-farm-status { display: flex; align-items: center; gap: 10px; font-size: 0.7rem; }
         .m-farm-active { display: inline-flex; align-items: center; gap: 5px; color: #22c55e; }
         .m-farm-dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; }
@@ -262,7 +287,7 @@ export default function Masina() {
         .m-feature-card { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 22px; transition: border-color .2s; }
         .m-feature-card:hover { border-color: rgba(255,255,255,0.3); }
         .m-feature-icon { font-size: 1.5rem; margin-bottom: 12px; }
-        .m-feature-title { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 7px; }
+        .m-feature-title { font-size: 1rem; font-weight: 700; font-style: italic; color: #fff; margin-bottom: 7px; }
         .m-feature-desc { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0; }
       `}</style>
     </section>
