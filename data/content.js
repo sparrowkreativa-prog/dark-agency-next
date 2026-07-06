@@ -24,13 +24,15 @@ export const siteData = {
   },
 
   problem: {
-    label: 'I · Pitanje',
-    title: 'Većina Ljudi Koji Razmišljaju o Ovome Nikada Nigde Ne Aplicira.',
-    sub: 'Ne zato što nisu zainteresovani. Već zato što svaka agencija kojoj se obrate ne prođe ni prvi test. Mi smo agencija koja je izgrađena oko tog pitanja.',
-    items: [
-      { num: '01', h: 'Da li me neko može pronaći?',       p: 'Razdvajanje identiteta je temelj, ne opcija. Inženjerišemo ga pre prvog dana.' },
-      { num: '02', h: 'Da li ovo može uticati na moju karijeru?', p: 'Tvoje prisustvo je konstruisano tako da tvoja realna reputacija nikad ne postane kolateral.' },
-      { num: '03', h: 'Da li moja porodica može saznati?',  p: 'Geo-blokiranje počinje na nivou grada. Tvoja persona se gradi od nule, bez ikakvog preklapanja.' },
+    label: 'ZAŠTO SMO OSNOVALI VELLUTO NERO',
+    title: 'Agencija Koju Vode Žene, za Žene.',
+    sub: 'Videli smo industriju kojom dominiraju agencije kojima upravljaju muškarci — koje svoje kreatorke nisu zaista razumele. Znali smo da mora postojati bolji način. Ne upravljamo samo nalozima — gradimo carstva, uz posvećen tim koji poštuje granice i štiti privatnost svakog kreatora kao preduzetnika kakav zaista jeste.',
+    stats: [
+      { num: '5.000+',   label: 'Primljenih prijava' },
+      { num: '0,4%',     label: 'Stopa prihvatanja' },
+      { num: '2/mesečno', label: 'Novih klijenata' },
+      { num: '11M+ USD', label: 'Generisano za kreatore' },
+      { num: '3+ god',   label: 'Prosečno partnerstvo' },
     ],
   },
 

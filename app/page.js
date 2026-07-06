@@ -14,6 +14,7 @@ import PressBar from '@/components/PressBar';
 import ONama from '@/components/ONama';
 import SplitHero from '@/components/SplitHero';
 import FreeTools from '@/components/FreeTools';
+import ProblemSection from '@/components/ProblemSection';
 import { siteData } from '@/data/content';
 
 export default function Home() {
@@ -30,27 +31,8 @@ export default function Home() {
 
         <ONama />
 
-        {/* Problem */}
-        <SectionFade>
-          <section className="section-problem">
-            <div className="container">
-              <div className="section-header">
-                <span className="chapter-label">{problem.label}</span>
-                <h2 className="section-title">{problem.title}</h2>
-                <p className="section-sub">{problem.sub}</p>
-              </div>
-              <div className="problem-grid">
-                {problem.items.map((it) => (
-                  <div key={it.num} className="problem-item">
-                    <span className="problem-num">{it.num}</span>
-                    <h3>{it.h}</h3>
-                    <p>{it.p}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        </SectionFade>
+        {/* Problem / Zašto */}
+        <ProblemSection problem={problem} />
 
         <SplitHero />
 

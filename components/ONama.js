@@ -58,12 +58,12 @@ export default function ONama() {
           background: var(--color-dark-1, #f8f7f5);
         }
         .on-inner {
-          max-width: 1200px;
+          max-width: 1100px;
           margin: 0 auto;
           padding: 0 24px;
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 64px;
+          gap: 40px;
           align-items: center;
         }
         @media (max-width: 860px) {
@@ -83,14 +83,12 @@ export default function ONama() {
           border-radius: 20px;
           overflow: hidden;
           box-shadow: 0 12px 48px rgba(0,0,0,0.12);
-          aspect-ratio: 9/16;
-          max-height: 600px;
+          aspect-ratio: 1/1;
         }
         @media (max-width: 860px) {
           .on-media {
-            max-width: 400px;
+            max-width: 440px;
             margin: 0 auto;
-            max-height: 480px;
           }
         }
         .on-video {
