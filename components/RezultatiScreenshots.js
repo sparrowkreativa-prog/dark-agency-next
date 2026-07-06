@@ -41,7 +41,7 @@ export default function RezultatiScreenshots() {
         </div>
       </div>
 
-      {/* ── Desktop / tablet: 3 columns, full image height ── */}
+      {/* ── Desktop / tablet: 3 columns, full image ── */}
       <div className="rz-desktop">
         {SCREENSHOTS.map((s, i) => (
           <div
@@ -58,13 +58,11 @@ export default function RezultatiScreenshots() {
         ))}
       </div>
 
-      {/* ── Mobile: sticky card stack ── */}
-      <div className="rz-mobile">
+      {/* ── Mobile: horizontal scroll snap ── */}
+      <div className="rz-mobile-scroll">
         {SCREENSHOTS.map((s, i) => (
-          <div key={i} className="rz-track">
-            <div className="rz-mobile-card" style={{ zIndex: i + 1 }}>
-              <img src={s.src} alt={s.alt} />
-            </div>
+          <div key={i} className="rz-snap-card">
+            <img src={s.src} alt={s.alt} />
           </div>
         ))}
       </div>
@@ -104,7 +102,7 @@ export default function RezultatiScreenshots() {
           line-height: 1.1;
         }
 
-        /* ── Desktop: 3 col, full image ── */
+        /* ── Desktop: 3 columns, full image ── */
         .rz-desktop {
           display: flex;
           gap: 20px;
@@ -130,42 +128,37 @@ export default function RezultatiScreenshots() {
         }
 
         /* Mobile hidden on desktop */
-        .rz-mobile { display: none; }
+        .rz-mobile-scroll { display: none; }
 
-        /* ── Mobile: sticky card stack ── */
+        /* ── Mobile: horizontal scroll snap ── */
         @media (max-width: 640px) {
           .rz-desktop { display: none; }
-          .rz-section { padding-bottom: 0; }
 
-          .rz-mobile {
-            display: block;
-            margin-top: 8px;
+          .rz-mobile-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            gap: 16px;
+            padding: 0 24px 24px;
+            scrollbar-width: none;
+          }
+          .rz-mobile-scroll::-webkit-scrollbar {
+            display: none;
           }
 
-          /* Each track is 100vh — gives scroll room */
-          .rz-track {
-            height: 100vh;
-          }
-          /* Last track only needs to show the card, no extra scroll room */
-          .rz-track:last-child {
-            height: auto;
-            padding-bottom: 48px;
-          }
-
-          .rz-mobile-card {
-            position: sticky;
-            top: 72px;
-            width: calc(100% - 48px);
-            max-width: 340px;
-            margin: 0 auto;
-            border-radius: 20px;
+          .rz-snap-card {
+            flex-shrink: 0;
+            width: 78vw;
+            max-width: 300px;
+            scroll-snap-align: center;
+            border-radius: 18px;
             border: 1px solid rgba(169,135,92,0.18);
-            box-shadow: 0 16px 48px rgba(0,0,0,0.18);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.15);
             overflow: hidden;
-            background: #111;
           }
 
-          .rz-mobile-card img {
+          .rz-snap-card img {
             width: 100%;
             height: auto;
             display: block;
