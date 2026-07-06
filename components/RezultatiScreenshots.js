@@ -23,9 +23,9 @@ export default function RezultatiScreenshots() {
 
   return (
     <section className="rz-section" ref={ref}>
-      <div className="rz-inner">
 
-        {/* Header */}
+      {/* Header */}
+      <div className="rz-inner">
         <div
           className="rz-header"
           style={{
@@ -39,39 +39,38 @@ export default function RezultatiScreenshots() {
             Rezultati,<br /><span style={{ color: '#a9875c' }}>Ne Obećanja.</span>
           </h2>
         </div>
+      </div>
 
-        {/* ── Desktop / tablet: 3 columns, true 9:16 ── */}
-        <div className="rz-desktop">
-          {SCREENSHOTS.map((s, i) => (
-            <div
-              key={i}
-              className="rz-desktop-card"
-              style={{
-                opacity: vis ? 1 : 0,
-                transform: vis ? 'none' : 'translateY(28px)',
-                transition: `opacity 0.9s ease ${i * 0.14}s, transform 0.9s ease ${i * 0.14}s`,
-              }}
-            >
+      {/* ── Desktop / tablet: 3 columns, full image height ── */}
+      <div className="rz-desktop">
+        {SCREENSHOTS.map((s, i) => (
+          <div
+            key={i}
+            className="rz-desktop-card"
+            style={{
+              opacity: vis ? 1 : 0,
+              transform: vis ? 'none' : 'translateY(28px)',
+              transition: `opacity 0.9s ease ${i * 0.14}s, transform 0.9s ease ${i * 0.14}s`,
+            }}
+          >
+            <img src={s.src} alt={s.alt} />
+          </div>
+        ))}
+      </div>
+
+      {/* ── Mobile: sticky card stack ── */}
+      <div className="rz-mobile">
+        {SCREENSHOTS.map((s, i) => (
+          <div key={i} className="rz-track">
+            <div className="rz-mobile-card" style={{ zIndex: i + 1 }}>
               <img src={s.src} alt={s.alt} />
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
 
-        {/* ── Mobile: sticky card stack ── */}
-        <div className="rz-mobile">
-          {SCREENSHOTS.map((s, i) => (
-            <div key={i} className="rz-mobile-track">
-              <div
-                className="rz-mobile-card"
-                style={{ top: `${72 + i * 18}px`, zIndex: i + 1 }}
-              >
-                <img src={s.src} alt={s.alt} />
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Disclaimer */}
+      {/* Disclaimer */}
+      <div className="rz-inner">
         <p
           className="rz-disclaimer"
           style={{ opacity: vis ? 1 : 0, transition: 'opacity 0.9s ease 0.5s' }}
@@ -82,7 +81,7 @@ export default function RezultatiScreenshots() {
 
       <style>{`
         .rz-section {
-          padding: 96px 0;
+          padding: 96px 0 0;
           background: #fafaf8;
         }
         .rz-inner {
@@ -105,12 +104,15 @@ export default function RezultatiScreenshots() {
           line-height: 1.1;
         }
 
-        /* ── Desktop: 3 columns, 9:16 ── */
+        /* ── Desktop: 3 col, full image ── */
         .rz-desktop {
           display: flex;
           gap: 20px;
           justify-content: center;
           align-items: flex-start;
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 24px;
         }
         .rz-desktop-card {
           flex: 1 1 0;
@@ -120,13 +122,10 @@ export default function RezultatiScreenshots() {
           border: 1px solid rgba(169,135,92,0.18);
           box-shadow: 0 20px 60px rgba(0,0,0,0.13);
           overflow: hidden;
-          aspect-ratio: 9 / 16;
         }
         .rz-desktop-card img {
           width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: top center;
+          height: auto;
           display: block;
         }
 
@@ -136,38 +135,39 @@ export default function RezultatiScreenshots() {
         /* ── Mobile: sticky card stack ── */
         @media (max-width: 640px) {
           .rz-desktop { display: none; }
+          .rz-section { padding-bottom: 0; }
 
           .rz-mobile {
             display: block;
+            margin-top: 8px;
           }
 
-          /* Each track gives scroll room for that card */
-          .rz-mobile-track {
-            height: 80vh;
+          /* Each track is 100vh — gives scroll room */
+          .rz-track {
+            height: 100vh;
           }
-          .rz-mobile-track:last-child {
-            /* last card: just enough to show it fully */
+          /* Last track only needs to show the card, no extra scroll room */
+          .rz-track:last-child {
             height: auto;
-            padding-bottom: 32px;
+            padding-bottom: 48px;
           }
 
           .rz-mobile-card {
             position: sticky;
-            width: 100%;
-            max-width: 320px;
+            top: 72px;
+            width: calc(100% - 48px);
+            max-width: 340px;
             margin: 0 auto;
-            aspect-ratio: 9 / 16;
             border-radius: 20px;
             border: 1px solid rgba(169,135,92,0.18);
             box-shadow: 0 16px 48px rgba(0,0,0,0.18);
             overflow: hidden;
+            background: #111;
           }
 
           .rz-mobile-card img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
+            height: auto;
             display: block;
           }
         }
@@ -178,6 +178,7 @@ export default function RezultatiScreenshots() {
           font-size: 12px;
           color: #aaa;
           margin-top: 36px;
+          padding-bottom: 96px;
         }
       `}</style>
     </section>
