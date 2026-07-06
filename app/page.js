@@ -15,6 +15,7 @@ import ONama from '@/components/ONama';
 import SplitHero from '@/components/SplitHero';
 import FreeTools from '@/components/FreeTools';
 import ProblemSection from '@/components/ProblemSection';
+import ServicesSection from '@/components/ServicesSection';
 import { siteData } from '@/data/content';
 
 export default function Home() {
@@ -89,29 +90,7 @@ export default function Home() {
         <Roster />
 
         {/* Services */}
-        <SectionFade id="services">
-          <section className="section-services">
-            <div className="container">
-              <div className="section-header">
-                <span className="chapter-label">{services.label}</span>
-                <h2 className="section-title">{services.title}</h2>
-                <p className="section-sub">{services.sub}</p>
-              </div>
-              <div className="services-grid">
-                {services.items.map((s) => (
-                  <div key={s.num} className="service-item is-visible">
-                    <span className="service-num">{s.num}</span>
-                    <div>
-                      <h3 className="service-title">{s.title}</h3>
-                      <p className="service-body">{s.body}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <blockquote className="pull-quote">{services.quote}</blockquote>
-            </div>
-          </section>
-        </SectionFade>
+        <ServicesSection services={services} />
 
         {/* Qualify */}
         <SectionFade>
