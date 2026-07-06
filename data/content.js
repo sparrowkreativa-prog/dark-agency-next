@@ -37,7 +37,7 @@ export const siteData = {
   },
 
   included: {
-    label: "I.V · Šta je uključeno",
+    label: "Šta je uključeno",
     title: 'Svaki Sistem Koji Ti Treba - Već Radi.',
     sub: 'Tri stuba, izgrađena i kojima upravljamo pre nego što objaviš ijednu objavu.',
     cards: [
@@ -82,7 +82,7 @@ export const siteData = {
   },
 
   masina: {
-    label: 'II · Mašina',
+    label: 'Mašina',
     title: 'Naša Infrastruktura Radi 24/7 Za Tebe.',
     sub: 'Dok spavaš, naš sistem aktivno upravlja tvojim nalogom — content, poruke, analitika, zaštita.',
     crm: {
@@ -127,7 +127,7 @@ export const siteData = {
   },
 
   roster: {
-    label: 'III · Roster',
+    label: 'Roster',
     title: 'Pravi Kreatori. Pravi Brojevi.',
     sub: 'Svaki rezultat je verifikovan. Na prvom pozivu možeš odabrati bilo kog klijenta — logujemo se uživo.',
     cases: [
@@ -194,7 +194,7 @@ export const siteData = {
   },
 
   qualify: {
-    label: 'V · Kvalifikacija',
+    label: 'Kvalifikacija',
     title: 'Primamo Manje od 2% Prijava.',
     sub: 'Kada se pridružiš, čitav tim se gradi oko tebe. To možemo da radimo samo za ljude koji su potpuno posvećeni.',
     yesHeading: 'Odgovaraš ako…',
@@ -215,7 +215,7 @@ export const siteData = {
   },
 
   testimonials: {
-    label: 'VI · Priče',
+    label: 'Priče',
     title: 'Troje Ljudi Koji Nikad Nisu Mislili Da Je Ovo Za Njih.',
     sub: 'Bez pratioca. Bez iskustva. Pravi strahovi. Jedino što se promenilo bio je tim iza njih.',
     items: [
@@ -244,19 +244,19 @@ export const siteData = {
   },
 
   guarantee: {
-    label: 'VII · Garancije',
+    label: 'Garancije',
     bigNum: '$20K',
     title: 'Tri Garancije. Složene. Bez Sitnog Slova.',
     items: [
-      { label: 'I · Lansiranje',  text: 'Cilj $20K+ u prvoj nedelji, ostvareno 60+ puta od nule. Ništa unapred — zaradimo samo kada i ti zaradiš.' },
-      { label: 'II · Podrška',    text: 'Ispod 5 minuta odgovora, 24/7. Ne cilj — mereni operativni standard.' },
-      { label: 'III · Izlaz',     text: 'Odi kad hoćeš. Nula naknada, nula penala, nula pitanja. Bez ugovora, ikad.' },
+      { label: 'Lansiranje',  text: 'Cilj $20K+ u prvoj nedelji, ostvareno 60+ puta od nule. Ništa unapred — zaradimo samo kada i ti zaradiš.' },
+      { label: 'Podrška',    text: 'Ispod 5 minuta odgovora, 24/7. Ne cilj — mereni operativni standard.' },
+      { label: 'Izlaz',      text: 'Odi kad hoćeš. Nula naknada, nula penala, nula pitanja. Bez ugovora, ikad.' },
     ],
     cta: { label: 'Prijavi se', href: '#apply' },
   },
 
   faq: {
-    label: 'VIII · Pitanja',
+    label: 'Pitanja',
     title: 'Direktni Odgovori. Bez Sitnog Slova.',
     sub: 'Pitanja koja sebi već postavljaš — odgovorena direktno.',
     items: [
@@ -296,7 +296,7 @@ export const siteData = {
   },
 
   finalCta: {
-    label: 'IX · Tvoj potez',
+    label: 'Tvoj potez',
     title: 'Za Dvanaest Meseci, Jedna Od Dve Stvari Će Biti Tačna.',
     col1: {
       heading: 'Bez tima',
