@@ -5,12 +5,8 @@ function fmt(n) {
   return '$' + Math.round(n).toLocaleString('en-US');
 }
 
-function getGrowth(val) {
-  if (val === 0) return { pct: 175, label: '175%' };
-  if (val <= 10000) return { pct: 175, label: '175%' };
-  if (val <= 50000) return { pct: 150, label: '150%' };
-  if (val <= 150000) return { pct: 125, label: '125%' };
-  return { pct: 100, label: '100%' };
+function getGrowth() {
+  return { pct: 250, label: '250%' };
 }
 
 const CHART_BARS = [45, 62, 78, 85, 70, 55, 48, 60, 82, 91, 100, 74];
@@ -20,8 +16,8 @@ export default function Kalkulator() {
   const [tab, setTab] = useState('overview');
   const [revenue, setRevenue] = useState(50000);
 
-  const growth = getGrowth(revenue);
-  const projected = Math.round(revenue * (1 + growth.pct / 100));
+  const growth = getGrowth();
+  const projected = Math.round(revenue * 3.5);
   const extra = projected - revenue;
   const yearly = extra * 12;
 
