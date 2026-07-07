@@ -8,9 +8,19 @@ const NAMES = [
 ];
 
 const CITIES = [
+  // Srbija
   'Beograda','Novog Sada','Niša','Kragujevca','Subotice','Zrenjanina',
   'Pančeva','Čačka','Kruševca','Vranja','Šapca','Valjeva','Leskovca',
   'Požarevca','Smedereva','Kikinde','Užica','Zaječara','Pirota',
+  // Hrvatska
+  'Zagreba','Splita','Rijeke','Osijeka','Zadra','Pule','Slavonskog Broda',
+  'Karlovca','Varaždina','Šibenika','Dubrovnika','Petrinje','Siska',
+  // Bosna i Hercegovina
+  'Sarajeva','Banja Luke','Tuzle','Zenice','Mostara','Bihaća',
+  'Brčkog','Prijedora','Doboja','Trebinja',
+  // Crna Gora
+  'Podgorice','Nikšića','Bijelog Polja','Herceg Novog','Bara',
+  'Pljevalja','Kotora','Budve','Ulcinja',
 ];
 
 const ACTIONS = [
@@ -40,16 +50,17 @@ export default function NotificationToast() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // first toast after 4s, then every 7s
+    // first toast after 8s, then every 18–28s (random)
+    let timer;
     const show = () => {
       setEntry(generateEntry());
       setVisible(true);
       setTimeout(() => setVisible(false), 4500);
+      timer = setTimeout(show, 18000 + Math.random() * 10000);
     };
 
-    const t1 = setTimeout(show, 4000);
-    const interval = setInterval(show, 7000);
-    return () => { clearTimeout(t1); clearInterval(interval); };
+    const t1 = setTimeout(show, 8000);
+    return () => { clearTimeout(t1); clearTimeout(timer); };
   }, []);
 
   if (!entry) return null;
