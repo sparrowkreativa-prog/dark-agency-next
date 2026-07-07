@@ -209,7 +209,7 @@ export default function ApplyForm() {
           <div className="apply-left">
             <div className="apply-trust-list">
               {[
-                { icon: '🔒', text: 'Potpuna anonimnost, ugrađena u sistem' },
+                { icon: '◆', text: 'Potpuna anonimnost, ugrađena u sistem' },
                 { icon: '✓', text: 'Nula iskustva potrebno' },
                 { icon: '○', text: 'Nula troškova unapred, ikad' },
                 { icon: '→', text: 'Odgovor za 5 minuta' },
@@ -297,7 +297,7 @@ export default function ApplyForm() {
                         <input className={`apply-input${errors.phone ? ' apply-input--err' : ''}`} type="tel" placeholder="060 000 0000" value={form.phone} onChange={e => set('phone', e.target.value)} />
                       </div>
                       <FieldErr field="phone" />
-                      <p className="apply-field-note">🔒 Koristimo samo za potvrdu poziva. Nikad nije podeljen.</p>
+                      <p className="apply-field-note">◆ Koristimo samo za potvrdu poziva. Nikad nije podeljen.</p>
                     </div>
 
                     <button type="button" className="apply-btn-next" onClick={nextStep1}>
@@ -470,9 +470,9 @@ export default function ApplyForm() {
                     </div>
 
                     <div className="apply-trust-strip">
-                      <span>🔒 Nula curenja identiteta u 4+ godina</span>
-                      <span>○ Nula troškova unapred, ikad</span>
-                      <span>→ 140+ klijenata, $11M+ godišnji prihod</span>
+                      <span>◆ Nula curenja identiteta u 4+ godina</span>
+                      <span>◆ Nula troškova unapred, ikad</span>
+                      <span>◆ 140+ klijenata, $11M+ godišnji prihod</span>
                     </div>
 
                     {submitError && <p className="apply-submit-err">{submitError}</p>}

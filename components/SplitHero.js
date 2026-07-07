@@ -101,7 +101,7 @@ export default function SplitHero() {
           </h2>
 
           <p className="sh-body">
-            Bez eksperimenata. Bez nagađanja. Bez nestajanja. Svaki dan vodimo naloge u 0,01% — na sopstvenom CRM-u, sopstvenoj phone farm i s chat timom koji igra na duge staze. Ti daješ sadržaj, mi mašinu. 💸
+            Bez eksperimenata. Bez nagađanja. Bez nestajanja. Svaki dan vodimo naloge u 0,01% — na sopstvenom CRM-u, sopstvenoj phone farm i s chat timom koji igra na duge staze. Ti daješ sadržaj, mi mašinu.
           </p>
 
           <div className="sh-ctas">
@@ -114,9 +114,9 @@ export default function SplitHero() {
           </div>
 
           <div className="sh-trust">
-            <span>✅ €0 unapred</span>
-            <span>🔒 Zadržavaš većinu</span>
-            <span>💸 Otkaži kad želiš</span>
+            <span>◆ €0 unapred</span>
+            <span>◆ Zadržavaš većinu</span>
+            <span>◆ Otkaži kad želiš</span>
           </div>
         </div>
 
@@ -147,7 +147,9 @@ export default function SplitHero() {
               transform: animate ? 'translateY(0) rotate(-6deg)' : 'translateY(-12px) rotate(-6deg)',
               transition: 'opacity 0.8s ease 1.4s, transform 0.8s ease 1.4s',
             }}>
-            <span className="sh-badge-top-icon">👑</span>
+            <span className="sh-badge-top-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h20M5 20V10l7-7 7 7v10"/><path d="M9 20v-5h6v5"/></svg>
+            </span>
             <div>
               <div className="sh-badge-top-sub">Percentil rostera</div>
               <div className="sh-badge-top-main">Top 0.2%</div>
@@ -202,7 +204,8 @@ export default function SplitHero() {
         .sh-ghost-btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border-radius: 999px; font-size: 0.95rem; font-weight: 600; color: #a9875c; border: 1.5px solid #a9875c; background: transparent; text-decoration: none; transition: background 0.2s, color 0.2s; }
         .sh-ghost-btn:hover { background: #a9875c; color: #fff; }
         .sh-trust { display: flex; flex-wrap: wrap; gap: 16px; }
-        .sh-trust span { font-size: 0.85rem; color: #666; display: flex; align-items: center; gap: 6px; }
+        .sh-trust span { font-size: 0.85rem; color: #666; display: flex; align-items: center; gap: 8px; }
+        .sh-trust span::first-letter { color: #a9875c; font-size: 0.55rem; }
 
         /* Right */
         .sh-right { position: relative; }
