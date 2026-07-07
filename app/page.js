@@ -20,6 +20,7 @@ import ServicesSection from '@/components/ServicesSection';
 import RezultatiScreenshots from '@/components/RezultatiScreenshots';
 import Kalkulator from '@/components/Kalkulator';
 import LiveDashboard from '@/components/LiveDashboard';
+import NotificationToast from '@/components/NotificationToast';
 import Bezbednost from '@/components/Bezbednost';
 import Tim from '@/components/Tim';
 import { siteData } from '@/data/content';
@@ -258,6 +259,8 @@ export default function Home() {
         </SectionFade>
 
       </main>
+
+      <NotificationToast />
 
       <footer id="site-footer">
         <div className="footer-inner">
