@@ -8,8 +8,8 @@ const logos = [
 ];
 
 export default function PressBar() {
-  // Duplicate for seamless loop
-  const track = [...logos, ...logos, ...logos];
+  // 8 copies: ensures track fills any screen width before the loop restarts
+  const track = [...logos, ...logos, ...logos, ...logos, ...logos, ...logos, ...logos, ...logos];
 
   return (
     <section className="press-bar">

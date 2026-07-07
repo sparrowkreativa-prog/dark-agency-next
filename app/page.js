@@ -122,7 +122,7 @@ export default function Home() {
                   <ul className="qualify-list">
                     {qualify.yes.map((q) => (
                       <li key={q} className="qualify-item">
-                        <span className="qualify-check qualify-check--yes" />
+                        <span className="qualify-check qualify-check--yes">✓</span>
                         {q}
                       </li>
                     ))}
@@ -133,7 +133,7 @@ export default function Home() {
                   <ul className="qualify-list">
                     {qualify.no.map((q) => (
                       <li key={q} className="qualify-item">
-                        <span className="qualify-check qualify-check--no" />
+                        <span className="qualify-check qualify-check--no">✕</span>
                         {q}
                       </li>
                     ))}
