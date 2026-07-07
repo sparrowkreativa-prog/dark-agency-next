@@ -62,7 +62,9 @@ const stats = [
 
 export default function SplitHero() {
   const imgRef = useRef(null);
+  const statsRef = useRef(null);
   const [animate, setAnimate] = useState(false);
+  const [statsAnimate, setStatsAnimate] = useState(false);
 
   useEffect(() => {
     const el = imgRef.current;
@@ -70,6 +72,16 @@ export default function SplitHero() {
     const io = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { setAnimate(true); io.disconnect(); }
     }, { threshold: 0.2 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const el = statsRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setStatsAnimate(true); io.disconnect(); }
+    }, { threshold: 0.15 });
     io.observe(el);
     return () => io.disconnect();
   }, []);
@@ -84,7 +96,7 @@ export default function SplitHero() {
         {/* Left column */}
         <div className="sh-left">
           <h2 className="sh-headline">
-            Rasti na OnlyFans-u{' '}
+            <em>Rasti na OnlyFans-u</em>{' '}
             <em className="sh-headline-em">Uz Sistem Koji Već Radi.</em>
           </h2>
 
@@ -158,14 +170,14 @@ export default function SplitHero() {
       </div>
 
       {/* Stats row */}
-      <div className="sh-stats-row">
+      <div className="sh-stats-row" ref={statsRef}>
         <div>
           {stats.map((s, i) => (
             <div key={i} className="sh-stat-card"
               style={{
-                opacity: animate ? 1 : 0,
-                transform: animate ? 'none' : 'translateY(16px)',
-                transition: `opacity 0.8s ease ${1.2 + i * 0.15}s, transform 0.8s ease ${1.2 + i * 0.15}s`,
+                opacity: statsAnimate ? 1 : 0,
+                transform: statsAnimate ? 'none' : 'translateY(20px)',
+                transition: `opacity 0.7s ease ${i * 0.12}s, transform 0.7s ease ${i * 0.12}s`,
               }}>
               <div className="sh-stat-num">{s.num}</div>
               <div className="sh-stat-label">{s.label}</div>
