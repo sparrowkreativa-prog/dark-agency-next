@@ -35,7 +35,7 @@ export default function Kalkulator() {
       <div className="kalk-container">
         <div className="kalk-header">
           <span className="chapter-label">Kalkulator</span>
-          <h2 className="kalk-title">Vidi Tvoj <em className="kalk-em">Potencijal</em></h2>
+          <h2 className="kalk-title"><em className="kalk-em-plain">Vidi Tvoj</em> <em className="kalk-em">Potencijal</em></h2>
           <p className="kalk-sub">Projektovana zarada sa Velluto Nero sistemom</p>
         </div>
 
@@ -107,7 +107,7 @@ export default function Kalkulator() {
                 <div className="kalk-stat">
                   <div className="kalk-stat-val">0%</div>
                   <div className="kalk-stat-label">Curenje identiteta</div>
-                  <div className="kalk-stat-note">4+ godine</div>
+                  <div className="kalk-stat-note">5+ godina</div>
                 </div>
               </div>
 
@@ -136,7 +136,7 @@ export default function Kalkulator() {
               <div className="kalk-cta">
                 <a href="#apply" className="kalk-cta-btn">
                   <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                  Prijavi Se Besplatno
+                  Prijavi Se
                 </a>
               </div>
             </div>
@@ -178,7 +178,7 @@ export default function Kalkulator() {
               <div className="kalk-cta">
                 <a href="#apply" className="kalk-cta-btn">
                   <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                  Počni Da Rastuješ
+                  Rasti Sa Nama
                 </a>
               </div>
             </div>
@@ -236,7 +236,7 @@ export default function Kalkulator() {
               <div className="kalk-cta">
                 <a href="#apply" className="kalk-cta-btn">
                   <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-                  Dostigne Tvoju Publiku
+                  Tvoj Reech
                 </a>
               </div>
             </div>
@@ -245,20 +245,25 @@ export default function Kalkulator() {
       </div>
 
       <style>{`
-        .kalk-section { padding: 80px 0; background: #fafaf8; }
+        .kalk-section { padding: 80px 0; background: #000; }
         .kalk-container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 
         .kalk-header { text-align: center; margin-bottom: 40px; }
-        .kalk-title { font-family: var(--font-display); font-size: clamp(28px,4vw,40px); color: #1a1a1a; margin: 12px 0 10px; line-height: 1.1; }
+        .kalk-header .chapter-label { color: #a9875c; border-color: rgba(169,135,92,0.35); }
+        .kalk-title { font-family: var(--font-display); font-size: clamp(28px,4vw,40px); color: #fff; margin: 12px 0 10px; line-height: 1.1; }
+        .kalk-em-plain { font-style: italic; color: rgba(255,255,255,0.75); }
         .kalk-em { font-style: italic; color: #a9875c; }
-        .kalk-sub { font-size: 15px; color: #888; margin: 0; }
+        .kalk-sub { font-size: 15px; color: rgba(255,255,255,0.4); margin: 0; }
 
-        /* Dashboard shell */
+        /* Dashboard shell — liquid glass */
         .kalk-dashboard {
-          background: #111827;
+          background: rgba(255,255,255,0.06);
+          backdrop-filter: blur(28px) saturate(1.6);
+          -webkit-backdrop-filter: blur(28px) saturate(1.6);
+          border: 1px solid rgba(255,255,255,0.12);
+          box-shadow: inset 0 1px 0 rgba(255,255,255,0.10), 0 24px 80px rgba(0,0,0,0.5);
           border-radius: 20px;
           overflow: hidden;
-          box-shadow: 0 24px 80px rgba(0,0,0,0.22);
         }
 
         /* Top bar */
@@ -293,7 +298,7 @@ export default function Kalkulator() {
         .kalk-tab:hover:not(.kalk-tab--active) { color: rgba(255,255,255,0.7); }
 
         /* Tab body */
-        .kalk-tab-body { padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 20px; }
+        .kalk-tab-body { padding: 28px 24px 24px; display: flex; flex-direction: column; gap: 20px; min-height: 520px; }
 
         /* Slider */
         .kalk-input-row { display: flex; flex-direction: column; gap: 10px; }
