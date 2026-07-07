@@ -474,22 +474,22 @@ export default function RezultatiScreenshots() {
         .ofm-badge { position: absolute; top: -4px; right: -5px; background: #5e9ef4; color: #fff; font-size: 6px; font-weight: 700; border-radius: 8px; padding: 1px 3px; min-width: 10px; text-align: center; line-height: 1.4; }
 
         /* ── Mobile: horizontal scroll snap ── */
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           .rz-desktop { display: none; }
           .rz-mobile-scroll {
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
-            gap: 16px;
-            padding: 0 24px 24px;
+            gap: 20px;
+            padding: 0 12vw 24px;
             scrollbar-width: none;
           }
           .rz-mobile-scroll::-webkit-scrollbar { display: none; }
           .rz-mobile-scroll .ofm {
-            flex-shrink: 0;
-            width: 78vw;
-            max-width: 280px;
+            flex: 0 0 76vw;
+            width: 76vw;
+            max-width: 320px;
             scroll-snap-align: center;
           }
         }
