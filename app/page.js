@@ -18,6 +18,7 @@ import FreeTools from '@/components/FreeTools';
 import ProblemSection from '@/components/ProblemSection';
 import ServicesSection from '@/components/ServicesSection';
 import RezultatiScreenshots from '@/components/RezultatiScreenshots';
+import Kalkulator from '@/components/Kalkulator';
 import Bezbednost from '@/components/Bezbednost';
 import Tim from '@/components/Tim';
 import { siteData } from '@/data/content';
@@ -42,6 +43,8 @@ export default function Home() {
         <ProblemSection problem={problem} />
 
         <SplitHero />
+
+        <Kalkulator />
 
         {/* What's Included */}
         <SectionFade>
