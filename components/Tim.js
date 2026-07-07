@@ -54,16 +54,25 @@ export default function Tim() {
         {/* Hours split bar */}
         <div className="tm-bar-wrap"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(16px)', transition: 'opacity 0.8s ease 0.55s, transform 0.8s ease 0.55s' }}>
-          <div className="tm-bar">
-            <div className="tm-bar-you">
+
+          {/* Labels above bar */}
+          <div className="tm-bar-labels">
+            <div>
               <p className="tm-bar-label">Ti</p>
-              <p className="tm-bar-num">20<span className="tm-bar-unit">h/ned</span></p>
+              <p className="tm-bar-num">8–10<span className="tm-bar-unit">h/ned</span></p>
             </div>
-            <div className="tm-bar-team">
+            <div style={{ textAlign: 'right' }}>
               <p className="tm-bar-label tm-bar-label--right">Tvoj Tim</p>
               <p className="tm-bar-num tm-bar-num--right">150+<span className="tm-bar-unit">h/ned</span></p>
             </div>
           </div>
+
+          {/* Animated fill bar */}
+          <div className="tm-bar">
+            <div className="tm-bar-fill"
+              style={{ width: vis ? '6%' : '0%' }} />
+          </div>
+
           <p className="tm-bar-caption">Ti kreiraš. Tim vodi sve ostalo.</p>
         </div>
 
@@ -167,58 +176,51 @@ export default function Tim() {
           max-width: 700px;
           margin: 0 auto 56px;
         }
-        .tm-bar {
+        .tm-bar-labels {
           display: flex;
-          border-radius: 16px;
-          overflow: hidden;
-          border: 1px solid rgba(232,83,143,0.15);
-          box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-        }
-        .tm-bar-you {
-          flex: 0 0 28%;
-          padding: 24px 28px;
-          background: linear-gradient(135deg, #a9875c 0%, #c23a72 100%);
-        }
-        @media (max-width: 500px) {
-          .tm-bar-you { flex: 0 0 38%; padding: 18px 16px; }
-        }
-        .tm-bar-team {
-          flex: 1;
-          padding: 24px 28px;
-          background: #f8f7f5;
-          text-align: right;
-        }
-        @media (max-width: 500px) {
-          .tm-bar-team { padding: 18px 16px; }
+          justify-content: space-between;
+          align-items: flex-end;
+          margin-bottom: 14px;
         }
         .tm-bar-label {
           font-size: 10px;
           text-transform: uppercase;
           letter-spacing: 0.18em;
-          color: rgba(255,255,255,0.85);
+          color: #aaa;
           margin: 0 0 4px;
           font-weight: 700;
         }
-        .tm-bar-label--right {
-          color: #aaa;
-        }
+        .tm-bar-label--right { color: #aaa; }
         .tm-bar-num {
           font-family: var(--font-display);
           font-size: clamp(1.8rem, 4vw, 2.8rem);
           font-style: italic;
-          color: #fff;
+          color: #a9875c;
           line-height: 1;
           margin: 0;
         }
-        .tm-bar-num--right {
-          color: #1a1a1a;
-        }
+        .tm-bar-num--right { color: #1a1a1a; }
         .tm-bar-unit {
           font-size: 0.7rem;
           font-style: normal;
           font-weight: 700;
           margin-left: 3px;
           vertical-align: super;
+        }
+        .tm-bar {
+          height: 14px;
+          border-radius: 999px;
+          background: rgba(169,135,92,0.12);
+          border: 1px solid rgba(169,135,92,0.2);
+          overflow: hidden;
+          box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .tm-bar-fill {
+          height: 100%;
+          border-radius: 999px;
+          background: linear-gradient(90deg, #a9875c, #c23a72);
+          transition: width 1.6s cubic-bezier(0.4,0,0.2,1) 0.7s;
+          box-shadow: 0 0 12px rgba(169,135,92,0.4);
         }
         .tm-bar-caption {
           text-align: center;
