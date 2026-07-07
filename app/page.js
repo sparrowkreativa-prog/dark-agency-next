@@ -21,6 +21,7 @@ import RezultatiScreenshots from '@/components/RezultatiScreenshots';
 import Kalkulator from '@/components/Kalkulator';
 import LiveDashboard from '@/components/LiveDashboard';
 import NotificationToast from '@/components/NotificationToast';
+import Paketi from '@/components/Paketi';
 import Bezbednost from '@/components/Bezbednost';
 import Tim from '@/components/Tim';
 import { siteData } from '@/data/content';
@@ -43,6 +44,8 @@ export default function Home() {
 
         {/* Problem / Zašto */}
         <ProblemSection problem={problem} />
+
+        <Paketi />
 
         <SplitHero />
 
