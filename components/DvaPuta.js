@@ -67,8 +67,8 @@ export default function DvaPuta() {
         <div className="dp-header" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity 0.7s ease, transform 0.7s ease' }}>
           <span className="chapter-label dp-chapter">Dva Puta</span>
           <h2 className="dp-title">
-            <em>Već afirmisana ili krećeš od nule —</em><br />
-            <em className="dp-title-gold">postoji put za tebe.</em>
+            <em>Već Afirmisana ili Krećeš od Nule —</em><br />
+            <em className="dp-title-gold">Postoji Put za Tebe.</em>
           </h2>
           <p className="dp-sub">Od koje god tačke kreneš, plan je napravljen oko tebe.</p>
         </div>
@@ -118,8 +118,8 @@ export default function DvaPuta() {
         /* Header */
         .dp-header { text-align: center; margin-bottom: 52px; }
         .dp-chapter {
-          color: #a9875c !important;
-          border-color: rgba(169,135,92,0.35) !important;
+          color: #911f39 !important;
+          border-color: rgba(145,31,57,0.35) !important;
         }
         .dp-title {
           font-family: var(--font-display);
@@ -131,7 +131,7 @@ export default function DvaPuta() {
         .dp-title-gold { color: #a9875c; }
         .dp-sub {
           font-size: 16px;
-          color: rgba(255,255,255,0.45);
+          color: rgba(255,255,255,0.8);
           margin: 0;
           line-height: 1.6;
         }
