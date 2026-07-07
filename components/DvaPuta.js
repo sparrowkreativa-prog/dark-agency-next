@@ -1,139 +1,164 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
-/* ── World Map Globe ─────────────────────────────────────────── */
-// Zoomed equirectangular view: lon -100→+50, lat 0→72
-// x = (lon + 100) / 150 * 960   y = (72 - lat) / 72 * 360
-// Cities:
-//   New York  40.7°N  74°W  → x≈166  y≈161
-//   Milano    45.5°N   9.2°E → x≈699  y≈134
-//   Belgrade  44.8°N  20.5°E → x≈771  y≈137
+/* ── World Map ───────────────────────────────────────────────── */
+// Equirectangular projection zoomed to Atlantic: lon -100→+50, lat 0→72
+const W = 960, H = 320;
+const toX = lon => (lon + 100) / 150 * W;
+const toY = lat => (72 - lat) / 72 * H;
+
+// Catmull-Rom → cubic bezier smooth path from [lon,lat] array
+function geoPath(coords, closed = true) {
+  const pts = coords.map(([lo, la]) => [toX(lo), toY(la)]);
+  if (pts.length < 2) return '';
+  let d = `M${pts[0][0].toFixed(1)},${pts[0][1].toFixed(1)}`;
+  for (let i = 0; i < pts.length - 1; i++) {
+    const p0 = pts[Math.max(0, i - 1)];
+    const p1 = pts[i];
+    const p2 = pts[i + 1];
+    const p3 = pts[Math.min(pts.length - 1, i + 2)];
+    const cp1x = p1[0] + (p2[0] - p0[0]) / 6;
+    const cp1y = p1[1] + (p2[1] - p0[1]) / 6;
+    const cp2x = p2[0] - (p3[0] - p1[0]) / 6;
+    const cp2y = p2[1] - (p3[1] - p1[1]) / 6;
+    d += ` C${cp1x.toFixed(1)},${cp1y.toFixed(1)} ${cp2x.toFixed(1)},${cp2y.toFixed(1)} ${p2[0].toFixed(1)},${p2[1].toFixed(1)}`;
+  }
+  return closed ? d + 'Z' : d;
+}
+
+// Simplified but geographically accurate coastline coordinates [lon, lat]
+const LANDS = [
+  // Eastern North America – Atlantic & Gulf coast polygon
+  [[-67.5,47],[-66,44.5],[-70,41.5],[-73.5,40.5],[-75.5,38],[-76,35],
+   [-77.5,34],[-79.5,33.5],[-81,30],[-81,25.5],[-80,25],[-81,24.5],
+   [-82,27],[-84,30],[-88,30],[-90,29.5],[-93,29],[-97,26],
+   [-100,30],[-100,37],[-95,37],[-91,42],[-87,42.5],[-83,42],
+   [-80,43],[-76,43.5],[-74,44],[-71,44],[-67.5,47]],
+  // Canada – eastern interior + Hudson Bay coast
+  [[-67.5,47],[-64,44],[-60,46],[-57,51],[-53,47],[-54,49],
+   [-57,52],[-61,55],[-65,60],[-63,64],[-70,66],[-79,63],
+   [-82,60],[-82,56],[-88,56],[-93,55],[-100,55],[-100,50],
+   [-94,49],[-84,46],[-80,43],[-76,43.5],[-74,44],[-71,44],[-67.5,47]],
+  // Greenland
+  [[-44,60],[-42,61],[-38,66],[-30,70],[-22,76],[-18,77],
+   [-20,73],[-24,68],[-32,62],[-40,59],[-46,58],[-44,60]],
+  // Iceland
+  [[-24,63.5],[-20,63],[-14,63.5],[-13,65.5],[-18,66],[-24,65],[-24,63.5]],
+  // Great Britain
+  [[-5.5,50],[-3,50],[-1,51],[0.5,51.5],[0.5,53],[-0.5,55],[-2,57],
+   [-5,58.5],[-6,57.5],[-5,54],[-3,52],[-5,51],[-5.5,50]],
+  // Ireland
+  [[-10,51.5],[-8,51.5],[-6,52],[-6,54.5],[-8,55],[-10,54],[-10,51.5]],
+  // Scandinavia (Norway+Sweden+Denmark+Finland simplified)
+  [[8,55],[10,55],[12,56],[12,58],[5,58],[5,62],[10,62],[14,69],[18,70],
+   [28,71],[30,70],[28,65],[25,62],[24,59],[22,58],[18,57.5],[12,56.5],[8,55]],
+  // Iberian Peninsula
+  [[-9,38.5],[-9.5,37],[-8,36],[-5,36],[-2,37],[0,39],[3,42],[1,43],
+   [-2,44],[-4,44],[-8,42],[-9,38.5]],
+  // France + Alps
+  [[-2,44],[0,44],[3,43],[7,44],[8,47.5],[7,48],[5,49],[4,51],[2,51],
+   [0,49],[-2,48],[-4,47],[-2,44]],
+  // Italy
+  [[7,44],[10,44],[12,44],[15,41],[18,40],[16,38],[15.5,37.5],[12.5,38],
+   [10,40],[9,44],[7,44]],
+  // Central & Eastern Europe (Germany, Austria, Balkans)
+  [[8,47.5],[10,47],[14,46],[16,47],[18,47],[20,48],[22,48],[26,44],
+   [22,42],[20,42],[18,43],[15,43],[12,44],[10,44],[8,47.5]],
+  // North Africa
+  [[-6,36],[-2,35],[2,33],[8,32],[12,31],[18,30],[24,30],[30,30],
+   [35,30],[38,31],[42,34],[42,37],[38,37],[32,35],[25,35],
+   [20,35],[14,36],[8,36],[3,37],[0,36],[-4,36],[-6,36]],
+  // NE South America (just corner visible)
+  [[-50,0],[-44,2],[-38,4],[-34,5],[-36,2],[-40,2],[-46,0],[-50,0]],
+];
 
 function WorldMap({ vis }) {
-  const NY  = { x: 166, y: 161, label: 'New York' };
-  const MI  = { x: 699, y: 134, label: 'Milano' };
-  const BG  = { x: 771, y: 137, label: 'Belgrade' };
+  // City screen positions
+  const NY = { x: toX(-74),   y: toY(40.7), label: 'New York' };
+  const MI = { x: toX(9.2),   y: toY(45.5), label: 'Milano' };
+  const BG = { x: toX(20.5),  y: toY(44.8), label: 'Belgrade' };
 
-  // arc control points (pulled upward to simulate great-circle curve)
-  const arcNY_MI  = `M${NY.x},${NY.y} Q432,30 ${MI.x},${MI.y}`;
-  const arcMI_BG  = `M${MI.x},${MI.y} Q735,90 ${BG.x},${BG.y}`;
-  const arcNY_BG  = `M${NY.x},${NY.y} Q468,0 ${BG.x},${BG.y}`;
+  // Arc lengths for dash animation (approx)
+  const arcNYMI = `M${NY.x},${NY.y} Q${(NY.x+MI.x)/2},${Math.min(NY.y,MI.y)-90} ${MI.x},${MI.y}`;
+  const arcMIBG = `M${MI.x},${MI.y} Q${(MI.x+BG.x)/2},${Math.min(MI.y,BG.y)-30} ${BG.x},${BG.y}`;
 
   return (
-    <div className="dp-map-wrap" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity 0.9s ease 0.4s, transform 0.9s ease 0.4s' }}>
-      <svg
-        viewBox="0 0 960 310"
-        xmlns="http://www.w3.org/2000/svg"
-        className="dp-map-svg"
-        aria-hidden="true"
-      >
+    <div className="dp-map-wrap"
+      style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity 0.9s ease 0.4s, transform 0.9s ease 0.4s' }}>
+      <svg viewBox={`0 0 ${W} ${H}`} className="dp-map-svg" aria-hidden="true">
         <defs>
-          <radialGradient id="mapGlow" cx="50%" cy="100%" r="60%">
-            <stop offset="0%" stopColor="#911f39" stopOpacity="0.12" />
+          <radialGradient id="dpGlow" cx="50%" cy="80%" r="55%">
+            <stop offset="0%" stopColor="#911f39" stopOpacity="0.14" />
             <stop offset="100%" stopColor="#000" stopOpacity="0" />
           </radialGradient>
-          <linearGradient id="arcGradNY" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#911f39" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#a9875c" stopOpacity="0.9" />
+          <linearGradient id="dpArcG" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#911f39" />
+            <stop offset="100%" stopColor="#a9875c" />
           </linearGradient>
-          <linearGradient id="arcGradMI" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#a9875c" stopOpacity="0.9" />
-            <stop offset="100%" stopColor="#911f39" stopOpacity="0.9" />
-          </linearGradient>
-          <filter id="cityGlow">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          <filter id="dpCityGlow" x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="4" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
           </filter>
-          <clipPath id="mapClip">
-            <rect x="0" y="0" width="960" height="310" rx="20" />
+          <clipPath id="dpClip">
+            <rect x="0" y="0" width={W} height={H} rx="20"/>
           </clipPath>
         </defs>
 
-        <g clipPath="url(#mapClip)">
-          {/* Background glow */}
-          <rect width="960" height="310" fill="url(#mapGlow)" />
+        <g clipPath="url(#dpClip)">
+          <rect width={W} height={H} fill="url(#dpGlow)" />
 
-          {/* Latitude grid lines */}
-          {[10,20,30,40,50,60,70].map(lat => {
-            const y = (72 - lat) / 72 * 310;
-            return <line key={lat} x1="0" y1={y} x2="960" y2={y} stroke="rgba(255,255,255,0.05)" strokeWidth="1" />;
-          })}
-          {/* Longitude grid lines */}
-          {[-80,-60,-40,-20,0,20,40].map(lon => {
-            const x = (lon + 100) / 150 * 960;
-            return <line key={lon} x1={x} y1="0" x2={x} y2="310" stroke="rgba(255,255,255,0.05)" strokeWidth="1" />;
-          })}
+          {/* Grid */}
+          {[10,20,30,40,50,60,70].map(la => (
+            <line key={la} x1="0" y1={toY(la)} x2={W} y2={toY(la)}
+              stroke="rgba(255,255,255,0.04)" strokeWidth="1"/>
+          ))}
+          {[-80,-60,-40,-20,0,20,40].map(lo => (
+            <line key={lo} x1={toX(lo)} y1="0" x2={toX(lo)} y2={H}
+              stroke="rgba(255,255,255,0.04)" strokeWidth="1"/>
+          ))}
 
-          {/* ── Continents ──────────────────────────────── */}
-          {/* Eastern North America */}
-          <path d="M148,52 L168,44 L192,50 L210,68 L220,92 L228,118 L230,145 L226,168 L218,188 L202,204 L180,218 L158,228 L138,224 L118,208 L102,186 L94,158 L92,128 L96,100 L110,74 L130,58 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.13)" strokeWidth="0.8" />
-          {/* Florida peninsula */}
-          <path d="M156,228 L170,230 L178,250 L170,270 L158,278 L148,268 L144,248 L148,232 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.13)" strokeWidth="0.8" />
-          {/* Canada east coast */}
-          <path d="M168,44 L195,30 L228,22 L260,20 L278,30 L280,50 L265,62 L240,68 L215,68 L192,60 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.13)" strokeWidth="0.8" />
-          {/* Greenland */}
-          <path d="M290,8 L355,2 L398,10 L408,30 L395,52 L365,65 L330,66 L298,54 L282,34 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.10)" strokeWidth="0.8" />
-          {/* Iceland */}
-          <path d="M438,52 L468,46 L492,56 L495,74 L475,84 L448,82 L430,68 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.13)" strokeWidth="0.8" />
-          {/* UK & Ireland */}
-          <path d="M572,74 L592,68 L612,74 L622,92 L616,112 L598,120 L578,112 L566,96 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.13)" strokeWidth="0.8" />
-          <path d="M554,82 L568,78 L574,94 L564,104 L550,98 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.13)" strokeWidth="0.8" />
-          {/* Scandinavia */}
-          <path d="M628,40 L660,32 L696,38 L718,58 L720,82 L708,102 L684,112 L658,106 L636,88 L624,64 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.13)" strokeWidth="0.8" />
-          {/* France + BeNeLux */}
-          <path d="M590,118 L628,112 L665,118 L688,136 L700,158 L685,168 L658,165 L632,156 L606,148 L588,132 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.13)" strokeWidth="0.8" />
-          {/* Iberian Peninsula */}
-          <path d="M552,162 L594,156 L626,162 L642,182 L638,210 L618,225 L592,228 L564,218 L548,198 L546,176 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.13)" strokeWidth="0.8" />
-          {/* Italy */}
-          <path d="M668,152 L700,146 L720,158 L728,180 L722,208 L710,228 L698,232 L688,216 L680,192 L672,168 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.13)" strokeWidth="0.8" />
-          {/* Central/Eastern Europe incl. Balkans */}
-          <path d="M700,108 L755,100 L808,108 L830,126 L838,148 L826,168 L800,178 L765,180 L732,174 L708,158 L696,136 Z" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.13)" strokeWidth="0.8" />
-          {/* North Africa */}
-          <path d="M524,240 L640,232 L760,230 L840,236 L868,254 L870,280 L855,302 L820,310 L700,310 L580,308 L520,298 L506,274 L508,252 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.10)" strokeWidth="0.8" />
-          {/* Morocco bump */}
-          <path d="M524,240 L508,252 L505,276 L516,295 L535,305 L555,300 L568,284 L565,264 L548,248 Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.10)" strokeWidth="0.8" />
+          {/* Continents */}
+          {LANDS.map((coords, i) => (
+            <path key={i} d={geoPath(coords)}
+              fill="rgba(255,255,255,0.07)"
+              stroke="rgba(255,255,255,0.18)"
+              strokeWidth="0.7"
+              strokeLinejoin="round"/>
+          ))}
 
-          {/* ── Connection arcs ──────────────────────────── */}
-          {/* NY → Belgrade (background arc, subtler) */}
-          <path d={arcNY_BG} fill="none" stroke="rgba(169,135,92,0.18)" strokeWidth="1" strokeDasharray="6 8" />
-          {/* NY → Milano */}
-          <path d={arcNY_MI} fill="none" stroke="url(#arcGradNY)" strokeWidth="1.8"
-            strokeDasharray="900" strokeDashoffset={vis ? 0 : 900}
-            style={{ transition: 'stroke-dashoffset 2s ease 0.8s' }} />
-          {/* Milano → Belgrade */}
-          <path d={arcMI_BG} fill="none" stroke="url(#arcGradMI)" strokeWidth="1.8"
+          {/* Background ghost arc NY→BG */}
+          <path d={`M${NY.x},${NY.y} Q${(NY.x+BG.x)/2},${Math.min(NY.y,BG.y)-110} ${BG.x},${BG.y}`}
+            fill="none" stroke="rgba(169,135,92,0.12)" strokeWidth="1" strokeDasharray="5 8"/>
+
+          {/* Animated arc NY → Milano */}
+          <path d={arcNYMI} fill="none"
+            stroke="url(#dpArcG)" strokeWidth="2" strokeLinecap="round"
+            strokeDasharray="1000" strokeDashoffset={vis ? 0 : 1000}
+            style={{ transition: 'stroke-dashoffset 2.2s cubic-bezier(0.4,0,0.2,1) 0.9s' }}/>
+
+          {/* Animated arc Milano → Belgrade */}
+          <path d={arcMIBG} fill="none"
+            stroke="#a9875c" strokeWidth="2" strokeLinecap="round"
             strokeDasharray="120" strokeDashoffset={vis ? 0 : 120}
-            style={{ transition: 'stroke-dashoffset 1s ease 2.6s' }} />
+            style={{ transition: 'stroke-dashoffset 0.8s cubic-bezier(0.4,0,0.2,1) 2.9s' }}/>
 
-          {/* ── City dots ─────────────────────────────────── */}
-          {[NY, MI, BG].map((city, i) => (
-            <g key={city.label} filter="url(#cityGlow)">
-              {/* Pulse ring */}
-              <circle cx={city.x} cy={city.y} r="12" fill="none"
-                stroke={i === 0 ? 'rgba(145,31,57,0.35)' : 'rgba(169,135,92,0.35)'}
-                strokeWidth="1"
-                style={{
-                  animation: vis ? `dpPulse 2.4s ease-out ${i * 0.4}s infinite` : 'none',
-                  transformOrigin: `${city.x}px ${city.y}px`
-                }} />
-              {/* Outer ring */}
+          {/* City dots */}
+          {[
+            { ...NY, color: '#911f39', pulse: 'rgba(145,31,57,0.4)' },
+            { ...MI, color: '#a9875c', pulse: 'rgba(169,135,92,0.4)' },
+            { ...BG, color: '#a9875c', pulse: 'rgba(169,135,92,0.4)' },
+          ].map((city, i) => (
+            <g key={city.label} filter="url(#dpCityGlow)">
+              <circle cx={city.x} cy={city.y} r="14" fill="none"
+                stroke={city.pulse} strokeWidth="1"
+                style={{ animation: vis ? `dpPulse 2.5s ease-out ${i*0.5}s infinite` : 'none',
+                         transformOrigin: `${city.x}px ${city.y}px` }}/>
               <circle cx={city.x} cy={city.y} r="6"
-                fill="none"
-                stroke={i === 0 ? 'rgba(145,31,57,0.7)' : 'rgba(169,135,92,0.7)'}
-                strokeWidth="1.5" />
-              {/* Inner dot */}
-              <circle cx={city.x} cy={city.y} r="3"
-                fill={i === 0 ? '#911f39' : '#a9875c'} />
-              {/* Label */}
-              <text x={city.x} y={city.y + 22}
-                textAnchor="middle"
-                fontSize="10"
-                fontWeight="600"
-                letterSpacing="0.08em"
-                fill="rgba(255,255,255,0.7)"
-                style={{ textTransform: 'uppercase', fontFamily: 'inherit' }}>
-                {city.label}
-              </text>
+                fill="none" stroke={city.color} strokeWidth="1.5" strokeOpacity="0.7"/>
+              <circle cx={city.x} cy={city.y} r="3" fill={city.color}/>
+              <text x={city.x} y={city.y + 20} textAnchor="middle"
+                fontSize="9.5" fontWeight="700" letterSpacing="0.10em"
+                fill="rgba(255,255,255,0.75)">{city.label.toUpperCase()}</text>
             </g>
           ))}
         </g>
@@ -141,8 +166,8 @@ function WorldMap({ vis }) {
 
       <style>{`
         @keyframes dpPulse {
-          0%   { transform: scale(1);   opacity: 0.8; }
-          100% { transform: scale(2.4); opacity: 0; }
+          0%   { transform: scale(1); opacity: 0.9; }
+          100% { transform: scale(2.8); opacity: 0; }
         }
         .dp-map-wrap {
           margin-top: 56px;
