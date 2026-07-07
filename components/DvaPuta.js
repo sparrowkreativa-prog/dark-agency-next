@@ -12,8 +12,8 @@ import { useEffect, useRef, useState } from 'react';
 
 function WorldMap({ vis }) {
   const NY = { x: 1050, y: 829, label: 'New York' };
-  const MI = { x: 1902, y: 706, label: 'Milano'   };
-  const BG = { x: 2060, y: 732, label: 'Belgrade' };
+  const MI = { x: 1902, y: 754, label: 'Milano'   };
+  const BG = { x: 2039, y: 769, label: 'Belgrade' };
 
   return (
     <div className="dp-map-wrap"
@@ -56,18 +56,18 @@ function WorldMap({ vis }) {
           <ellipse cx={MI.x} cy={MI.y} rx="260" ry="200" fill="url(#dpEUGlow)"/>
 
           {/* Ghost arc NY → Belgrade */}
-          <path d={`M${NY.x},${NY.y} Q1555,560 ${BG.x},${BG.y}`}
+          <path d={`M${NY.x},${NY.y} Q1545,580 ${BG.x},${BG.y}`}
             fill="none" stroke="rgba(169,135,92,0.1)" strokeWidth="4"
             strokeDasharray="10 14"/>
 
           {/* Animated arc NY → Milano */}
-          <path d={`M${NY.x},${NY.y} Q1476,467 ${MI.x},${MI.y}`}
+          <path d={`M${NY.x},${NY.y} Q1476,491 ${MI.x},${MI.y}`}
             fill="none" stroke="url(#dpArcG)" strokeWidth="6" strokeLinecap="round"
             strokeDasharray="1500" strokeDashoffset={vis ? 0 : 1500}
             style={{transition:'stroke-dashoffset 2.2s cubic-bezier(0.4,0,0.2,1) 0.8s'}}/>
 
           {/* Animated arc Milano → Belgrade */}
-          <path d={`M${MI.x},${MI.y} Q1981,669 ${BG.x},${BG.y}`}
+          <path d={`M${MI.x},${MI.y} Q1970,711 ${BG.x},${BG.y}`}
             fill="none" stroke="#a9875c" strokeWidth="6" strokeLinecap="round"
             strokeDasharray="210" strokeDashoffset={vis ? 0 : 210}
             style={{transition:'stroke-dashoffset 0.7s cubic-bezier(0.4,0,0.2,1) 2.8s'}}/>
