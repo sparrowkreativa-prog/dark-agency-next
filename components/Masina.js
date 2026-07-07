@@ -224,7 +224,7 @@ export default function Masina() {
         @media (max-width: 860px) { .m-grid-top, .m-grid-bot { grid-template-columns: 1fr; } }
 
         /* Panel */
-        .m-panel { background: rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.12); border-radius: 16px; padding: 18px; backdrop-filter: blur(8px); }
+        .m-panel { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); border-radius: 20px; padding: 18px; backdrop-filter: blur(28px) saturate(1.6); -webkit-backdrop-filter: blur(28px) saturate(1.6); box-shadow: 0 8px 32px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.18); }
         .m-panel-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
         .m-dots { display: flex; gap: 4px; }
         .m-dots span { width: 10px; height: 10px; border-radius: 50%; display: block; }
@@ -235,19 +235,19 @@ export default function Masina() {
 
         /* Metrics chips */
         .m-metrics3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 12px; }
-        .m-metric-chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 8px 10px; }
+        .m-metric-chip { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 8px 10px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.15); }
         .m-chip-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.45); }
         .m-chip-val { font-size: 0.9rem; font-weight: 700; color: #fff; margin-top: 2px; }
 
         /* Revenue row */
-        .m-rev-row { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 10px 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+        .m-rev-row { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 12px; padding: 10px 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.15); }
         .m-rev-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.45); }
         .m-rev-val { font-size: 1rem; font-weight: 700; color: #fff; }
         .m-sparkline { height: 26px; flex: 1; max-width: 120px; color: rgba(169,135,92,0.7); }
 
         /* Creator list */
         .m-creator-list { display: flex; flex-direction: column; gap: 7px; }
-        .m-creator-row { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 7px 12px; }
+        .m-creator-row { display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.16); border-radius: 12px; padding: 7px 12px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.12); }
         .m-avatar { width: 26px; height: 26px; border-radius: 50%; background: linear-gradient(135deg,#f7a8c9,#a9875c); display: flex; align-items: center; justify-content: center; font-size: 0.6rem; font-weight: 800; color: #fff; flex-shrink: 0; }
         .m-creator-spark { height: 26px; flex: 1; color: rgba(255,255,255,0.6); }
         .m-pct { font-size: 0.72rem; font-weight: 700; color: #4ade80; margin-left: auto; white-space: nowrap; }
@@ -284,8 +284,8 @@ export default function Masina() {
         /* Feature cards */
         .m-feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
         @media (max-width: 560px) { .m-feature-grid { grid-template-columns: 1fr; } }
-        .m-feature-card { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 22px; transition: border-color .2s; }
-        .m-feature-card:hover { border-color: rgba(255,255,255,0.3); }
+        .m-feature-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); border-radius: 18px; padding: 22px; backdrop-filter: blur(28px) saturate(1.6); -webkit-backdrop-filter: blur(28px) saturate(1.6); box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.18); transition: border-color .2s, box-shadow .2s; }
+        .m-feature-card:hover { border-color: rgba(255,255,255,0.32); box-shadow: 0 12px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.22); }
         .m-feature-icon { font-size: 1.5rem; margin-bottom: 12px; }
         .m-feature-title { font-size: 1rem; font-weight: 700; font-style: italic; color: #fff; margin-bottom: 7px; }
         .m-feature-desc { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0; }
