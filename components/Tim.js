@@ -80,7 +80,7 @@ export default function Tim() {
         <div className="tm-bottom"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(16px)', transition: 'opacity 0.8s ease 0.7s, transform 0.8s ease 0.7s' }}>
           <h3 className="tm-bottom-title">
-            Deo koji je <span style={{ fontStyle: 'italic', color: '#a9875c' }}>zaista ti</span>
+            <em>Deo Koji Je </em><span style={{ fontStyle: 'italic', color: '#a9875c' }}>Zaista Ti.</span>
           </h3>
           <p className="tm-bottom-body">
             Evo šta većina agencija neće reći naglas: novac dolazi od konekcije, a ne samo od sadržaja. Tvoj tim se bavi objavljivanjem, porukama, zaštitom — svime. Ono što ti donosiš je jedino što ne može da se prepusti nekome drugom: prava, topla ličnost kojoj se ljudi rado vraćaju. Ako ti je prirodno da neke ko se oseća viđenim, dobro ćeš proći ovde.
