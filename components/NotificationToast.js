@@ -13,13 +13,26 @@ const CITIES = [
   'Požarevca','Smedereva','Kikinde','Užica','Zaječara','Pirota',
 ];
 
-const TIMES = ['upravo','pre 2 min','pre 5 min','pre 8 min','pre 12 min','pre 20 min'];
+const ACTIONS = [
+  'gleda „Šta je uključeno"',
+  'gleda „Primamo Nove Kreatorke"',
+  'čita o bezbednosti i privatnosti',
+  'gleda rezultate kreatorki',
+  'istražuje kalkulator zarade',
+  'gleda live dashboard',
+  'čita priče kreatorki',
+  'gleda kako sistem funkcioniše',
+  'istražuje garancije',
+  'čita odgovore na pitanja',
+];
+
+const TIMES = ['upravo','pre 1 min','pre 3 min','pre 6 min','pre 10 min','pre 18 min'];
 
 function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 function initials(name) { return name[0].toUpperCase(); }
 
 function generateEntry() {
-  return { name: pick(NAMES), city: pick(CITIES), time: pick(TIMES), color: pick(['#911f39','#a9875c','#6b7c93','#3d6b4f']) };
+  return { name: pick(NAMES), city: pick(CITIES), action: pick(ACTIONS), time: pick(TIMES), color: pick(['#911f39','#a9875c','#6b7c93','#3d6b4f']) };
 }
 
 export default function NotificationToast() {
@@ -47,7 +60,7 @@ export default function NotificationToast() {
         {initials(entry.name)}
       </div>
       <div className="nt-content">
-        <p className="nt-text"><strong>{entry.name}</strong> iz {entry.city} je primljena</p>
+        <p className="nt-text"><strong>{entry.name}</strong> iz {entry.city} {entry.action}</p>
         <p className="nt-time">{entry.time}</p>
       </div>
       <div className="nt-check">
