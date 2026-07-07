@@ -40,11 +40,31 @@ const METRICS = [
   { val: '2%', label: 'Stopa prihvatanja' },
 ];
 
+function timeAgo(ts) {
+  const mins = Math.floor((Date.now() - ts) / 60000);
+  if (mins < 1) return 'Upravo';
+  if (mins === 1) return 'Pre 1 min';
+  if (mins < 60) return `Pre ${mins} min`;
+  const h = Math.floor(mins / 60);
+  return h === 1 ? 'Pre 1h' : `Pre ${h}h`;
+}
+
+function makeInitialFeed() {
+  const now = Date.now();
+  // stagger initial items: 6, 19, 37, 58, 82 minutes ago
+  const offsets = [6, 19, 37, 58, 82];
+  return ACTIVITY_ITEMS.slice(0, 5).map((text, i) => ({
+    text,
+    ts: now - offsets[i] * 60000,
+  }));
+}
+
 export default function LiveDashboard() {
   const ref = useRef(null);
   const [vis, setVis] = useState(false);
-  const [feed, setFeed] = useState(ACTIVITY_ITEMS.slice(0, 5));
+  const [feed, setFeed] = useState(makeInitialFeed);
   const [feedIdx, setFeedIdx] = useState(5);
+  const [, setTick] = useState(0);
 
   useEffect(() => {
     const el = ref.current;
@@ -56,15 +76,26 @@ export default function LiveDashboard() {
     return () => io.disconnect();
   }, []);
 
-  // cycle activity feed every 3s
+  // new item every 25–40s
   useEffect(() => {
-    const t = setInterval(() => {
-      setFeedIdx(i => {
-        const next = i % ACTIVITY_ITEMS.length;
-        setFeed(prev => [ACTIVITY_ITEMS[next], ...prev.slice(0, 4)]);
-        return next + 1;
-      });
-    }, 3000);
+    let timer;
+    const schedule = () => {
+      timer = setTimeout(() => {
+        setFeedIdx(i => {
+          const next = i % ACTIVITY_ITEMS.length;
+          setFeed(prev => [{ text: ACTIVITY_ITEMS[next], ts: Date.now() }, ...prev.slice(0, 4)]);
+          return next + 1;
+        });
+        schedule();
+      }, 25000 + Math.random() * 15000);
+    };
+    schedule();
+    return () => clearTimeout(timer);
+  }, []);
+
+  // refresh time labels every 60s
+  useEffect(() => {
+    const t = setInterval(() => setTick(n => n + 1), 60000);
     return () => clearInterval(t);
   }, []);
 
@@ -129,11 +160,11 @@ export default function LiveDashboard() {
               <span className="ld-badge">Danas</span>
             </div>
             <div className="ld-feed">
-              {feed.map((text, i) => (
-                <div key={`${text}-${i}`} className={`ld-feed-item${i === 0 ? ' ld-feed-item--new' : ''}`}>
+              {feed.map((item, i) => (
+                <div key={`${item.text}-${item.ts}`} className={`ld-feed-item${i === 0 && Date.now() - item.ts < 5000 ? ' ld-feed-item--new' : ''}`}>
                   <span className="ld-feed-dot" />
-                  <span className="ld-feed-text">{text}</span>
-                  <span className="ld-feed-time">{i === 0 ? 'Upravo' : `${i * 2}m ago`}</span>
+                  <span className="ld-feed-text">{item.text}</span>
+                  <span className="ld-feed-time">{timeAgo(item.ts)}</span>
                 </div>
               ))}
             </div>
