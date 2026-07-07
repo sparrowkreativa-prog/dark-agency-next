@@ -226,6 +226,7 @@ export default function Hero() {
           margin-bottom: 24px;
         }
         .hero-glass {
+          width: 100%;
           margin-bottom: 20px;
           padding: 32px 48px 28px;
         }
