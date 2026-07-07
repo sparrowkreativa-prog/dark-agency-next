@@ -129,9 +129,6 @@ export default function Hero() {
       <div className="hero-orb hero-orb-2" aria-hidden="true" />
 
       <div className="hero-inner">
-        {/* Slogan — above locations */}
-        <p className="hero-slogan">DO IT FOR YOUR FAMILY!</p>
-
         {/* Locations — outside glass */}
         <p className="hero-locations">NEW YORK &nbsp;—&nbsp; MILANO &nbsp;—&nbsp; BEOGRAD</p>
 
@@ -158,6 +155,9 @@ export default function Hero() {
             </p>
           </div>
         </div>
+
+        {/* Slogan — between boxes */}
+        <p className="hero-slogan">DO IT FOR YOUR FAMILY!</p>
 
         {/* Stats — separate box */}
         <div className="hero-stats-box" ref={statsBoxRef}>
@@ -206,7 +206,8 @@ export default function Hero() {
           letter-spacing: 0.42em;
           text-transform: uppercase;
           color: rgba(255,255,255,0.42);
-          margin: 0 0 18px;
+          margin: 16px 0;
+          width: 100%;
           display: flex;
           align-items: center;
           gap: 14px;
@@ -216,8 +217,7 @@ export default function Hero() {
           content: '';
           flex: 1;
           height: 1px;
-          max-width: 60px;
-          background: rgba(255,255,255,0.2);
+          background: rgba(255,255,255,0.15);
         }
         .hero-locations {
           margin-bottom: 20px;
@@ -267,7 +267,6 @@ export default function Hero() {
         /* Stats box */
         .hero-stats-box {
           width: 100%;
-          max-width: 520px;
           background: rgba(250,250,248,0.55);
           backdrop-filter: blur(20px) saturate(1.8);
           -webkit-backdrop-filter: blur(20px) saturate(1.8);
