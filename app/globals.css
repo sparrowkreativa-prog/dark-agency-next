@@ -132,7 +132,7 @@ em { font-style: italic; color: var(--color-accent-pink); }
 
 /* ── Hero ── */
 .hero-section { position: relative; min-height: 90vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 120px 24px 64px; text-align: center; background: var(--color-dark-1); }
-.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; z-index: 0; }
 .has-video .hero-bg { z-index: 1; }
 .has-video .hero-orb { z-index: 1; opacity: 0.4; }
 .has-video .hero-inner { z-index: 2; }
