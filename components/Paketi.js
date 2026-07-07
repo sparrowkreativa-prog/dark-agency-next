@@ -106,18 +106,16 @@ export default function Paketi() {
                 </ul>
               </div>
 
-              <a href="#apply" className={`pk-cta${plan.featured ? ' pk-cta--featured' : ''}`}>
-                Prijavi se <span>→</span>
-              </a>
             </div>
           ))}
         </div>
 
-        {/* Bottom CTA strip */}
+        {/* Bottom CTA */}
         <div className="pk-bottom"
           style={{ opacity: vis ? 1 : 0, transition: 'opacity 0.7s ease 0.5s' }}>
-          <p className="pk-bottom-text">Nisi sigurna koji paket odgovara?</p>
-          <a href="#apply" className="pk-bottom-cta">Prijavi se i zajedno ćemo odlučiti <span>→</span></a>
+          <a href="#apply" className="pk-bottom-cta">
+            Prijavi se i zajedno ćemo odlučiti <span>→</span>
+          </a>
         </div>
       </div>
 
@@ -132,7 +130,7 @@ export default function Paketi() {
         .pk-sub { font-size: 15px; color: #888; margin: 0; }
 
         /* Grid */
-        .pk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; margin-bottom: 40px; }
+        .pk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; margin-bottom: 40px; }
         @media (max-width: 860px) { .pk-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; } }
 
         /* Card */
@@ -144,16 +142,15 @@ export default function Paketi() {
           border: 1px solid rgba(255,255,255,0.88);
           box-shadow: 0 4px 24px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.95);
           border-radius: 20px;
-          padding: 28px 24px;
+          padding: 32px 24px;
           display: flex; flex-direction: column; gap: 16px;
+          text-align: center;
         }
         .pk-card--featured {
           background: rgba(255,255,255,0.88);
           border: 1.5px solid rgba(145,31,57,0.25);
           box-shadow: 0 12px 48px rgba(145,31,57,0.12), 0 4px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,1);
-          transform: translateY(-6px);
         }
-        @media (max-width: 860px) { .pk-card--featured { transform: none; } }
 
         /* Badge */
         .pk-badge {
@@ -176,6 +173,7 @@ export default function Paketi() {
           display: flex; align-items: center; gap: 8px;
           font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em;
           color: #bbb; font-weight: 600; white-space: nowrap;
+          justify-content: center;
         }
         .pk-section-label--gold { color: #a9875c; }
         .pk-divider-line { display: block; width: 16px; height: 1px; background: #ddd; flex-shrink: 0; }
@@ -183,36 +181,27 @@ export default function Paketi() {
         .pk-divider-line--flex { flex: 1; width: auto; }
 
         /* You list */
-        .pk-you-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
-        .pk-you-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #666; line-height: 1.5; }
+        .pk-you-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; align-items: center; }
+        .pk-you-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #666; line-height: 1.5; text-align: left; }
         .pk-you-dot { width: 6px; height: 6px; border-radius: 50%; background: #ccc; flex-shrink: 0; margin-top: 5px; }
 
         /* We list */
-        .pk-we-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-        .pk-we-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #444; line-height: 1.5; }
+        .pk-we-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; align-items: center; }
+        .pk-we-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #444; line-height: 1.5; text-align: left; }
         .pk-check { color: #a9875c; flex-shrink: 0; margin-top: 1px; }
         .pk-card--featured .pk-check { color: #911f39; }
 
-        /* CTA */
-        .pk-cta {
-          display: flex; align-items: center; justify-content: center; gap: 6px;
-          margin-top: auto; padding: 12px 20px; border-radius: 999px;
-          font-size: 14px; font-weight: 700; text-decoration: none;
-          border: 1.5px solid rgba(169,135,92,0.4); color: #a9875c;
-          background: transparent; transition: background 0.2s, color 0.2s, border-color 0.2s;
-        }
-        .pk-cta:hover { background: rgba(169,135,92,0.08); }
-        .pk-cta--featured {
-          background: #911f39; color: #fff; border-color: #911f39;
-          box-shadow: 0 4px 20px rgba(145,31,57,0.3);
-        }
-        .pk-cta--featured:hover { filter: brightness(1.1); background: #911f39; }
-
         /* Bottom */
-        .pk-bottom { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 32px; background: rgba(255,255,255,0.6); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.8); border-radius: 20px; box-shadow: 0 4px 24px rgba(0,0,0,0.05); }
-        .pk-bottom-text { font-size: 14px; color: #888; margin: 0; }
-        .pk-bottom-cta { font-size: 15px; font-weight: 700; color: #911f39; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: gap 0.2s; }
-        .pk-bottom-cta:hover { gap: 10px; }
+        .pk-bottom { text-align: center; display: flex; justify-content: center; margin-top: 8px; }
+        .pk-bottom-cta {
+          display: inline-flex; align-items: center; gap: 8px;
+          background: #911f39; color: #fff;
+          padding: 14px 32px; border-radius: 999px;
+          font-size: 15px; font-weight: 700; text-decoration: none;
+          box-shadow: 0 4px 24px rgba(145,31,57,0.3);
+          transition: filter 0.2s, transform 0.2s;
+        }
+        .pk-bottom-cta:hover { filter: brightness(1.1); transform: translateY(-1px); }
       `}</style>
     </section>
   );
