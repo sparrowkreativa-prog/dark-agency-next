@@ -2,9 +2,18 @@
 import { useEffect, useState } from 'react';
 
 const NAMES = [
+  // Srbija
   'Ana','Milica','Jovana','Marija','Tamara','Jelena','Nina','Sara',
   'Teodora','Katarina','Aleksandra','Dragana','Maja','Ivana','Sofija',
   'Lena','Mia','Una','Tijana','Bojana','Nevena','Nikolina','Dunja',
+  // Hrvatska
+  'Petra','Lucija','Iva','Antonija','Valentina','Kristina','Andreja',
+  'Martina','Domagoja','Monika','Vedrana','Mirela','Karla','Tea',
+  // Bosna i Hercegovina
+  'Amra','Lejla','Emina','Belma','Selma','Azra','Amina','Dina',
+  'Lamija','Merima','Jasmina','Edina','Samira','Alma',
+  // Crna Gora
+  'Milena','Gordana','Vesna','Snežana','Nataša','Đurđica','Vanja','Anđela',
 ];
 
 const CITIES = [
