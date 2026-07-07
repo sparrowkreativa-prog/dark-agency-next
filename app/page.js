@@ -159,15 +159,27 @@ export default function Home() {
               <div className="testimonials-grid">
                 {testimonials.items.map((t) => (
                   <div key={t.name} className="testimonial-card">
-                    <div className="testimonial-amount">{t.amount}</div>
-                    <p className="testimonial-quote">&ldquo;{t.quote}&rdquo;</p>
-                    <div className="testimonial-meta">
-                      <div className="testimonial-initials">{t.name.split('.')[0]}</div>
+                    {/* Header: initials + name + rank */}
+                    <div className="tc-header">
+                      <div className="tc-avatar">{t.name.split('.')[0]}</div>
                       <div>
-                        <div className="testimonial-name">{t.name}</div>
-                        <div className="testimonial-rank">{t.rank}</div>
+                        <p className="tc-name">{t.name}</p>
+                        <p className="tc-rank">{t.rank}</p>
                       </div>
                     </div>
+                    {/* Amount */}
+                    <p className="tc-amount">{t.amount}</p>
+                    <p className="tc-verified">Verifikovano na live dashboardu · <span style={{whiteSpace:'nowrap'}}>krenula od nule</span></p>
+                    {/* Then */}
+                    <div className="tc-then-wrap">
+                      <p className="tc-then-text"><span className="tc-label">Tada&nbsp;&nbsp;</span>{t.then}</p>
+                    </div>
+                    {/* Now */}
+                    <div className="tc-now-wrap">
+                      <p className="tc-now-text"><span className="tc-label tc-label--now">Sada&nbsp;&nbsp;</span>{t.now}</p>
+                    </div>
+                    {/* Quote */}
+                    <blockquote className="tc-blockquote">&ldquo;{t.quote}&rdquo;</blockquote>
                   </div>
                 ))}
               </div>
