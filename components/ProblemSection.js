@@ -143,18 +143,23 @@ export default function ProblemSection({ problem }) {
       <style>{`
         .ps-section {
           padding: 80px 0 96px;
-          background: #fafaf8;
+          background: #000;
         }
+        .ps-section .section-title { color: #fff; }
+        .ps-section .section-sub { color: rgba(255,255,255,0.5); }
+        .ps-section .chapter-label { color: #a9875c; border-color: rgba(169,135,92,0.35); }
         .ps-stats-row {
           display: grid;
           grid-template-columns: repeat(5, 1fr);
           gap: 0;
           margin-top: 56px;
-          border: 1px solid rgba(169,135,92,0.15);
+          border: 1px solid rgba(255,255,255,0.12);
           border-radius: 20px;
           overflow: hidden;
-          background: #fff;
-          box-shadow: 0 8px 40px rgba(0,0,0,0.07);
+          background: rgba(255,255,255,0.06);
+          backdrop-filter: blur(28px) saturate(1.6);
+          -webkit-backdrop-filter: blur(28px) saturate(1.6);
+          box-shadow: 0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
         }
         @media (max-width: 900px) {
           .ps-stats-row {
@@ -172,14 +177,14 @@ export default function ProblemSection({ problem }) {
           .ps-stat-col:last-child {
             grid-column: 1 / -1;
             border-right: none;
-            border-top: 1px solid rgba(169,135,92,0.12);
+            border-top: 1px solid rgba(255,255,255,0.08);
           }
         }
 
         .ps-stat-col {
           padding: 36px 28px;
           text-align: center;
-          border-right: 1px solid rgba(169,135,92,0.12);
+          border-right: 1px solid rgba(255,255,255,0.08);
           position: relative;
         }
         .ps-stat-col:last-child {
@@ -187,7 +192,7 @@ export default function ProblemSection({ problem }) {
         }
         @media (max-width: 900px) {
           .ps-stat-col {
-            border-bottom: 1px solid rgba(169,135,92,0.12);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
           }
         }
 
@@ -205,7 +210,7 @@ export default function ProblemSection({ problem }) {
           font-size: 9px;
           text-transform: uppercase;
           letter-spacing: 0.16em;
-          color: var(--color-text-muted);
+          color: rgba(255,255,255,0.4);
           line-height: 1.4;
         }
       `}</style>
