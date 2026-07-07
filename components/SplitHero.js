@@ -96,7 +96,7 @@ export default function SplitHero() {
         {/* Left column */}
         <div className="sh-left">
           <h2 className="sh-headline">
-            <em>Rasti na OnlyFans-u</em>{' '}
+            <em style={{ color: '#1a1a1a' }}>Rasti na OnlyFans-u</em>{' '}
             <em className="sh-headline-em">Uz Sistem Koji Već Radi.</em>
           </h2>
 
