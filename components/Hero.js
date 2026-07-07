@@ -129,6 +129,9 @@ export default function Hero() {
       <div className="hero-orb hero-orb-2" aria-hidden="true" />
 
       <div className="hero-inner">
+        {/* Slogan — above locations */}
+        <p className="hero-slogan">DO IT FOR YOUR FAMILY!</p>
+
         {/* Locations — outside glass */}
         <p className="hero-locations">NEW YORK &nbsp;—&nbsp; MILANO &nbsp;—&nbsp; BEOGRAD</p>
 
@@ -196,6 +199,25 @@ export default function Hero() {
           flex-direction: column;
           align-items: center;
           gap: 0;
+        }
+        .hero-slogan {
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.42em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.42);
+          margin: 0 0 18px;
+          display: flex;
+          align-items: center;
+          gap: 14px;
+        }
+        .hero-slogan::before,
+        .hero-slogan::after {
+          content: '';
+          flex: 1;
+          height: 1px;
+          max-width: 60px;
+          background: rgba(255,255,255,0.2);
         }
         .hero-locations {
           margin-bottom: 20px;

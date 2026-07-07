@@ -260,6 +260,16 @@ export default function Home() {
                 </a>
               </div>
               <p className="final-disclaimer">{finalCta.disclaimer}</p>
+              <p className="final-slogan" style={{
+                fontFamily: 'var(--font-display)',
+                fontStyle: 'italic',
+                fontSize: 'clamp(1.8rem, 5vw, 4.2rem)',
+                color: '#a9875c',
+                letterSpacing: '0.05em',
+                margin: '48px 0 0',
+                textAlign: 'center',
+                opacity: 0.9,
+              }}>DO IT FOR YOUR FAMILY!</p>
             </div>
           </section>
         </SectionFade>
