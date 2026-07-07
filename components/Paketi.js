@@ -144,7 +144,7 @@ export default function Paketi() {
           border-radius: 20px;
           padding: 32px 24px;
           display: flex; flex-direction: column; gap: 16px;
-          text-align: center;
+          text-align: left;
         }
         .pk-card--featured {
           background: rgba(255,255,255,0.88);
@@ -163,7 +163,7 @@ export default function Paketi() {
         }
 
         /* Plan header */
-        .pk-plan-title { font-family: var(--font-display); font-size: 20px; font-style: italic; color: #1a1a1a; margin: 0; line-height: 1.2; }
+        .pk-plan-title { font-family: var(--font-display); font-size: 20px; font-style: italic; color: #1a1a1a; margin: 0; line-height: 1.2; text-align: center; }
         .pk-card--featured .pk-plan-title { color: #911f39; }
         .pk-plan-sub { font-size: 13px; color: #777; line-height: 1.6; margin: 0; }
 
@@ -173,7 +173,6 @@ export default function Paketi() {
           display: flex; align-items: center; gap: 8px;
           font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em;
           color: #bbb; font-weight: 600; white-space: nowrap;
-          justify-content: center;
         }
         .pk-section-label--gold { color: #a9875c; }
         .pk-divider-line { display: block; width: 16px; height: 1px; background: #ddd; flex-shrink: 0; }
@@ -181,13 +180,13 @@ export default function Paketi() {
         .pk-divider-line--flex { flex: 1; width: auto; }
 
         /* You list */
-        .pk-you-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; align-items: center; }
-        .pk-you-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #666; line-height: 1.5; text-align: left; }
+        .pk-you-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+        .pk-you-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #666; line-height: 1.5; }
         .pk-you-dot { width: 6px; height: 6px; border-radius: 50%; background: #ccc; flex-shrink: 0; margin-top: 5px; }
 
         /* We list */
-        .pk-we-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; align-items: center; }
-        .pk-we-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #444; line-height: 1.5; text-align: left; }
+        .pk-we-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+        .pk-we-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #444; line-height: 1.5; }
         .pk-check { color: #a9875c; flex-shrink: 0; margin-top: 1px; }
         .pk-card--featured .pk-check { color: #911f39; }
 
