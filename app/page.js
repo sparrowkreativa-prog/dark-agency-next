@@ -74,17 +74,17 @@ export default function Home() {
                     <div
                       className="included-card-placeholder"
                       style={card.num === '01' ? {
-                        backgroundImage: 'url(https://cdn.builder.io/api/v1/image/assets%2F0edeb660c80b4a5dab3575372c668fe0%2Fa53b3630f0dc4451bd07c24fd84314cf)',
+                        backgroundImage: 'url(/NOVA_01.jpg)',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center',
                         backgroundSize: 'cover',
                       } : card.num === '02' ? {
-                        backgroundImage: 'url(https://cdn.builder.io/api/v1/image/assets%2F0edeb660c80b4a5dab3575372c668fe0%2F9667429a1f2c47ae90a4261a11de827c)',
+                        backgroundImage: 'url(/NOVA_02.jpg)',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center',
                         backgroundSize: 'cover',
                       } : card.num === '03' ? {
-                        backgroundImage: 'url(https://cdn.builder.io/api/v1/image/assets%2F0edeb660c80b4a5dab3575372c668fe0%2F3eb3210231cb42bd86b1b78a62a078a4)',
+                        backgroundImage: 'url(/NOVA_03.jpg)',
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'center',
                         backgroundSize: 'cover',
