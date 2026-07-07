@@ -114,9 +114,12 @@ export default function SplitHero() {
           </div>
 
           <div className="sh-trust">
-            <span>◆ €0 unapred</span>
-            <span>◆ Zadržavaš većinu</span>
-            <span>◆ Otkaži kad želiš</span>
+            {['€0 unapred', 'Zadržavaš većinu', 'Otkaži kad želiš'].map(t => (
+              <div key={t} className="sh-trust-item">
+                <span className="sh-trust-diamond">◆</span>
+                <span className="sh-trust-text">{t}</span>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -203,9 +206,17 @@ export default function SplitHero() {
         .sh-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 24px; }
         .sh-ghost-btn { display: inline-flex; align-items: center; gap: 6px; padding: 13px 24px; border-radius: 999px; font-size: 0.95rem; font-weight: 600; color: #a9875c; border: 1.5px solid #a9875c; background: transparent; text-decoration: none; transition: background 0.2s, color 0.2s; }
         .sh-ghost-btn:hover { background: #a9875c; color: #fff; }
-        .sh-trust { display: flex; flex-wrap: wrap; gap: 16px; }
-        .sh-trust span { font-size: 0.85rem; color: #666; display: flex; align-items: center; gap: 8px; }
-        .sh-trust span::first-letter { color: #a9875c; font-size: 0.55rem; }
+        .sh-trust { display: flex; flex-direction: column; gap: 10px; }
+        .sh-trust-item {
+          display: flex; align-items: center; gap: 14px;
+          padding: 13px 18px;
+          border-left: 3px solid #911f39;
+          background: rgba(145,31,57,0.05);
+          border-radius: 0 10px 10px 0;
+        }
+        .sh-trust-diamond { color: #a9875c; font-size: 0.6rem; flex-shrink: 0; }
+        .sh-trust-text { font-size: 1rem; font-weight: 700; color: #911f39; letter-spacing: 0.01em; }
+        @media (max-width: 900px) { .sh-trust { align-items: center; } .sh-trust-item { width: 100%; max-width: 320px; border-radius: 0 10px 10px 0; } }
 
         /* Right */
         .sh-right { position: relative; }
