@@ -195,7 +195,7 @@ export default function GrowthAudit() {
                 <p className="ga-agency-desc">Ako hoćeš tim koji vodi tvoj Instagram, OnlyFans, čet i promociju — to takođe radimo. Bez troškova unapred · Bez dugih ugovora · Puna kontrola naloga</p>
                 <div className="ga-stats">
                   <div className="ga-stat">
-                    <span className="ga-stat-num">60+</span>
+                    <span className="ga-stat-num">140+</span>
                     <span className="ga-stat-label">Aktivnih kreatorki</span>
                   </div>
                   <div className="ga-stat">

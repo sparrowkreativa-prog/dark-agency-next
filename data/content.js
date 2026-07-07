@@ -77,7 +77,7 @@ export const siteData = {
         desc: 'Od strategije cena do prve nedelje - tvoj tim gradi i vodi sloj monetizacije dok ti zarađuješ.',
         items: [
           'Izbor niše i arhitektura cena',
-          'Cilj $20K+ u prvoj nedelji, ostvareno 60+ puta',
+          'Cilj $20K+ u prvoj nedelji, ostvareno 140+ puta',
           'Samo podela prihoda - ništa unapred, nikad',
           'Bez ugovora - odlaziš kad hoćeš, bez penala',
         ],
@@ -183,7 +183,7 @@ export const siteData = {
     label: 'ŠTA RADIMO',
     title: 'Full Management, u potpunosti',
     sub: 'Naša agencija pruža All Inclusive uslugu — sav posao možeš prepustiti nama: marketing, menadžment, održavanje profila i dopisivanje sa fanovima, pa sve do finansijskih i pravnih pitanja. Na tebi je samo da kreiraš prethodno dogovoreni sadržaj, a lični menadžer ti stoji na raspolaganju 24 časa svih 7 dana u nedelji.',
-    quote: '4+ godine. 60+ klijenata. Nula curenja identiteta.',
+    quote: '4+ godine. 140+ klijenata. Nula curenja identiteta.',
     items: [
       { num: '01', icon: 'user-circle',     title: 'Personal Brand Manager',      body: 'Privatni brend menadžer koji vodi organizaciju sadržaja i strateški rukovodi rastom tvog brenda.' },
       { num: '02', icon: 'headset',         title: 'Dedicated Account Manager',   body: 'Lični menadžer na raspolaganju 24/7 za sve operativne i strateške odluke.' },
@@ -253,7 +253,7 @@ export const siteData = {
     bigNum: '$20K',
     title: 'Tri Garancije. Složene. Bez Sitnog Slova.',
     items: [
-      { label: 'Lansiranje',  text: 'Cilj $20K+ u prvoj nedelji, ostvareno 60+ puta od nule. Ništa unapred — zaradimo samo kada i ti zaradiš.' },
+      { label: 'Lansiranje',  text: 'Cilj $20K+ u prvoj nedelji, ostvareno 140+ puta od nule. Ništa unapred — zaradimo samo kada i ti zaradiš.' },
       { label: 'Podrška',    text: 'Ispod 5 minuta odgovora, 24/7. Ne cilj — mereni operativni standard.' },
       { label: 'Izlaz',      text: 'Odi kad hoćeš. Nula naknada, nula penala, nula pitanja. Bez ugovora, ikad.' },
     ],
@@ -267,11 +267,11 @@ export const siteData = {
     items: [
       {
         q: 'Da li će neko koga znam saznati?',
-        a: 'Pre nego što tvoj nalog krene, geo-blokiramo tvoj grad, državu i svaku zemlju koju odabereš. Gradimo potpuno novu personu bez ikakve veze sa tvojim pravim identitetom. Za 4+ godine i 60+ klijenata, nijedan nije identifikovan.',
+        a: 'Pre nego što tvoj nalog krene, geo-blokiramo tvoj grad, državu i svaku zemlju koju odabereš. Gradimo potpuno novu personu bez ikakve veze sa tvojim pravim identitetom. Za 4+ godine i 140+ klijenata, nijedan nije identifikovan.',
       },
       {
         q: 'Koliko realno mogu da zaradim?',
-        a: 'Naš sistem lansiranja cilja $20K+ u prvoj nedelji, ostvareno 60+ puta. Neki klijenti dostižu $50K u prvih 14 dana. Naš top klijent je prešao $253K u jednom mesecu.',
+        a: 'Naš sistem lansiranja cilja $20K+ u prvoj nedelji, ostvareno 140+ puta. Neki klijenti dostižu $50K u prvih 14 dana. Naš top klijent je prešao $253K u jednom mesecu.',
       },
       {
         q: 'Kako znam da ovo nije prevara?',
@@ -279,7 +279,7 @@ export const siteData = {
       },
       {
         q: 'Nemam pratioce niti iskustvo. Mogu li da uspem?',
-        a: 'Nula je naša idealna startna pozicija — nema loših navika za odučavanje. Gradimo tvoj brend, strategiju i publiku od nule. Sve što trebaš je ~20 sati nedeljno i volja da slediš sistem koji je radio 60+ puta.',
+        a: 'Nula je naša idealna startna pozicija — nema loših navika za odučavanje. Gradimo tvoj brend, strategiju i publiku od nule. Sve što trebaš je ~20 sati nedeljno i volja da slediš sistem koji je radio 140+ puta.',
       },
       {
         q: 'Da li moram da pokazujem lice?',

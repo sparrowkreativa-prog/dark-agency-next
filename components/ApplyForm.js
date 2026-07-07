@@ -472,7 +472,7 @@ export default function ApplyForm() {
                     <div className="apply-trust-strip">
                       <span>🔒 Nula curenja identiteta u 4+ godina</span>
                       <span>○ Nula troškova unapred, ikad</span>
-                      <span>→ 60+ klijenata, $3M+ godišnji prihod</span>
+                      <span>→ 140+ klijenata, $11M+ godišnji prihod</span>
                     </div>
 
                     {submitError && <p className="apply-submit-err">{submitError}</p>}
