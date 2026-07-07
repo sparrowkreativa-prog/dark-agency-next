@@ -119,12 +119,24 @@ export default function Paketi() {
           </div>
           <div className="pk-callout-items">
             {[
-              { emoji: '🏠', title: 'Airbnb i lokacije', desc: 'Iznajmljujemo prelepe stanove i lokacije — tvoj sadržaj uvek izgleda premijum.' },
-              { emoji: '👗', title: 'Svetla, garderoba i oprema', desc: 'Svetla, odeća i sav materijal koji ti treba — plaćamo mi.' },
-              { emoji: '✈️', title: 'Godišnja putovanja tima', desc: 'Svake godine vodimo tim negde u svetu na team-building.' },
+              {
+                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h20M5 20V10l7-7 7 7v10"/><path d="M9 20v-5h6v5"/></svg>,
+                title: 'Airbnb i lokacije',
+                desc: 'Iznajmljujemo prelepe stanove i lokacije — tvoj sadržaj uvek izgleda premijum.',
+              },
+              {
+                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>,
+                title: 'Svetla, garderoba i oprema',
+                desc: 'Svetla, odeća i sav materijal koji ti treba — plaćamo mi.',
+              },
+              {
+                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16l.92.92z"/><path d="M14.5 2.5c1.86.59 3.41 2.14 4 4"/><path d="M14.5 6.5A3.5 3.5 0 0 1 18 10"/></svg>,
+                title: 'Godišnja putovanja tima',
+                desc: 'Svake godine vodimo tim negde u svetu na team-building.',
+              },
             ].map((item, i) => (
               <div key={i} className="pk-callout-item">
-                <span className="pk-callout-emoji">{item.emoji}</span>
+                <span className="pk-callout-icon">{item.icon}</span>
                 <div>
                   <p className="pk-callout-item-title">{item.title}</p>
                   <p className="pk-callout-item-desc">{item.desc}</p>
@@ -234,7 +246,7 @@ export default function Paketi() {
         .pk-callout-items { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         @media (max-width: 680px) { .pk-callout-items { grid-template-columns: 1fr; gap: 16px; } .pk-callout { padding: 22px 20px; } }
         .pk-callout-item { display: flex; align-items: flex-start; gap: 14px; }
-        .pk-callout-emoji { font-size: 24px; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+        .pk-callout-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(145,31,57,0.08); border: 1px solid rgba(145,31,57,0.2); color: #911f39; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .pk-callout-item-title { font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 0 0 4px; }
         .pk-callout-item-desc { font-size: 13px; color: #777; line-height: 1.55; margin: 0; }
 
