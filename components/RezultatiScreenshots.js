@@ -1,7 +1,72 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
-/* ── Mockup data — change numbers here ── */
+/* ── Random generation helpers ── */
+function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+function randF(min, max) { return min + Math.random() * (max - min); }
+function usd(n) { return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+function usdNoSign(n) { return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+
+function smoothPts(n) {
+  let y = rand(28, 65);
+  const pts = [];
+  for (let i = 0; i < n; i++) {
+    y = Math.max(8, Math.min(88, y + rand(-20, 20)));
+    pts.push(`${Math.round((i / (n - 1)) * 258)},${y}`);
+  }
+  return pts.join(' ');
+}
+
+const TIMES = ['8:49','9:14','9:41','10:03','10:32','11:07','11:52','12:30','13:15','14:22','15:08','16:44'];
+const DATES_7 = ['Aug 24, 2024 - Aug 31, 2024','Aug 31, 2024 - Sep 07, 2024','Sep 07, 2024 - Sep 14, 2024','Sep 14, 2024 - Sep 21, 2024'];
+const DATES_24 = ['8:00 am, Sep 08 - 8:00 am, Sep 09, 2024','12:30 pm, Sep 10 - 12:30 pm, Sep 11, 2024','9:00 am, Sep 12 - 9:00 am, Sep 13, 2024'];
+const DATES_CUSTOM = ['12:00 am, Sep 01 - 11:59 pm, Sep 30, 2024','12:00 am, Sep 11 - 11:59 pm, Oct 11, 2024','12:00 am, Aug 01 - 11:59 pm, Aug 31, 2024'];
+
+function generateMockups() {
+  const earn1 = randF(14000, 28000);
+  const earn2 = randF(3000, 7500);
+  const earn3 = randF(50000, 90000);
+  return [
+    {
+      time: TIMES[rand(0, TIMES.length - 1)],
+      battery: rand(18, 98), signal: rand(2, 4), is5G: false,
+      topPct: (randF(0.15, 0.28)).toFixed(2),
+      current: usd(randF(2000, 5500)), pending: usd(randF(14000, 25000)),
+      period: 'Last 7 days',
+      dateRange: DATES_7[rand(0, DATES_7.length - 1)] + ' (local time UTC +10:00)',
+      earnings: usd(earn1), gross: usdNoSign(earn1 * randF(1.22, 1.28)),
+      pct: randF(18, 55).toFixed(1),
+      yLabels: ['$4,000', '$3,000', '$2,000', '$1,000'], gridY: [25, 50, 75],
+      chartPts: smoothPts(7), badge: rand(1, 9),
+    },
+    {
+      time: TIMES[rand(0, TIMES.length - 1)],
+      battery: rand(18, 98), signal: rand(2, 4), is5G: false,
+      topPct: (randF(0.15, 0.25)).toFixed(2),
+      current: usd(randF(3500, 7000)), pending: usd(randF(18000, 30000)),
+      period: 'Last 24 hours',
+      dateRange: DATES_24[rand(0, DATES_24.length - 1)] + ' (local time UTC +10:00)',
+      earnings: usd(earn2), gross: usdNoSign(earn2 * randF(1.22, 1.28)),
+      pct: randF(30, 90).toFixed(1),
+      yLabels: ['$600', '$400', '$200'], gridY: [33, 67],
+      chartPts: smoothPts(12), badge: rand(1, 9),
+    },
+    {
+      time: TIMES[rand(0, TIMES.length - 1)],
+      battery: rand(18, 98), signal: rand(2, 4), is5G: true,
+      topPct: (randF(0.14, 0.22)).toFixed(2),
+      current: usd(randF(1800, 4500)), pending: usd(randF(12000, 22000)),
+      period: 'Custom',
+      dateRange: DATES_CUSTOM[rand(0, DATES_CUSTOM.length - 1)] + ' (local time UTC +10:00)',
+      earnings: usd(earn3), gross: usdNoSign(earn3 * randF(1.22, 1.28)),
+      pct: randF(0.2, 5).toFixed(1),
+      yLabels: ['$6,000', '$4,000', '$2,000', '200'], gridY: [14, 43, 71],
+      chartPts: smoothPts(15), badge: rand(1, 9),
+    },
+  ];
+}
+
+/* ── Static fallback (server render) ── */
 const MOCKUPS = [
   {
     time: '9:41', battery: 87, signal: 4, is5G: false,
@@ -249,6 +314,12 @@ function OFMockup({ m, vis, idx }) {
 export default function RezultatiScreenshots() {
   const ref = useRef(null);
   const [vis, setVis] = useState(false);
+  const [mockups, setMockups] = useState(MOCKUPS);
+
+  useEffect(() => {
+    // Generate fresh random values on every page load
+    setMockups(generateMockups());
+  }, []);
 
   useEffect(() => {
     const el = ref.current;
@@ -280,12 +351,12 @@ export default function RezultatiScreenshots() {
 
       {/* Desktop: 3 columns */}
       <div className="rz-desktop">
-        {MOCKUPS.map((m, i) => <OFMockup key={i} m={m} vis={vis} idx={i} />)}
+        {mockups.map((m, i) => <OFMockup key={i} m={m} vis={vis} idx={i} />)}
       </div>
 
       {/* Mobile: horizontal scroll snap */}
       <div className="rz-mobile-scroll">
-        {MOCKUPS.map((m, i) => <OFMockup key={i} m={m} vis={vis} idx={i} />)}
+        {mockups.map((m, i) => <OFMockup key={i} m={m} vis={vis} idx={i} />)}
       </div>
 
       <div className="rz-inner">
