@@ -19,6 +19,7 @@ import ProblemSection from '@/components/ProblemSection';
 import ServicesSection from '@/components/ServicesSection';
 import RezultatiScreenshots from '@/components/RezultatiScreenshots';
 import Kalkulator from '@/components/Kalkulator';
+import LiveDashboard from '@/components/LiveDashboard';
 import Bezbednost from '@/components/Bezbednost';
 import Tim from '@/components/Tim';
 import { siteData } from '@/data/content';
@@ -45,6 +46,8 @@ export default function Home() {
         <SplitHero />
 
         <Kalkulator />
+
+        <LiveDashboard />
 
         {/* What's Included */}
         <SectionFade>
