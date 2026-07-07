@@ -2,17 +2,18 @@
 import { useEffect, useRef, useState } from 'react';
 
 /* ── World Map ───────────────────────────────────────────────── */
-// SVG viewBox is 3840×2160 equirectangular
-// toX(lon) = (lon+180)/360*3840  toY(lat) = (90-lat)/180*2160
-// Crop to Atlantic: lon -100→+50, lat 10→72  →  viewBox="853 216 1600 744"
-// NY  74°W 40.7°N  → (1132, 592)
-// MI   9.2°E 45.5°N → (2018, 534)
-// BG  20.5°E 44.8°N → (2139, 542)
+// SVG viewBox is 3840×2160, Mercator projection (Adobe Illustrator)
+// toX(lon)  = (lon+180)/360*3840
+// toY(lat)  = (k - ln(tan(π/4 + lat_rad/2))) / (2k) * 2160  where k=3.081
+// Crop viewBox: "853 216 1600 744"  (lon -100→+50, lat ~19°N→~80°N)
+// NY  74°W 40.7°N  → x=1132 y=799
+// MI   9.2°E 45.5°N → x=2018 y=767
+// BG  20.5°E 44.8°N → x=2139 y=771
 
 function WorldMap({ vis }) {
-  const NY = { x: 1132, y: 592, label: 'New York' };
-  const MI = { x: 2018, y: 534, label: 'Milano'   };
-  const BG = { x: 2139, y: 542, label: 'Belgrade' };
+  const NY = { x: 1132, y: 799, label: 'New York' };
+  const MI = { x: 2018, y: 767, label: 'Milano'   };
+  const BG = { x: 2139, y: 771, label: 'Belgrade' };
 
   return (
     <div className="dp-map-wrap"
@@ -55,18 +56,18 @@ function WorldMap({ vis }) {
           <ellipse cx={MI.x} cy={MI.y} rx="260" ry="200" fill="url(#dpEUGlow)"/>
 
           {/* Ghost arc NY → Belgrade */}
-          <path d={`M${NY.x},${NY.y} Q1640,330 ${BG.x},${BG.y}`}
+          <path d={`M${NY.x},${NY.y} Q1640,500 ${BG.x},${BG.y}`}
             fill="none" stroke="rgba(169,135,92,0.1)" strokeWidth="4"
             strokeDasharray="10 14"/>
 
           {/* Animated arc NY → Milano */}
-          <path d={`M${NY.x},${NY.y} Q1575,310 ${MI.x},${MI.y}`}
+          <path d={`M${NY.x},${NY.y} Q1575,483 ${MI.x},${MI.y}`}
             fill="none" stroke="url(#dpArcG)" strokeWidth="6" strokeLinecap="round"
             strokeDasharray="1500" strokeDashoffset={vis ? 0 : 1500}
             style={{transition:'stroke-dashoffset 2.2s cubic-bezier(0.4,0,0.2,1) 0.8s'}}/>
 
           {/* Animated arc Milano → Belgrade */}
-          <path d={`M${MI.x},${MI.y} Q2078,470 ${BG.x},${BG.y}`}
+          <path d={`M${MI.x},${MI.y} Q2078,719 ${BG.x},${BG.y}`}
             fill="none" stroke="#a9875c" strokeWidth="6" strokeLinecap="round"
             strokeDasharray="210" strokeDashoffset={vis ? 0 : 210}
             style={{transition:'stroke-dashoffset 0.7s cubic-bezier(0.4,0,0.2,1) 2.8s'}}/>
