@@ -159,17 +159,19 @@ export default function SplitHero() {
 
       {/* Stats row */}
       <div className="sh-stats-row">
-        {stats.map((s, i) => (
-          <div key={i} className="sh-stat-card"
-            style={{
-              opacity: animate ? 1 : 0,
-              transform: animate ? 'none' : 'translateY(16px)',
-              transition: `opacity 0.8s ease ${1.2 + i * 0.15}s, transform 0.8s ease ${1.2 + i * 0.15}s`,
-            }}>
-            <div className="sh-stat-num">{s.num}</div>
-            <div className="sh-stat-label">{s.label}</div>
-          </div>
-        ))}
+        <div>
+          {stats.map((s, i) => (
+            <div key={i} className="sh-stat-card"
+              style={{
+                opacity: animate ? 1 : 0,
+                transform: animate ? 'none' : 'translateY(16px)',
+                transition: `opacity 0.8s ease ${1.2 + i * 0.15}s, transform 0.8s ease ${1.2 + i * 0.15}s`,
+              }}>
+              <div className="sh-stat-num">{s.num}</div>
+              <div className="sh-stat-label">{s.label}</div>
+            </div>
+          ))}
+        </div>
       </div>
 
       <style>{`
@@ -218,10 +220,26 @@ export default function SplitHero() {
         .sh-trend-num { font-size: 0.95rem; font-weight: 800; color: #1a1a1a; }
 
         /* Stats row */
-        .sh-stats-row { max-width: 1200px; margin: 48px auto 0; padding: 0 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-        @media (max-width: 700px) { .sh-stats-row { grid-template-columns: repeat(2, 1fr); } }
-        .sh-stat-card { background: #fff; border-radius: 14px; padding: 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
-        .sh-stat-num { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.9rem); font-style: italic; color: #a9875c; line-height: 1.1; }
+        .sh-stats-row { max-width: 1200px; margin: 48px auto 0; padding: 0 24px; }
+        .sh-stats-row > div {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 0;
+          border: 1px solid rgba(169,135,92,0.15);
+          border-radius: 20px;
+          overflow: hidden;
+          background: #fff;
+          box-shadow: 0 8px 40px rgba(0,0,0,0.07);
+        }
+        @media (max-width: 700px) { .sh-stats-row > div { grid-template-columns: repeat(2, 1fr); } }
+        .sh-stat-card { padding: 36px 28px; text-align: center; border-right: 1px solid rgba(169,135,92,0.12); position: relative; }
+        .sh-stat-card:last-child { border-right: none; }
+        @media (max-width: 700px) {
+          .sh-stat-card { border-bottom: 1px solid rgba(169,135,92,0.12); }
+          .sh-stat-card:nth-child(2n) { border-right: none; }
+          .sh-stat-card:nth-last-child(-n+2) { border-bottom: none; }
+        }
+        .sh-stat-num { font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.4rem); font-style: italic; color: #a9875c; line-height: 1.1; margin-bottom: 10px; letter-spacing: -0.01em; }
         .sh-stat-label { margin-top: 6px; font-size: 9px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--color-text-muted); line-height: 1.4; }
       `}</style>
     </section>
