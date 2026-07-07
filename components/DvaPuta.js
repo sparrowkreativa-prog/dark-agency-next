@@ -67,7 +67,7 @@ export default function DvaPuta() {
         <div className="dp-header" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity 0.7s ease, transform 0.7s ease' }}>
           <span className="chapter-label dp-chapter">Dva Puta</span>
           <h2 className="dp-title">
-            <em>Već Afirmisana ili Krećeš od Nule —</em><br />
+            <em>Već Afirmisana ili Krećeš od Nule,</em><br />
             <em className="dp-title-gold">Postoji Put za Tebe.</em>
           </h2>
           <p className="dp-sub">Od koje god tačke kreneš, plan je napravljen oko tebe.</p>
