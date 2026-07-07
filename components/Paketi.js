@@ -110,6 +110,30 @@ export default function Paketi() {
           ))}
         </div>
 
+        {/* Full management perks callout */}
+        <div className="pk-callout"
+          style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s' }}>
+          <div className="pk-callout-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h20M5 20V10l7-7 7 7v10"/><path d="M9 20v-5h6v5"/></svg>
+            Uključeno u Puno Upravljanje
+          </div>
+          <div className="pk-callout-items">
+            {[
+              { emoji: '🏠', title: 'Airbnb i lokacije', desc: 'Iznajmljujemo prelepe stanove i lokacije — tvoj sadržaj uvek izgleda premijum.' },
+              { emoji: '👗', title: 'Svetla, garderoba i oprema', desc: 'Svetla, odeća i sav materijal koji ti treba — plaćamo mi.' },
+              { emoji: '✈️', title: 'Godišnja putovanja tima', desc: 'Svake godine vodimo tim negde u svetu na team-building.' },
+            ].map((item, i) => (
+              <div key={i} className="pk-callout-item">
+                <span className="pk-callout-emoji">{item.emoji}</span>
+                <div>
+                  <p className="pk-callout-item-title">{item.title}</p>
+                  <p className="pk-callout-item-desc">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Bottom CTA */}
         <div className="pk-bottom"
           style={{ opacity: vis ? 1 : 0, transition: 'opacity 0.7s ease 0.5s' }}>
@@ -189,6 +213,30 @@ export default function Paketi() {
         .pk-we-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #444; line-height: 1.5; }
         .pk-check { color: #a9875c; flex-shrink: 0; margin-top: 1px; }
         .pk-card--featured .pk-check { color: #911f39; }
+
+        /* Callout */
+        .pk-callout {
+          margin-bottom: 28px;
+          background: rgba(255,255,255,0.72);
+          backdrop-filter: blur(20px) saturate(1.8);
+          -webkit-backdrop-filter: blur(20px) saturate(1.8);
+          border: 1px solid rgba(145,31,57,0.15);
+          box-shadow: 0 4px 24px rgba(145,31,57,0.06), inset 0 1px 0 rgba(255,255,255,0.95);
+          border-radius: 20px;
+          padding: 28px 32px;
+        }
+        .pk-callout-label {
+          display: inline-flex; align-items: center; gap: 7px;
+          font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em;
+          color: #911f39; background: rgba(145,31,57,0.07); border: 1px solid rgba(145,31,57,0.18);
+          border-radius: 999px; padding: 5px 14px; margin-bottom: 20px;
+        }
+        .pk-callout-items { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        @media (max-width: 680px) { .pk-callout-items { grid-template-columns: 1fr; gap: 16px; } .pk-callout { padding: 22px 20px; } }
+        .pk-callout-item { display: flex; align-items: flex-start; gap: 14px; }
+        .pk-callout-emoji { font-size: 24px; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+        .pk-callout-item-title { font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 0 0 4px; }
+        .pk-callout-item-desc { font-size: 13px; color: #777; line-height: 1.55; margin: 0; }
 
         /* Bottom */
         .pk-bottom { text-align: center; display: flex; justify-content: center; margin-top: 8px; }
