@@ -1,11 +1,250 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 
-const SCREENSHOTS = [
-  { src: '/screenshots/of-stats-01.jpg', alt: 'OnlyFans statistika 1' },
-  { src: '/screenshots/of-stats-02.jpg', alt: 'OnlyFans statistika 2' },
-  { src: '/screenshots/of-stats-03.jpg', alt: 'OnlyFans statistika 3' },
+/* ── Mockup data — change numbers here ── */
+const MOCKUPS = [
+  {
+    time: '9:41', battery: 87, signal: 4, is5G: false,
+    topPct: '0.22',
+    current: '$3,405.75', pending: '$19,732.94',
+    period: 'Last 7 days',
+    dateRange: 'Aug 31, 2024 - Sep 07, 2024 (local time UTC +10:00)',
+    earnings: '$19,651.74', gross: '$24,564.66', pct: '36.7',
+    yLabels: ['$4,000', '$3,000', '$2,000', '$1,000'],
+    gridY: [25, 50, 75],
+    chartPts: '0,55 43,20 86,48 129,5 172,27 215,12 258,41',
+    badge: 2,
+  },
+  {
+    time: '14:22', battery: 64, signal: 3, is5G: false,
+    topPct: '0.19',
+    current: '$5,327.17', pending: '$21,930.34',
+    period: 'Last 24 hours',
+    dateRange: '12:30 pm, Sep 10 - 12:30 pm, Sep 11, 2024 (local time UTC +10:00)',
+    earnings: '$4,284.75', gross: '$5,355.94', pct: '70.1',
+    yLabels: ['$600', '$400', '$200'],
+    gridY: [33, 67],
+    chartPts: '0,50 24,25 48,67 72,37 96,48 120,28 144,43 168,33 192,57 216,20 240,33 258,44',
+    badge: 5,
+  },
+  {
+    time: '10:03', battery: 88, signal: 4, is5G: true,
+    topPct: '0.18',
+    current: '$2,684.27', pending: '$16,181.55',
+    period: 'Custom',
+    dateRange: '12:00 am, Sep 11 - 11:59 pm, Oct 11, 2024 (local time UTC +10:00)',
+    earnings: '$64,778.80', gross: '$80,973.60', pct: '0.7',
+    yLabels: ['$6,000', '$4,000', '$2,000', '200'],
+    gridY: [14, 43, 71],
+    chartPts: '0,70 18,51 36,31 54,54 72,20 90,41 108,11 126,46 144,37 162,26 180,49 198,30 216,41 237,46 258,20',
+    badge: 3,
+  },
 ];
+
+function makeFill(pts) {
+  const arr = pts.trim().split(' ');
+  const lastX = arr[arr.length - 1].split(',')[0];
+  return `M${arr.join(' L')} L${lastX},100 L0,100 Z`;
+}
+
+function OFMockup({ m, vis, idx }) {
+  const fillPath = makeFill(m.chartPts);
+  const gradId = `ofg${idx}`;
+
+  return (
+    <div
+      className="ofm"
+      style={{
+        opacity: vis ? 1 : 0,
+        transform: vis ? 'none' : 'translateY(28px)',
+        transition: `opacity 0.9s ease ${idx * 0.14}s, transform 0.9s ease ${idx * 0.14}s`,
+      }}
+    >
+      {/* ── Status bar ── */}
+      <div className="ofm-sb">
+        <span className="ofm-time">{m.time}</span>
+        <div className="ofm-sb-right">
+          {/* Signal bars */}
+          <svg width="16" height="11" viewBox="0 0 16 11">
+            {[0, 1, 2, 3].map(i => (
+              <rect key={i} x={i * 4.2} y={11 - (i + 1) * 2.75} width="3" height={(i + 1) * 2.75} rx="0.4"
+                fill={i < m.signal ? 'white' : 'rgba(255,255,255,0.28)'} />
+            ))}
+          </svg>
+          {/* Wifi or 5G */}
+          {m.is5G
+            ? <span className="ofm-5g">5G</span>
+            : <svg width="14" height="11" viewBox="0 0 14 11">
+                <circle cx="7" cy="9.5" r="1.2" fill="white" />
+                <path d="M4.2 7C5.1 6 6 5.5 7 5.5s1.9.5 2.8 1.5" fill="none" stroke="white" strokeWidth="1.3" strokeLinecap="round" />
+                <path d="M1.5 4.5C3 2.8 4.9 1.8 7 1.8s4 1 5.5 2.7" fill="none" stroke="white" strokeWidth="1.3" strokeLinecap="round" />
+              </svg>
+          }
+          <span className="ofm-bpct">{m.battery}</span>
+          {/* Battery */}
+          <svg width="24" height="12" viewBox="0 0 24 12">
+            <rect x="0.5" y="1.5" width="19" height="9" rx="2" stroke="white" strokeWidth="0.9" fill="none" strokeOpacity="0.45" />
+            <rect x="1.5" y="2.5" width={Math.round(17 * m.battery / 100)} height="7" rx="1.2"
+              fill={m.battery < 20 ? '#ff3b30' : 'white'} />
+            <path d="M20.5 4.5v3a1.2 1.2 0 000-3z" fill="white" fillOpacity="0.4" />
+          </svg>
+        </div>
+      </div>
+
+      {/* ── App body ── */}
+      <div className="ofm-body">
+
+        {/* Header row */}
+        <div className="ofm-nav">
+          <div className="ofm-nav-back">
+            <svg width="7" height="12" viewBox="0 0 7 12"><path d="M6 1L1 6l5 5" stroke="white" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none" /></svg>
+          </div>
+          <span className="ofm-nav-title">STATISTICS</span>
+          <div className="ofm-nav-help">
+            <svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="rgba(255,255,255,0.45)" strokeWidth="1.1" fill="none" /><text x="8" y="12" textAnchor="middle" fill="rgba(255,255,255,0.65)" fontSize="9" fontFamily="-apple-system,sans-serif">?</text></svg>
+          </div>
+        </div>
+
+        {/* Main tabs */}
+        <div className="ofm-tabs">
+          {['STATEMENTS', 'OVERVIEW', 'ENGAGEMENT', 'REACH'].map((t, i) => (
+            <span key={t} className={`ofm-tab${i === 0 ? ' ofm-tab-on' : ''}`}>{t}</span>
+          ))}
+        </div>
+
+        {/* Sub-tabs */}
+        <div className="ofm-subtabs">
+          {['Earnings', 'Payout Requests', 'Chargebacks', 'Referral'].map((t, i) => (
+            <span key={t} className={`ofm-stab${i === 0 ? ' ofm-stab-on' : ''}`}>{t}</span>
+          ))}
+        </div>
+
+        {/* Top % banner */}
+        <div className="ofm-banner">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="#5e9ef4">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+          <span>YOU ARE IN THE TOP {m.topPct}% OF ALL CREATORS!</span>
+        </div>
+
+        {/* Balances */}
+        <div className="ofm-bals">
+          <div className="ofm-bal">
+            <div className="ofm-bal-v">{m.current}</div>
+            <div className="ofm-bal-l">Current balance</div>
+          </div>
+          <div className="ofm-bal-sep" />
+          <div className="ofm-bal">
+            <div className="ofm-bal-v">{m.pending}</div>
+            <div className="ofm-bal-l">Pending balance <span className="ofm-info">ⓘ</span></div>
+          </div>
+        </div>
+
+        {/* Manual payouts */}
+        <div className="ofm-manual">
+          <div>
+            <div className="ofm-manual-t">Manual payouts</div>
+            <div className="ofm-manual-s">Minimum withdrawal amount is $200</div>
+          </div>
+          <svg width="6" height="11" viewBox="0 0 6 11"><path d="M1 1l4 4.5L1 10" stroke="rgba(255,255,255,0.3)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" fill="none" /></svg>
+        </div>
+
+        {/* Request withdrawal button */}
+        <div className="ofm-btnrow">
+          <div className="ofm-btn">REQUEST WITHDRAWAL</div>
+        </div>
+
+        {/* Period selector */}
+        <div className="ofm-period">
+          <div className="ofm-period-left">
+            <div className="ofm-period-name">{m.period}</div>
+            <div className="ofm-period-date">{m.dateRange}</div>
+          </div>
+          <svg width="9" height="6" viewBox="0 0 9 6"><path d="M1 1l3.5 4L8 1" stroke="rgba(255,255,255,0.4)" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" fill="none" /></svg>
+        </div>
+
+        {/* Filter pills */}
+        <div className="ofm-pills">
+          {['All', 'Subscriptions', 'Tips', 'Posts', 'Messages'].map((p, i) => (
+            <span key={p} className={`ofm-pill${i === 0 ? ' ofm-pill-on' : ''}`}>{p}</span>
+          ))}
+        </div>
+
+        {/* Earnings row */}
+        <div className="ofm-earn">
+          <span className="ofm-earn-v">{m.earnings}</span>
+          <span className="ofm-earn-g"> (${m.gross} Gross)</span>
+          <span className="ofm-earn-pct">
+            <svg width="9" height="9" viewBox="0 0 10 10" style={{ marginRight: 2 }}>
+              <path d="M2 8L8 2M8 2H4M8 2v4" stroke="#22c55e" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            {m.pct}%
+          </span>
+        </div>
+
+        {/* Chart */}
+        <div className="ofm-chart-wrap">
+          <svg viewBox="0 0 258 80" preserveAspectRatio="none" className="ofm-chart">
+            <defs>
+              <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#6babf5" stopOpacity="0.38" />
+                <stop offset="100%" stopColor="#6babf5" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            {m.gridY.map(y => (
+              <line key={y} x1="0" x2="258" y1={y * 0.8} y2={y * 0.8}
+                stroke="rgba(255,255,255,0.07)" strokeWidth="1" />
+            ))}
+            <path
+              d={fillPath.replace(/(\d+\.?\d*),(\d+\.?\d*)/g, (_, x, y) =>
+                `${x},${(parseFloat(y) * 0.8).toFixed(1)}`)}
+              fill={`url(#${gradId})`}
+            />
+            <polyline
+              points={m.chartPts.split(' ').map(p => {
+                const [x, y] = p.split(',');
+                return `${x},${(parseFloat(y) * 0.8).toFixed(1)}`;
+              }).join(' ')}
+              fill="none" stroke="#6babf5" strokeWidth="1.8"
+              strokeLinecap="round" strokeLinejoin="round"
+            />
+          </svg>
+          <div className="ofm-yaxis">
+            {m.yLabels.map(l => <span key={l}>{l}</span>)}
+          </div>
+        </div>
+
+      </div>
+
+      {/* ── Bottom navigation ── */}
+      <div className="ofm-bottomnav">
+        {/* Home */}
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" /><polyline points="9 22 9 12 15 12 15 22" />
+        </svg>
+        {/* Search */}
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+        {/* Messages with badge */}
+        <div className="ofm-msg">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
+          </svg>
+          <span className="ofm-badge">{m.badge}</span>
+        </div>
+        {/* Bell */}
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 01-3.46 0" />
+        </svg>
+        {/* Profile */}
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.38)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" /><circle cx="12" cy="7" r="4" />
+        </svg>
+      </div>
+    </div>
+  );
+}
 
 export default function RezultatiScreenshots() {
   const ref = useRef(null);
@@ -23,8 +262,6 @@ export default function RezultatiScreenshots() {
 
   return (
     <section className="rz-section" ref={ref}>
-
-      {/* Header */}
       <div className="rz-inner">
         <div
           className="rz-header"
@@ -41,68 +278,29 @@ export default function RezultatiScreenshots() {
         </div>
       </div>
 
-      {/* ── Desktop / tablet: 3 columns, full image ── */}
+      {/* Desktop: 3 columns */}
       <div className="rz-desktop">
-        {SCREENSHOTS.map((s, i) => (
-          <div
-            key={i}
-            className="rz-desktop-card"
-            style={{
-              opacity: vis ? 1 : 0,
-              transform: vis ? 'none' : 'translateY(28px)',
-              transition: `opacity 0.9s ease ${i * 0.14}s, transform 0.9s ease ${i * 0.14}s`,
-            }}
-          >
-            <img src={s.src} alt={s.alt} />
-          </div>
-        ))}
+        {MOCKUPS.map((m, i) => <OFMockup key={i} m={m} vis={vis} idx={i} />)}
       </div>
 
-      {/* ── Mobile: horizontal scroll snap ── */}
+      {/* Mobile: horizontal scroll snap */}
       <div className="rz-mobile-scroll">
-        {SCREENSHOTS.map((s, i) => (
-          <div key={i} className="rz-snap-card">
-            <img src={s.src} alt={s.alt} />
-          </div>
-        ))}
+        {MOCKUPS.map((m, i) => <OFMockup key={i} m={m} vis={vis} idx={i} />)}
       </div>
 
-      {/* Disclaimer */}
       <div className="rz-inner">
-        <p
-          className="rz-disclaimer"
-          style={{ opacity: vis ? 1 : 0, transition: 'opacity 0.9s ease 0.5s' }}
-        >
+        <p className="rz-disclaimer" style={{ opacity: vis ? 1 : 0, transition: 'opacity 0.9s ease 0.5s' }}>
           Autentični, anonimizovani statistički paneli kreatorki iz našeg rostera.
         </p>
       </div>
 
       <style>{`
-        .rz-section {
-          padding: 96px 0 0;
-          background: #fafaf8;
-        }
-        .rz-inner {
-          max-width: 1100px;
-          margin: 0 auto;
-          padding: 0 24px;
-        }
+        .rz-section { padding: 96px 0 0; background: #fafaf8; }
+        .rz-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        .rz-header { text-align: center; margin-bottom: 48px; }
+        .rz-title { font-family: var(--font-display); font-size: clamp(28px,5vw,42px); font-style: italic; color: #1a1a1a; margin: 0; line-height: 1.1; }
 
-        /* header */
-        .rz-header {
-          text-align: center;
-          margin-bottom: 48px;
-        }
-        .rz-title {
-          font-family: var(--font-display);
-          font-size: clamp(28px, 5vw, 42px);
-          font-style: italic;
-          color: #1a1a1a;
-          margin: 0;
-          line-height: 1.1;
-        }
-
-        /* ── Desktop: 3 columns, full image ── */
+        /* Desktop: 3 columns */
         .rz-desktop {
           display: flex;
           gap: 20px;
@@ -112,28 +310,101 @@ export default function RezultatiScreenshots() {
           margin: 0 auto;
           padding: 0 24px;
         }
-        .rz-desktop-card {
+        .rz-mobile-scroll { display: none; }
+
+        /* ── Mockup card ── */
+        .ofm {
           flex: 1 1 0;
           min-width: 0;
           max-width: 300px;
-          border-radius: 18px;
-          border: 1px solid rgba(169,135,92,0.18);
-          box-shadow: 0 20px 60px rgba(0,0,0,0.13);
+          border-radius: 16px;
           overflow: hidden;
-        }
-        .rz-desktop-card img {
-          width: 100%;
-          height: auto;
-          display: block;
+          background: #141824;
+          font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+          box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+          border: 1px solid rgba(255,255,255,0.06);
+          display: flex;
+          flex-direction: column;
         }
 
-        /* Mobile hidden on desktop */
-        .rz-mobile-scroll { display: none; }
+        /* Status bar */
+        .ofm-sb { background: #5e9ef4; display: flex; align-items: center; justify-content: space-between; padding: 8px 12px 6px; flex-shrink: 0; }
+        .ofm-time { font-size: 13px; font-weight: 700; color: #fff; letter-spacing: -0.3px; }
+        .ofm-sb-right { display: flex; align-items: center; gap: 4px; }
+        .ofm-5g { font-size: 11px; font-weight: 800; color: #fff; letter-spacing: -0.2px; }
+        .ofm-bpct { font-size: 11px; font-weight: 500; color: #fff; }
+
+        /* App body */
+        .ofm-body { flex: 1; display: flex; flex-direction: column; background: #141824; }
+
+        /* Nav */
+        .ofm-nav { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px 6px; background: #141824; }
+        .ofm-nav-back { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; }
+        .ofm-nav-title { font-size: 11px; font-weight: 800; color: #fff; letter-spacing: 0.05em; flex: 1; text-align: center; }
+        .ofm-nav-help { width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; }
+
+        /* Main tabs */
+        .ofm-tabs { display: flex; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 0 10px; }
+        .ofm-tab { font-size: 7.5px; font-weight: 600; color: rgba(255,255,255,0.4); padding: 6px 5px 5px; letter-spacing: 0.04em; white-space: nowrap; }
+        .ofm-tab-on { color: #fff; border-bottom: 1.5px solid #fff; margin-bottom: -1px; }
+
+        /* Sub-tabs */
+        .ofm-subtabs { display: flex; gap: 2px; padding: 5px 10px 4px; overflow: hidden; }
+        .ofm-stab { font-size: 7px; font-weight: 500; color: rgba(255,255,255,0.4); padding: 3px 6px; border-radius: 4px; white-space: nowrap; }
+        .ofm-stab-on { background: rgba(255,255,255,0.12); color: #fff; }
+
+        /* Banner */
+        .ofm-banner { display: flex; align-items: center; gap: 5px; padding: 5px 12px; background: rgba(94,158,244,0.1); border-top: 1px solid rgba(94,158,244,0.2); border-bottom: 1px solid rgba(94,158,244,0.2); }
+        .ofm-banner span { font-size: 7px; font-weight: 700; color: rgba(255,255,255,0.85); letter-spacing: 0.02em; }
+
+        /* Balances */
+        .ofm-bals { display: flex; padding: 10px 12px 8px; gap: 0; }
+        .ofm-bal { flex: 1; }
+        .ofm-bal-v { font-size: 13px; font-weight: 600; color: #fff; line-height: 1.2; }
+        .ofm-bal-l { font-size: 7px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+        .ofm-info { font-size: 6px; opacity: 0.6; }
+        .ofm-bal-sep { width: 1px; background: rgba(255,255,255,0.1); margin: 2px 10px; flex-shrink: 0; }
+
+        /* Manual payouts */
+        .ofm-manual { display: flex; align-items: center; justify-content: space-between; padding: 6px 12px; border-top: 1px solid rgba(255,255,255,0.07); }
+        .ofm-manual-t { font-size: 8px; font-weight: 600; color: rgba(255,255,255,0.85); }
+        .ofm-manual-s { font-size: 6.5px; color: rgba(255,255,255,0.35); margin-top: 1px; }
+
+        /* Button */
+        .ofm-btnrow { padding: 5px 12px 8px; }
+        .ofm-btn { background: #5e9ef4; border-radius: 5px; padding: 6px 10px; font-size: 8px; font-weight: 700; color: #fff; letter-spacing: 0.05em; text-align: center; cursor: pointer; }
+
+        /* Period */
+        .ofm-period { display: flex; align-items: center; justify-content: space-between; padding: 5px 12px 4px; border-top: 1px solid rgba(255,255,255,0.07); gap: 6px; }
+        .ofm-period-left { flex: 1; min-width: 0; }
+        .ofm-period-name { font-size: 8px; font-weight: 600; color: rgba(255,255,255,0.8); }
+        .ofm-period-date { font-size: 6px; color: rgba(255,255,255,0.32); margin-top: 1px; line-height: 1.3; }
+
+        /* Pills */
+        .ofm-pills { display: flex; gap: 4px; padding: 5px 10px; overflow: hidden; flex-wrap: nowrap; }
+        .ofm-pill { font-size: 7px; font-weight: 500; color: rgba(255,255,255,0.5); padding: 3px 6px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.12); white-space: nowrap; }
+        .ofm-pill-on { background: rgba(255,255,255,0.14); color: #fff; border-color: rgba(255,255,255,0.22); }
+
+        /* Earnings row */
+        .ofm-earn { display: flex; align-items: center; flex-wrap: nowrap; padding: 4px 12px 3px; gap: 2px; }
+        .ofm-earn-v { font-size: 9.5px; font-weight: 600; color: #fff; white-space: nowrap; }
+        .ofm-earn-g { font-size: 7.5px; color: rgba(255,255,255,0.4); white-space: nowrap; }
+        .ofm-earn-pct { display: inline-flex; align-items: center; font-size: 7.5px; font-weight: 600; color: #22c55e; white-space: nowrap; margin-left: 2px; }
+
+        /* Chart */
+        .ofm-chart-wrap { position: relative; display: flex; align-items: stretch; padding: 2px 12px 6px 10px; gap: 4px; flex: 1; }
+        .ofm-chart { flex: 1; height: 58px; display: block; }
+        .ofm-yaxis { display: flex; flex-direction: column; justify-content: space-between; padding: 0 0 0 4px; flex-shrink: 0; }
+        .ofm-yaxis span { font-size: 5.5px; color: rgba(255,255,255,0.3); line-height: 1; white-space: nowrap; }
+
+        /* Bottom nav */
+        .ofm-bottomnav { display: flex; align-items: center; justify-content: space-around; padding: 8px 10px 10px; background: rgba(20,24,36,0.98); border-top: 1px solid rgba(255,255,255,0.07); flex-shrink: 0; }
+        .ofm-msg { position: relative; display: flex; }
+        .ofm-badge { position: absolute; top: -4px; right: -5px; background: #5e9ef4; color: #fff; font-size: 6px; font-weight: 700; border-radius: 8px; padding: 1px 3px; min-width: 10px; text-align: center; line-height: 1.4; }
 
         /* ── Mobile: horizontal scroll snap ── */
         @media (max-width: 640px) {
           .rz-desktop { display: none; }
-
           .rz-mobile-scroll {
             display: flex;
             overflow-x: auto;
@@ -143,36 +414,16 @@ export default function RezultatiScreenshots() {
             padding: 0 24px 24px;
             scrollbar-width: none;
           }
-          .rz-mobile-scroll::-webkit-scrollbar {
-            display: none;
-          }
-
-          .rz-snap-card {
+          .rz-mobile-scroll::-webkit-scrollbar { display: none; }
+          .rz-mobile-scroll .ofm {
             flex-shrink: 0;
             width: 78vw;
-            max-width: 300px;
+            max-width: 280px;
             scroll-snap-align: center;
-            border-radius: 18px;
-            border: 1px solid rgba(169,135,92,0.18);
-            box-shadow: 0 16px 48px rgba(0,0,0,0.15);
-            overflow: hidden;
-          }
-
-          .rz-snap-card img {
-            width: 100%;
-            height: auto;
-            display: block;
           }
         }
 
-        /* disclaimer */
-        .rz-disclaimer {
-          text-align: center;
-          font-size: 12px;
-          color: #aaa;
-          margin-top: 36px;
-          padding-bottom: 96px;
-        }
+        .rz-disclaimer { text-align: center; font-size: 12px; color: #aaa; margin-top: 36px; padding-bottom: 96px; }
       `}</style>
     </section>
   );
