@@ -115,7 +115,7 @@ export default function ServicesSection({ services }) {
         </div>
 
         <div className="svc-quote">
-          <div className="svc-quote-line">4+ Godine.</div>
+          <div className="svc-quote-line">5+ Godina Iskustva.</div>
           <div className="svc-quote-line">140+ Klijenata.</div>
           <div className="svc-quote-line svc-quote-pink">Nula Curenja Identiteta.</div>
         </div>

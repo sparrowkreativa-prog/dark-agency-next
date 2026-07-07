@@ -135,7 +135,7 @@ export default function Bezbednost() {
           .bz-inner { grid-template-columns: 1fr; gap: 40px; }
           .bz-left { text-align: center; }
           .bz-shields { justify-content: center; display: grid; grid-template-columns: 1fr 1fr; }
-          .bz-paras { text-align: left; }
+          .bz-paras { text-align: center; }
         }
 
         /* Left */
