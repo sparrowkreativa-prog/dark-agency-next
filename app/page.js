@@ -57,7 +57,7 @@ export default function Home() {
               <div className="section-header">
                 <span className="chapter-label">{included.label}</span>
                 <h2 className="section-title">
-                  Svaki Sistem Koji Ti Treba —<br />
+                  Svaki Sistem Koji Ti Treba<br />
                   <span style={{ color: '#a9875c' }}>Već Radi.</span>
                 </h2>
                 <p className="section-sub">{included.sub}</p>
