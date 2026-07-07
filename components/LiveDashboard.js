@@ -73,7 +73,7 @@ export default function LiveDashboard() {
       <div className="ld-container">
         <div className="ld-header">
           <span className="chapter-label">Live Dashboard</span>
-          <h2 className="ld-title">Naš Uticaj <em className="ld-em">U Brojevima</em></h2>
+          <h2 className="ld-title"><em className="ld-em-plain">Naš Uticaj</em> <em className="ld-em">U Brojevima</em></h2>
           <p className="ld-sub">Metrike u realnom vremenu iz naše mreže kreatorki i tržišnog dosega.</p>
         </div>
 
@@ -167,6 +167,7 @@ export default function LiveDashboard() {
 
         .ld-header { text-align: center; margin-bottom: 48px; }
         .ld-title { font-family: var(--font-display); font-size: clamp(28px,4vw,40px); color: #1a1a1a; margin: 12px 0 10px; line-height: 1.1; }
+        .ld-em-plain { font-style: italic; color: #1a1a1a; }
         .ld-em { font-style: italic; color: #a9875c; }
         .ld-sub { font-size: 15px; color: #888; margin: 0; max-width: 520px; margin: 0 auto; }
 
