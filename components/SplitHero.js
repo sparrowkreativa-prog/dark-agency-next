@@ -136,13 +136,10 @@ export default function SplitHero() {
 
           {/* Video */}
           <div className="sh-photo-wrap">
-            <video
-              src="/rasti-na-of.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center bottom', display: 'block' }}
+            <img
+              src="/split-hero.jpg"
+              alt=""
+              style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
             />
           </div>
 
