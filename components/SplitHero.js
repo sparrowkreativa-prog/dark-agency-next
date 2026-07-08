@@ -137,7 +137,7 @@ export default function SplitHero() {
           {/* Video */}
           <div className="sh-photo-wrap">
             <img
-              src="/split-hero.jpg"
+              src="/split-hero-2.jpg"
               alt=""
               style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
             />
