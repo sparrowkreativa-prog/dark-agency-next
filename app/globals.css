@@ -29,8 +29,6 @@
   font-display: swap;
 }
 
-/* Prevent pull-to-refresh on iOS Safari — body only, html must stay default for mouse scroll */
-body { overscroll-behavior-y: contain; }
 
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
