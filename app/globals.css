@@ -21,6 +21,14 @@
 
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+@font-face {
+  font-family: 'Tempting';
+  src: url('/Tempting.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Prevent pull-to-refresh sending page to top on iOS Safari */
 html, body { overscroll-behavior-y: contain; }
 
@@ -115,7 +123,7 @@ em { font-style: italic; color: var(--color-accent-pink); }
   background: rgba(250,250,248,0.96);
 }
 .nav-container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; height: 80px; display: flex; align-items: center; gap: 32px; }
-.nav-logo { font-family: var(--font-display); font-size: 20px; color: var(--color-text-primary); font-style: italic; }
+.nav-logo { font-family: 'Tempting', var(--font-display); font-size: 26px; color: var(--color-text-primary); font-style: normal; letter-spacing: 0.01em; }
 .nav-links { display: none; align-items: center; gap: 32px; margin: 0 auto; }
 @media (min-width: 768px) { .nav-links { display: flex; } }
 .nav-menu { display: flex; align-items: center; gap: 32px; }
@@ -481,7 +489,7 @@ em { font-style: italic; color: var(--color-accent-pink); }
 #site-footer { padding: 64px 24px 40px; border-top: none; background: #111111; }
 .footer-inner { max-width: var(--max-w); margin: 0 auto; }
 .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-bottom: 48px; }
-.footer-brand-name { font-family: var(--font-display); font-size: 18px; margin-bottom: 10px; font-style: italic; color: #ffffff; }
+.footer-brand-name { font-family: 'Tempting', var(--font-display); font-size: 26px; margin-bottom: 10px; font-style: normal; letter-spacing: 0.01em; color: #ffffff; }
 .footer-tagline { font-size: 14px; color: rgba(255,255,255,0.45); max-width: 240px; line-height: 1.6; }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1); }
 .footer-copy { font-size: 12px; color: rgba(255,255,255,0.35); }
