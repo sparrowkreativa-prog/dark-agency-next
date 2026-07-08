@@ -1,12 +1,12 @@
-﻿import Image from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-montserrat', display: 'swap' });
 
 export const metadata = {
-  title: 'Instagram VodiÄ za Rast | Velluto Nero',
-  description: 'Sistem koji koristimo da kreatore vodimo od nule do 100k+ pratilaca â€” istraÅ¾ivanje, lansiranje, rast, skaliranje na viÅ¡e naloga.',
+  title: 'Instagram Vodič za Rast | Velluto Nero',
+  description: 'Sistem koji koristimo da kreatore vodimo od nule do 100k+ pratilaca — istraživanje, lansiranje, rast, skaliranje na više naloga.',
 };
 
 export default function InstagramPlaybook() {
@@ -21,16 +21,16 @@ export default function InstagramPlaybook() {
           </div>
           <nav className="nav-links">
             <ul className="nav-menu">
-              <li><Link href="/">PoÄetna</Link></li>
-              <li><Link href="/#masina">MaÅ¡ina</Link></li>
+              <li><Link href="/">Početna</Link></li>
+              <li><Link href="/#masina">Mašina</Link></li>
               <li><Link href="/#roster">Roster</Link></li>
               <li><Link href="/#services">Usluge</Link></li>
-              <li><Link href="/cet-strategija">ÄŒet Strategija</Link></li>
+              <li><Link href="/cet-strategija">Čet Strategija</Link></li>
             </ul>
           </nav>
           <div className="nav-cta">
             <Link href="/#apply" className="btn-primary" style={{ padding: '10px 22px', fontSize: '14px' }}>
-              Prijavi se <span className="btn-arrow">â†’</span>
+              Prijavi se <span className="btn-arrow">→</span>
             </Link>
           </div>
         </div>
@@ -44,7 +44,7 @@ export default function InstagramPlaybook() {
             <div className="cs-fade-in cs-cover-box">
               <Image
                 src="/free-tools/instagram-playbook-cover.jpg"
-                alt="Instagram vodiÄ za rast"
+                alt="Instagram vodič za rast"
                 width={760}
                 height={420}
                 priority
@@ -55,470 +55,470 @@ export default function InstagramPlaybook() {
 
             {/* Title block */}
             <div className="cs-fade-in cs-intro-block">
-              <span className="chapter-label" style={{ color: '#e8538f', marginBottom: 16, display: 'block' }}>Velluto Nero Â· Interni vodiÄ</span>
+              <span className="chapter-label" style={{ color: '#e8538f', marginBottom: 16, display: 'block' }}>Velluto Nero · Interni vodič</span>
               <h1 className="cs-page-title">
-                NaÅ¡ stvarni interni vodiÄ<br />
+                Naš stvarni interni vodič<br />
                 <em>od nule do 100k+ pratilaca</em>
               </h1>
               <p className="cs-lead">
-                12 poglavlja. Äetiri dela. taÄan sistem iza kreatora koji idu od nule do 100k+ pratilaca â€” istraÅ¾ivanje, lansiranje, rast, skaliranje na viÅ¡e naloga, sve. delimo ga jer, iskreno, veÄ‡ina vodiÄa vani kaÅ¾e "objavljuj konzistentno" i zove to strategijom.
+                12 poglavlja. četiri dela. tačan sistem iza kreatora koji idu od nule do 100k+ pratilaca — istraživanje, lansiranje, rast, skaliranje na više naloga, sve. delimo ga jer, iskreno, većina vodiča vani kaže "objavljuj konzistentno" i zove to strategijom.
               </p>
               <div className="cs-meta-pills">
                 <span>12 poglavlja</span>
-                <span>~3 sata Äitanja</span>
-                <span>poÄetnici dobrodoÅ¡li</span>
-                <span>besplatno â€” bez skrivenih uslova</span>
+                <span>~3 sata čitanja</span>
+                <span>početnici dobrodošli</span>
+                <span>besplatno — bez skrivenih uslova</span>
               </div>
             </div>
 
             {/* What you'll learn */}
             <div className="cs-fade-in cs-learn-box">
               <div className="cs-learn-col">
-                <h3 className="cs-box-heading">Å ta Ä‡eÅ¡ nauÄiti</h3>
+                <h3 className="cs-box-heading">Šta ćeš naučiti</h3>
                 <ul className="cs-check-list">
-                  <li>Radi konkurentsko istraÅ¾ivanje i pronaÄ‘i profitabilne niÅ¡e</li>
-                  <li>Gradi liÄne brendove koji zaista konvertuju u pretplatnike</li>
+                  <li>Radi konkurentsko istraživanje i pronađi profitabilne niše</li>
+                  <li>Gradi lične brendove koji zaista konvertuju u pretplatnike</li>
                   <li>Postavi naloge, profile i link levkove ispravno</li>
-                  <li>IzvrÅ¡avaj fazni plan rasta od 0 do 10k+</li>
-                  <li>Skaliraj sa viÅ¡e naloga i cross-platform distribucijom</li>
-                  <li>Prati KPI-jeve, dijagnostikuj Å¡ta ne radi i popravi to brzo</li>
+                  <li>Izvršavaj fazni plan rasta od 0 do 10k+</li>
+                  <li>Skaliraj sa više naloga i cross-platform distribucijom</li>
+                  <li>Prati KPI-jeve, dijagnostikuj šta ne radi i popravi to brzo</li>
                 </ul>
               </div>
               <div className="cs-learn-col">
                 <h3 className="cs-box-heading">Za koga je ovo</h3>
                 <ul className="cs-check-list">
-                  <li>Kreatori koji Å¾ele da porastu na Instagramu ali ne znaju odakle da poÄnu</li>
+                  <li>Kreatori koji žele da porastu na Instagramu ali ne znaju odakle da počnu</li>
                   <li>Kreatori koji objavljuju konzistentno ali ne vide rezultate</li>
                   <li>Kreatori spremni da skaliraju dalje od jednog naloga</li>
-                  <li>Svi koji Å¾ele proveren, ponovljiv sistem â€” ne nagaÄ‘anje</li>
+                  <li>Svi koji žele proveren, ponovljiv sistem — ne nagađanje</li>
                 </ul>
               </div>
             </div>
 
           </div>
 
-          {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ CHAPTER 1 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+          {/* ─────────── CHAPTER 1 ─────────── */}
           <section className="cs-chapter" id="ch1">
             <div className="cs-container">
 
               <div className="cs-fade-in cs-chapter-header">
                 <span className="cs-chapter-tag">Poglavlje 1 od 12</span>
-                <h2 className="cs-chapter-title">Izbor niÅ¡e</h2>
-                <p className="cs-chapter-subtitle">Okvir sa 3 pravila za pronalazak profitabilne niÅ¡e</p>
-                <span className="cs-read-time">~12 min Äitanja</span>
+                <h2 className="cs-chapter-title">Izbor niše</h2>
+                <p className="cs-chapter-subtitle">Okvir sa 3 pravila za pronalazak profitabilne niše</p>
+                <span className="cs-read-time">~12 min čitanja</span>
               </div>
 
               <blockquote className="cs-fade-in cs-pull-quote">
-                "VeÄ‡ina kreatora preskaÄe ovaj korak. Objavljuju nasumiÄne stvari, nadaju se da Ä‡e neÅ¡to proÄ‡i i pitaju se zaÅ¡to im broj pratilaca niÅ¡ta ne znaÄi."
+                "Većina kreatora preskače ovaj korak. Objavljuju nasumične stvari, nadaju se da će nešto proći i pitaju se zašto im broj pratilaca ništa ne znači."
               </blockquote>
 
               <div className="cs-fade-in">
-                <h3 className="cs-h3">ZaÅ¡to je tvoja niÅ¡a vaÅ¾nija od tvog izgleda</h3>
-                <p className="cs-body">Evo istine. Kreator sa 50.000 ciljanih pratilaca Ä‡e nadmaÅ¡iti kreatora sa 500.000 nasumiÄnih. Svaki put. Nije ni blizu.</p>
+                <h3 className="cs-h3">Zašto je tvoja niša važnija od tvog izgleda</h3>
+                <p className="cs-body">Evo istine. Kreator sa 50.000 ciljanih pratilaca će nadmašiti kreatora sa 500.000 nasumičnih. Svaki put. Nije ni blizu.</p>
               </div>
 
               <div className="cs-fade-in cs-stat-block">
                 <div className="cs-stat-num">50K &gt; 500K</div>
-                <p className="cs-stat-desc">Ciljani pratioci nadmaÅ¡uju generiÄke. ÄŒvrsta niÅ¡a sa 30K pratilaca moÅ¾e konvertovati 10+ pretplatnika dnevno. GeneriÄki nalog sa 200K moÅ¾e konvertovati nula.</p>
+                <p className="cs-stat-desc">Ciljani pratioci nadmašuju generičke. Čvrsta niša sa 30K pratilaca može konvertovati 10+ pretplatnika dnevno. Generički nalog sa 200K može konvertovati nula.</p>
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/instagram-playbook/ch1-targeted-vs-generic.webp" alt="Ciljano vs generiÄko â€” ciljano uvek pobedi" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Ciljano pobedi generiÄko â€” svaki put</p>
+                <Image src="/instagram-playbook/ch1-targeted-vs-generic.webp" alt="Ciljano vs generičko — ciljano uvek pobedi" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Ciljano pobedi generičko — svaki put</p>
               </div>
 
               <div className="cs-fade-in">
-                <p className="cs-body">Videli smo to iznova i iznova. Kreator sa 200.000 pratilaca konvertuje 0 pretplatnika dnevno. Drugi kreator sa 30.000 pratilaca konvertuje 10 ili viÅ¡e dnevno. Razlika? Drugi je izabrao niÅ¡u i ostao uz nju.</p>
+                <p className="cs-body">Videli smo to iznova i iznova. Kreator sa 200.000 pratilaca konvertuje 0 pretplatnika dnevno. Drugi kreator sa 30.000 pratilaca konvertuje 10 ili više dnevno. Razlika? Drugi je izabrao nišu i ostao uz nju.</p>
               </div>
 
               <div className="cs-fade-in cs-note cs-note--pink">
                 <strong>Pravi primer</strong>
-                <p>Jedan od naÅ¡ih kreatora imao je 200K pratilaca na nasumiÄnom sadrÅ¾aju. Nula konverzija pretplatnika dnevno. Pomogli smo joj da se repozicionira u odreÄ‘enu niÅ¡u. Na 30K pratilaca u novoj niÅ¡i konvertovala je 10+ pretplatnika dnevno. Manje pratilaca. Daleko viÅ¡e novca.</p>
+                <p>Jedan od naših kreatora imao je 200K pratilaca na nasumičnom sadržaju. Nula konverzija pretplatnika dnevno. Pomogli smo joj da se repozicionira u određenu nišu. Na 30K pratilaca u novoj niši konvertovala je 10+ pretplatnika dnevno. Manje pratilaca. Daleko više novca.</p>
               </div>
 
               <div className="cs-fade-in">
-                <p className="cs-body">Tvoja niÅ¡a je kategorija koja ljudima govori ko si i zaÅ¡to bi ih trebalo biti briga. Uradi ovo ispravno i sve ostalo postaje lakÅ¡e. PogreÅ¡i i nikakvo objavljivanje to neÄ‡e popraviti.</p>
+                <p className="cs-body">Tvoja niša je kategorija koja ljudima govori ko si i zašto bi ih trebalo biti briga. Uradi ovo ispravno i sve ostalo postaje lakše. Pogreši i nikakvo objavljivanje to neće popraviti.</p>
               </div>
 
               {/* 3 Rules */}
               <div className="cs-fade-in">
-                <h3 className="cs-h3">3 pravila izbora niÅ¡e</h3>
-                <p className="cs-body">Svaka profitabilna niÅ¡a prolazi tri testa. Ako tvoja niÅ¡a ne proÄ‘e ni jedan od njih, imaÄ‡eÅ¡ problema sa rastom. Ovo nisu sugestije. To su pravila.</p>
+                <h3 className="cs-h3">3 pravila izbora niše</h3>
+                <p className="cs-body">Svaka profitabilna niša prolazi tri testa. Ako tvoja niša ne prođe ni jedan od njih, imaćeš problema sa rastom. Ovo nisu sugestije. To su pravila.</p>
               </div>
 
               <ol className="cs-steps">
                 <li className="cs-fade-in">
                   <span className="cs-step-num">01</span>
                   <div>
-                    <strong>AutentiÄnost</strong>
-                    <p>Potrebna ti je genuina veza sa tvojom niÅ¡om. Ne laÅ¾na. Ne "mislim da bi ovo moglo da radi". Prava.<br /><br />
-                    Zamisli ovo ovako. Devojka koja se bavi boksom i objavljuje boks sadrÅ¾aj deluje stvarno. Ima veÅ¡tine. Ima priÄe. Ima dnevne snimke. Njena publika moÅ¾e da oseti da je to genuino.<br /><br />
-                    Sada zamisli nasumiÄnu osobu koja se pretvara da je fitness devojka. Zapravo ne ide na teretanu. Ne zna veÅ¾be. Samo oblaÄi sportsku opremu i snima u teretani. Publika to oseÄ‡a. I algoritam takoÄ‘e.<br /><br />
-                    Pitaj sebe: Mogu li da priÄam o ovoj temi 30 minuta bez da ostane bez tema za razgovor? Ako da, prolazi test autentiÄnosti. Ako ne, nastavi da traÅ¾iÅ¡.</p>
+                    <strong>Autentičnost</strong>
+                    <p>Potrebna ti je genuina veza sa tvojom nišom. Ne lažna. Ne "mislim da bi ovo moglo da radi". Prava.<br /><br />
+                    Zamisli ovo ovako. Devojka koja se bavi boksom i objavljuje boks sadržaj deluje stvarno. Ima veštine. Ima priče. Ima dnevne snimke. Njena publika može da oseti da je to genuino.<br /><br />
+                    Sada zamisli nasumičnu osobu koja se pretvara da je fitness devojka. Zapravo ne ide na teretanu. Ne zna vežbe. Samo oblači sportsku opremu i snima u teretani. Publika to oseća. I algoritam takođe.<br /><br />
+                    Pitaj sebe: Mogu li da pričam o ovoj temi 30 minuta bez da ostane bez tema za razgovor? Ako da, prolazi test autentičnosti. Ako ne, nastavi da tražiš.</p>
                   </div>
                 </li>
                 <li className="cs-fade-in">
                   <span className="cs-step-num">02</span>
                   <div>
-                    <strong>Ukupno adresabilno trÅ¾iÅ¡te (TAM)</strong>
-                    <p>Tvoja niÅ¡a treba da ima dovoljno ljudi u njoj. Ne previÅ¡e. Ne premalo. Slatka taÄka je oko 3 miliona ljudi na Instagramu.<br /><br />
-                    Kako validiraÅ¡ ovo: Proveri Google Trends da vidiÅ¡ ima li tvoja niÅ¡a stabilno interesovanje tokom vremena. Koristi Ahrefs ili sliÄan alat da pogledaÅ¡ volumen pretrage za kljuÄne reÄi vezane za niÅ¡u. Ili jednostavno pitaj ChatGPT: "Koliko ljudi globalno je aktivno zainteresovano za [tvoja niÅ¡a]?"</p>
+                    <strong>Ukupno adresabilno tržište (TAM)</strong>
+                    <p>Tvoja niša treba da ima dovoljno ljudi u njoj. Ne previše. Ne premalo. Slatka tačka je oko 3 miliona ljudi na Instagramu.<br /><br />
+                    Kako validiraš ovo: Proveri Google Trends da vidiš ima li tvoja niša stabilno interesovanje tokom vremena. Koristi Ahrefs ili sličan alat da pogledaš volumen pretrage za ključne reči vezane za nišu. Ili jednostavno pitaj ChatGPT: "Koliko ljudi globalno je aktivno zainteresovano za [tvoja niša]?"</p>
                   </div>
                 </li>
                 <li className="cs-fade-in">
                   <span className="cs-step-num">03</span>
                   <div>
                     <strong>Replikabilnost</strong>
-                    <p>MoÅ¾eÅ¡ li praviti sadrÅ¾aj u ovoj niÅ¡i svaki dan? Ne jednom nedeljno. Ne kad ti se prohte. Svaki dan.<br /><br />
-                    Boks je odliÄan primer. ImaÅ¡ klipove sa treninga. Sparinge. Rad na lopti. Probe outfita. Rutine oporavka. Kulise sa teretane. Mogla bi snimiti 3 komada sadrÅ¾aja svaki dan bez puno napora.<br /><br />
-                    Replikabilnost je najmanji kritiÄni od tri pravila â€” ali niÅ¡e kao jahanje konja, skijanje ili surfovanje zahtevaju specifiÄne lokacije ili uslove. TeÅ¡ko je za dnevno objavljivanje â€” ali ako zaista Å¾iviÅ¡ tim stilom Å¾ivota, zaraÄ‘ivaÄki potencijal je ogroman.</p>
+                    <p>Možeš li praviti sadržaj u ovoj niši svaki dan? Ne jednom nedeljno. Ne kad ti se prohte. Svaki dan.<br /><br />
+                    Boks je odličan primer. Imaš klipove sa treninga. Sparinge. Rad na lopti. Probe outfita. Rutine oporavka. Kulise sa teretane. Mogla bi snimiti 3 komada sadržaja svaki dan bez puno napora.<br /><br />
+                    Replikabilnost je najmanji kritični od tri pravila — ali niše kao jahanje konja, skijanje ili surfovanje zahtevaju specifične lokacije ili uslove. Teško je za dnevno objavljivanje — ali ako zaista živiš tim stilom života, zarađivački potencijal je ogroman.</p>
                   </div>
                 </li>
               </ol>
 
               <div className="cs-fade-in cs-note">
                 <strong>Upozorenje</strong>
-                <p>LaÅ¾iranje niÅ¡e uvek propada. Tvoja publika Ä‡e to osetiti za nekoliko objava. Algoritam primeti niski angaÅ¾man i prestane da gura tvoj sadrÅ¾aj. Budi stvarna ili izaberi drugaÄiju niÅ¡u.</p>
+                <p>Lažiranje niše uvek propada. Tvoja publika će to osetiti za nekoliko objava. Algoritam primeti niski angažman i prestane da gura tvoj sadržaj. Budi stvarna ili izaberi drugačiju nišu.</p>
               </div>
 
               <div className="cs-fade-in">
-                <h3 className="cs-h3">Slatka taÄka niÅ¡e</h3>
-                <p className="cs-body">VeÄ‡ina kreatora greÅ¡i na jedan od dva naÄina. Idu preÅ¡iroko ili preusko. Oba ubijaju tvoj rast.</p>
+                <h3 className="cs-h3">Slatka tačka niše</h3>
+                <p className="cs-body">Većina kreatora greši na jedan od dva načina. Idu preširoko ili preusko. Oba ubijaju tvoj rast.</p>
               </div>
 
               <div className="cs-fade-in cs-table-wrap">
                 <table className="cs-table">
                   <thead>
-                    <tr><th>NiÅ¡a</th><th>Procenjeni TAM</th><th>Verdikt</th></tr>
+                    <tr><th>Niša</th><th>Procenjeni TAM</th><th>Verdikt</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>"Sportska devojka"</td><td>~80M</td><td>PreviÅ¡e Å¡iroko â€” nevidljiva</td></tr>
-                    <tr><td>"Boks devojka"</td><td>~4M</td><td>â­ Slatka taÄka â€” osvoji je</td></tr>
-                    <tr><td>"Levo-ruka southpaw boks ASMR"</td><td>~50K</td><td>PreviÅ¡e usko â€” nema publike</td></tr>
-                    <tr><td>"Goth fitness devojka"</td><td>~3M</td><td>Dobro â€” specifiÄno i dostupno</td></tr>
-                    <tr><td>"Devojka koja veÅ¾ba"</td><td>~60M</td><td>PreviÅ¡e Å¡iroko â€” nema identiteta</td></tr>
+                    <tr><td>"Sportska devojka"</td><td>~80M</td><td>Previše široko — nevidljiva</td></tr>
+                    <tr><td>"Boks devojka"</td><td>~4M</td><td>⭐ Slatka tačka — osvoji je</td></tr>
+                    <tr><td>"Levo-ruka southpaw boks ASMR"</td><td>~50K</td><td>Previše usko — nema publike</td></tr>
+                    <tr><td>"Goth fitness devojka"</td><td>~3M</td><td>Dobro — specifično i dostupno</td></tr>
+                    <tr><td>"Devojka koja vežba"</td><td>~60M</td><td>Previše široko — nema identiteta</td></tr>
                   </tbody>
                 </table>
-                <p className="cs-table-caption">Primeri TAM-a â€” ciljaj oko 3 miliona na Instagramu</p>
+                <p className="cs-table-caption">Primeri TAM-a — ciljaj oko 3 miliona na Instagramu</p>
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/instagram-playbook/ch1-niche-spectrum.webp" alt="Spektar niÅ¡e od preuskog do preÅ¡irokog" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">PronaÄ‘i slatku taÄku â€” ni preusko, ni preÅ¡iroko</p>
+                <Image src="/instagram-playbook/ch1-niche-spectrum.webp" alt="Spektar niše od preuskog do preširokog" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Pronađi slatku tačku — ni preusko, ni preširoko</p>
               </div>
 
               <div className="cs-fade-in">
-                <h3 className="cs-h3">PoÄni malo, dominantiraj, pa se Å¡iri</h3>
-                <p className="cs-body">Ne pokuÅ¡avaj da osvoji ogromnu niÅ¡u od prvog dana. Upravo tako ostaneÅ¡ nevidljiva. Umesto toga, izaberi malo iskoriÅ¡Ä‡enu pod-niÅ¡u i najpre dominiraÅ¡ njom.</p>
+                <h3 className="cs-h3">Počni malo, dominantiraj, pa se širi</h3>
+                <p className="cs-body">Ne pokušavaj da osvoji ogromnu nišu od prvog dana. Upravo tako ostaneš nevidljiva. Umesto toga, izaberi malo iskorišćenu pod-nišu i najpre dominiraš njom.</p>
               </div>
 
               <ol className="cs-steps">
                 <li className="cs-fade-in">
                   <span className="cs-step-num">01</span>
                   <div>
-                    <strong>Izaberi Ävrstu pod-niÅ¡u</strong>
-                    <p>PoÄni kao "boks devojka". Ne "fitness devojka". Ne "sportska devojka". Boks devojka. Osvoji tu oznaku.</p>
+                    <strong>Izaberi čvrstu pod-nišu</strong>
+                    <p>Počni kao "boks devojka". Ne "fitness devojka". Ne "sportska devojka". Boks devojka. Osvoji tu oznaku.</p>
                   </div>
                 </li>
                 <li className="cs-fade-in">
                   <span className="cs-step-num">02</span>
                   <div>
                     <strong>Dominantiraj njom</strong>
-                    <p>Objavljuj svaki dan. Postani prvo ime na koje ljudi pomisle kad pomisle boks sadrÅ¾aj na Instagramu. Gradi autoritet u tom malom prostoru.</p>
+                    <p>Objavljuj svaki dan. Postani prvo ime na koje ljudi pomisle kad pomisle boks sadržaj na Instagramu. Gradi autoritet u tom malom prostoru.</p>
                   </div>
                 </li>
                 <li className="cs-fade-in">
                   <span className="cs-step-num">03</span>
                   <div>
-                    <strong>ProÅ¡iruj se prirodno</strong>
-                    <p>Kada osvojiÅ¡ boks, proÅ¡iri se u fitnes i lifestyle u teretani. Tvoja publika te prati jer ti veruju. PraviÄ‡e te na tom putu.</p>
+                    <strong>Proširuj se prirodno</strong>
+                    <p>Kada osvojiš boks, proširi se u fitnes i lifestyle u teretani. Tvoja publika te prati jer ti veruju. Praviće te na tom putu.</p>
                   </div>
                 </li>
               </ol>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/instagram-playbook/ch1-niche-expansion.webp" alt="KoncentriÄni krugovi proÅ¡irenja niÅ¡e" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">PoÄni malo, pa se Å¡iri prema van â€” od pod-niÅ¡e do Å¡ire kategorije</p>
+                <Image src="/instagram-playbook/ch1-niche-expansion.webp" alt="Koncentrični krugovi proširenja niše" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Počni malo, pa se širi prema van — od pod-niše do šire kategorije</p>
               </div>
 
               <div className="cs-fade-in cs-note cs-note--pink">
                 <strong>Pravi primer</strong>
-                <p>Jedan kreator je poÄeo u veoma specifiÄnoj breathplay dominatrix niÅ¡i. Brzo je dominirala tim malim prostorom jer niko drugi nije osvajao to mesto. Kada je tamo stekla autoritet, proÅ¡irili smo je u Å¡iru BDSM niÅ¡u koja joj je dala pristup mnogo veÄ‡oj publici. Njeni postojeÄ‡i pratioci su je pratili jer je proÅ¡irenje delovalo prirodno. PreÅ¡la je sa nekolicine angaÅ¾ovanih fanova na desetine hiljada bez gubitka identiteta.</p>
+                <p>Jedan kreator je počeo u veoma specifičnoj breathplay dominatrix niši. Brzo je dominirala tim malim prostorom jer niko drugi nije osvajao to mesto. Kada je tamo stekla autoritet, proširili smo je u širu BDSM nišu koja joj je dala pristup mnogo većoj publici. Njeni postojeći pratioci su je pratili jer je proširenje delovalo prirodno. Prešla je sa nekolicine angažovanih fanova na desetine hiljada bez gubitka identiteta.</p>
               </div>
 
               {/* 3-word test */}
               <div className="cs-fade-in">
-                <h3 className="cs-h3">Test od 3 reÄi</h3>
-                <p className="cs-body">Ovo je najjednostavniji naÄin da znaÅ¡ da li je tvoja niÅ¡a ispravna. Pitaj sebe: MoÅ¾e li me neko opisati u 3 reÄi i da prijatelj odmah zna ko sam?</p>
+                <h3 className="cs-h3">Test od 3 reči</h3>
+                <p className="cs-body">Ovo je najjednostavniji način da znaš da li je tvoja niša ispravna. Pitaj sebe: Može li me neko opisati u 3 reči i da prijatelj odmah zna ko sam?</p>
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/instagram-playbook/ch1-3word-test.webp" alt="Test od 3 reÄi â€” prolaz ili pad" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Test od 3 reÄi â€” prolaz ili pad</p>
+                <Image src="/instagram-playbook/ch1-3word-test.webp" alt="Test od 3 reči — prolaz ili pad" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Test od 3 reči — prolaz ili pad</p>
               </div>
 
               <div className="cs-fade-in cs-compare-grid">
                 <div className="cs-compare-col cs-compare-col--good">
-                  <h4>âœ“ Prolaz</h4>
+                  <h4>✓ Prolaz</h4>
                   <ul>
-                    <li>"Boks devojka" â€” jasna slika, lako pamtljivo</li>
-                    <li>"Goth fitness devojka" â€” jedinstveno, upeÄatljivo</li>
-                    <li>"Weather devojka" â€” ikoniÄno, svi znaju ko misliÅ¡</li>
-                    <li>"Devojka koja tuÄe Lamboe" â€” odmah prepoznatljivo</li>
+                    <li>"Boks devojka" — jasna slika, lako pamtljivo</li>
+                    <li>"Goth fitness devojka" — jedinstveno, upečatljivo</li>
+                    <li>"Weather devojka" — ikonično, svi znaju ko misliš</li>
+                    <li>"Devojka koja tuče Lamboe" — odmah prepoznatljivo</li>
                   </ul>
                 </div>
                 <div className="cs-compare-col cs-compare-col--bad">
-                  <h4>âœ— Pad</h4>
+                  <h4>✗ Pad</h4>
                   <ul>
-                    <li>"Devojka koja objavljuje stvari" â€” to su svi</li>
-                    <li>"Lepa devojka" â€” polovina Instagrama</li>
-                    <li>"Sportska devojka" â€” koji sport? koji vibe?</li>
-                    <li>"Ugodna devojka" â€” ne govori niÅ¡ta konkretno</li>
+                    <li>"Devojka koja objavljuje stvari" — to su svi</li>
+                    <li>"Lepa devojka" — polovina Instagrama</li>
+                    <li>"Sportska devojka" — koji sport? koji vibe?</li>
+                    <li>"Ugodna devojka" — ne govori ništa konkretno</li>
                   </ul>
                 </div>
               </div>
 
               <div className="cs-fade-in cs-note">
-                <strong>Formula slatke taÄke</strong>
-                <p>Dovoljno specifiÄno da te neko moÅ¾e opisati u 3 reÄi. Dovoljno Å¡iroko da milione ljudi briga za te 3 reÄi.</p>
+                <strong>Formula slatke tačke</strong>
+                <p>Dovoljno specifično da te neko može opisati u 3 reči. Dovoljno široko da milione ljudi briga za te 3 reči.</p>
               </div>
 
               <div className="cs-fade-in cs-takeaways">
-                <h3 className="cs-box-heading">KljuÄne poruke â€” Poglavlje 1</h3>
+                <h3 className="cs-box-heading">Ključne poruke — Poglavlje 1</h3>
                 <ul className="cs-check-list">
-                  <li>50K ciljanih pratilaca pobedi 500K nasumiÄnih svaki put</li>
-                  <li>Svaka niÅ¡a mora proÄ‡i 3 testa: AutentiÄnost, TAM (~3M) i Replikabilnost</li>
-                  <li>PoÄni u maloj pod-niÅ¡i, dominantiraj njom, pa se proÅ¡iri prema van</li>
-                  <li>Ako te neko ne moÅ¾e opisati u 3 reÄi, tvoja niÅ¡a nije dovoljno definisana</li>
+                  <li>50K ciljanih pratilaca pobedi 500K nasumičnih svaki put</li>
+                  <li>Svaka niša mora proći 3 testa: Autentičnost, TAM (~3M) i Replikabilnost</li>
+                  <li>Počni u maloj pod-niši, dominantiraj njom, pa se proširi prema van</li>
+                  <li>Ako te neko ne može opisati u 3 reči, tvoja niša nije dovoljno definisana</li>
                   <li>200K pratilaca sa 0 pretplatnika je gore od 30K pratilaca sa 10+ dnevno</li>
                 </ul>
               </div>
 
               <div className="cs-fade-in cs-checklist-box">
-                <h4 className="cs-box-heading">ÄŒeklista za izbor niÅ¡e</h4>
+                <h4 className="cs-box-heading">Čeklista za izbor niše</h4>
                 <ul className="cs-check-list">
-                  <li>Imam genuinu vezu sa mojom niÅ¡om (ne laÅ¾iram je)</li>
-                  <li>Moja niÅ¡a ima oko 3 miliona ljudi na Instagramu</li>
-                  <li>Mogu praviti sadrÅ¾aj u ovoj niÅ¡i svaki dan</li>
-                  <li>Neko me moÅ¾e opisati u 3 reÄi</li>
-                  <li>Moja niÅ¡a nije ni previÅ¡e Å¡iroka ni previÅ¡e uska</li>
-                  <li>Izabrala sam malu pod-niÅ¡u da najpre dominantiram</li>
-                  <li>Imam plan da se proÅ¡irim u Å¡iru niÅ¡u kasnije</li>
-                  <li>Validirala sam TAM koristeÄ‡i Google Trends, Ahrefs ili ChatGPT</li>
+                  <li>Imam genuinu vezu sa mojom nišom (ne lažiram je)</li>
+                  <li>Moja niša ima oko 3 miliona ljudi na Instagramu</li>
+                  <li>Mogu praviti sadržaj u ovoj niši svaki dan</li>
+                  <li>Neko me može opisati u 3 reči</li>
+                  <li>Moja niša nije ni previše široka ni previše uska</li>
+                  <li>Izabrala sam malu pod-nišu da najpre dominantiram</li>
+                  <li>Imam plan da se proširim u širu nišu kasnije</li>
+                  <li>Validirala sam TAM koristeći Google Trends, Ahrefs ili ChatGPT</li>
                 </ul>
               </div>
 
             </div>
           </section>
 
-          {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ CHAPTER 2 â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+          {/* ─────────── CHAPTER 2 ─────────── */}
           <section className="cs-chapter cs-chapter--alt" id="ch2">
             <div className="cs-container">
 
               <div className="cs-fade-in cs-chapter-header">
                 <span className="cs-chapter-tag">Poglavlje 2 od 12</span>
                 <h2 className="cs-chapter-title">Definisanje brenda</h2>
-                <p className="cs-chapter-subtitle">ZaÅ¡to Å¡estica sa liÄnoÅ¡Ä‡u zaraÄ‘uje viÅ¡e od desetice</p>
-                <span className="cs-read-time">~14 min Äitanja</span>
+                <p className="cs-chapter-subtitle">Zašto šestica sa ličnošću zarađuje više od desetice</p>
+                <span className="cs-read-time">~14 min čitanja</span>
               </div>
 
               <blockquote className="cs-fade-in cs-pull-quote">
-                "Tvoj brend nije tvoj logo. Nije tvoja paleta boja. To je oseÄ‡aj koji ljudi dobijaju kada vide tvoj sadrÅ¾aj. To je tvoj vizuelni potpis, tvoja fraza, tvoj stil govora i naÄin na koji ljude ÄiniÅ¡ da se osete."
+                "Tvoj brend nije tvoj logo. Nije tvoja paleta boja. To je osećaj koji ljudi dobijaju kada vide tvoj sadržaj. To je tvoj vizuelni potpis, tvoja fraza, tvoj stil govora i način na koji ljude činiš da se osete."
               </blockquote>
 
               <div className="cs-fade-in">
-                <h3 className="cs-h3">Å ta je zapravo tvoj brend</h3>
-                <p className="cs-body">Zamisli ovako. Kada neko vidi tvoju objavu u svom feedu, da li odmah znaju da je tvoja? Pre nego Å¡to vide tvoje ime? To je brend.</p>
-                <p className="cs-body">Tvoj brend je ono Å¡to te Äini prepoznatljivom. Bez njega, ti si samo joÅ¡ jedno lice u feedu. Sa njim, ti si jedina opcija.</p>
+                <h3 className="cs-h3">Šta je zapravo tvoj brend</h3>
+                <p className="cs-body">Zamisli ovako. Kada neko vidi tvoju objavu u svom feedu, da li odmah znaju da je tvoja? Pre nego što vide tvoje ime? To je brend.</p>
+                <p className="cs-body">Tvoj brend je ono što te čini prepoznatljivom. Bez njega, ti si samo još jedno lice u feedu. Sa njim, ti si jedina opcija.</p>
               </div>
 
               <div className="cs-fade-in">
-                <h3 className="cs-h3">Test od 3 reÄi (brend verzija)</h3>
-                <p className="cs-body">Evo najbrÅ¾i naÄin da znaÅ¡ da li imaÅ¡ brend. MoÅ¾e li te neko opisati u 3 reÄi i da drugi odmah znaju taÄno ko si?</p>
+                <h3 className="cs-h3">Test od 3 reči (brend verzija)</h3>
+                <p className="cs-body">Evo najbrži način da znaš da li imaš brend. Može li te neko opisati u 3 reči i da drugi odmah znaju tačno ko si?</p>
               </div>
 
               <div className="cs-fade-in cs-compare-grid">
                 <div className="cs-compare-col cs-compare-col--good">
-                  <h4>âœ“ Brend koji prolazi</h4>
+                  <h4>✓ Brend koji prolazi</h4>
                   <ul>
-                    <li>"Weather devojka" â€” svi znaju ko je to</li>
-                    <li>"Devojka koja tuÄe Lamboe" â€” odmah prepoznatljivo</li>
-                    <li>"Goth odbojkaÅ¡ica" â€” jasna slika u glavi</li>
+                    <li>"Weather devojka" — svi znaju ko je to</li>
+                    <li>"Devojka koja tuče Lamboe" — odmah prepoznatljivo</li>
+                    <li>"Goth odbojkašica" — jasna slika u glavi</li>
                   </ul>
                 </div>
                 <div className="cs-compare-col cs-compare-col--bad">
-                  <h4>âœ— Brend koji pada</h4>
+                  <h4>✗ Brend koji pada</h4>
                   <ul>
-                    <li>"Lepa devojka" â€” moÅ¾e biti iko</li>
-                    <li>"Devojka koja objavljuje" â€” to je doslovno svako</li>
-                    <li>"Prijatna devojka" â€” ne govori niÅ¡ta</li>
+                    <li>"Lepa devojka" — može biti iko</li>
+                    <li>"Devojka koja objavljuje" — to je doslovno svako</li>
+                    <li>"Prijatna devojka" — ne govori ništa</li>
                   </ul>
                 </div>
               </div>
 
               <div className="cs-fade-in cs-stat-block">
-                <div className="cs-stat-num">3 reÄi</div>
-                <p className="cs-stat-desc">Ako te neko ne moÅ¾e opisati u 3 reÄi prijatelju i da on odmah zna ko si, tvoj brend nije dovoljno definisan.</p>
+                <div className="cs-stat-num">3 reči</div>
+                <p className="cs-stat-desc">Ako te neko ne može opisati u 3 reči prijatelju i da on odmah zna ko si, tvoj brend nije dovoljno definisan.</p>
               </div>
 
               <div className="cs-fade-in">
-                <h3 className="cs-h3">ZaÅ¡to Å¡estica sa liÄnoÅ¡Ä‡u zaraÄ‘uje viÅ¡e od desetice</h3>
-                <p className="cs-body">Ovo je najvaÅ¾nija stvar u celom ovom kursu. ProÄitaj dva puta.</p>
-                <p className="cs-body">Å estica sa liÄnoÅ¡Ä‡u uvek Ä‡e nadmaÅ¡iti deseticu koja nema niÅ¡ta da kaÅ¾e. Uvek. Nije ni blizu.</p>
-                <p className="cs-body">Evo zaÅ¡to. Izgled privlaÄi paÅ¾nju. To je sve Å¡to radi. Zaustavlja skrolovanje na jednu sekundu. Ali liÄnost je ono Å¡to nekoga natera da se pretplati. LiÄnost je ono Å¡to nekoga drÅ¾i pretplaÄ‡enim 6 meseci. LiÄnost je ono Å¡to nekoga tera da potroÅ¡i $200 na custom zahtev.</p>
+                <h3 className="cs-h3">Zašto šestica sa ličnošću zarađuje više od desetice</h3>
+                <p className="cs-body">Ovo je najvažnija stvar u celom ovom kursu. Pročitaj dva puta.</p>
+                <p className="cs-body">Šestica sa ličnošću uvek će nadmašiti deseticu koja nema ništa da kaže. Uvek. Nije ni blizu.</p>
+                <p className="cs-body">Evo zašto. Izgled privlači pažnju. To je sve što radi. Zaustavlja skrolovanje na jednu sekundu. Ali ličnost je ono što nekoga natera da se pretplati. Ličnost je ono što nekoga drži pretplaćenim 6 meseci. Ličnost je ono što nekoga tera da potroši $200 na custom zahtev.</p>
               </div>
 
               <div className="cs-fade-in cs-note">
                 <strong>Zapamti</strong>
-                <p>Izgled zaustavlja skrolovanje. LiÄnost otvara novÄanik. TrebaÅ¡ oba, ali liÄnost je 10 puta vrednija.</p>
+                <p>Izgled zaustavlja skrolovanje. Ličnost otvara novčanik. Trebaš oba, ali ličnost je 10 puta vrednija.</p>
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/instagram-playbook/ch2-iceberg.webp" alt="Ledeni brig â€” ono Å¡to vide vs ono Å¡to ih tera da plaÄ‡aju" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Ledeni brig â€” ono Å¡to vide (izgled) vs ono Å¡to ih tera da plaÄ‡aju (liÄnost)</p>
+                <Image src="/instagram-playbook/ch2-iceberg.webp" alt="Ledeni brig — ono što vide vs ono što ih tera da plaćaju" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Ledeni brig — ono što vide (izgled) vs ono što ih tera da plaćaju (ličnost)</p>
               </div>
 
               <div className="cs-fade-in">
-                <p className="cs-body">Eksplicitni sadrÅ¾aj je besplatan svuda na internetu. Postoje milioni kreatora koji izgledaju neverovatno. Ne moÅ¾eÅ¡ se takmiÄiti samo na osnovu izgleda jer uvek postoji neko lepÅ¡i, mlaÄ‘i ili spremniji.</p>
-                <p className="cs-body">Ali niko ne moÅ¾e kopirati tvoju liÄnost. Niko ne moÅ¾e replicirati specifiÄan naÄin na koji govoriÅ¡, Å¡ale koje praviÅ¡, priÄe koje priÄaÅ¡ ili naÄin na koji nekog ÄiniÅ¡ da se oseÄ‡a. To je tvoj jarak. To je tvoja cena.</p>
+                <p className="cs-body">Eksplicitni sadržaj je besplatan svuda na internetu. Postoje milioni kreatora koji izgledaju neverovatno. Ne možeš se takmičiti samo na osnovu izgleda jer uvek postoji neko lepši, mlađi ili spremniji.</p>
+                <p className="cs-body">Ali niko ne može kopirati tvoju ličnost. Niko ne može replicirati specifičan način na koji govoriš, šale koje praviš, priče koje pričaš ili način na koji nekog činiš da se oseća. To je tvoj jarak. To je tvoja cena.</p>
               </div>
 
               <div className="cs-fade-in cs-stat-block">
                 <div className="cs-stat-num">Brend = Cena</div>
-                <p className="cs-stat-desc">Ne moÅ¾eÅ¡ se takmiÄiti na transakcijskoj vrednosti. SadrÅ¾aj je besplatan svuda. Tvoj brend je jedina stvar koja tera ljude da plaÄ‡aju tebi umesto da gledaju besplatan sadrÅ¾aj.</p>
+                <p className="cs-stat-desc">Ne možeš se takmičiti na transakcijskoj vrednosti. Sadržaj je besplatan svuda. Tvoj brend je jedina stvar koja tera ljude da plaćaju tebi umesto da gledaju besplatan sadržaj.</p>
               </div>
 
               <div className="cs-fade-in">
                 <h3 className="cs-h3">Problem platoa prihoda</h3>
-                <p className="cs-body">Ako ti je prihod stagnirao, to skoro nikad nije problem sadrÅ¾aja. Skoro nikad nije problem Äetovanja. To je problem brenda.</p>
-                <p className="cs-body">Nisi dala ljudima razlog da ih briga dalje od toga kako izgledaÅ¡. Zato se pretplate, pogledaju dan-dva i odu. Nema veze. Nema lojalnosti. Nema ponavljajuÄ‡eg troÅ¡enja.</p>
+                <p className="cs-body">Ako ti je prihod stagnirao, to skoro nikad nije problem sadržaja. Skoro nikad nije problem četovanja. To je problem brenda.</p>
+                <p className="cs-body">Nisi dala ljudima razlog da ih briga dalje od toga kako izgledaš. Zato se pretplate, pogledaju dan-dva i odu. Nema veze. Nema lojalnosti. Nema ponavljajućeg trošenja.</p>
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/instagram-playbook/ch2-revenue-plateau.webp" alt="Dijagram platoa prihoda â€” svi simptomi imaju isti uzrok" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Svaki simptom ima isti uzrok â€” slab brend</p>
+                <Image src="/instagram-playbook/ch2-revenue-plateau.webp" alt="Dijagram platoa prihoda — svi simptomi imaju isti uzrok" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Svaki simptom ima isti uzrok — slab brend</p>
               </div>
 
               <div className="cs-fade-in cs-priority-list">
                 <div className="cs-priority-item cs-priority-item--1">
                   <span className="cs-priority-time">Simptom</span>
-                  <div><strong>Visoka fluktuacija pretplatnika</strong><p>Ljudi se pretplate i otkaÅ¾u za 30 dana. Dobili su vizuelno ono Å¡to su traÅ¾ili ali nisu osetili liÄnu vezu da ostanu.</p></div>
+                  <div><strong>Visoka fluktuacija pretplatnika</strong><p>Ljudi se pretplate i otkažu za 30 dana. Dobili su vizuelno ono što su tražili ali nisu osetili ličnu vezu da ostanu.</p></div>
                 </div>
                 <div className="cs-priority-item cs-priority-item--2">
                   <span className="cs-priority-time">Simptom</span>
-                  <div><strong>Niska stopa otvaranja PPV</strong><p>Pretplatnici ignoriÅ¡u tvoje poruke. Ne oseÄ‡aju da te poznaju. Tvoje poruke deluju kao spam, ne kao kad se prijatelj javlja.</p></div>
+                  <div><strong>Niska stopa otvaranja PPV</strong><p>Pretplatnici ignorišu tvoje poruke. Ne osećaju da te poznaju. Tvoje poruke deluju kao spam, ne kao kad se prijatelj javlja.</p></div>
                 </div>
                 <div className="cs-priority-item cs-priority-item--3">
                   <span className="cs-priority-time">Simptom</span>
-                  <div><strong>Nula custom zahteva</strong><p>Niko ne traÅ¾i custom sadrÅ¾aj. Nemaju parasosijalnu vezu dovoljno jaku da Å¾ele neÅ¡to liÄno od tebe.</p></div>
+                  <div><strong>Nula custom zahteva</strong><p>Niko ne traži custom sadržaj. Nemaju parasosijalnu vezu dovoljno jaku da žele nešto lično od tebe.</p></div>
                 </div>
                 <div className="cs-priority-item cs-priority-item--4">
                   <span className="cs-priority-time">Simptom</span>
-                  <div><strong>Osetljivost na cenu</strong><p>Pretplatnici se Å¾ale na $10/mesec. Vide te kao zamenjivu sa jeftinijim kreatorima jer nisi izgradila jedinstven brend.</p></div>
+                  <div><strong>Osetljivost na cenu</strong><p>Pretplatnici se žale na $10/mesec. Vide te kao zamenjivu sa jeftinijim kreatorima jer nisi izgradila jedinstven brend.</p></div>
                 </div>
               </div>
 
               <div className="cs-fade-in cs-note cs-note--pink">
                 <strong>Upozorenje</strong>
-                <p>Ako si zaglavila na plafonu prihoda, ne objavljuj viÅ¡e sadrÅ¾aja. Ne menjaj Äet strategiju. Prvo popravi brend. Sve ostalo je nizvodno od toga.</p>
+                <p>Ako si zaglavila na plafonu prihoda, ne objavljuj više sadržaja. Ne menjaj čet strategiju. Prvo popravi brend. Sve ostalo je nizvodno od toga.</p>
               </div>
 
               <div className="cs-fade-in">
-                <h3 className="cs-h3">Gradi brend pre nego Å¡to skaliraÅ¡</h3>
-                <p className="cs-body">Mnogi kreatori Å¾ure da objave viÅ¡e sadrÅ¾aja, pokrenu oglase ili poÄnu viÅ¡estruke naloge pre nego Å¡to su usavrÅ¡ili brend. Ovo je naopako. To je kao sipanje benzina u auto bez motora.</p>
+                <h3 className="cs-h3">Gradi brend pre nego što skaliraš</h3>
+                <p className="cs-body">Mnogi kreatori žure da objave više sadržaja, pokrenu oglase ili počnu višestruke naloge pre nego što su usavršili brend. Ovo je naopako. To je kao sipanje benzina u auto bez motora.</p>
               </div>
 
               <ol className="cs-steps">
                 <li className="cs-fade-in">
                   <span className="cs-step-num">01</span>
-                  <div><strong>ZakljuÄaj svoju niÅ¡u</strong><p>Ovo si veÄ‡ uradila u Poglavlju 1. Proveri da li prolazi sva 3 pravila. Ovo je tvoj temelj.</p></div>
+                  <div><strong>Zaključaj svoju nišu</strong><p>Ovo si već uradila u Poglavlju 1. Proveri da li prolazi sva 3 pravila. Ovo je tvoj temelj.</p></div>
                 </li>
                 <li className="cs-fade-in">
                   <span className="cs-step-num">02</span>
-                  <div><strong>DefiniÅ¡i svoju liÄnost</strong><p>Kako govoriÅ¡? Å ta te Äini smeÅ¡nom? Koja su tvoja miÅ¡ljenja? Å ta te zanima? ZapiÅ¡i ovo. Budi specifiÄna.</p></div>
+                  <div><strong>Definiši svoju ličnost</strong><p>Kako govoriš? Šta te čini smešnom? Koja su tvoja mišljenja? Šta te zanima? Zapiši ovo. Budi specifična.</p></div>
                 </li>
                 <li className="cs-fade-in">
                   <span className="cs-step-num">03</span>
-                  <div><strong>Postavi vizuelni stil</strong><p>Boje, stil montaÅ¾e, outfiti, lokacije, osvetljenje. Kada neko vidi tvoj sadrÅ¾aj sa iskljuÄenim zvukom i bez prikazanog lica, mogu li da ga prepoznaju?</p></div>
+                  <div><strong>Postavi vizuelni stil</strong><p>Boje, stil montaže, outfiti, lokacije, osvetljenje. Kada neko vidi tvoj sadržaj sa isključenim zvukom i bez prikazanog lica, mogu li da ga prepoznaju?</p></div>
                 </li>
                 <li className="cs-fade-in">
                   <span className="cs-step-num">04</span>
-                  <div><strong>PronaÄ‘i svoj glas</strong><p>Kako kucaÅ¡? KoristiÅ¡ li sleng? Jesi li sarcastiÄna? Slatka? Direktna? Tvoj pisani glas u natpisima i DM-ovima treba da odgovara tvojoj video liÄnosti.</p></div>
+                  <div><strong>Pronađi svoj glas</strong><p>Kako kucaš? Koristiš li sleng? Jesi li sarcastična? Slatka? Direktna? Tvoj pisani glas u natpisima i DM-ovima treba da odgovara tvojoj video ličnosti.</p></div>
                 </li>
                 <li className="cs-fade-in">
                   <span className="cs-step-num">05</span>
-                  <div><strong>Testiraj sa 10 objava</strong><p>Objavi 10 komada sadrÅ¾aja koji u potpunosti izraÅ¾avaju tvoj brend. Vidi kako se ponaÅ¡aju. Uzmi povratne informacije. Prilagodi. Onda skaliraj.</p></div>
+                  <div><strong>Testiraj sa 10 objava</strong><p>Objavi 10 komada sadržaja koji u potpunosti izražavaju tvoj brend. Vidi kako se ponašaju. Uzmi povratne informacije. Prilagodi. Onda skaliraj.</p></div>
                 </li>
               </ol>
 
               <div className="cs-fade-in">
-                <p className="cs-body">Svaki komad sadrÅ¾aja treba da odgovori na jedno pitanje: <em>Da li ovo deluje kao JA?</em> Ako bi to mogla biti objava bilo kog drugog, nije dovoljno brendirano.</p>
+                <p className="cs-body">Svaki komad sadržaja treba da odgovori na jedno pitanje: <em>Da li ovo deluje kao JA?</em> Ako bi to mogla biti objava bilo kog drugog, nije dovoljno brendirano.</p>
               </div>
 
               <div className="cs-fade-in">
-                <h3 className="cs-h3">Parasocijalni odnosi: najmoÄ‡niji pokretaÄ prihoda</h3>
-                <p className="cs-body">Ovo je deo koji veÄ‡ina kreatora ignoriÅ¡e. I to je jedini najveÄ‡i pokretaÄ prihoda u celom ovom poslu.</p>
-                <p className="cs-body">Parasocijalni odnos nastaje kada gledaoc oseÄ‡a da te liÄno poznaje, iako se nikad niste upoznale. OseÄ‡aju se povezanim sa tobom. Brine ih tvoj dan. Navijaju za tebe. Misle na tebe kao na stvarnu osobu u svom Å¾ivotu.</p>
+                <h3 className="cs-h3">Parasocijalni odnosi: najmoćniji pokretač prihoda</h3>
+                <p className="cs-body">Ovo je deo koji većina kreatora ignoriše. I to je jedini najveći pokretač prihoda u celom ovom poslu.</p>
+                <p className="cs-body">Parasocijalni odnos nastaje kada gledaoc oseća da te lično poznaje, iako se nikad niste upoznale. Osećaju se povezanim sa tobom. Brine ih tvoj dan. Navijaju za tebe. Misle na tebe kao na stvarnu osobu u svom životu.</p>
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/instagram-playbook/ch2-parasocial.webp" alt="Parasocijalni odnosi â€” najveÄ‡i pokretaÄ prihoda" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Parasocijalni odnosi â€” zaÅ¡to su kreatori koji dele liÄni Å¾ivot dramatiÄno profitabilniji</p>
+                <Image src="/instagram-playbook/ch2-parasocial.webp" alt="Parasocijalni odnosi — najveći pokretač prihoda" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Parasocijalni odnosi — zašto su kreatori koji dele lični život dramatično profitabilniji</p>
               </div>
 
               <div className="cs-fade-in cs-stat-block">
                 <div className="cs-stat-num">Poluga #1</div>
-                <p className="cs-stat-desc">Kreatori koji opseÅ¾no dele liÄni Å¾ivot vide dramatiÄno veÄ‡u Å¾ivotnu vrednost pretplatnika. Ovo je poluga prihoda broj jedan u poslu.</p>
+                <p className="cs-stat-desc">Kreatori koji opsežno dele lični život vide dramatično veću životnu vrednost pretplatnika. Ovo je poluga prihoda broj jedan u poslu.</p>
               </div>
 
               <div className="cs-fade-in">
-                <p className="cs-body">Kreatori koji grade jake parasocijalne odnose vide dramatiÄno veÄ‡u Å¾ivotnu vrednost pretplatnika. Njihovi pretplatnici ostaju duÅ¾e. TroÅ¡e viÅ¡e. Kupuju custom sadrÅ¾aj. Daju napojnice. Obnavljaju mesec za mesecom.</p>
+                <p className="cs-body">Kreatori koji grade jake parasocijalne odnose vide dramatično veću životnu vrednost pretplatnika. Njihovi pretplatnici ostaju duže. Troše više. Kupuju custom sadržaj. Daju napojnice. Obnavljaju mesec za mesecom.</p>
               </div>
 
               <div className="cs-fade-in cs-takeaways">
-                <h3 className="cs-box-heading">KljuÄne poruke â€” Poglavlje 2</h3>
+                <h3 className="cs-box-heading">Ključne poruke — Poglavlje 2</h3>
                 <ul className="cs-check-list">
-                  <li>Brend je oseÄ‡aj koji ljudi dobijaju kada vide tvoj sadrÅ¾aj â€” pre nego Å¡to vide tvoje ime</li>
-                  <li>Å estica sa liÄnoÅ¡Ä‡u uvek zaraÄ‘uje viÅ¡e od desetice bez nje</li>
-                  <li>Izgled zaustavlja skrolovanje. LiÄnost otvara novÄanik</li>
-                  <li>Plato prihoda je gotovo uvek problem brenda, ne sadrÅ¾aja</li>
-                  <li>Gradi brend pre nego Å¡to skaliraÅ¡ â€” ne posle</li>
-                  <li>Parasocijalni odnosi su jedini najveÄ‡i pokretaÄ Å¾ivotne vrednosti pretplatnika</li>
+                  <li>Brend je osećaj koji ljudi dobijaju kada vide tvoj sadržaj — pre nego što vide tvoje ime</li>
+                  <li>Šestica sa ličnošću uvek zarađuje više od desetice bez nje</li>
+                  <li>Izgled zaustavlja skrolovanje. Ličnost otvara novčanik</li>
+                  <li>Plato prihoda je gotovo uvek problem brenda, ne sadržaja</li>
+                  <li>Gradi brend pre nego što skaliraš — ne posle</li>
+                  <li>Parasocijalni odnosi su jedini najveći pokretač životne vrednosti pretplatnika</li>
                 </ul>
               </div>
 
             </div>
           </section>
 
-          {/* â”€â”€ LOCKED â”€â”€ */}
+          {/* ── LOCKED ── */}
           <section className="cs-locked" id="ch3-12">
             <div className="cs-container">
               <div className="cs-locked-inner">
-                <div className="cs-locked-icon">ðŸ”’</div>
+                <div className="cs-locked-icon">🔒</div>
                 <h2 className="cs-locked-title">
-                  Poglavlja 3â€“12 dostupna su<br />
+                  Poglavlja 3–12 dostupna su<br />
                   <em>kreatorima Velluto Nero</em>
                 </h2>
                 <p className="cs-locked-desc">
-                  Postavljanje naloga. Strategija sadrÅ¾aja. Plan rasta od 0 do 10k. Skaliranje na viÅ¡e naloga. Analitika i KPI-jevi. Sve je u sledeÄ‡ih 10 poglavlja.
+                  Postavljanje naloga. Strategija sadržaja. Plan rasta od 0 do 10k. Skaliranje na više naloga. Analitika i KPI-jevi. Sve je u sledećih 10 poglavlja.
                 </p>
                 <ul className="cs-locked-list">
-                  <li>âœ“ Poglavlje 3 â€” Postavljanje naloga i optimizacija profila</li>
-                  <li>âœ“ Poglavlje 4 â€” Kreiranje sadrÅ¾aja i batching sistem</li>
-                  <li>âœ“ Poglavlje 5 â€” Strategija hashtagova i otkrivanja</li>
-                  <li>âœ“ Poglavlje 6 â€” Plan rasta: od 0 do 1k pratilaca</li>
-                  <li>âœ“ Poglavlje 7 â€” Od 1k do 10k: fazni plan skaliranja</li>
-                  <li>âœ“ Poglavlje 8 â€” Rast sa viÅ¡e naloga i cross-platform</li>
-                  <li>âœ“ Poglavlje 9 â€” Saradnje, reposti i virusni rast</li>
-                  <li>âœ“ Poglavlje 10 â€” Konverzija pratilaca u pretplatnike</li>
-                  <li>âœ“ Poglavlje 11 â€” KPI-jevi, analitika i dijagnostika</li>
-                  <li>âœ“ Poglavlje 12 â€” Sistem koji radi bez tebe</li>
+                  <li>✓ Poglavlje 3 — Postavljanje naloga i optimizacija profila</li>
+                  <li>✓ Poglavlje 4 — Kreiranje sadržaja i batching sistem</li>
+                  <li>✓ Poglavlje 5 — Strategija hashtagova i otkrivanja</li>
+                  <li>✓ Poglavlje 6 — Plan rasta: od 0 do 1k pratilaca</li>
+                  <li>✓ Poglavlje 7 — Od 1k do 10k: fazni plan skaliranja</li>
+                  <li>✓ Poglavlje 8 — Rast sa više naloga i cross-platform</li>
+                  <li>✓ Poglavlje 9 — Saradnje, reposti i virusni rast</li>
+                  <li>✓ Poglavlje 10 — Konverzija pratilaca u pretplatnike</li>
+                  <li>✓ Poglavlje 11 — KPI-jevi, analitika i dijagnostika</li>
+                  <li>✓ Poglavlje 12 — Sistem koji radi bez tebe</li>
                 </ul>
                 <Link href="/#apply" className="btn-primary btn-large" style={{ marginTop: 32, display: 'inline-flex' }}>
-                  Prijavi se za Velluto Nero <span className="btn-arrow">â†’</span>
+                  Prijavi se za Velluto Nero <span className="btn-arrow">→</span>
                 </Link>
                 <p style={{ marginTop: 16, fontSize: '0.8rem', opacity: 0.5 }}>
-                  manje od 2% aplikacija biva primljeno Â· nula troÅ¡kova unapred
+                  manje od 2% aplikacija biva primljeno · nula troškova unapred
                 </p>
               </div>
             </div>
@@ -532,12 +532,12 @@ export default function InstagramPlaybook() {
           <div className="footer-top">
             <div>
               <div className="footer-brand-name">Velluto Nero</div>
-              <p className="footer-tagline">NajpromiÅ¡ljeniji naÄin da razvijeÅ¡ svoj brend.</p>
+              <p className="footer-tagline">Najpromišljeniji način da razviješ svoj brend.</p>
             </div>
-            <Link href="/#apply" className="btn-outline" style={{ borderColor: '#e8538f', color: '#e8538f' }}>Prijavi se <span>â†’</span></Link>
+            <Link href="/#apply" className="btn-outline" style={{ borderColor: '#e8538f', color: '#e8538f' }}>Prijavi se <span>→</span></Link>
           </div>
           <div className="footer-bottom">
-            <p className="footer-copy">Â© 2025 Velluto Nero. Sva prava zadrÅ¾ana.</p>
+            <p className="footer-copy">© 2025 Velluto Nero. Sva prava zadržana.</p>
             <div className="footer-legal"><a href="/privacy">Privatnost</a><a href="/terms">Uslovi</a></div>
           </div>
         </div>
@@ -616,7 +616,7 @@ export default function InstagramPlaybook() {
         .cs-check-list { list-style: none; padding: 0; margin: 0; }
         .cs-check-list li { padding: 7px 0 7px 22px; font-size: 0.9rem; color: #333; line-height: 1.5; border-bottom: 1px solid #f4f4f4; position: relative; }
         .cs-check-list li:last-child { border-bottom: none; }
-        .cs-check-list li::before { content: 'âœ“'; position: absolute; left: 0; color: #e8538f; font-weight: 700; }
+        .cs-check-list li::before { content: '✓'; position: absolute; left: 0; color: #e8538f; font-weight: 700; }
         .cs-takeaways { border-top: 3px solid #e8538f; }
         .cs-locked { padding: 80px 0; background: #1a1a1a; }
         .cs-locked-inner { text-align: center; max-width: 600px; margin: 0 auto; padding: 0 24px; }

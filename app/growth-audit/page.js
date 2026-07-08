@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -9,10 +9,10 @@ const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600'
 const platforms = ['OnlyFans', 'TikTok', 'X / Twitter', 'Reddit', 'OFTV', 'YouTube', 'Drugo'];
 
 const features = [
-  { icon: 'ðŸ”', title: 'Analiza platformi', desc: 'Proveravamo svaku platformu na kojoj si i identifikujemo one koje propuÅ¡taÅ¡.' },
-  { icon: 'ðŸŽ¯', title: 'Fokus na glavnu platformu', desc: 'KaÅ¾emo ti taÄno koju platformu da prioritizujeÅ¡ i zaÅ¡to.' },
-  { icon: 'âš¡', title: 'Brze popravke', desc: 'Pokvareni linkovi, praznine u levku, problemi sa bio-om â€” hvatamo ono Å¡to ti nedostaje.' },
-  { icon: 'ðŸ“ˆ', title: 'Strategija sadrÅ¾aja', desc: 'Koji tipovi sadrÅ¾aja da fokusiraÅ¡ i koliko Äesto da objavljujeÅ¡.' },
+  { icon: '🔍', title: 'Analiza platformi', desc: 'Proveravamo svaku platformu na kojoj si i identifikujemo one koje propuštaš.' },
+  { icon: '🎯', title: 'Fokus na glavnu platformu', desc: 'Kažemo ti tačno koju platformu da prioritizuješ i zašto.' },
+  { icon: '⚡', title: 'Brze popravke', desc: 'Pokvareni linkovi, praznine u levku, problemi sa bio-om — hvatamo ono što ti nedostaje.' },
+  { icon: '📈', title: 'Strategija sadržaja', desc: 'Koji tipovi sadržaja da fokusiraš i koliko često da objavljuješ.' },
 ];
 
 export default function GrowthAudit() {
@@ -36,16 +36,16 @@ export default function GrowthAudit() {
           <div className="nav-logo"><Link href="/" style={{ fontStyle: 'italic' }}>Velluto Nero</Link></div>
           <nav className="nav-links">
             <ul className="nav-menu">
-              <li><Link href="/">PoÄetna</Link></li>
-              <li><Link href="/#masina">MaÅ¡ina</Link></li>
+              <li><Link href="/">Početna</Link></li>
+              <li><Link href="/#masina">Mašina</Link></li>
               <li><Link href="/#roster">Roster</Link></li>
-              <li><Link href="/cet-strategija">ÄŒet Strategija</Link></li>
-              <li><Link href="/instagram-playbook">Instagram VodiÄ</Link></li>
+              <li><Link href="/cet-strategija">Čet Strategija</Link></li>
+              <li><Link href="/instagram-playbook">Instagram Vodič</Link></li>
             </ul>
           </nav>
           <div className="nav-cta">
             <Link href="/#apply" className="btn-primary" style={{ padding: '10px 22px', fontSize: '14px' }}>
-              Prijavi se <span className="btn-arrow">â†’</span>
+              Prijavi se <span className="btn-arrow">→</span>
             </Link>
           </div>
         </div>
@@ -70,19 +70,19 @@ export default function GrowthAudit() {
 
             {/* Hero text */}
             <div className="cs-fade-in cs-intro-block">
-              <span className="chapter-label" style={{ color: '#e8538f', marginBottom: 16, display: 'block' }}>Besplatno Â· Personalizovano Â· Bez obaveza</span>
+              <span className="chapter-label" style={{ color: '#e8538f', marginBottom: 16, display: 'block' }}>Besplatno · Personalizovano · Bez obaveza</span>
               <h1 className="cs-page-title">
                 Dobij svoju<br /><em>besplatnu analizu rasta</em>
               </h1>
               <p className="cs-lead">
-                Ostavi svoje profile i poslaÄ‡emo ti personalizovani pregled â€” koje platforme da fokusiraÅ¡, Å¡ta radiÅ¡ dobro, Å¡ta je pokvareno i taÄno kako to popraviti.
+                Ostavi svoje profile i poslaćemo ti personalizovani pregled — koje platforme da fokusiraš, šta radiš dobro, šta je pokvareno i tačno kako to popraviti.
               </p>
             </div>
 
             {/* What you'll get */}
             <div className="cs-fade-in ga-features-intro">
-              <p className="ga-features-label">Å ta Ä‡eÅ¡ dobiti</p>
-              <p className="ga-features-sub">Pravi pregled od pravih ljudi â€” ne automatizovani izveÅ¡taj. Gledamo tvoje naloge i kaÅ¾emo ti taÄno Å¡ta da radiÅ¡.</p>
+              <p className="ga-features-label">Šta ćeš dobiti</p>
+              <p className="ga-features-sub">Pravi pregled od pravih ljudi — ne automatizovani izveštaj. Gledamo tvoje naloge i kažemo ti tačno šta da radiš.</p>
             </div>
 
             <div className="ga-features-grid">
@@ -99,11 +99,11 @@ export default function GrowthAudit() {
             <div className="cs-fade-in ga-form-wrap">
               {submitted ? (
                 <div className="ga-success">
-                  <div className="ga-success-icon">âœ“</div>
+                  <div className="ga-success-icon">✓</div>
                   <h2 className="ga-success-title">Zahtev primljen!</h2>
-                  <p className="ga-success-desc">JaviÄ‡e ti se naÅ¡ tim putem WhatsApp-a ili Telegrama sa tvojim personalizovanim pregledom. ObiÄno odgovaramo u roku od 24 sata.</p>
+                  <p className="ga-success-desc">Javiće ti se naš tim putem WhatsApp-a ili Telegrama sa tvojim personalizovanim pregledom. Obično odgovaramo u roku od 24 sata.</p>
                   <Link href="/" className="btn-primary" style={{ marginTop: 24, display: 'inline-flex' }}>
-                    Nazad na poÄetnu <span className="btn-arrow">â†’</span>
+                    Nazad na početnu <span className="btn-arrow">→</span>
                   </Link>
                 </div>
               ) : (
@@ -140,7 +140,7 @@ export default function GrowthAudit() {
                   <div className="ga-field">
                     <label className="ga-label">Broj telefona *</label>
                     <div className="ga-input-prefix-wrap">
-                      <span className="ga-input-prefix">ðŸ‡·ðŸ‡¸ +381</span>
+                      <span className="ga-input-prefix">🇷🇸 +381</span>
                       <input
                         type="tel"
                         required
@@ -169,7 +169,7 @@ export default function GrowthAudit() {
                   </div>
 
                   <div className="ga-field">
-                    <label className="ga-label">Sa Äime ti treba pomoÄ‡?</label>
+                    <label className="ga-label">Sa čime ti treba pomoć?</label>
                     <textarea
                       className="ga-input ga-textarea"
                       placeholder="Npr. ne rastem na Instagramu, ne znam koje platforme da koristim, imam malo konverzija..."
@@ -180,10 +180,10 @@ export default function GrowthAudit() {
                   </div>
 
                   <button type="submit" className="btn-primary ga-submit">
-                    Dobij moju besplatnu analizu <span className="btn-arrow">â†’</span>
+                    Dobij moju besplatnu analizu <span className="btn-arrow">→</span>
                   </button>
 
-                  <p className="ga-disclaimer">100% besplatno. JaviÄ‡emo ti se putem WhatsApp-a ili Telegrama sa tvojim personalizovanim pregledom. Bez spama, bez obaveza.</p>
+                  <p className="ga-disclaimer">100% besplatno. Javićemo ti se putem WhatsApp-a ili Telegrama sa tvojim personalizovanim pregledom. Bez spama, bez obaveza.</p>
                 </form>
               )}
             </div>
@@ -191,26 +191,26 @@ export default function GrowthAudit() {
             {/* Stats + CTA */}
             <div className="cs-fade-in ga-agency-section">
               <div className="ga-agency-inner">
-                <h2 className="ga-agency-title">HoÄ‡eÅ¡ da mi upravljamo svime?</h2>
-                <p className="ga-agency-desc">Ako hoÄ‡eÅ¡ tim koji vodi tvoj Instagram, OnlyFans, Äet i promociju â€” to takoÄ‘e radimo. Bez troÅ¡kova unapred Â· Bez dugih ugovora Â· Puna kontrola naloga</p>
+                <h2 className="ga-agency-title">Hoćeš da mi upravljamo svime?</h2>
+                <p className="ga-agency-desc">Ako hoćeš tim koji vodi tvoj Instagram, OnlyFans, čet i promociju — to takođe radimo. Bez troškova unapred · Bez dugih ugovora · Puna kontrola naloga</p>
                 <div className="ga-stats">
                   <div className="ga-stat">
                     <span className="ga-stat-num">140+</span>
                     <span className="ga-stat-label">Aktivnih kreatorki</span>
                   </div>
                   <div className="ga-stat">
-                    <span className="ga-stat-num">10â€“20Ã—</span>
+                    <span className="ga-stat-num">10–20×</span>
                     <span className="ga-stat-label">Rast prihoda</span>
                   </div>
                   <div className="ga-stat">
                     <span className="ga-stat-num">93%</span>
-                    <span className="ga-stat-label">Stopa zadrÅ¾avanja</span>
+                    <span className="ga-stat-label">Stopa zadržavanja</span>
                   </div>
                 </div>
                 <Link href="/#apply" className="btn-primary btn-large">
-                  Apliciraj da saraÄ‘ujemo <span className="btn-arrow">â†’</span>
+                  Apliciraj da sarađujemo <span className="btn-arrow">→</span>
                 </Link>
-                <p style={{ marginTop: 12, fontSize: '0.8rem', opacity: 0.55 }}>Traje 60 sekundi Â· Bez obaveza</p>
+                <p style={{ marginTop: 12, fontSize: '0.8rem', opacity: 0.55 }}>Traje 60 sekundi · Bez obaveza</p>
               </div>
             </div>
 
@@ -223,12 +223,12 @@ export default function GrowthAudit() {
           <div className="footer-top">
             <div>
               <div className="footer-brand-name">Velluto Nero</div>
-              <p className="footer-tagline">NajpromiÅ¡ljeniji naÄin da razvijeÅ¡ svoj brend.</p>
+              <p className="footer-tagline">Najpromišljeniji način da razviješ svoj brend.</p>
             </div>
-            <Link href="/#apply" className="btn-outline" style={{ borderColor: '#e8538f', color: '#e8538f' }}>Prijavi se <span>â†’</span></Link>
+            <Link href="/#apply" className="btn-outline" style={{ borderColor: '#e8538f', color: '#e8538f' }}>Prijavi se <span>→</span></Link>
           </div>
           <div className="footer-bottom">
-            <p className="footer-copy">Â© 2025 Velluto Nero. Sva prava zadrÅ¾ana.</p>
+            <p className="footer-copy">© 2025 Velluto Nero. Sva prava zadržana.</p>
             <div className="footer-legal"><a href="/privacy">Privatnost</a><a href="/terms">Uslovi</a></div>
           </div>
         </div>
