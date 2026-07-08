@@ -55,7 +55,7 @@ export default function InstagramPlaybook() {
 
             {/* Title block */}
             <div className="cs-fade-in cs-intro-block">
-              <span className="chapter-label" style={{ color: '#e8538f', marginBottom: 16, display: 'block' }}>Velluto Nero · Interni vodič</span>
+              <span className="chapter-label" style={{ color: '#a9875c', marginBottom: 16, display: 'block' }}>Velluto Nero · Interni vodič</span>
               <h1 className="cs-page-title">
                 Naš stvarni interni vodič<br />
                 <em>od nule do 100k+ pratilaca</em>
@@ -534,7 +534,7 @@ export default function InstagramPlaybook() {
               <div className="footer-brand-name">Velluto Nero</div>
               <p className="footer-tagline">Najpromišljeniji način da razviješ svoj brend.</p>
             </div>
-            <Link href="/#apply" className="btn-outline" style={{ borderColor: '#e8538f', color: '#e8538f' }}>Prijavi se <span>→</span></Link>
+            <Link href="/#apply" className="btn-outline" style={{ borderColor: '#a9875c', color: '#a9875c' }}>Prijavi se <span>→</span></Link>
           </div>
           <div className="footer-bottom">
             <p className="footer-copy">© 2025 Velluto Nero. Sva prava zadržana.</p>
@@ -552,7 +552,7 @@ export default function InstagramPlaybook() {
         .cs-cover-box { border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.13); margin: 48px auto 0; }
         .cs-intro-block { padding: 40px 0 8px; }
         .cs-page-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); line-height: 1.15; margin: 12px 0 20px; color: #1a1a1a; }
-        .cs-page-title em { color: #e8538f; font-style: italic; }
+        .cs-page-title em { color: #a9875c; font-style: italic; }
         .cs-lead { font-size: 1rem; line-height: 1.8; color: #444; margin: 0 0 20px; }
         .cs-meta-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
         .cs-meta-pills span { background: #fff; border: 1px solid #e8e0e0; border-radius: 20px; padding: 5px 14px; font-size: 0.78rem; color: #666; }
@@ -560,33 +560,33 @@ export default function InstagramPlaybook() {
         .cs-learn-col { background: #fff; border-radius: 12px; padding: 28px 28px 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
         @media (max-width: 620px) { .cs-learn-box { grid-template-columns: 1fr; } .cs-cover-box { border-radius: 10px; } }
         .cs-chapter { padding: 72px 0; border-top: 1px solid rgba(0,0,0,0.07); }
-        .cs-chapter--alt { background: rgba(232,83,143,0.03); }
+        .cs-chapter--alt { background: rgba(169,135,92,0.03); }
         .cs-chapter-header { margin-bottom: 32px; }
-        .cs-chapter-tag { display: inline-block; background: #e8538f; color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+        .cs-chapter-tag { display: inline-block; background: #a9875c; color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
         .cs-chapter-title { font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.15; margin: 0 0 10px; color: #1a1a1a; }
         .cs-chapter-subtitle { font-size: 1rem; color: #888; margin: 0 0 12px; }
         .cs-read-time { font-size: 0.78rem; color: #bbb; }
         .cs-h3 { font-family: var(--font-display); font-size: 1.35rem; font-style: italic; margin: 52px 0 14px; color: #1a1a1a; }
         .cs-body { font-size: 0.97rem; line-height: 1.85; margin: 0 0 18px; color: #333; }
-        .cs-pull-quote { border-left: 3px solid #e8538f; margin: 32px 0; padding: 16px 24px; font-style: italic; color: #555; font-size: 1rem; line-height: 1.75; background: #fff; border-radius: 0 8px 8px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+        .cs-pull-quote { border-left: 3px solid #a9875c; margin: 32px 0; padding: 16px 24px; font-style: italic; color: #555; font-size: 1rem; line-height: 1.75; background: #fff; border-radius: 0 8px 8px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
         .cs-pull-quote cite { display: block; margin-top: 10px; font-style: normal; font-size: 0.8rem; color: #aaa; }
         .cs-note { background: #fffbe6; border-left: 4px solid #f5c518; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 24px 0; font-size: 0.9rem; line-height: 1.7; color: #4a3800; }
         .cs-note strong { display: block; margin-bottom: 6px; font-weight: 700; }
         .cs-note p, .cs-note ul { margin: 0; }
         .cs-note ul { padding-left: 20px; margin-top: 8px; }
         .cs-note li { margin-bottom: 5px; }
-        .cs-note--pink { background: #fff0f6; border-left-color: #e8538f; color: #5a0028; }
+        .cs-note--pink { background: #fff0f6; border-left-color: #a9875c; color: #5a0028; }
         .cs-stat-block { text-align: center; padding: 36px 24px; background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); margin: 32px 0; }
-        .cs-stat-num { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.5rem); color: #e8538f; font-style: italic; line-height: 1; }
+        .cs-stat-num { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.5rem); color: #a9875c; font-style: italic; line-height: 1; }
         .cs-stat-desc { margin: 10px auto 0; font-size: 0.95rem; color: #555; line-height: 1.6; max-width: 480px; }
         .cs-steps { list-style: none; padding: 0; margin: 24px 0 40px; display: flex; flex-direction: column; gap: 14px; }
         .cs-steps li { display: flex; gap: 20px; align-items: flex-start; padding: 20px 24px; background: #fff; border-radius: 10px; box-shadow: 0 2px 14px rgba(0,0,0,0.06); }
-        .cs-step-num { font-family: var(--font-display); font-size: 1.6rem; color: #e8538f; font-style: italic; min-width: 40px; line-height: 1; padding-top: 2px; flex-shrink: 0; }
+        .cs-step-num { font-family: var(--font-display); font-size: 1.6rem; color: #a9875c; font-style: italic; min-width: 40px; line-height: 1; padding-top: 2px; flex-shrink: 0; }
         .cs-steps li strong { display: block; font-size: 0.95rem; font-weight: 700; margin-bottom: 5px; }
         .cs-steps li p { margin: 0; font-size: 0.87rem; color: #555; line-height: 1.6; }
         .cs-table-wrap { overflow-x: auto; margin: 20px 0 36px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
         .cs-table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.88rem; min-width: 400px; }
-        .cs-table th { background: #e8538f; color: #fff; padding: 12px 16px; text-align: left; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+        .cs-table th { background: #a9875c; color: #fff; padding: 12px 16px; text-align: left; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
         .cs-table td { padding: 12px 16px; border-bottom: 1px solid #f0f0f0; color: #333; vertical-align: top; line-height: 1.5; }
         .cs-table tr:last-child td { border-bottom: none; }
         .cs-table tr:nth-child(even) td { background: #fafafa; }
@@ -598,31 +598,31 @@ export default function InstagramPlaybook() {
         .cs-compare-col h4 { margin: 0 0 14px; font-size: 0.9rem; font-weight: 700; }
         .cs-compare-col ul { margin: 0; padding: 0 0 0 16px; }
         .cs-compare-col li { padding: 5px 0; font-size: 0.85rem; color: #444; line-height: 1.5; }
-        .cs-compare-col--good { border-top: 3px solid #e8538f; }
-        .cs-compare-col--good h4 { color: #e8538f; }
+        .cs-compare-col--good { border-top: 3px solid #a9875c; }
+        .cs-compare-col--good h4 { color: #a9875c; }
         .cs-compare-col--bad { border-top: 3px solid #ccc; }
         .cs-compare-col--bad h4 { color: #888; }
         @media (max-width: 560px) { .cs-compare-grid { grid-template-columns: 1fr; } }
         .cs-priority-list { display: flex; flex-direction: column; gap: 10px; margin: 24px 0 32px; }
-        .cs-priority-item { display: flex; gap: 16px; align-items: flex-start; padding: 16px 20px; background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); border-left: 4px solid #e8538f; }
+        .cs-priority-item { display: flex; gap: 16px; align-items: flex-start; padding: 16px 20px; background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); border-left: 4px solid #a9875c; }
         .cs-priority-item--2 { border-left-color: #ed6fa0; }
         .cs-priority-item--3 { border-left-color: #f28cba; }
         .cs-priority-item--4 { border-left-color: #f5aacc; }
-        .cs-priority-time { font-size: 0.68rem; font-weight: 700; color: #e8538f; white-space: nowrap; min-width: 68px; padding-top: 3px; letter-spacing: 0.03em; text-transform: uppercase; flex-shrink: 0; }
+        .cs-priority-time { font-size: 0.68rem; font-weight: 700; color: #a9875c; white-space: nowrap; min-width: 68px; padding-top: 3px; letter-spacing: 0.03em; text-transform: uppercase; flex-shrink: 0; }
         .cs-priority-item strong { display: block; font-size: 0.9rem; margin-bottom: 3px; }
         .cs-priority-item p { margin: 0; font-size: 0.82rem; color: #666; line-height: 1.5; }
         .cs-shift-box, .cs-checklist-box, .cs-takeaways { background: #fff; border-radius: 12px; padding: 28px 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); margin: 24px 0; }
-        .cs-box-heading { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #e8538f; margin: 0 0 14px; }
+        .cs-box-heading { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #a9875c; margin: 0 0 14px; }
         .cs-check-list { list-style: none; padding: 0; margin: 0; }
         .cs-check-list li { padding: 7px 0 7px 22px; font-size: 0.9rem; color: #333; line-height: 1.5; border-bottom: 1px solid #f4f4f4; position: relative; }
         .cs-check-list li:last-child { border-bottom: none; }
-        .cs-check-list li::before { content: '✓'; position: absolute; left: 0; color: #e8538f; font-weight: 700; }
-        .cs-takeaways { border-top: 3px solid #e8538f; }
+        .cs-check-list li::before { content: '✓'; position: absolute; left: 0; color: #a9875c; font-weight: 700; }
+        .cs-takeaways { border-top: 3px solid #a9875c; }
         .cs-locked { padding: 80px 0; background: #1a1a1a; }
         .cs-locked-inner { text-align: center; max-width: 600px; margin: 0 auto; padding: 0 24px; }
         .cs-locked-icon { font-size: 3rem; margin-bottom: 24px; }
         .cs-locked-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem); color: #fff; margin: 0 0 16px; line-height: 1.2; }
-        .cs-locked-title em { color: #e8538f; font-style: italic; }
+        .cs-locked-title em { color: #a9875c; font-style: italic; }
         .cs-locked-desc { color: rgba(255,255,255,0.65); font-size: 0.97rem; line-height: 1.7; margin: 0 0 32px; }
         .cs-locked-list { list-style: none; padding: 0; margin: 0 0 8px; text-align: left; display: inline-block; }
         .cs-locked-list li { padding: 8px 0; color: rgba(255,255,255,0.8); font-size: 0.88rem; border-bottom: 1px solid rgba(255,255,255,0.08); }

@@ -70,7 +70,7 @@ export default function GrowthAudit() {
 
             {/* Hero text */}
             <div className="cs-fade-in cs-intro-block">
-              <span className="chapter-label" style={{ color: '#e8538f', marginBottom: 16, display: 'block' }}>Besplatno · Personalizovano · Bez obaveza</span>
+              <span className="chapter-label" style={{ color: '#a9875c', marginBottom: 16, display: 'block' }}>Besplatno · Personalizovano · Bez obaveza</span>
               <h1 className="cs-page-title">
                 Dobij svoju<br /><em>besplatnu analizu rasta</em>
               </h1>
@@ -225,7 +225,7 @@ export default function GrowthAudit() {
               <div className="footer-brand-name">Velluto Nero</div>
               <p className="footer-tagline">Najpromišljeniji način da razviješ svoj brend.</p>
             </div>
-            <Link href="/#apply" className="btn-outline" style={{ borderColor: '#e8538f', color: '#e8538f' }}>Prijavi se <span>→</span></Link>
+            <Link href="/#apply" className="btn-outline" style={{ borderColor: '#a9875c', color: '#a9875c' }}>Prijavi se <span>→</span></Link>
           </div>
           <div className="footer-bottom">
             <p className="footer-copy">© 2025 Velluto Nero. Sva prava zadržana.</p>
@@ -244,12 +244,12 @@ export default function GrowthAudit() {
         @media (max-width: 600px) { .cs-cover-box { border-radius: 10px; } }
         .cs-intro-block { padding: 40px 0 8px; }
         .cs-page-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.15; margin: 12px 0 20px; color: #1a1a1a; }
-        .cs-page-title em { color: #e8538f; font-style: italic; }
+        .cs-page-title em { color: #a9875c; font-style: italic; }
         .cs-lead { font-size: 1rem; line-height: 1.8; color: #444; margin: 0 0 20px; }
 
         /* Features */
         .ga-features-intro { margin: 40px 0 20px; }
-        .ga-features-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #e8538f; margin-bottom: 8px; }
+        .ga-features-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #a9875c; margin-bottom: 8px; }
         .ga-features-sub { font-size: 0.97rem; color: #555; line-height: 1.7; margin: 0; }
         .ga-features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
         @media (max-width: 560px) { .ga-features-grid { grid-template-columns: 1fr; } }
@@ -266,7 +266,7 @@ export default function GrowthAudit() {
         .ga-field { margin-bottom: 24px; }
         .ga-label { display: block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #555; margin-bottom: 8px; }
         .ga-input { width: 100%; border: 1.5px solid #e0dbd5; border-radius: 8px; padding: 12px 16px; font-size: 0.95rem; font-family: inherit; color: #1a1a1a; background: #fafaf8; outline: none; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
-        .ga-input:focus { border-color: #e8538f; box-shadow: 0 0 0 3px rgba(232,83,143,0.1); background: #fff; }
+        .ga-input:focus { border-color: #a9875c; box-shadow: 0 0 0 3px rgba(169,135,92,0.1); background: #fff; }
         .ga-textarea { resize: vertical; min-height: 100px; }
         .ga-input-prefix-wrap { display: flex; align-items: center; }
         .ga-input-prefix { background: #f0ede8; border: 1.5px solid #e0dbd5; border-right: none; border-radius: 8px 0 0 8px; padding: 12px 14px; font-size: 0.85rem; color: #666; white-space: nowrap; flex-shrink: 0; }
@@ -274,14 +274,14 @@ export default function GrowthAudit() {
         .ga-input--prefixed:focus { border-left: none; }
         .ga-platforms { display: flex; flex-wrap: wrap; gap: 8px; }
         .ga-platform-btn { padding: 8px 16px; border-radius: 20px; border: 1.5px solid #e0dbd5; background: #fff; font-size: 0.83rem; color: #555; cursor: pointer; transition: all 0.2s ease; font-family: inherit; }
-        .ga-platform-btn:hover { border-color: #e8538f; color: #e8538f; }
-        .ga-platform-btn.active { background: #e8538f; border-color: #e8538f; color: #fff; }
+        .ga-platform-btn:hover { border-color: #a9875c; color: #a9875c; }
+        .ga-platform-btn.active { background: #a9875c; border-color: #a9875c; color: #fff; }
         .ga-submit { width: 100%; justify-content: center; margin-top: 8px; font-size: 1rem; padding: 16px 24px; }
         .ga-disclaimer { margin-top: 14px; font-size: 0.78rem; color: #aaa; text-align: center; line-height: 1.6; }
 
         /* Success */
         .ga-success { text-align: center; background: #fff; border-radius: 16px; padding: 56px 40px; box-shadow: 0 8px 40px rgba(0,0,0,0.09); }
-        .ga-success-icon { width: 64px; height: 64px; background: #e8538f; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.6rem; color: #fff; }
+        .ga-success-icon { width: 64px; height: 64px; background: #a9875c; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.6rem; color: #fff; }
         .ga-success-title { font-family: var(--font-display); font-size: 1.8rem; font-style: italic; color: #1a1a1a; margin: 0 0 12px; }
         .ga-success-desc { font-size: 0.97rem; color: #555; line-height: 1.7; max-width: 400px; margin: 0 auto; }
 
@@ -293,7 +293,7 @@ export default function GrowthAudit() {
         .ga-agency-desc { font-size: 0.93rem; color: rgba(255,255,255,0.6); line-height: 1.7; max-width: 480px; margin: 0 auto 36px; }
         .ga-stats { display: flex; justify-content: center; gap: 40px; margin-bottom: 36px; flex-wrap: wrap; }
         .ga-stat { text-align: center; }
-        .ga-stat-num { display: block; font-family: var(--font-display); font-size: 2.2rem; color: #e8538f; font-style: italic; line-height: 1; }
+        .ga-stat-num { display: block; font-family: var(--font-display); font-size: 2.2rem; color: #a9875c; font-style: italic; line-height: 1; }
         .ga-stat-label { display: block; font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-top: 5px; letter-spacing: 0.05em; }
       `}</style>
 
