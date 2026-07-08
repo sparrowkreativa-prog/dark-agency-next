@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const CHECK = (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M20 6 9 17l-5-5"/>
   </svg>
 );
@@ -10,30 +10,74 @@ const CHECK = (
 const PLANS = [
   {
     id: 'chat',
-    title: 'Samo Chat',
-    sub: 'Chat tim preuzima sve razgovore. Ti dovodiš fanove, mi ih pretvaramo u prihod.',
-    you: ['Dovodiš fanove na stranicu'],
-    we: ['Chat tim 24/7 na srpskom i engleskom', 'PPV, customs, upsell poruke', 'Praćenje konverzija i prihoda'],
+    title: 'Chat Only',
+    subtitle: 'osnovni paket',
+    items: [
+      '24/7 ili smensko pokrivanje DM-ova',
+      'PPV prodaja, sexting/flert konverzacije u tvom tone-of-voice, tip menadžment',
+      'Re-engagement neaktivnih pretplatnika',
+      'Nedeljni izveštaj (prihod, broj poruka, konverzija)',
+    ],
     featured: false,
   },
   {
     id: 'hybrid',
-    title: 'Hibridno Upravljanje',
-    sub: 'Nastaviš da postuješ na svojoj glavnoj platformi. Mi pravimo novac od publike koju već imaš.',
-    you: ['Postuješ na svojoj platformi kao i obično'],
-    we: ['Sve iz Samo Chat paketa', 'Zakazivanje i prepakovavanje sadržaja', 'DMCA zaštita i zaštita identiteta'],
+    title: 'Chat + Growth',
+    subtitle: null,
+    items: [
+      'Sve iz Chat Only',
+      'Vođenje profila radi promocije (X/Twitter, Reddit, TikTok, Instagram)',
+      'Kalendar objava + osnovne growth kampanje',
+      'Osnovna analitika rasta i konverzije',
+    ],
     featured: false,
   },
   {
     id: 'full',
-    title: 'Puno Upravljanje',
-    sub: 'Ti snimas, mi vodimo sve ostalo. Najveći lift u prihodu, najmanje posla za tebe.',
-    you: ['Snimaš content (mi kažemo šta i kako)'],
-    we: ['Sve iz Hibridnog paketa', 'Rast na više platformi', 'Kompletne content operacije'],
-    featured: true,
+    title: 'Full Management',
+    subtitle: 'premium – otključava sve',
     badge: 'Najpopularnije',
+    perks: [
+      { title: 'VIP status + godišnja putovanja', desc: 'Ulaskom u Full Management dobijaš status VIP klijenta sa pristupom dodatnim pogodnostima; svake godine vodimo ceo VIP tim negde u svetu na team-building putovanje.' },
+      { title: 'Premium lokacije za sadržaj', desc: 'Ustupamo ti na korišćenje prelepe vile, stanove i lokacije u preko 12 zemalja, da tvoj sadržaj uvek izgleda premijum.' },
+      { title: 'Oprema, svetla i garderoba', desc: 'Svetla, odeća i sav materijal koji ti treba — plaćamo mi.' },
+      { title: 'Personal Brand Manager', desc: 'Posvećen isključivo tvom dugoročnom imidžu, pozicioniranju i cross-platform brendu — odvojeno od account managera koji vodi svakodnevnu operativu.' },
+    ],
+    items: [
+      'Sve iz Chat Only i Chat + Growth',
+      'Produkcija i editovanje sadržaja (foto/video), content calendar, kreativni pravac',
+      'Dedicated Account Manager (lični menadžer na raspolaganju 24/7 za sve operativne i strateške odluke)',
+      'Finansijsko/računovodstveno savetovanje',
+      'Zaštita sadržaja / DMCA',
+      'Dugoročni growth plan, prioritetna podrška',
+    ],
+    featured: true,
   },
 ];
+
+const TABLE_ROWS = [
+  { label: 'DM/chat (PPV, sexting, tip)', chat: true,  hybrid: true,       full: true },
+  { label: '24/7 pokrivenost',            chat: true,  hybrid: true,       full: true },
+  { label: 'Nedeljni izveštaj',           chat: true,  hybrid: true,       full: true },
+  { label: 'Rast na društvenim mrežama',  chat: false, hybrid: true,       full: true },
+  { label: 'Kalendar objava + promo kampanje', chat: false, hybrid: true,  full: true },
+  { label: 'Analitika',                   chat: false, hybrid: 'osnovna',  full: 'napredna' },
+  { label: 'VIP status + godišnja putovanja', chat: false, hybrid: false,  full: true },
+  { label: 'Premium lokacije za sadržaj', chat: false, hybrid: false,      full: true },
+  { label: 'Oprema, svetla i garderoba',  chat: false, hybrid: false,      full: true },
+  { label: 'Personal Brand Manager',      chat: false, hybrid: false,      full: true },
+  { label: 'Produkcija/editovanje sadržaja', chat: false, hybrid: false,   full: true },
+  { label: 'Dedicated Account Manager',   chat: false, hybrid: false,      full: true },
+  { label: 'Finansije/računovodstvo',     chat: false, hybrid: false,      full: true },
+  { label: 'Zaštita sadržaja / DMCA',     chat: false, hybrid: false,      full: true },
+  { label: 'Dugoročni growth plan',       chat: false, hybrid: false,      full: true },
+];
+
+function Cell({ val, isFull }) {
+  if (val === true)  return <span className={`pk-cell-check${isFull ? ' pk-cell-check--full' : ''}`}>{CHECK}</span>;
+  if (val === false) return <span className="pk-cell-dash">–</span>;
+  return <span className={`pk-cell-text${isFull ? ' pk-cell-text--full' : ''}`}>{val}</span>;
+}
 
 export default function Paketi() {
   const ref = useRef(null);
@@ -68,84 +112,68 @@ export default function Paketi() {
               className={`pk-card${plan.featured ? ' pk-card--featured' : ''}`}
               style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(28px)', transition: `opacity 0.7s ease ${0.1 + i * 0.12}s, transform 0.7s ease ${0.1 + i * 0.12}s` }}>
 
-              {plan.badge && (
-                <div className="pk-badge">{plan.badge}</div>
+              {plan.badge && <div className="pk-badge">{plan.badge}</div>}
+
+              <div className="pk-plan-header">
+                <h3 className="pk-plan-title">{plan.title}</h3>
+                {plan.subtitle && <p className="pk-plan-subtitle">{plan.subtitle}</p>}
+              </div>
+
+              {/* VIP perks for Full Management */}
+              {plan.perks && (
+                <div className="pk-perks">
+                  {plan.perks.map(perk => (
+                    <div key={perk.title} className="pk-perk">
+                      <p className="pk-perk-title">{CHECK} {perk.title}</p>
+                      <p className="pk-perk-desc">{perk.desc}</p>
+                    </div>
+                  ))}
+                  <p className="pk-ostalo-label">Ostalo u Full Management:</p>
+                </div>
               )}
 
-              <h3 className="pk-plan-title">{plan.title}</h3>
-              <p className="pk-plan-sub">{plan.sub}</p>
-
-              {/* Ti radiš */}
-              <div className="pk-you-section">
-                <div className="pk-section-label">
-                  <span className="pk-divider-line" />
-                  Ti radiš
-                  <span className="pk-divider-line pk-divider-line--flex" />
-                </div>
-                <ul className="pk-you-list">
-                  {plan.you.map(item => (
-                    <li key={item} className="pk-you-item">
-                      <span className="pk-you-dot" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Mi radimo */}
-              <div className="pk-we-section">
-                <div className="pk-section-label pk-section-label--gold">
-                  <span className="pk-divider-line pk-divider-line--gold" />
-                  Mi radimo
-                  <span className="pk-divider-line pk-divider-line--gold pk-divider-line--flex" />
-                </div>
-                <ul className="pk-we-list">
-                  {plan.we.map(item => (
-                    <li key={item} className="pk-we-item">
-                      <span className="pk-check">{CHECK}</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {/* Bullet items */}
+              <ul className="pk-items">
+                {plan.items.map(item => (
+                  <li key={item} className="pk-item">
+                    <span className="pk-check">{CHECK}</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
 
             </div>
           ))}
         </div>
 
-        {/* Full management perks callout */}
-        <div className="pk-callout"
+        {/* Comparison table */}
+        <div className="pk-table-wrap"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s' }}>
-          <div className="pk-callout-label">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h20M5 20V10l7-7 7 7v10"/><path d="M9 20v-5h6v5"/></svg>
+          <div className="pk-table-label">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
             Uključeno u Puno Upravljanje
           </div>
-          <div className="pk-callout-items">
-            {[
-              {
-                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h20M5 20V10l7-7 7 7v10"/><path d="M9 20v-5h6v5"/></svg>,
-                title: 'Airbnb i lokacije',
-                desc: 'Iznajmljujemo prelepe stanove i lokacije — tvoj sadržaj uvek izgleda premijum.',
-              },
-              {
-                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z"/></svg>,
-                title: 'Svetla, garderoba i oprema',
-                desc: 'Svetla, odeća i sav materijal koji ti treba — plaćamo mi.',
-              },
-              {
-                icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 16l.92.92z"/><path d="M14.5 2.5c1.86.59 3.41 2.14 4 4"/><path d="M14.5 6.5A3.5 3.5 0 0 1 18 10"/></svg>,
-                title: 'Godišnja putovanja tima',
-                desc: 'Svake godine vodimo tim negde u svetu na team-building.',
-              },
-            ].map((item, i) => (
-              <div key={i} className="pk-callout-item">
-                <span className="pk-callout-icon">{item.icon}</span>
-                <div>
-                  <p className="pk-callout-item-title">{item.title}</p>
-                  <p className="pk-callout-item-desc">{item.desc}</p>
-                </div>
-              </div>
-            ))}
+          <div className="pk-table-scroll">
+            <table className="pk-table">
+              <thead>
+                <tr>
+                  <th className="pk-th pk-th-label">Stavka</th>
+                  <th className="pk-th">Chat Only</th>
+                  <th className="pk-th">Chat + Growth</th>
+                  <th className="pk-th pk-th-full">Full Management</th>
+                </tr>
+              </thead>
+              <tbody>
+                {TABLE_ROWS.map((row, i) => (
+                  <tr key={row.label} className={i % 2 === 0 ? 'pk-tr-even' : ''}>
+                    <td className="pk-td pk-td-label">{row.label}</td>
+                    <td className="pk-td pk-td-center"><Cell val={row.chat} isFull={false} /></td>
+                    <td className="pk-td pk-td-center"><Cell val={row.hybrid} isFull={false} /></td>
+                    <td className="pk-td pk-td-center pk-td-full"><Cell val={row.full} isFull={true} /></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
 
@@ -169,7 +197,7 @@ export default function Paketi() {
         .pk-sub { font-size: 15px; color: #888; margin: 0; }
 
         /* Grid */
-        .pk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; margin-bottom: 40px; }
+        .pk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; margin-bottom: 40px; }
         @media (max-width: 860px) { .pk-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; } }
 
         /* Card */
@@ -183,7 +211,6 @@ export default function Paketi() {
           border-radius: 20px;
           padding: 32px 24px;
           display: flex; flex-direction: column; gap: 16px;
-          text-align: left;
         }
         .pk-card--featured {
           background: rgba(255,255,255,0.88);
@@ -202,35 +229,26 @@ export default function Paketi() {
         }
 
         /* Plan header */
-        .pk-plan-title { font-family: var(--font-display); font-size: 20px; font-style: italic; color: #1a1a1a; margin: 0; line-height: 1.2; text-align: center; }
+        .pk-plan-header { text-align: center; }
+        .pk-plan-title { font-family: var(--font-display); font-size: 20px; font-style: italic; color: #1a1a1a; margin: 0 0 4px; line-height: 1.2; }
         .pk-card--featured .pk-plan-title { color: #911f39; }
-        .pk-plan-sub { font-size: 13px; color: #777; line-height: 1.6; margin: 0; }
+        .pk-plan-subtitle { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: #aaa; margin: 0; font-weight: 600; }
 
-        /* Section labels */
-        .pk-you-section, .pk-we-section { display: flex; flex-direction: column; gap: 10px; }
-        .pk-section-label {
-          display: flex; align-items: center; gap: 8px;
-          font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em;
-          color: #bbb; font-weight: 600; white-space: nowrap;
-        }
-        .pk-section-label--gold { color: #a9875c; }
-        .pk-divider-line { display: block; width: 16px; height: 1px; background: #ddd; flex-shrink: 0; }
-        .pk-divider-line--gold { background: rgba(169,135,92,0.4); }
-        .pk-divider-line--flex { flex: 1; width: auto; }
-
-        /* You list */
-        .pk-you-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
-        .pk-you-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #666; line-height: 1.5; }
-        .pk-you-dot { width: 6px; height: 6px; border-radius: 50%; background: #ccc; flex-shrink: 0; margin-top: 5px; }
-
-        /* We list */
-        .pk-we-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
-        .pk-we-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #444; line-height: 1.5; }
+        /* Bullet items */
+        .pk-items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+        .pk-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13.5px; color: #444; line-height: 1.5; }
         .pk-check { color: #a9875c; flex-shrink: 0; margin-top: 1px; }
         .pk-card--featured .pk-check { color: #911f39; }
 
-        /* Callout */
-        .pk-callout {
+        /* Full Management perks */
+        .pk-perks { display: flex; flex-direction: column; gap: 12px; border-bottom: 1px solid rgba(145,31,57,0.12); padding-bottom: 14px; }
+        .pk-perk { display: flex; flex-direction: column; gap: 3px; }
+        .pk-perk-title { display: flex; align-items: flex-start; gap: 7px; font-size: 13px; font-weight: 700; color: #911f39; margin: 0; line-height: 1.4; }
+        .pk-perk-desc { font-size: 12px; color: #888; line-height: 1.55; margin: 0 0 0 21px; }
+        .pk-ostalo-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.13em; color: #aaa; font-weight: 700; margin: 4px 0 0; }
+
+        /* Comparison table */
+        .pk-table-wrap {
           margin-bottom: 28px;
           background: rgba(255,255,255,0.72);
           backdrop-filter: blur(20px) saturate(1.8);
@@ -240,18 +258,33 @@ export default function Paketi() {
           border-radius: 20px;
           padding: 28px 32px;
         }
-        .pk-callout-label {
+        @media (max-width: 680px) { .pk-table-wrap { padding: 20px 16px; } }
+        .pk-table-label {
           display: inline-flex; align-items: center; gap: 7px;
           font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em;
           color: #911f39; background: rgba(145,31,57,0.07); border: 1px solid rgba(145,31,57,0.18);
           border-radius: 999px; padding: 5px 14px; margin-bottom: 20px;
         }
-        .pk-callout-items { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        @media (max-width: 680px) { .pk-callout-items { grid-template-columns: 1fr; gap: 16px; } .pk-callout { padding: 22px 20px; } }
-        .pk-callout-item { display: flex; align-items: flex-start; gap: 14px; }
-        .pk-callout-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(145,31,57,0.08); border: 1px solid rgba(145,31,57,0.2); color: #911f39; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-        .pk-callout-item-title { font-size: 14px; font-weight: 700; color: #1a1a1a; margin: 0 0 4px; }
-        .pk-callout-item-desc { font-size: 13px; color: #777; line-height: 1.55; margin: 0; }
+        .pk-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        .pk-table { width: 100%; border-collapse: collapse; min-width: 480px; }
+        .pk-th {
+          font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
+          color: #999; padding: 8px 14px; text-align: center; border-bottom: 1.5px solid rgba(0,0,0,0.08);
+          white-space: nowrap;
+        }
+        .pk-th-label { text-align: left; }
+        .pk-th-full { color: #911f39; }
+        .pk-td { padding: 10px 14px; font-size: 13px; color: #555; border-bottom: 1px solid rgba(0,0,0,0.05); vertical-align: middle; }
+        .pk-td-label { font-weight: 500; color: #333; }
+        .pk-td-center { text-align: center; }
+        .pk-td-full { background: rgba(145,31,57,0.03); }
+        .pk-tr-even td { background: rgba(0,0,0,0.018); }
+        .pk-tr-even .pk-td-full { background: rgba(145,31,57,0.05); }
+        .pk-cell-check { color: #a9875c; display: inline-flex; align-items: center; justify-content: center; }
+        .pk-cell-check--full { color: #911f39; }
+        .pk-cell-dash { color: #ccc; font-size: 15px; line-height: 1; }
+        .pk-cell-text { font-size: 11px; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+        .pk-cell-text--full { color: #911f39; }
 
         /* Bottom */
         .pk-bottom { text-align: center; display: flex; justify-content: center; margin-top: 8px; }
