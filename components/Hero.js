@@ -268,7 +268,7 @@ export default function Hero() {
         /* Stats box — identical liquid glass to hero-glass */
         .hero-stats-box {
           width: 100%;
-          background: rgba(250,250,248,0.93);
+          background: rgba(250,250,248,0.62);
           border: 1px solid rgba(255,255,255,0.65);
           border-radius: 24px;
           padding: 20px 24px;
