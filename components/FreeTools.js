@@ -9,7 +9,7 @@ const tools = [
     desc: 'Mapiramo koje platforme da prioritizuješ, šta ne radi i kako to popraviti.',
     cta: 'Dobij analizu',
     href: '/growth-audit',
-    img: '/free-tools/growth-audit-cover.webp',
+    img: '/free-tools/growth-audit-cover.jpg',
     alt: 'Besplatna analiza rasta kreatora',
   },
   {
@@ -18,7 +18,7 @@ const tools = [
     desc: 'Kako smo povećali Mijin IG sa 12k na 220k pratilaca — tačan vodič korak po korak.',
     cta: 'Čitaj vodič',
     href: '/instagram-playbook',
-    img: '/free-tools/instagram-playbook-cover.webp',
+    img: '/free-tools/instagram-playbook-cover.jpg',
     alt: 'Instagram vodič za rast',
   },
   {
@@ -27,7 +27,7 @@ const tools = [
     desc: 'Kako pretvaramo neobavezne pretplatnike u kupce koji se vraćaju — tačne skripte, upsell taktike i retencija koje naš tim koristi svaki dan.',
     cta: 'Preuzmi skripte',
     href: '/cet-strategija',
-    img: '/cet-strategija/chatting-strategy-cover.webp',
+    img: '/free-tools/chatting-strategy-cover.jpg',
     alt: 'Čet strategija',
   },
 ];
