@@ -23,7 +23,7 @@ const PLANS = [
   {
     id: 'hybrid',
     title: 'Chat + Growth',
-    subtitle: null,
+    subtitle: 'napredni paket',
     items: [
       'Sve iz Chat Only',
       'Vođenje profila radi promocije (X/Twitter, Reddit, TikTok, Instagram)',
