@@ -26,6 +26,9 @@ function generateMockups() {
   const earn1 = randF(14000, 28000);
   const earn2 = randF(3000, 7500);
   const earn3 = randF(50000, 90000);
+  const earn4 = randF(38000, 62000);
+  const earn5 = randF(9000, 18000);
+  const earn6 = randF(72000, 120000);
   return [
     {
       time: TIMES[rand(0, TIMES.length - 1)],
@@ -61,6 +64,42 @@ function generateMockups() {
       earnings: usd(earn3), gross: usdNoSign(earn3 * randF(1.22, 1.28)),
       pct: randF(0.2, 5).toFixed(1),
       yLabels: ['$6,000', '$4,000', '$2,000', '200'], gridY: [14, 43, 71],
+      chartPts: smoothPts(15), badge: rand(1, 9),
+    },
+    {
+      time: TIMES[rand(0, TIMES.length - 1)],
+      battery: rand(18, 98), signal: rand(2, 4), is5G: true,
+      topPct: (randF(0.08, 0.14)).toFixed(2),
+      current: usd(randF(6000, 12000)), pending: usd(randF(32000, 55000)),
+      period: 'Last 7 days',
+      dateRange: DATES_7[rand(0, DATES_7.length - 1)] + ' (local time UTC +10:00)',
+      earnings: usd(earn4), gross: usdNoSign(earn4 * randF(1.22, 1.28)),
+      pct: randF(55, 95).toFixed(1),
+      yLabels: ['$10,000', '$7,500', '$5,000', '$2,500'], gridY: [25, 50, 75],
+      chartPts: smoothPts(7), badge: rand(1, 9),
+    },
+    {
+      time: TIMES[rand(0, TIMES.length - 1)],
+      battery: rand(18, 98), signal: rand(2, 4), is5G: false,
+      topPct: (randF(0.10, 0.18)).toFixed(2),
+      current: usd(randF(4500, 9000)), pending: usd(randF(28000, 48000)),
+      period: 'Last 24 hours',
+      dateRange: DATES_24[rand(0, DATES_24.length - 1)] + ' (local time UTC +10:00)',
+      earnings: usd(earn5), gross: usdNoSign(earn5 * randF(1.22, 1.28)),
+      pct: randF(60, 120).toFixed(1),
+      yLabels: ['$2,000', '$1,500', '$1,000', '$500'], gridY: [25, 50, 75],
+      chartPts: smoothPts(12), badge: rand(1, 9),
+    },
+    {
+      time: TIMES[rand(0, TIMES.length - 1)],
+      battery: rand(18, 98), signal: rand(2, 4), is5G: true,
+      topPct: (randF(0.05, 0.10)).toFixed(2),
+      current: usd(randF(9000, 18000)), pending: usd(randF(55000, 90000)),
+      period: 'Custom',
+      dateRange: DATES_CUSTOM[rand(0, DATES_CUSTOM.length - 1)] + ' (local time UTC +10:00)',
+      earnings: usd(earn6), gross: usdNoSign(earn6 * randF(1.22, 1.28)),
+      pct: randF(0.1, 3).toFixed(1),
+      yLabels: ['$15,000', '$10,000', '$5,000', '$1,000'], gridY: [14, 43, 71],
       chartPts: smoothPts(15), badge: rand(1, 9),
     },
   ];
@@ -103,6 +142,42 @@ const MOCKUPS = [
     gridY: [14, 43, 71],
     chartPts: '0,70 18,51 36,31 54,54 72,20 90,41 108,11 126,46 144,37 162,26 180,49 198,30 216,41 237,46 258,20',
     badge: 3,
+  },
+  {
+    time: '11:07', battery: 72, signal: 4, is5G: true,
+    topPct: '0.11',
+    current: '$8,341.60', pending: '$43,892.14',
+    period: 'Last 7 days',
+    dateRange: 'Sep 07, 2024 - Sep 14, 2024 (local time UTC +10:00)',
+    earnings: '$48,216.50', gross: '$60,270.62', pct: '82.4',
+    yLabels: ['$10,000', '$7,500', '$5,000', '$2,500'],
+    gridY: [25, 50, 75],
+    chartPts: '0,60 43,35 86,15 129,42 172,8 215,28 258,18',
+    badge: 7,
+  },
+  {
+    time: '15:08', battery: 55, signal: 3, is5G: false,
+    topPct: '0.13',
+    current: '$6,720.88', pending: '$37,540.22',
+    period: 'Last 24 hours',
+    dateRange: '9:00 am, Sep 12 - 9:00 am, Sep 13, 2024 (local time UTC +10:00)',
+    earnings: '$11,384.90', gross: '$14,231.12', pct: '97.3',
+    yLabels: ['$2,000', '$1,500', '$1,000', '$500'],
+    gridY: [25, 50, 75],
+    chartPts: '0,68 24,48 48,25 72,55 96,18 120,40 144,12 168,38 192,24 216,45 240,14 258,30',
+    badge: 4,
+  },
+  {
+    time: '9:14', battery: 91, signal: 4, is5G: true,
+    topPct: '0.07',
+    current: '$14,508.33', pending: '$71,219.80',
+    period: 'Custom',
+    dateRange: '12:00 am, Aug 01 - 11:59 pm, Aug 31, 2024 (local time UTC +10:00)',
+    earnings: '$98,542.20', gross: '$123,177.75', pct: '1.2',
+    yLabels: ['$15,000', '$10,000', '$5,000', '$1,000'],
+    gridY: [14, 43, 71],
+    chartPts: '0,65 18,44 36,22 54,48 72,14 90,35 108,8 126,40 144,28 162,18 180,42 198,22 216,35 237,40 258,12',
+    badge: 2,
   },
 ];
 
@@ -374,13 +449,12 @@ export default function RezultatiScreenshots() {
         .rz-header { text-align: center; margin-bottom: 48px; }
         .rz-title { font-family: var(--font-display); font-size: clamp(28px,5vw,42px); font-style: italic; color: #1a1a1a; margin: 0; line-height: 1.1; }
 
-        /* Desktop: 3 columns */
+        /* Desktop: 3 columns × 2 rows */
         .rz-desktop {
-          display: flex;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
           gap: 20px;
-          justify-content: center;
-          align-items: flex-start;
-          max-width: 1100px;
+          max-width: 1000px;
           margin: 0 auto;
           padding: 0 24px;
         }
@@ -388,9 +462,8 @@ export default function RezultatiScreenshots() {
 
         /* ── Mockup card ── */
         .ofm {
-          flex: 1 1 0;
           min-width: 0;
-          max-width: 300px;
+          max-width: 100%;
           border-radius: 16px;
           overflow: hidden;
           background: #141824;
