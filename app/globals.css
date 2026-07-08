@@ -21,6 +21,9 @@
 
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* Prevent pull-to-refresh sending page to top on iOS Safari */
+html, body { overscroll-behavior-y: contain; }
+
 html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   background: var(--color-dark-1);

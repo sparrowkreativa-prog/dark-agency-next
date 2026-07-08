@@ -18,11 +18,14 @@ function useFadeIn(threshold = 0.2) {
   const [vis, setVis] = useState(false);
   useEffect(() => {
     const el = ref.current; if (!el) return;
-    const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { setVis(true); io.disconnect(); }
-    }, { threshold });
-    io.observe(el);
-    return () => io.disconnect();
+    let io;
+    const t = setTimeout(() => {
+      io = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) { setVis(true); io.disconnect(); }
+      }, { threshold, rootMargin: '0px 0px -40px 0px' });
+      io.observe(el);
+    }, 150);
+    return () => { clearTimeout(t); io?.disconnect(); };
   }, [threshold]);
   return [ref, vis];
 }

@@ -38,11 +38,14 @@ function ToolCard({ tool, index }) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'none'; io.disconnect(); }
-    }, { threshold: 0.1 });
-    io.observe(el);
-    return () => io.disconnect();
+    let io;
+    const t = setTimeout(() => {
+      io = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'none'; io.disconnect(); }
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      io.observe(el);
+    }, 150);
+    return () => { clearTimeout(t); io?.disconnect(); };
   }, []);
 
   return (
@@ -86,11 +89,14 @@ export default function FreeTools() {
   useEffect(() => {
     const el = headRef.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'none'; io.disconnect(); }
-    }, { threshold: 0.1 });
-    io.observe(el);
-    return () => io.disconnect();
+    let io;
+    const t = setTimeout(() => {
+      io = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) { el.style.opacity = '1'; el.style.transform = 'none'; io.disconnect(); }
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      io.observe(el);
+    }, 150);
+    return () => { clearTimeout(t); io?.disconnect(); };
   }, []);
 
   return (

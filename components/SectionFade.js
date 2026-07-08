@@ -9,11 +9,14 @@ export default function SectionFade({ children, className = '', id }) {
       ref.current?.classList.add('is-visible');
       return;
     }
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
-    }, { threshold: 0.08 });
-    obs.observe(ref.current);
-    return () => obs.disconnect();
+    let obs;
+    const t = setTimeout(() => {
+      obs = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); }
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      obs.observe(ref.current);
+    }, 150);
+    return () => { clearTimeout(t); obs?.disconnect(); };
   }, []);
 
   return (

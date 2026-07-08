@@ -69,21 +69,27 @@ export default function SplitHero() {
   useEffect(() => {
     const el = imgRef.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { setAnimate(true); io.disconnect(); }
-    }, { threshold: 0.2 });
-    io.observe(el);
-    return () => io.disconnect();
+    let io;
+    const t = setTimeout(() => {
+      io = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) { setAnimate(true); io.disconnect(); }
+      }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+      io.observe(el);
+    }, 150);
+    return () => { clearTimeout(t); io?.disconnect(); };
   }, []);
 
   useEffect(() => {
     const el = statsRef.current;
     if (!el) return;
-    const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { setStatsAnimate(true); io.disconnect(); }
-    }, { threshold: 0.15 });
-    io.observe(el);
-    return () => io.disconnect();
+    let io;
+    const t = setTimeout(() => {
+      io = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) { setStatsAnimate(true); io.disconnect(); }
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      io.observe(el);
+    }, 150);
+    return () => { clearTimeout(t); io?.disconnect(); };
   }, []);
 
   return (
