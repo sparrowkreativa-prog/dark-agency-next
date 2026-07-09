@@ -144,6 +144,12 @@ export default function Paketi() {
 
             </div>
           ))}
+
+          {/* Image spanning cols 1-2, row 2 */}
+          <div className="pk-grid-img"
+            style={{ opacity: vis ? 1 : 0, transition: 'opacity 0.7s ease 0.36s' }}>
+            <img src="/slika-paketi.jpg" alt="" className="pk-paketi-img" />
+          </div>
         </div>
 
         {/* Comparison table */}
@@ -153,7 +159,7 @@ export default function Paketi() {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
             Uključeno u Puno Upravljanje
           </div>
-          <div className="pk-table-scroll">
+          <div className="pk-table-scroll" id="pk-table-scroll">
             <table className="pk-table">
               <thead>
                 <tr>
@@ -175,6 +181,10 @@ export default function Paketi() {
               </tbody>
             </table>
           </div>
+          <p className="pk-swipe-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            prevuci u stranu
+          </p>
         </div>
 
         {/* Bottom CTA */}
@@ -198,7 +208,15 @@ export default function Paketi() {
 
         /* Grid */
         .pk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; margin-bottom: 40px; }
-        @media (max-width: 860px) { .pk-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; } }
+        .pk-card--featured { grid-column: 3; grid-row: 1 / 3; }
+        .pk-grid-img { grid-column: 1 / 3; grid-row: 2; }
+        .pk-paketi-img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; display: block; }
+        @media (max-width: 860px) {
+          .pk-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+          .pk-card--featured { grid-column: auto; grid-row: auto; }
+          .pk-grid-img { grid-column: auto; grid-row: auto; order: 4; }
+          .pk-paketi-img { height: 280px; }
+        }
 
         /* Card */
         .pk-card {
@@ -285,6 +303,21 @@ export default function Paketi() {
         .pk-cell-dash { color: #ccc; font-size: 15px; line-height: 1; }
         .pk-cell-text { font-size: 11px; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
         .pk-cell-text--full { color: #911f39; }
+
+        /* Swipe hint */
+        .pk-swipe-hint {
+          display: none;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          font-size: 11px;
+          color: #bbb;
+          text-transform: uppercase;
+          letter-spacing: 0.12em;
+          margin-top: 12px;
+          font-weight: 600;
+        }
+        @media (max-width: 680px) { .pk-swipe-hint { display: flex; } }
 
         /* Bottom */
         .pk-bottom { text-align: center; display: flex; justify-content: center; margin-top: 8px; }
