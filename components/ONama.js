@@ -80,8 +80,8 @@ export default function ONama() {
           margin: 0 auto;
           padding: 0 24px;
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 40px;
+          grid-template-columns: 1fr 1.4fr;
+          gap: 20px;
           align-items: center;
         }
         @media (max-width: 860px) {
@@ -102,7 +102,7 @@ export default function ONama() {
           overflow: hidden;
           box-shadow: 0 12px 48px rgba(0,0,0,0.12);
           aspect-ratio: 9/16;
-          max-width: 360px;
+          width: 100%;
         }
         @media (max-width: 860px) {
           .on-media {
