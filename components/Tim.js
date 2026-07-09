@@ -39,6 +39,7 @@ export default function Tim() {
             <span style={{ color: '#a9875c' }}>Niko Od Njih Nisi Ti.</span>
           </h2>
           <p className="tm-sub">Kada tvoj nalog krene, ovo su ljudi koji rade na tvom biznisu — dok ti nastavljaš da živiš normalno.</p>
+          <img src="/tim-girl.jpeg" alt="" className="tm-girl-img" />
         </div>
 
         {/* 5-col role grid */}
@@ -117,6 +118,15 @@ export default function Tim() {
           color: #666;
           line-height: 1.7;
           margin: 0;
+        }
+
+        .tm-girl-img {
+          width: 100%;
+          max-height: 480px;
+          object-fit: cover;
+          object-position: center top;
+          border-radius: 16px;
+          margin-top: 32px;
         }
 
         /* Role grid */
