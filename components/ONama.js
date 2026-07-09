@@ -46,7 +46,7 @@ export default function ONama() {
           style={{ opacity: visible ? 1 : 0, transform: visible ? 'none' : 'translateX(32px)', transition: 'opacity 0.9s ease 0.25s, transform 0.9s ease 0.25s' }}
         >
           <h2 className="on-title">Porodična Priča.<br /><span style={{ color: '#a9875c' }}>Globalni Domen.</span></h2>
-          <img src="/porodica.jpg" alt="" className="on-family-img" />
+          <img src="/porodica-2.jpeg" alt="" className="on-family-img" />
           <p className="on-text">
             Naša agencija je porodični biznis, a jedan od osnivača je žena — agencija sa 8-cifrenim godišnjim prihodom kreatora, 5+ godina iskustva i poslovanjem u 12 zemalja. Imamo sopstveni CRM sistem i tim od 230+ zaposlenih.
           </p>
