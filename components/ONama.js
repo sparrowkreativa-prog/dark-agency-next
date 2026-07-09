@@ -36,7 +36,7 @@ export default function ONama() {
             muted
             loop
             playsInline
-            src="/o-nama.mp4"
+            src="/la_familia.mp4"
           />
         </div>
 
@@ -101,7 +101,8 @@ export default function ONama() {
           border-radius: 20px;
           overflow: hidden;
           box-shadow: 0 12px 48px rgba(0,0,0,0.12);
-          aspect-ratio: 1/1;
+          aspect-ratio: 9/16;
+          max-width: 360px;
         }
         @media (max-width: 860px) {
           .on-media {
