@@ -132,6 +132,7 @@ export default function ProblemSection({ problem }) {
             {problem.title.split('za Žene.')[0]}
             <span style={{ color: '#a9875c' }}>za Žene.</span>
           </h2>
+          <img src="/buss_woman.jpeg" alt="" className="ps-buss-img" />
           <p className="section-sub">{problem.sub}</p>
         </div>
 
@@ -144,6 +145,13 @@ export default function ProblemSection({ problem }) {
       </div>
 
       <style>{`
+        .ps-buss-img {
+          width: 100%;
+          border-radius: 16px;
+          object-fit: cover;
+          max-height: 480px;
+          margin: 24px 0;
+        }
         .ps-section {
           padding: 80px 0 96px;
           background: #000;
