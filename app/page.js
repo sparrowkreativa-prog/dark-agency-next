@@ -39,6 +39,23 @@ export default function Home() {
 
         <PressBar />
 
+        <section style={{ background: '#000', padding: '48px 24px' }}>
+          <video
+            controls
+            playsInline
+            style={{
+              display: 'block',
+              margin: '0 auto',
+              width: '100%',
+              maxWidth: 760,
+              borderRadius: 16,
+              background: '#000',
+            }}
+          >
+            <source src="/0711.mp4" type="video/mp4" />
+          </video>
+        </section>
+
         <ONama />
 
         <MarqueeBar />
