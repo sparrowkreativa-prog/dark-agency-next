@@ -1,4 +1,5 @@
 'use client';
+import { useEffect, useRef } from 'react';
 import { builder, BuilderComponent } from '@builder.io/react';
 import { BUILDER_API_KEY } from '@/lib/builder';
 import Header from '@/components/Header';
@@ -27,6 +28,49 @@ import Bezbednost from '@/components/Bezbednost';
 import Tim from '@/components/Tim';
 import { siteData } from '@/data/content';
 
+function AutoplayVideo() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section style={{ background: '#fafaf8', padding: '48px 24px' }}>
+      <video
+        ref={videoRef}
+        controls
+        playsInline
+        controlsList="nodownload"
+        style={{
+          display: 'block',
+          margin: '0 auto',
+          width: '100%',
+          maxWidth: 760,
+          borderRadius: 16,
+          background: '#000',
+          boxShadow: '0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.10)',
+        }}
+      >
+        <source src="/0711.mp4" type="video/mp4" />
+      </video>
+    </section>
+  );
+}
+
 export default function Home() {
   const { problem, included, services, qualify, testimonials, guarantee, finalCta, footer } = siteData;
 
@@ -39,24 +83,7 @@ export default function Home() {
 
         <PressBar />
 
-        <section style={{ background: '#fafaf8', padding: '48px 24px' }}>
-          <video
-            controls
-            playsInline
-            controlsList="nodownload"
-            style={{
-              display: 'block',
-              margin: '0 auto',
-              width: '100%',
-              maxWidth: 760,
-              borderRadius: 16,
-              background: '#000',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.10)',
-            }}
-          >
-            <source src="/0711.mp4" type="video/mp4" />
-          </video>
-        </section>
+        <AutoplayVideo />
 
         <ONama />
 
