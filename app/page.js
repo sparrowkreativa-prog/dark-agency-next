@@ -39,10 +39,11 @@ export default function Home() {
 
         <PressBar />
 
-        <section style={{ background: '#000', padding: '48px 24px' }}>
+        <section style={{ background: '#fafaf8', padding: '48px 24px' }}>
           <video
             controls
             playsInline
+            controlsList="nodownload"
             style={{
               display: 'block',
               margin: '0 auto',
@@ -50,6 +51,7 @@ export default function Home() {
               maxWidth: 760,
               borderRadius: 16,
               background: '#000',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.10)',
             }}
           >
             <source src="/0711.mp4" type="video/mp4" />
