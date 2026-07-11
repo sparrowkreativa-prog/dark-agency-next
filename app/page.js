@@ -170,31 +170,55 @@ export default function Home() {
                 <p className="section-sub">{testimonials.sub}</p>
               </div>
               <div className="testimonials-grid">
-                {testimonials.items.map((t) => (
-                  <div key={t.name} className="testimonial-card">
-                    {/* Header: initials + name + rank */}
-                    <div className="tc-header">
-                      <div className="tc-avatar">{t.name.split('.')[0]}</div>
-                      <div>
-                        <p className="tc-name">{t.name}</p>
-                        <p className="tc-rank">{t.rank}</p>
+                {testimonials.items.map((t, i) => {
+                  const igData = [
+                    { username: 'katarinaa.r', img: '/IG-01.jpg', followers: '412k' },
+                    { username: 'sara.tt_', img: '/IG-02.jpg', followers: '587k' },
+                    { username: 'anaaj_oficial', img: '/IG-03.jpg', followers: '318k' },
+                  ][i];
+                  return (
+                    <div key={t.name}>
+                      {/* Instagram profile card */}
+                      <div className="ig-card">
+                        <div className="ig-card-left">
+                          <div className="ig-avatar-ring">
+                            <div className="ig-avatar-inner">
+                              <img src={igData.img} alt={igData.username} className="ig-avatar-img" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="ig-card-body">
+                          <div className="ig-card-name-row">
+                            <span className="ig-username">@{igData.username}</span>
+                            <svg viewBox="0 0 40 40" className="ig-verified" fill="#0095F6" aria-label="Verified"><path d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.03v-6.46h-6.419L25.358 0l-5.36 3.094Zm7.415 11.225 2.254 2.287-11.43 11.5-6.835-6.93 2.244-2.258 4.587 4.581 9.18-9.18Z"/></svg>
+                          </div>
+                          <div className="ig-followers"><span className="ig-followers-num">{igData.followers}</span> followers</div>
+                          <p className="ig-quote">&ldquo;{t.quote}&rdquo;</p>
+                        </div>
+                        <div className="ig-follow-btn">Follow</div>
+                      </div>
+
+                      {/* Testimonial box */}
+                      <div className="testimonial-card">
+                        <div className="tc-header">
+                          <div className="tc-avatar">{t.name.split('.')[0]}</div>
+                          <div>
+                            <p className="tc-name">{t.name}</p>
+                            <p className="tc-rank">{t.rank}</p>
+                          </div>
+                        </div>
+                        <p className="tc-amount">{t.amount}</p>
+                        <p className="tc-verified">Verifikovano na live dashboardu · <span style={{whiteSpace:'nowrap'}}>krenula od nule</span></p>
+                        <div className="tc-then-wrap">
+                          <p className="tc-then-text"><span className="tc-label">Tada&nbsp;&nbsp;</span>{t.then}</p>
+                        </div>
+                        <div className="tc-now-wrap">
+                          <p className="tc-now-text"><span className="tc-label tc-label--now">Sada&nbsp;&nbsp;</span>{t.now}</p>
+                        </div>
                       </div>
                     </div>
-                    {/* Amount */}
-                    <p className="tc-amount">{t.amount}</p>
-                    <p className="tc-verified">Verifikovano na live dashboardu · <span style={{whiteSpace:'nowrap'}}>krenula od nule</span></p>
-                    {/* Then */}
-                    <div className="tc-then-wrap">
-                      <p className="tc-then-text"><span className="tc-label">Tada&nbsp;&nbsp;</span>{t.then}</p>
-                    </div>
-                    {/* Now */}
-                    <div className="tc-now-wrap">
-                      <p className="tc-now-text"><span className="tc-label tc-label--now">Sada&nbsp;&nbsp;</span>{t.now}</p>
-                    </div>
-                    {/* Quote */}
-                    <blockquote className="tc-blockquote">&ldquo;{t.quote}&rdquo;</blockquote>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </section>
