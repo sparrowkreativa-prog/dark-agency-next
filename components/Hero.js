@@ -149,6 +149,7 @@ export default function Hero() {
             <a href={hero.cta.href} className="btn-primary btn-large">
               {hero.cta.label} <span className="btn-arrow">→</span>
             </a>
+            <p className="hero-waitlist-note">PRIMAMO SAMO 2 KLIJENTA MESEČNO</p>
             <p className="hero-microcopy">
               <span className="hm-first">
                 <span className="pulse-dot" aria-hidden="true" />
@@ -224,6 +225,15 @@ export default function Hero() {
         }
         .hero-locations {
           margin-bottom: 20px;
+        }
+        .hero-waitlist-note {
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.22em;
+          color: #911f39;
+          text-transform: uppercase;
+          text-align: center;
+          margin: 10px 0 4px;
         }
         .hero-headline {
           margin-bottom: 24px;

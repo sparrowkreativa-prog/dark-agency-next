@@ -14,7 +14,7 @@ export const siteData = {
   hero: {
     headline: 'BUILDING\nEMPIRES\nTOGETHER',
     subtext: 'Ne gradimo ti nalog. Gradimo ti sledeći život.\nObezbeđujemo ti standard iza brojki: slobodu da živiš gde poželiš, luksuz kakav si zamišljala, slobodno vreme, zaštitu identiteta i brend koji izgleda kao naslovna strana magazina.',
-    cta: { label: 'Prijavi se', href: '#apply' },
+    cta: { label: 'PRIJAVI SE NA LISTU ČEKANJA', href: '#apply' },
     microcopy: '60-sekundi prijava · manje od 2% primljenih · nula troškova unapred',
     stats: [
       { num: '$11M+', label: 'Generisano za kreatore', idx: 1 },
