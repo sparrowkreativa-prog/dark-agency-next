@@ -327,19 +327,23 @@ em { font-style: italic; color: var(--color-accent-pink); }
 /* ── Instagram profile card ── */
 .ig-card {
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
+  flex-direction: column;
+  gap: 12px;
   background: rgba(255,255,255,0.06);
   backdrop-filter: blur(20px) saturate(1.4);
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 16px;
   padding: 16px 16px 14px;
   margin-bottom: 10px;
-  position: relative;
 }
-.ig-card-left { flex-shrink: 0; }
+.ig-card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 .ig-avatar-ring {
-  width: 64px; height: 64px;
+  width: 54px; height: 54px;
+  flex-shrink: 0;
   border-radius: 50%;
   padding: 2.5px;
   background: conic-gradient(from 135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888, #833ab4, #bc1888 360deg);
@@ -355,12 +359,11 @@ em { font-style: italic; color: var(--color-accent-pink); }
 .ig-card-name-row { display: flex; align-items: center; gap: 6px; margin-bottom: 3px; }
 .ig-username { font-size: 14px; font-weight: 700; color: #fff; }
 .ig-verified { width: 15px; height: 15px; flex-shrink: 0; }
-.ig-followers { font-size: 12px; color: rgba(255,255,255,0.45); margin-bottom: 8px; }
+.ig-followers { font-size: 12px; color: rgba(255,255,255,0.45); margin: 0; }
 .ig-followers-num { font-weight: 700; color: rgba(255,255,255,0.75); }
-.ig-quote { font-size: 12.5px; color: rgba(255,255,255,0.6); font-style: italic; line-height: 1.55; margin: 0; }
+.ig-quote { font-size: 13px; color: rgba(255,255,255,0.6); font-style: italic; line-height: 1.6; margin: 0; }
 .ig-follow-btn {
   flex-shrink: 0;
-  align-self: flex-start;
   background: #0095F6;
   color: #fff;
   font-size: 13px;
@@ -369,6 +372,7 @@ em { font-style: italic; color: var(--color-accent-pink); }
   padding: 6px 14px;
   cursor: default;
   white-space: nowrap;
+  margin-left: auto;
 }
 
 .testimonial-card {
