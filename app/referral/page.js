@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Kalkulator from '@/components/Kalkulator';
 
 const STEPS = [
   { num: '1', title: 'Pošalji Poruku', desc: 'Pošalji kratku poruku sa imenom kreatorke i njenim Instagramom.' },
@@ -62,6 +63,9 @@ export default function Referral() {
             ))}
           </div>
         </div>
+
+        {/* Kalkulator */}
+        <Kalkulator />
 
         <div className="container" style={{ paddingTop: 56 }}>
           {/* How it works */}
