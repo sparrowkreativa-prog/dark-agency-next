@@ -140,7 +140,16 @@ const CARDS = [
     icon: STAR_ICON,
     badge: 'Već afirmisana',
     title: 'Već zarađuješ — mi to uvećavamo.',
-    sub: 'Pre nego što bilo šta diramo, detaljno proučimo tvoju situaciju.',
+    sub: [
+      'Ne diramo tvoju trenutnu zaradu.',
+      'Ne tražimo pristup nalozima ni tvojim privatnim profilima na društvenim mrežama, niti da raskineš ugovor sa agencijom sa kojom trenutno radiš.',
+      'Nastavljaš normalno da radiš kao i do sad, samo dobijaš još jednog partnera koji ti gradi brend na drugim tržištima.',
+      'Sve gradimo zajedno, kroz naš sistem.',
+      'Tvoj nalog, tvoja šifra, tvoj račun – nula troškova unapred, procenat uzimamo tek kad ti zaradiš.',
+      'Ako više ne želiš da radiš sa nama, odlaziš slobodno, bez raskida ugovora i bez troškova.',
+      'Otvaramo ti nove profile u Americi i Italiji – na Instagramu, TikToku, X-u, Threads-u i Redditu – i gradimo ti brend i zajednicu koja će za 30 dana praviti zaradu veću od tvog najboljeg meseca na Balkanu.',
+      'Sistem je organizovan tako da je tvoje samo da snimaš – obim posla 6 do 8 sati nedeljno.',
+    ],
     steps: [
       'Potpuna analiza tvojih trenutnih brojki i levaka',
       'Pročitamo 300+ tvojih ranijih chatova da vidimo kako su fanovi vođeni',
@@ -153,7 +162,14 @@ const CARDS = [
     icon: SPROUT_ICON,
     badge: 'Kreće od nule',
     title: 'Nova si u svemu? Gradimo to s tobom.',
-    sub: 'Nije potrebno iskustvo — sve postavimo i vodimo te korak po korak.',
+    sub: [
+      'Postoji set načina koji smo osmislili da tvoja privatnost, identitet i izgled bude potpuno promenjen i zaštićen tako da niko neće znati iz tvog grada ili zemlje da si to ti ukoliko na tome insistiraš.',
+      'Dobijaš svog ličnog brend menadžera koji će ti biti na raspolaganju 24h i tim od još troje ljudi koji će te postepeno učiti svemu.',
+      'Tvoj nalog, tvoja šifra, tvoj račun – nula troškova unapred, procenat uzimamo tek kad ti zaradiš.',
+      'Ako više ne želiš da radiš sa nama, odlaziš slobodno, bez raskida ugovora i bez troškova.',
+      'Otvaramo ti nove profile u Americi i Italiji – na Instagramu, TikToku, X-u, Threads-u i Redditu – i gradimo ti brend i zajednicu koja će za 30 dana praviti zaradu veću od tvog najboljeg meseca na Balkanu.',
+      'Sistem je organizovan tako da je tvoje samo da snimaš – obim posla 6 do 8 sati nedeljno.',
+    ],
     steps: [
       'Kreiramo tvoje profile i podešavamo naloge',
       'Učimo te kako da snimaš sadržaj koji prodaje',
@@ -210,7 +226,9 @@ export default function DvaPuta() {
 
               {/* Heading */}
               <h3 className="dp-card-title"><em>{card.title}</em></h3>
-              <p className="dp-card-sub">{card.sub}</p>
+              <ul className="dp-card-sub-list">
+                {card.sub.map((s, i) => <li key={i}>{s}</li>)}
+              </ul>
 
               {/* Steps */}
               <ul className="dp-steps">
@@ -328,11 +346,27 @@ export default function DvaPuta() {
           line-height: 1.25;
         }
         .dp-card--featured .dp-card-title { color: #fff; }
-        .dp-card-sub {
-          font-size: 13.5px;
-          color: rgba(255,255,255,0.45);
-          margin: 0;
+        .dp-card-sub-list {
+          list-style: none;
+          margin: 0 0 4px;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .dp-card-sub-list li {
+          font-size: 15px;
+          color: #fff;
           line-height: 1.6;
+          padding-left: 18px;
+          position: relative;
+        }
+        .dp-card-sub-list li::before {
+          content: '—';
+          position: absolute;
+          left: 0;
+          color: rgba(255,255,255,0.35);
+          font-size: 13px;
         }
 
         /* Steps */
