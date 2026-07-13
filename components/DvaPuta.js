@@ -140,7 +140,7 @@ const CARDS = [
     icon: STAR_ICON,
     badge: 'Već afirmisana',
     title: 'Već zarađuješ — mi to uvećavamo.',
-    sub: [
+    steps: [
       'Ne diramo tvoju trenutnu zaradu.',
       'Ne tražimo pristup nalozima ni tvojim privatnim profilima na društvenim mrežama, niti da raskineš ugovor sa agencijom sa kojom trenutno radiš.',
       'Nastavljaš normalno da radiš kao i do sad, samo dobijaš još jednog partnera koji ti gradi brend na drugim tržištima.',
@@ -150,31 +150,19 @@ const CARDS = [
       'Otvaramo ti nove profile u Americi i Italiji – na Instagramu, TikToku, X-u, Threads-u i Redditu – i gradimo ti brend i zajednicu koja će za 30 dana praviti zaradu veću od tvog najboljeg meseca na Balkanu.',
       'Sistem je organizovan tako da je tvoje samo da snimaš – obim posla 6 do 8 sati nedeljno.',
     ],
-    steps: [
-      'Potpuna analiza tvojih trenutnih brojki i levaka',
-      'Pročitamo 300+ tvojih ranijih chatova da vidimo kako su fanovi vođeni',
-      'Pregledamo tvoj sadržaj na mrežama i pozicioniranje',
-      'Zatim sve optimizujemo i skaliramo ono što već radi',
-    ],
     featured: true,
   },
   {
     icon: SPROUT_ICON,
     badge: 'Kreće od nule',
     title: 'Nova si u svemu? Gradimo to s tobom.',
-    sub: [
+    steps: [
       'Postoji set načina koji smo osmislili da tvoja privatnost, identitet i izgled bude potpuno promenjen i zaštićen tako da niko neće znati iz tvog grada ili zemlje da si to ti ukoliko na tome insistiraš.',
       'Dobijaš svog ličnog brend menadžera koji će ti biti na raspolaganju 24h i tim od još troje ljudi koji će te postepeno učiti svemu.',
       'Tvoj nalog, tvoja šifra, tvoj račun – nula troškova unapred, procenat uzimamo tek kad ti zaradiš.',
       'Ako više ne želiš da radiš sa nama, odlaziš slobodno, bez raskida ugovora i bez troškova.',
       'Otvaramo ti nove profile u Americi i Italiji – na Instagramu, TikToku, X-u, Threads-u i Redditu – i gradimo ti brend i zajednicu koja će za 30 dana praviti zaradu veću od tvog najboljeg meseca na Balkanu.',
       'Sistem je organizovan tako da je tvoje samo da snimaš – obim posla 6 do 8 sati nedeljno.',
-    ],
-    steps: [
-      'Kreiramo tvoje profile i podešavamo naloge',
-      'Učimo te kako da snimaš sadržaj koji prodaje',
-      'Pokažemo ti tačno kako da koristiš naš CRM',
-      'Zajedno mapiramo šta voliš (a šta ne), tvoj cilj i plan da ga dostigneš',
     ],
     featured: false,
   },
@@ -226,15 +214,11 @@ export default function DvaPuta() {
 
               {/* Heading */}
               <h3 className="dp-card-title"><em>{card.title}</em></h3>
-              <ul className="dp-card-sub-list">
-                {card.sub.map((s, i) => <li key={i}>{s}</li>)}
-              </ul>
-
               {/* Steps */}
               <ul className="dp-steps">
                 {card.steps.map((step, idx) => (
                   <li key={idx} className="dp-step">
-                    <span className={`dp-step-num${card.featured ? ' dp-step-num--featured' : ''}`}>{idx + 1}</span>
+                    <span className={`dp-step-num${card.featured ? ' dp-step-num--featured' : ' dp-step-num--gold'}`}>{idx + 1}</span>
                     <span className="dp-step-text">{step}</span>
                   </li>
                 ))}
@@ -346,28 +330,6 @@ export default function DvaPuta() {
           line-height: 1.25;
         }
         .dp-card--featured .dp-card-title { color: #fff; }
-        .dp-card-sub-list {
-          list-style: none;
-          margin: 0 0 4px;
-          padding: 0;
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-        }
-        .dp-card-sub-list li {
-          font-size: 15px;
-          color: #fff;
-          line-height: 1.6;
-          padding-left: 18px;
-          position: relative;
-        }
-        .dp-card-sub-list li::before {
-          content: '—';
-          position: absolute;
-          left: 0;
-          color: rgba(255,255,255,0.35);
-          font-size: 13px;
-        }
 
         /* Steps */
         .dp-steps {
@@ -403,10 +365,15 @@ export default function DvaPuta() {
           border-color: rgba(145,31,57,0.3);
           color: #911f39;
         }
+        .dp-step-num--gold {
+          background: rgba(169,135,92,0.12);
+          border-color: rgba(169,135,92,0.35);
+          color: #a9875c;
+        }
         .dp-step-text {
-          font-size: 13.5px;
-          color: rgba(255,255,255,0.75);
-          line-height: 1.55;
+          font-size: 15px;
+          color: #fff;
+          line-height: 1.6;
         }
       `}</style>
     </section>
