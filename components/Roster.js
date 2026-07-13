@@ -212,7 +212,7 @@ export default function Roster() {
           </div>
 
           {/* Video + cards layout */}
-          <div className="rc-main-layout">
+          <div className="rc-main-layout" style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div className="rc-video-col">
               <RosterVideo />
             </div>
@@ -240,7 +240,7 @@ export default function Roster() {
         /* Main two-column layout */
         .rc-main-layout {
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 380px 1fr;
           gap: 28px;
           align-items: start;
         }
@@ -270,9 +270,8 @@ export default function Roster() {
           box-shadow: 0 2px 16px rgba(0,0,0,0.05);
         }
 
-        /* 3 small cards grid inside box */
-        .rc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-        @media (max-width: 600px) { .rc-grid { grid-template-columns: 1fr; } }
+        /* cards stacked vertically */
+        .rc-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
 
         .rc-card {
           background: #fafaf8; border: 1px solid rgba(0,0,0,0.07);
