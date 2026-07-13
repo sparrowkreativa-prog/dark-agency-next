@@ -156,12 +156,31 @@ function Carousel({ animate }) {
 }
 
 function RosterVideo() {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        el.muted = true;
+        el.play().catch(() => {});
+      } else {
+        el.pause();
+      }
+    }, { threshold: 0.1 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <video
+      ref={ref}
       autoPlay
       loop
       muted
       playsInline
+      preload="auto"
       className="rc-video"
     >
       <source src="/cica_brod.mp4" type="video/mp4" />
