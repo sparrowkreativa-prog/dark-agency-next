@@ -160,6 +160,20 @@ export default function Hero() {
           </div>
         </div>
 
+        {/* Video between glass and stats */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          webkit-playsinline=""
+          x5-playsinline=""
+          preload="auto"
+          className="hero-between-video"
+        >
+          <source src="/0711.mp4" type="video/mp4" />
+        </video>
+
         {/* Slogan — between boxes */}
         <p className="hero-slogan">DO IT FOR YOUR FAMILY!</p>
 
@@ -223,6 +237,15 @@ export default function Hero() {
           height: 1px;
           background: rgba(255,255,255,0.15);
         }
+        .hero-between-video {
+          width: 100%;
+          border-radius: 18px;
+          display: block;
+          object-fit: cover;
+          max-height: 480px;
+          background: #000;
+        }
+
         .hero-locations {
           margin-bottom: 20px;
         }
