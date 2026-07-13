@@ -87,11 +87,11 @@ const RESOURCES = [
 ];
 
 const COMING_SOON = [
-  { type: 'Vodič', title: 'NSFW Subreddit Lista', desc: 'Kurirana lista NSFW subreddita organizovana po niši sa pravilima objavljivanja i brojem pretplatnika.' },
-  { type: 'Vodič', title: 'X Playbook', desc: 'Kompletan Twitter/X sistem rasta za OnlyFans kreatorke — od podešavanja profila do viralnih strategija.' },
-  { type: 'Vodič', title: 'Threads Playbook', desc: 'Kompletan Threads sistem rasta za OnlyFans kreatorke — od podešavanja profila do izgradnje angažovane publike.' },
-  { type: 'Vodič', title: 'TikTok Playbook', desc: 'Kompletan TikTok sistem rasta — od viralnih strategija do konverzije pratilaca u pretplatnike.' },
-  { type: 'Vodič', title: 'Pornhub Playbook', desc: 'Kompletan Pornhub sistem rasta — od optimizacije profila do povećanja saobraćaja i konverzija.' },
+  { type: 'Vodič', title: 'NSFW Subreddit Lista', desc: 'Kurirana lista NSFW subreddita organizovana po niši sa pravilima objavljivanja i brojem pretplatnika.', img: '/free-tools/SUB_RED.jpg' },
+  { type: 'Vodič', title: 'X Playbook', desc: 'Kompletan Twitter/X sistem rasta za OnlyFans kreatorke — od podešavanja profila do viralnih strategija.', img: '/free-tools/TWITER-X.jpg' },
+  { type: 'Vodič', title: 'Threads Playbook', desc: 'Kompletan Threads sistem rasta za OnlyFans kreatorke — od podešavanja profila do izgradnje angažovane publike.', img: '/free-tools/THREADS.jpg' },
+  { type: 'Vodič', title: 'TikTok Playbook', desc: 'Kompletan TikTok sistem rasta — od viralnih strategija do konverzije pratilaca u pretplatnike.', img: '/free-tools/TIK-TOK.jpg' },
+  { type: 'Vodič', title: 'Pornhub Playbook', desc: 'Kompletan Pornhub sistem rasta — od optimizacije profila do povećanja saobraćaja i konverzija.', img: '/free-tools/P_HUB.jpg' },
 ];
 
 export default function Resursi() {
@@ -153,6 +153,11 @@ export default function Resursi() {
             <div className="rs-soon-grid">
               {COMING_SOON.map((r) => (
                 <div key={r.title} className="rs-card rs-card--soon">
+                  {r.img && (
+                    <div className="rs-card-img-wrap">
+                      <img src={r.img} alt={r.title} className="rs-card-img" />
+                    </div>
+                  )}
                   <span className="rs-soon-badge">Uskoro</span>
                   <span className="rs-type">{r.type}</span>
                   <h2 className="rs-card-title">{r.title}</h2>
