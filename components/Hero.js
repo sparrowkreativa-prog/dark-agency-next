@@ -30,7 +30,7 @@ function HeroVideo() {
         preload="auto"
         className="hero-between-video"
       >
-        <source src="/0711.mp4" type="video/mp4" />
+        <source src="/ITALO-cica.mp4" type="video/mp4" />
       </video>
 
       <button
