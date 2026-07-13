@@ -18,7 +18,7 @@ const RESOURCES = [
     desc: 'Ovladaj umećem čatovanja — skripte, upsell, zadržavanje i taktike konverzije koje pretvaraju pretplatnike u stalne kupce.',
     tags: ['Monetizacija', 'Strategija sadržaja'],
     href: '/cet-strategija',
-    img: '/free-tools/chatting-strategy-cover.jpg',
+    img: '/free-tools/chatting-strategy.jpg',
   },
   {
     type: 'Vodič',
@@ -42,7 +42,7 @@ const RESOURCES = [
     desc: 'Kompletan 12-poglavni vodič koji koristimo za rast Instagram naloga kreatora — od optimizacije profila do sistema sadržaja.',
     tags: ['Rast i saobraćaj', 'Strategija sadržaja'],
     href: '/instagram-playbook',
-    img: '/free-tools/instagram-playbook-cover.jpg',
+    img: '/free-tools/instagram-playbook.jpg',
   },
   {
     type: 'Kalkulator',
