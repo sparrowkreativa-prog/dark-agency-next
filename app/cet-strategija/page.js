@@ -22,10 +22,9 @@ export default function CetStrategija() {
           <nav className="nav-links">
             <ul className="nav-menu">
               <li><Link href="/">Početna</Link></li>
-              <li><Link href="/#masina">Mašina</Link></li>
-              <li><Link href="/#roster">Roster</Link></li>
               <li><Link href="/#services">Usluge</Link></li>
-              <li><a href="#" style={{ color: '#a9875c', fontWeight: 600 }}>Čet Strategija</a></li>
+              <li><Link href="/resursi" style={{ color: '#a9875c' }}>Resursi</Link></li>
+              <li><Link href="/#faq">FAQ</Link></li>
             </ul>
           </nav>
           <div className="nav-cta">

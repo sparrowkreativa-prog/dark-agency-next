@@ -37,10 +37,9 @@ export default function GrowthAudit() {
           <nav className="nav-links">
             <ul className="nav-menu">
               <li><Link href="/">Početna</Link></li>
-              <li><Link href="/#masina">Mašina</Link></li>
-              <li><Link href="/#roster">Roster</Link></li>
-              <li><Link href="/cet-strategija">Čet Strategija</Link></li>
-              <li><Link href="/instagram-playbook">Instagram Vodič</Link></li>
+              <li><Link href="/#services">Usluge</Link></li>
+              <li><Link href="/resursi" style={{ color: '#a9875c' }}>Resursi</Link></li>
+              <li><Link href="/#faq">FAQ</Link></li>
             </ul>
           </nav>
           <div className="nav-cta">

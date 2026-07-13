@@ -10,6 +10,7 @@ const RESOURCES = [
     tags: ['Zarada', 'Monetizacija'],
     href: '/referral',
     featured: true,
+    img: null,
   },
   {
     type: 'Vodič',
@@ -17,6 +18,7 @@ const RESOURCES = [
     desc: 'Ovladaj umećem čatovanja — skripte, upsell, zadržavanje i taktike konverzije koje pretvaraju pretplatnike u stalne kupce.',
     tags: ['Monetizacija', 'Strategija sadržaja'],
     href: '/cet-strategija',
+    img: '/free-tools/chatting-strategy-cover.jpg',
   },
   {
     type: 'Vodič',
@@ -24,13 +26,15 @@ const RESOURCES = [
     desc: 'SFW-only Reddit sistem koji generiše 100+ OnlyFans pretplatnika dnevno. 8 poglavlja: odabir subreddita, sigurnost naloga, radni tok objavljivanja i skaliranje.',
     tags: ['Rast i saobraćaj', 'Promocija'],
     href: '/reddit-playbook',
+    img: null,
   },
   {
     type: 'Alat',
-    title: 'Audit Rasta',
+    title: 'Besplatna Analiza Rasta Kreatora',
     desc: 'Personalizovana analiza: koje platforme da targetiraš, koliko naloga da vodiš, koliko često da objavljuješ i šta ti nedostaje.',
     tags: ['Rast i saobraćaj', 'Promocija'],
     href: '/growth-audit',
+    img: '/free-tools/growth-audit-cover.jpg',
   },
   {
     type: 'Vodič',
@@ -38,6 +42,7 @@ const RESOURCES = [
     desc: 'Kompletan 12-poglavni vodič koji koristimo za rast Instagram naloga kreatora — od optimizacije profila do sistema sadržaja.',
     tags: ['Rast i saobraćaj', 'Strategija sadržaja'],
     href: '/instagram-playbook',
+    img: '/free-tools/instagram-playbook-cover.jpg',
   },
   {
     type: 'Kalkulator',
@@ -45,13 +50,15 @@ const RESOURCES = [
     desc: 'Unesi svoju nišu, broj pratilaca i frekvenciju objavljivanja da vidiš procenjeni potencijal prihoda kao kreatorka.',
     tags: ['Monetizacija', 'Rast i saobraćaj'],
     href: '/kalkulator',
+    img: null,
   },
   {
     type: 'Vodič',
     title: 'Čet Skripta',
-    desc: 'Prava skripta koju koristimo u B9 agenciji — vidi tačno kako naši čateri otvaraju razgovore, grade odnos, upselluju i zatvaraju. Bez teorije, samo stvarna skripta.',
+    desc: 'Prava skripta koju koristimo — vidi tačno kako naši čateri otvaraju razgovore, grade odnos, upselluju i zatvaraju. Bez teorije, samo stvarna skripta.',
     tags: ['Monetizacija', 'Strategija sadržaja'],
     href: '/chatting-script',
+    img: null,
   },
   {
     type: 'Vodič',
@@ -59,13 +66,15 @@ const RESOURCES = [
     desc: 'Sveobuhvatan vodič za muške kreatore: odabir niše, cene, izgradnja publike i monetizacija.',
     tags: ['Strategija sadržaja', 'Monetizacija'],
     href: '/male-creator-playbook',
+    img: null,
   },
   {
     type: 'Alat',
     title: 'Besplatni DMCA Takedown',
-    desc: 'Pronašao si svoj sadržaj na netu? Uklonićemo ga besplatno — bez ugovora, bez troškova.',
+    desc: 'Pronašla si svoj sadržaj na netu? Uklonićemo ga besplatno — bez ugovora, bez troškova.',
     tags: ['Zaštita sadržaja', 'Monetizacija'],
     href: '/dmca',
+    img: null,
   },
   {
     type: 'Vodič',
@@ -73,6 +82,7 @@ const RESOURCES = [
     desc: 'Kompletan vodič za izgradnju profitabilnog BDSM brenda — od pozicioniranja niše i psihologije pretplatnika do premium cena.',
     tags: ['Monetizacija', 'Strategija sadržaja'],
     href: '/bdsm-playbook',
+    img: null,
   },
 ];
 
@@ -118,6 +128,11 @@ export default function Resursi() {
           <div className="rs-grid">
             {RESOURCES.map((r) => (
               <Link key={r.href} href={r.href} className={`rs-card${r.featured ? ' rs-card--featured' : ''}`}>
+                {r.img && (
+                  <div className="rs-card-img-wrap">
+                    <img src={r.img} alt={r.title} className="rs-card-img" />
+                  </div>
+                )}
                 {r.tag && <span className="rs-tag-featured">{r.tag}</span>}
                 <span className="rs-type">{r.type}</span>
                 <h2 className="rs-card-title">{r.title}</h2>
@@ -251,6 +266,25 @@ export default function Resursi() {
           padding: 3px 10px;
           width: fit-content;
         }
+
+        .rs-card-img-wrap {
+          width: calc(100% + 48px);
+          margin: -24px -24px 16px;
+          border-radius: 18px 18px 0 0;
+          overflow: hidden;
+          height: 180px;
+        }
+        .rs-card--featured .rs-card-img-wrap {
+          height: 220px;
+        }
+        .rs-card-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.4s ease;
+        }
+        .rs-card:hover .rs-card-img { transform: scale(1.03); }
 
         .rs-type {
           font-size: 10px;
