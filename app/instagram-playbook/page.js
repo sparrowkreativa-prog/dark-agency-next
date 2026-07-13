@@ -1,8 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Montserrat } from 'next/font/google';
-
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-montserrat', display: 'swap' });
 
 export const metadata = {
   title: 'Instagram Vodič za Rast | Velluto Nero',
@@ -11,7 +8,7 @@ export const metadata = {
 
 export default function InstagramPlaybook() {
   return (
-    <div className={montserrat.variable}>
+    <div>
 
       {/* Header */}
       <header id="site-header" style={{ position: 'sticky', top: 0, zIndex: 100, background: 'var(--color-dark-1)', borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
@@ -42,7 +39,7 @@ export default function InstagramPlaybook() {
             {/* Cover image */}
             <div className="cs-fade-in cs-cover-box">
               <Image
-                src="/free-tools/instagram-playbook-cover.jpg"
+                src="/free-tools/instagram-playbook.jpg"
                 alt="Instagram vodič za rast"
                 width={760}
                 height={420}

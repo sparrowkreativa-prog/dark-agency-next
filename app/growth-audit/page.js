@@ -2,9 +2,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { Montserrat } from 'next/font/google';
-
-const montserrat = Montserrat({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-montserrat', display: 'swap' });
 
 const platforms = ['OnlyFans', 'TikTok', 'X / Twitter', 'Reddit', 'OFTV', 'YouTube', 'Drugo'];
 
@@ -30,7 +27,7 @@ export default function GrowthAudit() {
   }
 
   return (
-    <div className={montserrat.variable}>
+    <div>
       <header id="site-header" style={{ position: 'sticky', top: 0, zIndex: 100, background: 'var(--color-dark-1)', borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
         <div className="nav-container">
           <div className="nav-logo"><Link href="/" style={{ fontStyle: 'italic' }}>Velluto Nero</Link></div>
