@@ -18,7 +18,7 @@ const tools = [
     desc: 'Kako smo povećali Mijin IG sa 12k na 220k pratilaca — tačan vodič korak po korak.',
     cta: 'Čitaj vodič',
     href: '/instagram-playbook',
-    img: '/free-tools/instagram-playbook-cover.jpg',
+    img: '/free-tools/instagram-playbook.jpg',
     alt: 'Instagram vodič za rast',
   },
   {
@@ -27,7 +27,7 @@ const tools = [
     desc: 'Kako pretvaramo neobavezne pretplatnike u kupce koji se vraćaju — tačne skripte, upsell taktike i retencija koje naš tim koristi svaki dan.',
     cta: 'Preuzmi skripte',
     href: '/cet-strategija',
-    img: '/free-tools/chatting-strategy-cover.jpg',
+    img: '/free-tools/chatting-strategy.jpg',
     alt: 'Čet strategija',
   },
 ];
