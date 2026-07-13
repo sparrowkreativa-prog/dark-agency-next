@@ -96,7 +96,7 @@ function RevenueCard({ c, animate, index }) {
         <span className="rc-mo">/mes</span>
       </div>
       <div className="rc-chart">
-        <MiniChart months={c.months} animate={animate} H={90} />
+        <MiniChart months={c.months} animate={animate} H={55} />
       </div>
     </div>
   );
@@ -156,27 +156,12 @@ function Carousel({ animate }) {
 }
 
 function RosterVideo() {
-  const videoRef = useRef(null);
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) video.play().catch(() => {});
-        else video.pause();
-      },
-      { threshold: 0.3 }
-    );
-    observer.observe(video);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <video
-      ref={videoRef}
-      controls
+      autoPlay
+      loop
+      muted
       playsInline
-      controlsList="nodownload"
       className="rc-video"
     >
       <source src="/cica_brod.mp4" type="video/mp4" />
@@ -242,61 +227,75 @@ export default function Roster() {
           display: grid;
           grid-template-columns: 380px 1fr;
           gap: 28px;
-          align-items: start;
+          align-items: stretch;
         }
         @media (max-width: 860px) {
-          .rc-main-layout {
-            grid-template-columns: 1fr;
-          }
+          .rc-main-layout { grid-template-columns: 1fr; align-items: start; }
           .rc-video-col { order: -1; }
         }
 
-        /* Video */
+        /* Video col stretches full height */
+        .rc-video-col {
+          display: flex;
+          flex-direction: column;
+        }
+
+        /* Video fills entire col height */
         .rc-video {
+          flex: 1;
           width: 100%;
+          height: 100%;
+          object-fit: cover;
           border-radius: 18px;
           background: #000;
           box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.08);
           display: block;
+          min-height: 0;
+        }
+        @media (max-width: 860px) {
+          .rc-video { height: auto; max-height: 480px; }
         }
 
         /* Cards column wrapper */
-        .rc-cards-col { min-width: 0; }
+        .rc-cards-col { min-width: 0; display: flex; flex-direction: column; }
         .rc-cards-box {
+          flex: 1;
           background: #fff;
           border: 1px solid rgba(0,0,0,0.07);
           border-radius: 20px;
-          padding: 20px;
+          padding: 16px;
           box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+          display: flex;
+          flex-direction: column;
         }
 
         /* cards stacked vertically */
-        .rc-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+        .rc-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
 
         .rc-card {
           background: #fafaf8; border: 1px solid rgba(0,0,0,0.07);
-          border-radius: 14px; padding: 16px;
-          transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+          border-radius: 12px; padding: 12px 14px;
+          transition: box-shadow 0.25s, border-color 0.25s;
         }
-        .rc-card:hover { box-shadow: 0 6px 24px rgba(169,135,92,0.12); transform: translateY(-2px); border-color: rgba(169,135,92,0.2); }
+        .rc-card:hover { box-shadow: 0 4px 16px rgba(169,135,92,0.1); border-color: rgba(169,135,92,0.2); }
 
-        .rc-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-        .rc-duration { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; }
-        .rc-niche { font-size: 0.62rem; font-weight: 700; color: #a9875c; background: rgba(169,135,92,0.08); border: 1px solid rgba(169,135,92,0.25); border-radius: 999px; padding: 2px 8px; }
+        .rc-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+        .rc-duration { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #aaa; }
+        .rc-niche { font-size: 0.6rem; font-weight: 700; color: #a9875c; background: rgba(169,135,92,0.08); border: 1px solid rgba(169,135,92,0.25); border-radius: 999px; padding: 2px 7px; }
 
-        .rc-revenue { display: flex; align-items: flex-end; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
-        .rc-before { font-family: var(--font-display); font-size: 1.1rem; font-style: italic; color: #bbb; text-decoration: line-through; text-decoration-thickness: 1px; }
-        .rc-after { font-family: var(--font-display); font-size: 1.7rem; font-style: italic; color: #a9875c; line-height: 1; }
-        .rc-mo { font-size: 0.72rem; color: #aaa; margin-bottom: 3px; }
+        .rc-revenue { display: flex; align-items: flex-end; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
+        .rc-before { font-family: var(--font-display); font-size: 0.95rem; font-style: italic; color: #bbb; text-decoration: line-through; text-decoration-thickness: 1px; }
+        .rc-after { font-family: var(--font-display); font-size: 1.45rem; font-style: italic; color: #a9875c; line-height: 1; }
+        .rc-mo { font-size: 0.68rem; color: #aaa; margin-bottom: 2px; }
         .rc-chart { color: #a9875c; }
 
-        .rc-carousel-wrap { margin-top: 12px; }
+        .rc-carousel-wrap { margin-top: 8px; flex: 1; }
         .rc-carousel {
           position: relative; background: #fafaf8;
-          border: 1px solid rgba(0,0,0,0.07); border-radius: 14px;
-          padding: 24px 52px; overflow: hidden;
+          border: 1px solid rgba(0,0,0,0.07); border-radius: 12px;
+          padding: 18px 48px; overflow: hidden;
         }
-        @media (max-width: 600px) { .rc-carousel { padding: 20px 40px; } }
+        @media (max-width: 600px) { .rc-carousel { padding: 16px 40px; } }
 
         .rc-slide { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
         @media (max-width: 500px) { .rc-slide { grid-template-columns: 1fr; } }
