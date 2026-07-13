@@ -26,7 +26,7 @@ const RESOURCES = [
     desc: 'SFW-only Reddit sistem koji generiše 100+ OnlyFans pretplatnika dnevno. 8 poglavlja: odabir subreddita, sigurnost naloga, radni tok objavljivanja i skaliranje.',
     tags: ['Rast i saobraćaj', 'Promocija'],
     href: '/reddit-playbook',
-    img: null,
+    img: '/free-tools/REDIT.jpg',
   },
   {
     type: 'Alat',
@@ -50,7 +50,7 @@ const RESOURCES = [
     desc: 'Unesi svoju nišu, broj pratilaca i frekvenciju objavljivanja da vidiš procenjeni potencijal prihoda kao kreatorka.',
     tags: ['Monetizacija', 'Rast i saobraćaj'],
     href: '/kalkulator',
-    img: null,
+    img: '/free-tools/CALCULATOR.jpg',
   },
   {
     type: 'Vodič',
@@ -58,7 +58,7 @@ const RESOURCES = [
     desc: 'Prava skripta koju koristimo — vidi tačno kako naši čateri otvaraju razgovore, grade odnos, upselluju i zatvaraju. Bez teorije, samo stvarna skripta.',
     tags: ['Monetizacija', 'Strategija sadržaja'],
     href: '/chatting-script',
-    img: null,
+    img: '/free-tools/CHATTING_SCRIPT.jpg',
   },
   {
     type: 'Vodič',
@@ -66,7 +66,7 @@ const RESOURCES = [
     desc: 'Sveobuhvatan vodič za muške kreatore: odabir niše, cene, izgradnja publike i monetizacija.',
     tags: ['Strategija sadržaja', 'Monetizacija'],
     href: '/male-creator-playbook',
-    img: null,
+    img: '/free-tools/MALE CREATOR.jpg',
   },
   {
     type: 'Alat',
@@ -74,7 +74,7 @@ const RESOURCES = [
     desc: 'Pronašla si svoj sadržaj na netu? Uklonićemo ga besplatno — bez ugovora, bez troškova.',
     tags: ['Zaštita sadržaja', 'Monetizacija'],
     href: '/dmca',
-    img: null,
+    img: '/free-tools/FREE_DMCA.jpg',
   },
   {
     type: 'Vodič',
@@ -82,7 +82,7 @@ const RESOURCES = [
     desc: 'Kompletan vodič za izgradnju profitabilnog BDSM brenda — od pozicioniranja niše i psihologije pretplatnika do premium cena.',
     tags: ['Monetizacija', 'Strategija sadržaja'],
     href: '/bdsm-playbook',
-    img: null,
+    img: '/free-tools/BDSM.jpg',
   },
 ];
 
