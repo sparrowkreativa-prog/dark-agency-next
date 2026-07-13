@@ -155,6 +155,35 @@ function Carousel({ animate }) {
   );
 }
 
+function RosterVideo() {
+  const videoRef = useRef(null);
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      controls
+      playsInline
+      controlsList="nodownload"
+      className="rc-video"
+    >
+      <source src="/cica_brod.mp4" type="video/mp4" />
+    </video>
+  );
+}
+
 export default function Roster() {
   const ref = useRef(null);
   const [animate, setAnimate] = useState(false);
@@ -182,14 +211,23 @@ export default function Roster() {
             <p className="section-sub">Stvarne krive rasta sa našeg rostera (anonimizovano). Provereno, ne izmišljeno.</p>
           </div>
 
-          <div className="rc-grid">
-            {TOP_CASES.map((c, i) => (
-              <RevenueCard key={i} c={c} animate={animate} index={i} />
-            ))}
-          </div>
-
-          <div className="rc-carousel-wrap">
-            <Carousel animate={animate} />
+          {/* Video + cards layout */}
+          <div className="rc-main-layout">
+            <div className="rc-video-col">
+              <RosterVideo />
+            </div>
+            <div className="rc-cards-col">
+              <div className="rc-cards-box">
+                <div className="rc-grid">
+                  {TOP_CASES.map((c, i) => (
+                    <RevenueCard key={i} c={c} animate={animate} index={i} />
+                  ))}
+                </div>
+                <div className="rc-carousel-wrap">
+                  <Carousel animate={animate} />
+                </div>
+              </div>
+            </div>
           </div>
 
           <p className="rc-disclaimer">Zarada nije zagarantovana i varira prema trudu, niši i početnoj publici. Zato smo selektivni.</p>
@@ -199,73 +237,109 @@ export default function Roster() {
       <style>{`
         .rc-section { padding: 96px 0; background: #fafaf8; }
 
-        .rc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        @media (max-width: 860px) { .rc-grid { grid-template-columns: 1fr; } }
+        /* Main two-column layout */
+        .rc-main-layout {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 28px;
+          align-items: start;
+        }
+        @media (max-width: 860px) {
+          .rc-main-layout {
+            grid-template-columns: 1fr;
+          }
+          .rc-video-col { order: -1; }
+        }
+
+        /* Video */
+        .rc-video {
+          width: 100%;
+          border-radius: 18px;
+          background: #000;
+          box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.08);
+          display: block;
+        }
+
+        /* Cards column wrapper */
+        .rc-cards-col { min-width: 0; }
+        .rc-cards-box {
+          background: #fff;
+          border: 1px solid rgba(0,0,0,0.07);
+          border-radius: 20px;
+          padding: 20px;
+          box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+        }
+
+        /* 3 small cards grid inside box */
+        .rc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        @media (max-width: 600px) { .rc-grid { grid-template-columns: 1fr; } }
 
         .rc-card {
-          background: #fff; border: 1px solid rgba(0,0,0,0.07);
-          border-radius: 18px; padding: 24px;
-          box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+          background: #fafaf8; border: 1px solid rgba(0,0,0,0.07);
+          border-radius: 14px; padding: 16px;
           transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
         }
-        .rc-card:hover { box-shadow: 0 8px 32px rgba(169,135,92,0.12); transform: translateY(-3px); border-color: rgba(169,135,92,0.2); }
+        .rc-card:hover { box-shadow: 0 6px 24px rgba(169,135,92,0.12); transform: translateY(-2px); border-color: rgba(169,135,92,0.2); }
 
-        .rc-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-        .rc-duration { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; }
-        .rc-niche { font-size: 0.68rem; font-weight: 700; color: #a9875c; background: #fdf0f6; border: 1px solid #f8d0e8; border-radius: 999px; padding: 3px 10px; }
+        .rc-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .rc-duration { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; }
+        .rc-niche { font-size: 0.62rem; font-weight: 700; color: #a9875c; background: rgba(169,135,92,0.08); border: 1px solid rgba(169,135,92,0.25); border-radius: 999px; padding: 2px 8px; }
 
-        .rc-revenue { display: flex; align-items: flex-end; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
-        .rc-before { font-family: var(--font-display); font-size: 1.3rem; font-style: italic; color: #bbb; text-decoration: line-through; text-decoration-thickness: 1px; }
-        .rc-after { font-family: var(--font-display); font-size: 2.2rem; font-style: italic; color: #a9875c; line-height: 1; }
-        .rc-mo { font-size: 0.8rem; color: #aaa; margin-bottom: 4px; }
+        .rc-revenue { display: flex; align-items: flex-end; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+        .rc-before { font-family: var(--font-display); font-size: 1.1rem; font-style: italic; color: #bbb; text-decoration: line-through; text-decoration-thickness: 1px; }
+        .rc-after { font-family: var(--font-display); font-size: 1.7rem; font-style: italic; color: #a9875c; line-height: 1; }
+        .rc-mo { font-size: 0.72rem; color: #aaa; margin-bottom: 3px; }
         .rc-chart { color: #a9875c; }
 
-        .rc-carousel-wrap { margin-top: 20px; }
+        .rc-carousel-wrap { margin-top: 12px; }
         .rc-carousel {
-          position: relative; background: #fff;
-          border: 1px solid rgba(0,0,0,0.07); border-radius: 18px;
-          padding: 32px 56px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); overflow: hidden;
+          position: relative; background: #fafaf8;
+          border: 1px solid rgba(0,0,0,0.07); border-radius: 14px;
+          padding: 24px 52px; overflow: hidden;
         }
-        @media (max-width: 600px) { .rc-carousel { padding: 28px 44px; } }
+        @media (max-width: 600px) { .rc-carousel { padding: 20px 40px; } }
 
-        .rc-slide { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; }
-        @media (max-width: 640px) { .rc-slide { grid-template-columns: 1fr; } }
+        .rc-slide { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
+        @media (max-width: 500px) { .rc-slide { grid-template-columns: 1fr; } }
 
         .rc-platform-tag {
           display: inline-flex; align-items: center; gap: 6px;
-          font-size: 0.72rem; font-weight: 700; color: #a9875c;
-          background: #fdf0f6; border: 1px solid #f8d0e8;
-          border-radius: 999px; padding: 4px 12px; margin-bottom: 16px;
+          font-size: 0.68rem; font-weight: 700; color: #a9875c;
+          background: rgba(169,135,92,0.08); border: 1px solid rgba(169,135,92,0.25);
+          border-radius: 999px; padding: 3px 10px; margin-bottom: 12px;
         }
         .rc-slide-metric {
-          font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem);
+          font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 2rem);
           font-style: italic; color: #a9875c; line-height: 1; margin-bottom: 4px;
         }
-        .rc-slide-unit { font-size: 0.9rem; color: #888; margin-bottom: 12px; }
-        .rc-slide-period { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; font-weight: 700; color: #22c55e; }
+        .rc-slide-unit { font-size: 0.82rem; color: #888; margin-bottom: 10px; }
+        .rc-slide-period { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 700; color: #22c55e; }
         .rc-slide-right { color: #a9875c; }
 
         .rc-nav {
           position: absolute; top: 50%; transform: translateY(-50%);
-          width: 36px; height: 36px; border-radius: 50%;
+          width: 32px; height: 32px; border-radius: 50%;
           background: #fff; border: 1px solid rgba(0,0,0,0.1);
           box-shadow: 0 2px 8px rgba(0,0,0,0.08);
           display: flex; align-items: center; justify-content: center;
           color: #888; cursor: pointer; transition: color 0.2s, border-color 0.2s;
         }
         .rc-nav:hover { color: #a9875c; border-color: #a9875c; }
-        .rc-nav--prev { left: 10px; }
-        .rc-nav--next { right: 10px; }
+        .rc-nav--prev { left: 8px; }
+        .rc-nav--next { right: 8px; }
 
-        .rc-dots { display: flex; justify-content: center; gap: 6px; margin-top: 20px; }
+        .rc-dots { display: flex; justify-content: center; gap: 6px; margin-top: 16px; }
         .rc-dot {
-          height: 8px; border-radius: 999px; border: none; cursor: pointer;
-          background: rgba(169,135,92,0.2); width: 8px;
+          height: 7px; border-radius: 999px; border: none; cursor: pointer;
+          background: rgba(169,135,92,0.2); width: 7px;
           transition: width 0.3s, background 0.3s; padding: 0;
         }
-        .rc-dot--active { width: 24px; background: #a9875c; }
+        .rc-dot--active { width: 20px; background: #a9875c; }
 
-        .rc-disclaimer { font-size: 0.72rem; color: #aaa; margin-top: 24px; max-width: 520px; }
+        .rc-disclaimer {
+          font-size: 0.72rem; color: #aaa; margin-top: 28px;
+          text-align: center; max-width: 100%;
+        }
       `}</style>
     </SectionFade>
   );
