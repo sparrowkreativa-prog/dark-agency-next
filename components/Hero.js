@@ -4,6 +4,61 @@ import { siteData } from '@/data/content';
 
 function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
 
+function HeroVideo() {
+  const videoRef = useRef(null);
+  const [muted, setMuted] = useState(true);
+  const [showBtn, setShowBtn] = useState(false);
+
+  function toggleMute() {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+  }
+
+  return (
+    <div
+      className="hv-wrap"
+      onClick={() => setShowBtn(true)}
+    >
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="hero-between-video"
+      >
+        <source src="/0711.mp4" type="video/mp4" />
+      </video>
+
+      <button
+        className={`hv-mute-btn${showBtn ? ' hv-mute-btn--visible' : ''}`}
+        onClick={e => { e.stopPropagation(); toggleMute(); }}
+        aria-label={muted ? 'Uključi zvuk' : 'Isključi zvuk'}
+      >
+        {muted ? (
+          /* muted icon */
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+        ) : (
+          /* unmuted icon */
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+        )}
+        <span>{muted ? 'Uključi zvuk' : 'Isključi zvuk'}</span>
+      </button>
+    </div>
+  );
+}
+
 function Row2Stat({ end, label, delay, trigger }) {
   const [val, setVal] = useState(0);
   const rafRef = useRef(null);
@@ -161,18 +216,7 @@ export default function Hero() {
         </div>
 
         {/* Video between glass and stats */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          webkit-playsinline=""
-          x5-playsinline=""
-          preload="auto"
-          className="hero-between-video"
-        >
-          <source src="/0711.mp4" type="video/mp4" />
-        </video>
+        <HeroVideo />
 
         {/* Slogan — between boxes */}
         <p className="hero-slogan">DO IT FOR YOUR FAMILY!</p>
@@ -237,6 +281,13 @@ export default function Hero() {
           height: 1px;
           background: rgba(255,255,255,0.15);
         }
+        .hv-wrap {
+          position: relative;
+          width: 100%;
+          border-radius: 18px;
+          overflow: hidden;
+          cursor: pointer;
+        }
         .hero-between-video {
           width: 100%;
           border-radius: 18px;
@@ -244,6 +295,32 @@ export default function Hero() {
           object-fit: cover;
           max-height: 480px;
           background: #000;
+        }
+        .hv-mute-btn {
+          position: absolute;
+          bottom: 14px;
+          right: 14px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(0,0,0,0.55);
+          backdrop-filter: blur(8px);
+          color: #fff;
+          border: 1px solid rgba(255,255,255,0.2);
+          border-radius: 999px;
+          padding: 7px 14px 7px 10px;
+          font-size: 12px;
+          font-weight: 600;
+          cursor: pointer;
+          opacity: 0;
+          transform: translateY(6px);
+          transition: opacity 0.25s ease, transform 0.25s ease;
+          pointer-events: none;
+        }
+        .hv-mute-btn--visible {
+          opacity: 1;
+          transform: translateY(0);
+          pointer-events: auto;
         }
 
         .hero-locations {
