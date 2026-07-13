@@ -3,9 +3,8 @@ export const siteData = {
     logo: 'Velluto Nero',
     links: [
       { label: 'Rezultati', href: '#results' },
-      { label: 'Mašina', href: '#masina' },
-      { label: 'Roster', href: '#roster' },
       { label: 'Usluge', href: '#services' },
+      { label: 'Resursi', href: '/resursi' },
       { label: 'FAQ', href: '#faq' },
     ],
     cta: { label: 'Prijavi se', href: '#apply' },
