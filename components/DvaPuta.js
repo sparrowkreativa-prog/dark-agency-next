@@ -159,7 +159,7 @@ const CARDS = [
   },
   {
     icon: SPROUT_ICON,
-    badge: 'Kreće od nule',
+    badge: 'KREĆEŠ OD NULE?',
     title: 'Nova si u svemu? Gradimo to s tobom.',
     steps: [
       'Postoji set načina koji smo osmislili da tvoja privatnost, identitet i izgled bude potpuno promenjen i zaštićen tako da niko neće znati iz tvog grada ili zemlje da si to ti ukoliko na tome insistiraš.',
