@@ -126,7 +126,7 @@ export default function Home() {
             <div className="container">
               <div className="section-header">
                 <span className="chapter-label">{qualify.label}</span>
-                <h2 className="section-title">{qualify.title}</h2>
+                <h2 className="section-title">Primamo Manje<br /><span style={{ color: '#a9875c' }}>od 2% Prijava.</span></h2>
                 <p className="section-sub">{qualify.sub}</p>
               </div>
               <div className="qualify-grid">
@@ -135,7 +135,12 @@ export default function Home() {
                   <ul className="qualify-list">
                     {qualify.yes.map((q) => (
                       <li key={q} className="qualify-item">
-                        <span className="qualify-check qualify-check--yes">✓</span>
+                        <span className="qualify-check qualify-check--yes">
+                          <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="11" fill="rgba(34,197,94,0.12)" stroke="currentColor" strokeOpacity="0.45" strokeWidth="1.5"/>
+                            <path d="M7.5 12.5l3 3L16.5 9" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </span>
                         {q}
                       </li>
                     ))}
@@ -146,7 +151,12 @@ export default function Home() {
                   <ul className="qualify-list">
                     {qualify.no.map((q) => (
                       <li key={q} className="qualify-item">
-                        <span className="qualify-check qualify-check--no">✕</span>
+                        <span className="qualify-check qualify-check--no">
+                          <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="11" fill="rgba(145,31,57,0.15)" stroke="currentColor" strokeOpacity="0.45" strokeWidth="1.5"/>
+                            <path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"/>
+                          </svg>
+                        </span>
                         {q}
                       </li>
                     ))}
