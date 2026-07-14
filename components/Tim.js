@@ -156,7 +156,8 @@ export default function Tim() {
           .tm-role {
             border-left: none;
             border-top: 1px solid rgba(232,83,143,0.12);
-            padding: 20px 0;
+            padding: 20px 12px;
+            text-align: center;
           }
           .tm-role:first-child { border-top: none; }
         }
