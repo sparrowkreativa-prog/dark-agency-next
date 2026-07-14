@@ -7,10 +7,10 @@ import FadeInObserver from '@/components/FadeInObserver';
 const platforms = ['OnlyFans', 'TikTok', 'X / Twitter', 'Reddit', 'OFTV', 'YouTube', 'Drugo'];
 
 const features = [
-  { icon: '🔍', title: 'Analiza platformi', desc: 'Proveravamo svaku platformu na kojoj si i identifikujemo one koje propuštaš.' },
-  { icon: '🎯', title: 'Fokus na glavnu platformu', desc: 'Kažemo ti tačno koju platformu da prioritizuješ i zašto.' },
-  { icon: '⚡', title: 'Brze popravke', desc: 'Pokvareni linkovi, praznine u levku, problemi sa bio-om — hvatamo ono što ti nedostaje.' },
-  { icon: '📈', title: 'Strategija sadržaja', desc: 'Koji tipovi sadržaja da fokusiraš i koliko često da objavljuješ.' },
+  { icon: <><circle cx="11" cy="11" r="7" /><path d="m21 21-4.35-4.35" /></>, title: 'Analiza platformi', desc: 'Proveravamo svaku platformu na kojoj si i identifikujemo one koje propuštaš.' },
+  { icon: <><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.2" fill="#a9875c" /></>, title: 'Fokus na glavnu platformu', desc: 'Kažemo ti tačno koju platformu da prioritizuješ i zašto.' },
+  { icon: <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />, title: 'Brze popravke', desc: 'Pokvareni linkovi, praznine u levku, problemi sa bio-om — hvatamo ono što ti nedostaje.' },
+  { icon: <path d="M16 7h6v6M22 7l-8.5 8.5-5-5L2 17" />, title: 'Strategija sadržaja', desc: 'Koji tipovi sadržaja da fokusiraš i koliko često da objavljuješ.' },
 ];
 
 export default function GrowthAudit() {
@@ -87,7 +87,9 @@ export default function GrowthAudit() {
             <div className="ga-features-grid">
               {features.map((f, i) => (
                 <div key={i} className="cs-fade-in ga-feature-card" style={{ transitionDelay: `${i * 0.1}s` }}>
-                  <span className="ga-feature-icon">{f.icon}</span>
+                  <span className="ga-feature-icon">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#a9875c" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">{f.icon}</svg>
+                  </span>
                   <h3 className="ga-feature-title">{f.title}</h3>
                   <p className="ga-feature-desc">{f.desc}</p>
                 </div>
@@ -255,7 +257,12 @@ export default function GrowthAudit() {
         .ga-features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 48px; }
         @media (max-width: 560px) { .ga-features-grid { grid-template-columns: 1fr; } }
         .ga-feature-card { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
-        .ga-feature-icon { font-size: 1.8rem; display: block; margin-bottom: 12px; }
+        .ga-feature-icon {
+          width: 52px; height: 52px; border-radius: 14px;
+          display: flex; align-items: center; justify-content: center;
+          background: rgba(169,135,92,0.08); border: 1.5px solid rgba(169,135,92,0.4);
+          margin-bottom: 14px;
+        }
         .ga-feature-title { font-size: 0.97rem; font-weight: 700; color: #1a1a1a; margin: 0 0 8px; }
         .ga-feature-desc { font-size: 0.85rem; color: #666; line-height: 1.6; margin: 0; }
 
