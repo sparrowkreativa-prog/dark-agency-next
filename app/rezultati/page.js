@@ -1,7 +1,69 @@
 'use client';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import RezultatiScreenshots from '@/components/RezultatiScreenshots';
+
+function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
+
+/* Count-up broj koji se animira kada uđe u viewport */
+function CountUp({ end, format, duration = 1800, className }) {
+  const ref = useRef(null);
+  const [val, setVal] = useState(0);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting || started.current) return;
+      started.current = true;
+      io.disconnect();
+      const t0 = performance.now();
+      const tick = (now) => {
+        const p = Math.min((now - t0) / duration, 1);
+        setVal(easeOutCubic(p) * end);
+        if (p < 1) requestAnimationFrame(tick);
+        else setVal(end);
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: 0.4 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [end, duration]);
+
+  return <span ref={ref} className={className}>{format(val)}</span>;
+}
+
+/* Wrapper koji fade-in animira sadržaj pri skrolu, sa staggered delay-em */
+function Reveal({ children, delay = 0, y = 28, className, style }) {
+  const ref = useRef(null);
+  const [vis, setVis] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setVis(true); io.disconnect(); }
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      style={{
+        ...style,
+        opacity: vis ? 1 : 0,
+        transform: vis ? 'none' : `translateY(${y}px)`,
+        transition: `opacity 0.8s ease ${delay}s, transform 0.8s cubic-bezier(0.22,1,0.36,1) ${delay}s`,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
 
 const CREATORS = [
   {
@@ -141,7 +203,7 @@ export default function Rezultati() {
           <div className="rz-hero-inner">
             <div className="rz-hero-left">
               <span className="rz-eyebrow">PRIMAMO SAMO 2 KLIJENTA MESEČNO</span>
-              <h1 className="rz-title">
+              <h1 className="rzp-title">
                 $11M+ Generisano.<br />
                 <span style={{ color: '#a9875c' }}>Evo Dokaza.</span>
               </h1>
@@ -150,12 +212,12 @@ export default function Rezultati() {
               </p>
               <div className="rz-hero-stats">
                 {[
-                  { num: '$11M+', label: 'Generisano za kreatore' },
-                  { num: '140+', label: 'Klijenata' },
-                  { num: '93%', label: 'Retencija kreatorki' },
+                  { end: 11, format: v => `$${Math.round(v)}M+`, label: 'Generisano za kreatore' },
+                  { end: 140, format: v => `${Math.round(v)}+`, label: 'Klijenata' },
+                  { end: 93, format: v => `${Math.round(v)}%`, label: 'Retencija kreatorki' },
                 ].map(s => (
                   <div key={s.label} className="rz-hero-stat">
-                    <span className="rz-hero-stat-num">{s.num}</span>
+                    <CountUp end={s.end} format={s.format} className="rz-hero-stat-num" />
                     <span className="rz-hero-stat-label">{s.label}</span>
                   </div>
                 ))}
@@ -179,19 +241,27 @@ export default function Rezultati() {
         {/* ── Case studies ── */}
         <section className="rz-cases">
           <div className="container">
-            <div style={{ textAlign: 'center', marginBottom: 48 }}>
-              <span className="chapter-label">DUBINSKE ANALIZE</span>
-              <h2 className="rz-cases-title">Verifikovane Transformacije<br /><span style={{ color: '#a9875c' }}>Sa Pravim Brojkama.</span></h2>
-            </div>
+            <Reveal>
+              <div style={{ textAlign: 'center', marginBottom: 56 }}>
+                <span className="chapter-label">DUBINSKE ANALIZE</span>
+                <h2 className="rz-cases-title">Verifikovane Transformacije<br /><span style={{ color: '#a9875c' }}>Sa Pravim Brojkama.</span></h2>
+                <p className="rz-cases-sub">Pravi vremenski okviri, prave platforme, prave brojke — korak po korak kako smo ih izgradili.</p>
+              </div>
+            </Reveal>
 
             {[
               {
-                name: 'K.R. — $0 → $161.423/mes za 3 Meseca',
+                num: '01',
+                img: '/IG-01.jpg',
+                creator: 'K.R.',
+                tag: 'Top 0.05% · 3 meseca sa Velluto Nero',
+                name: '$0 → $161.423/mes za 3 Meseca',
                 desc: 'Potpuno nova kreatorka. Nula mreža. Nula publike. Nula iskustva. Skalirali smo je preko 4 platforme od nule.',
+                quote: 'Tri meseca ranije sam brojala bakšiš. Sada rezervišem letove kada mi se prohte.',
                 stats: [
-                  { num: '$161K', label: 'mesečno posle 90 dana' },
-                  { num: '412K', label: 'Instagram pratilaca' },
-                  { num: 'Top 0.05%', label: 'na platformi' },
+                  { end: 161, format: v => `$${Math.round(v)}K`, label: 'mesečno posle 90 dana' },
+                  { end: 412, format: v => `${Math.round(v)}K`, label: 'Instagram pratilaca' },
+                  { end: 0.05, format: v => `Top ${v.toFixed(2)}%`, label: 'na platformi' },
                 ],
                 levers: [
                   { title: 'Pozicioniranje', days: 'Dani 1–10', items: ['Izgradnja dugoročne brend persone', 'Identifikacija tražene niše', 'Puna optimizacija profila', '20 početnih content asseta'] },
@@ -200,12 +270,17 @@ export default function Rezultati() {
                 ],
               },
               {
-                name: 'A.J. — $0 → $65.218/mes za 4 Meseca',
+                num: '02',
+                img: '/IG-03.jpg',
+                creator: 'A.J.',
+                tag: 'Top 0.3% · 4 meseca sa Velluto Nero',
+                name: '$0 → $65.218/mes za 4 Meseca',
                 desc: 'Dve nedelje se plašila da pošalje prijavu. Izgradili smo joj kompletan growth engine od nule — brend, content flow, distribuciju i monetizaciju.',
+                quote: 'Dve nedelje sam sedela na prijavi jer sam se plašila. Sada radim odakle hoću.',
                 stats: [
-                  { num: '$65K', label: 'mesečno posle 4 meseca' },
-                  { num: '318K', label: 'Instagram pratilaca' },
-                  { num: 'Top 0.3%', label: 'na platformi' },
+                  { end: 65, format: v => `$${Math.round(v)}K`, label: 'mesečno posle 4 meseca' },
+                  { end: 318, format: v => `${Math.round(v)}K`, label: 'Instagram pratilaca' },
+                  { end: 0.3, format: v => `Top ${v.toFixed(1)}%`, label: 'na platformi' },
                 ],
                 levers: [
                   { title: 'Pozicioniranje', days: 'Dani 1–7', items: ['Izgradnja persone + ugla', 'Spajanje niše sa Reddit tražnjom', 'Konverzioni profil', '14 početnih content asseta'] },
@@ -214,30 +289,59 @@ export default function Rezultati() {
                 ],
               },
             ].map(cs => (
-              <div key={cs.name} className="rz-case">
-                <h3 className="rz-case-name">{cs.name}</h3>
-                <p className="rz-case-desc">{cs.desc}</p>
-                <div className="rz-case-stats">
-                  {cs.stats.map(s => (
-                    <div key={s.label} className="rz-case-stat">
-                      <span className="rz-case-stat-num">{s.num}</span>
-                      <span className="rz-case-stat-label">{s.label}</span>
+              <Reveal key={cs.num} className="rz-case-reveal">
+                <div className="rz-case">
+                  <span className="rz-case-ghost" aria-hidden="true">{cs.num}</span>
+
+                  {/* Header: avatar + name + tag */}
+                  <div className="rz-case-head">
+                    <div className="rz-case-avatar-ring">
+                      <img src={cs.img} alt={cs.creator} className="rz-case-avatar" />
                     </div>
-                  ))}
-                </div>
-                <div className="rz-levers">
-                  {cs.levers.map(l => (
-                    <div key={l.title} className="rz-lever">
-                      <span className="rz-lever-days">{l.days}</span>
-                      <h4 className="rz-lever-title">{l.title}</h4>
-                      <ul className="rz-lever-list">
-                        {l.items.map(it => <li key={it}>{it}</li>)}
-                      </ul>
+                    <div className="rz-case-headtext">
+                      <span className="rz-case-tag">{cs.tag}</span>
+                      <h3 className="rz-case-name">{cs.creator} — <em>{cs.name}</em></h3>
                     </div>
-                  ))}
+                  </div>
+
+                  <p className="rz-case-desc">{cs.desc}</p>
+
+                  {/* Animated stats */}
+                  <div className="rz-case-stats">
+                    {cs.stats.map((s, i) => (
+                      <div key={s.label} className="rz-case-stat">
+                        <CountUp end={s.end} format={s.format} className="rz-case-stat-num" duration={1600 + i * 200} />
+                        <span className="rz-case-stat-label">{s.label}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Levers timeline */}
+                  <div className="rz-levers">
+                    <div className="rz-levers-line" aria-hidden="true" />
+                    {cs.levers.map((l, i) => (
+                      <Reveal key={l.title} delay={0.15 + i * 0.15} y={20}>
+                        <div className="rz-lever">
+                          <span className="rz-lever-dot" aria-hidden="true">{i + 1}</span>
+                          <span className="rz-lever-days">{l.days}</span>
+                          <h4 className="rz-lever-title">{l.title}</h4>
+                          <ul className="rz-lever-list">
+                            {l.items.map(it => <li key={it}>{it}</li>)}
+                          </ul>
+                        </div>
+                      </Reveal>
+                    ))}
+                  </div>
+
+                  {/* Quote strip */}
+                  <div className="rz-case-quote">
+                    <span className="rz-case-quote-mark" aria-hidden="true">&ldquo;</span>
+                    <p>{cs.quote}</p>
+                  </div>
+
+                  <p className="rz-case-note">Verifikovano preko dashboarda kreatorke. Svi lični podaci zamućeni radi privatnosti.</p>
                 </div>
-                <p className="rz-case-note">Verifikovano preko dashboarda kreatorke. Svi lični podaci zamućeni radi privatnosti.</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -294,14 +398,10 @@ export default function Rezultati() {
           font-weight: 700;
           letter-spacing: 0.22em;
           color: #911f39;
-          background: rgba(145,31,57,0.12);
-          border: 1px solid rgba(145,31,57,0.35);
-          border-radius: 999px;
-          padding: 6px 16px;
           margin-bottom: 24px;
           text-transform: uppercase;
         }
-        .rz-title {
+        .rzp-title {
           font-family: var(--font-display);
           font-style: italic;
           font-size: clamp(2.2rem, 5vw, 3.6rem);
@@ -478,101 +578,256 @@ export default function Rezultati() {
           line-height: 1.15;
           margin: 12px 0 0;
         }
-        .rz-case {
-          background: #fff;
-          border: 1px solid rgba(0,0,0,0.07);
-          border-radius: 24px;
-          padding: 44px 40px;
-          margin-bottom: 28px;
+        .rz-cases-sub {
+          font-size: 0.95rem;
+          color: #999;
+          margin: 14px auto 0;
+          max-width: 480px;
+          line-height: 1.7;
         }
-        @media (max-width: 640px) { .rz-case { padding: 28px 22px; } }
-        .rz-case-name {
+        .rz-case-reveal { margin-bottom: 36px; }
+        .rz-case {
+          position: relative;
+          overflow: hidden;
+          background: #1a1a1a;
+          border: 1px solid rgba(169,135,92,0.18);
+          border-radius: 28px;
+          padding: 52px 48px;
+          box-shadow: 0 24px 80px rgba(26,26,26,0.18);
+        }
+        .rz-case::before {
+          content: '';
+          position: absolute;
+          top: -120px; right: -120px;
+          width: 380px; height: 380px;
+          background: radial-gradient(circle, rgba(169,135,92,0.14), transparent 65%);
+          pointer-events: none;
+        }
+        .rz-case::after {
+          content: '';
+          position: absolute;
+          bottom: -140px; left: -100px;
+          width: 340px; height: 340px;
+          background: radial-gradient(circle, rgba(145,31,57,0.12), transparent 65%);
+          pointer-events: none;
+        }
+        @media (max-width: 640px) { .rz-case { padding: 32px 22px; } }
+        .rz-case-ghost {
+          position: absolute;
+          top: 8px; right: 28px;
           font-family: var(--font-display);
           font-style: italic;
-          font-size: clamp(1.3rem, 3vw, 1.8rem);
-          color: #1a1a1a;
-          margin: 0 0 12px;
+          font-size: clamp(6rem, 14vw, 10rem);
+          line-height: 1;
+          color: rgba(169,135,92,0.08);
+          pointer-events: none;
+          user-select: none;
         }
+        .rz-case-head {
+          display: flex;
+          align-items: center;
+          gap: 18px;
+          margin-bottom: 22px;
+          position: relative;
+        }
+        .rz-case-avatar-ring {
+          flex-shrink: 0;
+          width: 68px; height: 68px;
+          border-radius: 50%;
+          padding: 3px;
+          background: linear-gradient(135deg, #a9875c, #911f39);
+        }
+        .rz-case-avatar {
+          width: 100%; height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2.5px solid #1a1a1a;
+          display: block;
+        }
+        .rz-case-tag {
+          display: inline-block;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+          color: #a9875c;
+          margin-bottom: 6px;
+        }
+        .rz-case-name {
+          font-family: var(--font-display);
+          font-size: clamp(1.25rem, 3vw, 1.75rem);
+          color: #fff;
+          line-height: 1.2;
+          margin: 0;
+          font-style: normal;
+        }
+        .rz-case-name em { font-style: italic; color: #a9875c; }
         .rz-case-desc {
           font-size: 0.95rem;
-          color: #777;
-          line-height: 1.7;
+          color: rgba(255,255,255,0.55);
+          line-height: 1.75;
           max-width: 620px;
-          margin: 0 0 28px;
+          margin: 0 0 32px;
+          position: relative;
         }
         .rz-case-stats {
           display: flex;
-          gap: 40px;
+          gap: 0;
           flex-wrap: wrap;
-          margin-bottom: 32px;
+          margin-bottom: 40px;
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 18px;
+          overflow: hidden;
+          position: relative;
+          background: rgba(255,255,255,0.03);
+        }
+        .rz-case-stat {
+          flex: 1;
+          min-width: 140px;
+          text-align: center;
+          padding: 22px 16px;
+        }
+        .rz-case-stat + .rz-case-stat { border-left: 1px solid rgba(255,255,255,0.08); }
+        @media (max-width: 560px) {
+          .rz-case-stat { min-width: 100%; }
+          .rz-case-stat + .rz-case-stat { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); }
         }
         .rz-case-stat-num {
           display: block;
           font-family: var(--font-display);
           font-style: italic;
-          font-size: 1.7rem;
-          color: #911f39;
+          font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+          color: #a9875c;
           line-height: 1;
         }
         .rz-case-stat-label {
           display: block;
-          font-size: 11px;
-          color: #999;
+          font-size: 10px;
+          color: rgba(255,255,255,0.4);
           text-transform: uppercase;
-          letter-spacing: 0.08em;
-          margin-top: 6px;
+          letter-spacing: 0.1em;
+          margin-top: 8px;
         }
+
+        /* Levers timeline */
         .rz-levers {
+          position: relative;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 16px;
+          gap: 18px;
         }
-        @media (max-width: 800px) { .rz-levers { grid-template-columns: 1fr; } }
+        .rz-levers-line {
+          position: absolute;
+          top: 16px; left: 8%; right: 8%;
+          height: 1.5px;
+          background: linear-gradient(90deg, transparent, rgba(169,135,92,0.5), rgba(169,135,92,0.5), transparent);
+          z-index: 0;
+        }
+        @media (max-width: 800px) {
+          .rz-levers { grid-template-columns: 1fr; }
+          .rz-levers-line { display: none; }
+        }
         .rz-lever {
-          background: #fafaf8;
-          border: 1px solid rgba(0,0,0,0.06);
-          border-radius: 16px;
-          padding: 22px 20px;
+          position: relative;
+          z-index: 1;
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.09);
+          border-radius: 18px;
+          padding: 26px 22px 22px;
+          height: 100%;
+          transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), border-color 0.35s, box-shadow 0.35s;
+        }
+        .rz-lever:hover {
+          transform: translateY(-6px);
+          border-color: rgba(169,135,92,0.45);
+          box-shadow: 0 16px 44px rgba(0,0,0,0.35);
+        }
+        .rz-lever-dot {
+          position: absolute;
+          top: -16px; left: 22px;
+          width: 32px; height: 32px;
+          border-radius: 50%;
+          background: #1a1a1a;
+          border: 1.5px solid rgba(169,135,92,0.6);
+          color: #a9875c;
+          font-size: 13px;
+          font-weight: 800;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 0 0 5px #1a1a1a;
         }
         .rz-lever-days {
           font-size: 10px;
           font-weight: 700;
           letter-spacing: 0.14em;
           text-transform: uppercase;
-          color: #a9875c;
+          color: #911f39;
+          background: rgba(145,31,57,0.14);
+          border-radius: 999px;
+          padding: 3px 10px;
+          display: inline-block;
         }
         .rz-lever-title {
           font-family: var(--font-display);
           font-style: italic;
-          font-size: 1.05rem;
-          color: #1a1a1a;
-          margin: 8px 0 12px;
+          font-size: 1.1rem;
+          color: #fff;
+          margin: 12px 0 14px;
         }
         .rz-lever-list {
           list-style: none;
           margin: 0; padding: 0;
-          display: flex; flex-direction: column; gap: 8px;
+          display: flex; flex-direction: column; gap: 9px;
         }
         .rz-lever-list li {
           font-size: 0.83rem;
-          color: #666;
-          line-height: 1.5;
-          padding-left: 16px;
+          color: rgba(255,255,255,0.6);
+          line-height: 1.55;
+          padding-left: 18px;
           position: relative;
         }
         .rz-lever-list li::before {
           content: '';
           position: absolute;
-          left: 0; top: 8px;
-          width: 5px; height: 5px;
+          left: 0; top: 7px;
+          width: 6px; height: 6px;
           border-radius: 50%;
-          background: #a9875c;
+          background: linear-gradient(135deg, #a9875c, #911f39);
+        }
+
+        /* Quote strip */
+        .rz-case-quote {
+          position: relative;
+          margin-top: 36px;
+          padding: 22px 28px 22px 56px;
+          background: rgba(169,135,92,0.07);
+          border-left: 3px solid #a9875c;
+          border-radius: 0 16px 16px 0;
+        }
+        .rz-case-quote-mark {
+          position: absolute;
+          top: 2px; left: 16px;
+          font-family: var(--font-display);
+          font-style: italic;
+          font-size: 3rem;
+          color: rgba(169,135,92,0.5);
+          line-height: 1;
+        }
+        .rz-case-quote p {
+          font-family: var(--font-display);
+          font-style: italic;
+          font-size: clamp(1.05rem, 2vw, 1.3rem);
+          color: rgba(255,255,255,0.85);
+          line-height: 1.55;
+          margin: 0;
         }
         .rz-case-note {
           font-size: 11px;
-          color: #aaa;
-          margin: 24px 0 0;
+          color: rgba(255,255,255,0.3);
+          margin: 26px 0 0;
           text-align: center;
+          position: relative;
         }
 
         /* ── Final CTA ── */
