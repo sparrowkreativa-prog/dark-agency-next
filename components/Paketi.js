@@ -310,10 +310,9 @@ export default function Paketi() {
           .pk-table { min-width: 0; table-layout: fixed; width: 100%; }
           .pk-th {
             white-space: normal;
-            word-break: break-word;
-            font-size: 9px;
-            letter-spacing: 0.02em;
-            padding: 6px 3px;
+            font-size: 8.5px;
+            letter-spacing: 0;
+            padding: 6px 2px;
             line-height: 1.35;
             vertical-align: bottom;
           }
