@@ -54,7 +54,7 @@ export default function MarqueeBar() {
 
       <style>{`
         .mb-outer {
-          background: #0a0a0a;
+          background: #1a1a1a;
           overflow: hidden;
           padding: 18px 0;
           border-top: 1px solid rgba(169,135,92,0.15);

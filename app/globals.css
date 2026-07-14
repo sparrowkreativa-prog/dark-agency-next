@@ -316,7 +316,7 @@ em { font-style: italic; color: var(--color-accent-pink); }
 .qualify-check--no  { color: #911f39; }
 
 /* ── Testimonials ── */
-.section-testimonials { padding: 80px 24px; background: #111; }
+.section-testimonials { padding: 80px 24px; background: #1a1a1a; }
 .section-testimonials .section-header { color: #fff; }
 .section-testimonials .section-title { color: #fff; }
 .section-testimonials .section-sub { color: rgba(255,255,255,0.5); }
@@ -535,7 +535,7 @@ em { font-style: italic; color: var(--color-accent-pink); }
 .apply-disqualify-sub { font-size: 13px; color: var(--color-text-muted) !important; }
 
 /* ── Footer ── */
-#site-footer { padding: 64px 24px 40px; border-top: none; background: #111111; }
+#site-footer { padding: 64px 24px 40px; border-top: none; background: #1a1a1a; }
 .footer-inner { max-width: var(--max-w); margin: 0 auto; }
 .footer-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-bottom: 48px; }
 .footer-brand-name { font-family: 'Tempting', var(--font-display); font-size: 26px; margin-bottom: 10px; font-style: normal; letter-spacing: 0.01em; color: #ffffff; }
@@ -549,7 +549,7 @@ em { font-style: italic; color: var(--color-accent-pink); }
 .btn-outline:hover { background: rgba(169,135,92,0.08) !important; }
 
 /* ── Free Tools section ── */
-.section-free-tools { background: #0a0a0a; padding: 80px 0 88px; }
+.section-free-tools { background: #1a1a1a; padding: 80px 0 88px; }
 .ft-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #911f39; margin-bottom: 12px; }
 .ft-heading { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); color: #ffffff; font-style: italic; margin-bottom: 14px; line-height: 1.15; }
 .ft-sub { font-size: 1rem; color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto; line-height: 1.7; }

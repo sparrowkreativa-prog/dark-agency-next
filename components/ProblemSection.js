@@ -154,7 +154,7 @@ export default function ProblemSection({ problem }) {
         }
         .ps-section {
           padding: 80px 0 96px;
-          background: #000;
+          background: #1a1a1a;
         }
         .ps-section .section-title { color: #fff; }
         .ps-section .section-sub { color: rgba(255,255,255,0.5); }

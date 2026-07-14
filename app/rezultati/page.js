@@ -854,7 +854,7 @@ export default function Rezultati() {
         /* ── Final CTA ── */
         .rz-final {
           padding: 0;
-          background: #111111;
+          background: #1a1a1a;
         }
         .rz-final-box {
           padding: 96px 32px;

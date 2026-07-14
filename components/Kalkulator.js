@@ -241,7 +241,7 @@ export default function Kalkulator({ light = false }) {
       </div>
 
       <style>{`
-        .kalk-section { padding: 80px 0; background: #000; }
+        .kalk-section { padding: 80px 0; background: #1a1a1a; }
         .kalk-container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 
         .kalk-header { text-align: center; margin-bottom: 40px; }

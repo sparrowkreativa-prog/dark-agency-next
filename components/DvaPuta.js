@@ -242,7 +242,7 @@ export default function DvaPuta() {
 
       <style>{`
         .dp-section {
-          background: #000;
+          background: #1a1a1a;
           padding: 80px 0 96px;
         }
         .dp-container {

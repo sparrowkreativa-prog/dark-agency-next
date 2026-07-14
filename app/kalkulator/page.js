@@ -39,7 +39,7 @@ export default function KalkulatorPage() {
 
         <Kalkulator light />
 
-        <section style={{ background: '#111111', padding: '96px 32px', textAlign: 'center' }}>
+        <section style={{ background: '#1a1a1a', padding: '96px 32px', textAlign: 'center' }}>
           <h2 style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 'clamp(1.6rem,3.5vw,2.4rem)', color: '#fff', margin: '0 0 12px' }}>Spreman/a Da Ostvariš Taj Potencijal?</h2>
           <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.5)', margin: '0 0 28px', lineHeight: 1.7 }}>Prijavi se i vidi da li si kvalifikovana za Velluto Nero.</p>
           <Link href="/#apply" className="btn-primary btn-large">
