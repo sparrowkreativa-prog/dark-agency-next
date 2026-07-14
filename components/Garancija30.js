@@ -97,11 +97,17 @@ export default function Garancija30() {
         }
         .g30-text {
           font-size: 1rem;
-          color: rgba(255,255,255,0.6);
+          color: #fff;
           line-height: 1.85;
           margin: 0;
         }
-        .g30-text strong { color: #a9875c; font-weight: 700; }
+        .g30-text strong {
+          font-family: var(--font-display);
+          font-style: italic;
+          font-weight: 400;
+          font-size: 1.2em;
+          color: #a9875c;
+        }
 
         /* Liquid glass box - 8 cells */
         .g30-box {
