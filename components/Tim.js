@@ -133,33 +133,33 @@ export default function Tim() {
         .tm-grid {
           display: grid;
           grid-template-columns: repeat(5, 1fr);
-          border-top: 1px solid rgba(232,83,143,0.15);
+          gap: 14px;
           margin-bottom: 48px;
         }
         @media (max-width: 900px) {
-          .tm-grid { grid-template-columns: repeat(2, 1fr); border-top: none; }
+          .tm-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 500px) {
           .tm-grid { grid-template-columns: 1fr; }
         }
 
         .tm-role {
-          padding: 28px 20px 28px 0;
-          border-left: 1px solid rgba(232,83,143,0.15);
-          padding-left: 20px;
+          background: #fff;
+          border: 1px solid rgba(0,0,0,0.07);
+          border-radius: 16px;
+          padding: 24px 18px;
+          transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), border-color 0.3s, box-shadow 0.3s;
         }
-        .tm-role:first-child {
-          border-left: none;
-          padding-left: 0;
+        .tm-role:hover {
+          transform: translateY(-4px);
+          border-color: rgba(169,135,92,0.35);
+          box-shadow: 0 12px 32px rgba(169,135,92,0.12);
         }
         @media (max-width: 900px) {
           .tm-role {
-            border-left: none;
-            border-top: 1px solid rgba(232,83,143,0.12);
-            padding: 20px 12px;
+            padding: 20px 14px;
             text-align: center;
           }
-          .tm-role:first-child { border-top: none; }
         }
 
         .tm-role-num {
