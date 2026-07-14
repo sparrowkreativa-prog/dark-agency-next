@@ -19,12 +19,6 @@ export default function ReferralKalkulator() {
   return (
     <section className="kalk-section">
       <div className="kalk-container">
-        <div className="kalk-header">
-          <span className="chapter-label">Kalkulator Preporuke</span>
-          <h2 className="kalk-title"><em className="kalk-em-plain">Preporuči i</em> <em className="kalk-em">Zarađuj</em></h2>
-          <p className="kalk-sub">Do 10% mesečnih prihoda kreatorke koju preporučiš — svaki mesec, bez gornje granice</p>
-        </div>
-
         <div className="kalk-dashboard">
           {/* Dashboard top bar */}
           <div className="kalk-dash-top">
