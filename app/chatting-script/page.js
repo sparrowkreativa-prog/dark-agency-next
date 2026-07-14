@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import SiteFooter from '@/components/SiteFooter';
 
 const CHAPTERS = [
   { num: '01', title: 'Uvod i Kako Skripta Funkcioniše', desc: '~3 min · Šta je ova skripta i kako je koristiti.' },
@@ -114,6 +115,8 @@ export default function ChattingScript() {
           </div>
         </div>
       </main>
+
+      <SiteFooter />
 
       <style>{`
         ${sharedStyles}

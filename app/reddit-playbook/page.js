@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import SiteFooter from '@/components/SiteFooter';
 
 const CHAPTERS = [
   { num: '01', title: 'Zašto je Reddit Najpotcenjeniji Izvor Saobraćaja', desc: '~12 min · $80 LTV po fanu — i većina kreatora to radi potpuno pogrešno.' },
@@ -117,6 +118,8 @@ export default function RedditPlaybook() {
           </div>
         </div>
       </main>
+
+      <SiteFooter />
 
       <style>{`
         ${sharedStyles}

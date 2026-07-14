@@ -37,6 +37,8 @@ export default function InstagramPlaybook() {
         <div className="cs-content-wrap">
           <div className="cs-container">
 
+            <Link href="/resursi" className="cs-back">← Svi resursi</Link>
+
             {/* Cover image */}
             <div className="cs-fade-in cs-cover-box">
               <Image
@@ -543,6 +545,8 @@ export default function InstagramPlaybook() {
       <style>{`
         .cs-page { background: var(--color-dark-1); color: #1a1a1a; font-family: var(--font-montserrat, 'Montserrat', sans-serif); }
         .cs-content-wrap { padding-bottom: 0; }
+        .cs-back { display: inline-block; font-size: 13px; color: #999; text-decoration: none; margin: 32px 0 8px; transition: color 0.2s; }
+        .cs-back:hover { color: #a9875c; }
         .cs-container { max-width: 760px; margin: 0 auto; padding: 0 24px; }
         .cs-fade-in { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
         .cs-fade-in.visible { opacity: 1; transform: none; }

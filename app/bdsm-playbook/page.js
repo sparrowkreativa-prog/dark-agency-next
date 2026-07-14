@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import SiteFooter from '@/components/SiteFooter';
 
 const CHAPTERS = [
   { num: '01', title: 'BDSM Kreatorska Mogućnost', desc: '~7 min · Zašto ova niša plaća 2× više po fanu.' },
@@ -110,6 +111,8 @@ export default function BdsmPlaybook() {
           </div>
         </div>
       </main>
+
+      <SiteFooter />
 
       <style>{`${sharedStyles}`}</style>
     </div>

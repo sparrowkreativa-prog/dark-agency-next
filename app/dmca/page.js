@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import SiteFooter from '@/components/SiteFooter';
 import { useState } from 'react';
 
 const STEPS = [
@@ -112,6 +113,8 @@ export default function Dmca() {
           </div>
         </div>
       </main>
+
+      <SiteFooter />
     </div>
   );
 }

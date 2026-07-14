@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import SiteFooter from '@/components/SiteFooter';
 
 const CHAPTERS = [
   { num: '01', title: 'Muška Kreatorska Mogućnost', desc: '~14 min · Zašto je najnedovoljno posluženo tržište u kreatorskoj ekonomiji i najviše plaća.' },
@@ -110,6 +111,8 @@ export default function MaleCreatorPlaybook() {
           </div>
         </div>
       </main>
+
+      <SiteFooter />
 
       <style>{`${sharedStyles}`}</style>
     </div>
