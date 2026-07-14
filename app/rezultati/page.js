@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import RezultatiScreenshots from '@/components/RezultatiScreenshots';
+import { siteData } from '@/data/content';
 
 function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
 
@@ -350,7 +351,7 @@ export default function Rezultati() {
         <section className="rz-final">
           <div className="container">
             <div className="rz-final-box">
-              <h2 className="rz-final-title">Postani Sledeći Rezultat.</h2>
+              <h2 className="rz-final-title">Da Li Si Spremna Za Ovakve Rezultate?</h2>
               <p className="rz-final-sub">Primamo samo 2 klijenta mesečno · 60-sekundi prijava · nula troškova unapred</p>
               <div className="rz-final-stats">
                 {[
@@ -373,6 +374,26 @@ export default function Rezultati() {
         </section>
 
       </main>
+
+      <footer id="site-footer">
+        <div className="footer-inner">
+          <div className="footer-top">
+            <div>
+              <div className="footer-brand-name">{siteData.nav.logo}</div>
+              <p className="footer-tagline">{siteData.footer.tagline}</p>
+            </div>
+            <a href={siteData.footer.cta.href} className="btn-outline" style={{ borderColor: '#a9875c', color: '#a9875c' }}>
+              {siteData.footer.cta.label} <span>→</span>
+            </a>
+          </div>
+          <div className="footer-bottom">
+            <p className="footer-copy">{siteData.footer.copy}</p>
+            <div className="footer-legal">
+              {siteData.footer.legal.map((l) => <a key={l.href} href={l.href}>{l.label}</a>)}
+            </div>
+          </div>
+        </div>
+      </footer>
 
       <style>{`
         /* ── Hero ── */
@@ -831,11 +852,12 @@ export default function Rezultati() {
         }
 
         /* ── Final CTA ── */
-        .rz-final { padding: 0 0 96px; }
+        .rz-final {
+          padding: 0;
+          background: #111111;
+        }
         .rz-final-box {
-          background: #1a1a1a;
-          border-radius: 24px;
-          padding: 64px 32px;
+          padding: 96px 32px;
           text-align: center;
         }
         .rz-final-title {
