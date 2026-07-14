@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import Kalkulator from '@/components/Kalkulator';
+import { siteData } from '@/data/content';
 
 export default function KalkulatorPage() {
   return (
@@ -24,7 +25,7 @@ export default function KalkulatorPage() {
         </div>
       </header>
 
-      <main style={{ background: '#fafaf8', minHeight: '100vh', paddingBottom: 96 }}>
+      <main style={{ background: '#fff', minHeight: '100vh' }}>
         <div style={{ textAlign: 'center', padding: '56px 24px 0' }}>
           <Link href="/resursi" style={{ display: 'inline-block', fontSize: 13, color: '#aaa', textDecoration: 'none', marginBottom: 20 }}>← Svi resursi</Link>
           <span style={{ display: 'block', fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', color: '#a9875c', textTransform: 'uppercase', marginBottom: 16 }}>ALAT · BESPLATNO</span>
@@ -36,16 +37,36 @@ export default function KalkulatorPage() {
           </p>
         </div>
 
-        <Kalkulator />
+        <Kalkulator light />
 
-        <div style={{ textAlign: 'center', background: '#1a1a1a', borderRadius: 24, padding: '52px 32px', maxWidth: 700, margin: '0 auto 0', marginTop: 0 }}>
-          <h2 style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 'clamp(1.6rem,3.5vw,2.4rem)', color: '#fff', margin: '0 0 12px' }}>Spreman/a da ostvariš taj potencijal?</h2>
+        <section style={{ background: '#111111', padding: '96px 32px', textAlign: 'center' }}>
+          <h2 style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 'clamp(1.6rem,3.5vw,2.4rem)', color: '#fff', margin: '0 0 12px' }}>Spreman/a Da Ostvariš Taj Potencijal?</h2>
           <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.5)', margin: '0 0 28px', lineHeight: 1.7 }}>Prijavi se i vidi da li si kvalifikovana za Velluto Nero.</p>
           <Link href="/#apply" className="btn-primary btn-large">
             Prijavi se na listu čekanja <span className="btn-arrow">→</span>
           </Link>
-        </div>
+        </section>
       </main>
+
+      <footer id="site-footer">
+        <div className="footer-inner">
+          <div className="footer-top">
+            <div>
+              <div className="footer-brand-name">{siteData.nav.logo}</div>
+              <p className="footer-tagline">{siteData.footer.tagline}</p>
+            </div>
+            <a href={siteData.footer.cta.href} className="btn-outline" style={{ borderColor: '#a9875c', color: '#a9875c' }}>
+              {siteData.footer.cta.label} <span>→</span>
+            </a>
+          </div>
+          <div className="footer-bottom">
+            <p className="footer-copy">{siteData.footer.copy}</p>
+            <div className="footer-legal">
+              {siteData.footer.legal.map((l) => <a key={l.href} href={l.href}>{l.label}</a>)}
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

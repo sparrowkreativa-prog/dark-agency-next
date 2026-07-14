@@ -12,7 +12,7 @@ function getGrowth() {
 const CHART_BARS = [45, 62, 78, 85, 70, 55, 48, 60, 82, 91, 100, 74];
 const MONTHS = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Avg','Sep','Okt','Nov','Dec'];
 
-export default function Kalkulator() {
+export default function Kalkulator({ light = false }) {
   const [tab, setTab] = useState('overview');
   const [revenue, setRevenue] = useState(50000);
 
@@ -392,6 +392,17 @@ export default function Kalkulator() {
           .kalk-tab { flex: 1; text-align: center; }
           .kalk-tab-body { padding: 20px 16px 20px; }
         }
+        ${light ? `
+        /* Light varijanta — bela pozadina sekcije, dashboard ostaje taman */
+        .kalk-section { background: #fff; }
+        .kalk-title { color: #1a1a1a; }
+        .kalk-em-plain { color: rgba(26,26,26,0.75); }
+        .kalk-sub { color: #888; }
+        .kalk-dashboard {
+          background: #141414;
+          box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+        }
+        ` : ''}
       `}</style>
     </section>
   );
