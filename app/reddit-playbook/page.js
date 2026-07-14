@@ -110,7 +110,7 @@ export default function RedditPlaybook() {
 
           {/* CTA */}
           <div className="pb-cta-box">
-            <h2 className="pb-cta-title">Želiš da B9 vodi tvoj Reddit?</h2>
+            <h2 className="pb-cta-title">Želiš da Velluto Nero vodi tvoj Reddit?</h2>
             <p className="pb-cta-sub">Naš tim se bavi odabirom subreddita, upravljanjem nalozima, dnevnim objavljivanjem i skaliranjem — ti se fokusiraš na sadržaj.</p>
             <Link href="/#apply" className="btn-primary btn-large">
               Prijavi se <span className="btn-arrow">→</span>
