@@ -6,7 +6,7 @@ const RESOURCES = [
     type: 'Preporuka',
     tag: 'ISTAKNUTO',
     title: 'Preporuči Kreatora',
-    desc: 'Zaradi do 10% mesečnih prihoda kreatorke koju preporučiš — svaki mesec, bez ograničenja. Jedna WhatsApp poruka je sve što treba.',
+    desc: 'Zaradi do 10% mesečnih prihoda kreatorke koju preporučiš - svaki mesec, bez ograničenja. Jedna WhatsApp poruka je sve što treba.',
     tags: ['Zarada', 'Monetizacija'],
     href: '/referral',
     featured: true,
@@ -15,7 +15,7 @@ const RESOURCES = [
   {
     type: 'Vodič',
     title: 'Čet Strategija',
-    desc: 'Ovladaj umećem čatovanja — skripte, upsell, zadržavanje i taktike konverzije koje pretvaraju pretplatnike u stalne kupce.',
+    desc: 'Ovladaj umećem čatovanja - skripte, upsell, zadržavanje i taktike konverzije koje pretvaraju pretplatnike u stalne kupce.',
     tags: ['Monetizacija', 'Strategija sadržaja'],
     href: '/cet-strategija',
     img: '/free-tools/chatting-strategy.jpg',
@@ -39,7 +39,7 @@ const RESOURCES = [
   {
     type: 'Vodič',
     title: 'Instagram Playbook',
-    desc: 'Kompletan 12-poglavni vodič koji koristimo za rast Instagram naloga kreatora — od optimizacije profila do sistema sadržaja.',
+    desc: 'Kompletan 12-poglavni vodič koji koristimo za rast Instagram naloga kreatora - od optimizacije profila do sistema sadržaja.',
     tags: ['Rast i saobraćaj', 'Strategija sadržaja'],
     href: '/instagram-playbook',
     img: '/free-tools/instagram-playbook.jpg',
@@ -55,7 +55,7 @@ const RESOURCES = [
   {
     type: 'Vodič',
     title: 'Čet Skripta',
-    desc: 'Prava skripta koju koristimo — vidi tačno kako naši čateri otvaraju razgovore, grade odnos, upselluju i zatvaraju. Bez teorije, samo stvarna skripta.',
+    desc: 'Prava skripta koju koristimo - vidi tačno kako naši čateri otvaraju razgovore, grade odnos, upselluju i zatvaraju. Bez teorije, samo stvarna skripta.',
     tags: ['Monetizacija', 'Strategija sadržaja'],
     href: '/chatting-script',
     img: '/free-tools/CHATTING_SCRIPT.jpg',
@@ -71,7 +71,7 @@ const RESOURCES = [
   {
     type: 'Alat',
     title: 'Besplatni DMCA Takedown',
-    desc: 'Pronašla si svoj sadržaj na netu? Uklonićemo ga besplatno — bez ugovora, bez troškova.',
+    desc: 'Pronašla si svoj sadržaj na netu? Uklonićemo ga besplatno - bez ugovora, bez troškova.',
     tags: ['Zaštita sadržaja', 'Monetizacija'],
     href: '/dmca',
     img: '/free-tools/FREE_DMCA.jpg',
@@ -79,7 +79,7 @@ const RESOURCES = [
   {
     type: 'Vodič',
     title: 'BDSM Vodič za Kreatore',
-    desc: 'Kompletan vodič za izgradnju profitabilnog BDSM brenda — od pozicioniranja niše i psihologije pretplatnika do premium cena.',
+    desc: 'Kompletan vodič za izgradnju profitabilnog BDSM brenda - od pozicioniranja niše i psihologije pretplatnika do premium cena.',
     tags: ['Monetizacija', 'Strategija sadržaja'],
     href: '/bdsm-playbook',
     img: '/free-tools/BDSM.jpg',
@@ -88,10 +88,10 @@ const RESOURCES = [
 
 const COMING_SOON = [
   { type: 'Vodič', title: 'NSFW Subreddit Lista', desc: 'Kurirana lista NSFW subreddita organizovana po niši sa pravilima objavljivanja i brojem pretplatnika.', img: '/free-tools/SUB_RED.jpg' },
-  { type: 'Vodič', title: 'X Playbook', desc: 'Kompletan Twitter/X sistem rasta za OnlyFans kreatorke — od podešavanja profila do viralnih strategija.', img: '/free-tools/TWITER-X.jpg' },
-  { type: 'Vodič', title: 'Threads Playbook', desc: 'Kompletan Threads sistem rasta za OnlyFans kreatorke — od podešavanja profila do izgradnje angažovane publike.', img: '/free-tools/THREADS.jpg' },
-  { type: 'Vodič', title: 'TikTok Playbook', desc: 'Kompletan TikTok sistem rasta — od viralnih strategija do konverzije pratilaca u pretplatnike.', img: '/free-tools/TIK-TOK.jpg' },
-  { type: 'Vodič', title: 'Pornhub Playbook', desc: 'Kompletan Pornhub sistem rasta — od optimizacije profila do povećanja saobraćaja i konverzija.', img: '/free-tools/P_HUB.jpg' },
+  { type: 'Vodič', title: 'X Playbook', desc: 'Kompletan Twitter/X sistem rasta za OnlyFans kreatorke - od podešavanja profila do viralnih strategija.', img: '/free-tools/TWITER-X.jpg' },
+  { type: 'Vodič', title: 'Threads Playbook', desc: 'Kompletan Threads sistem rasta za OnlyFans kreatorke - od podešavanja profila do izgradnje angažovane publike.', img: '/free-tools/THREADS.jpg' },
+  { type: 'Vodič', title: 'TikTok Playbook', desc: 'Kompletan TikTok sistem rasta - od viralnih strategija do konverzije pratilaca u pretplatnike.', img: '/free-tools/TIK-TOK.jpg' },
+  { type: 'Vodič', title: 'Pornhub Playbook', desc: 'Kompletan Pornhub sistem rasta - od optimizacije profila do povećanja saobraćaja i konverzija.', img: '/free-tools/P_HUB.jpg' },
 ];
 
 export default function Resursi() {
@@ -120,7 +120,7 @@ export default function Resursi() {
         <div className="rs-hero">
           <span className="chapter-label">RESURSI</span>
           <h1 className="rs-title">Besplatni Alati i Vodiči<br /><span style={{ color: '#a9875c' }}>Za Kreatorke.</span></h1>
-          <p className="rs-sub">Alati, vodiči i strategije za rast — bez obzira da li radiš sa nama ili ne.</p>
+          <p className="rs-sub">Alati, vodiči i strategije za rast - bez obzira da li radiš sa nama ili ne.</p>
         </div>
 
         {/* Main grid */}

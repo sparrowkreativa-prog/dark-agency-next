@@ -139,7 +139,7 @@ const CARDS = [
   {
     icon: STAR_ICON,
     badge: 'Već afirmisana',
-    title: 'Već zarađuješ — mi to uvećavamo.',
+    title: 'Već zarađuješ - mi to uvećavamo.',
     steps: [
       'Ne diramo tvoju trenutnu zaradu.',
       'Ne tražimo pristup nalozima ni tvojim privatnim profilima na društvenim mrežama, niti da raskineš ugovor sa agencijom sa kojom trenutno radiš.',

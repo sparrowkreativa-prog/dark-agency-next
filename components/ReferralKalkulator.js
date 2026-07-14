@@ -66,7 +66,7 @@ export default function ReferralKalkulator() {
               <div className="kalk-compare-card kalk-compare-card--projected">
                 <div className="kalk-compare-label">Tvoja provizija</div>
                 <div className="kalk-compare-val">{fmt(commission)}<span className="kalk-per">/mes</span></div>
-                <div className="kalk-compare-note">Do 10% — svaki mesec, automatski</div>
+                <div className="kalk-compare-note">Do 10% - svaki mesec, automatski</div>
               </div>
             </div>
 
@@ -74,7 +74,7 @@ export default function ReferralKalkulator() {
             <div className="kalk-extra">
               <span className="kalk-extra-label">Za godinu dana to je:</span>
               <span className="kalk-extra-val">+{fmt(yearly)}</span>
-              <span className="kalk-extra-yearly">Bez ijednog radnog sata — <strong>jedna WhatsApp poruka</strong> je sve što treba</span>
+              <span className="kalk-extra-yearly">Bez ijednog radnog sata - <strong>jedna WhatsApp poruka</strong> je sve što treba</span>
             </div>
 
             {/* CTA */}
@@ -99,7 +99,7 @@ export default function ReferralKalkulator() {
         .kalk-em { font-style: italic; color: #a9875c; }
         .kalk-sub { font-size: 15px; color: rgba(255,255,255,0.4); margin: 0 auto; max-width: 480px; line-height: 1.6; }
 
-        /* Dashboard shell — liquid glass */
+        /* Dashboard shell - liquid glass */
         .kalk-dashboard {
           background: rgba(255,255,255,0.06);
           backdrop-filter: blur(28px) saturate(1.6);

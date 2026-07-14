@@ -4,15 +4,15 @@ import SiteFooter from '@/components/SiteFooter';
 
 const CHAPTERS = [
   { num: '01', title: 'Uvod i Kako Skripta Funkcioniše', desc: '~3 min · Šta je ova skripta i kako je koristiti.' },
-  { num: '02', title: 'Faza 1 — Izgradnja Odnosa', desc: '~4 min · Razbijanje leda i stvaranje osećaja autentičnosti.' },
-  { num: '03', title: 'Faza 2 — Tizeri (Izgradnja Tenzije)', desc: '~5 min · Besplatan sadržaj koji kreira hitnost kupovine.' },
-  { num: '04', title: 'Faza 3 & 4 — Veza i PPV Prelaz', desc: '~6 min · Slobodne linije i sekvenca podešavanja PPV-a.' },
+  { num: '02', title: 'Faza 1 - Izgradnja Odnosa', desc: '~4 min · Razbijanje leda i stvaranje osećaja autentičnosti.' },
+  { num: '03', title: 'Faza 2 - Tizeri (Izgradnja Tenzije)', desc: '~5 min · Besplatan sadržaj koji kreira hitnost kupovine.' },
+  { num: '04', title: 'Faza 3 & 4 - Veza i PPV Prelaz', desc: '~6 min · Slobodne linije i sekvenca podešavanja PPV-a.' },
   { num: '05', title: 'PPV Setup i Yes Train', desc: '~7 min · Dobij "da" pre nego što pošalješ plaćen sadržaj.' },
   { num: '06', title: 'Provjere Stvarnosti i Seksanje', desc: '~8 min · Iluzija živog sadržaja i angažujuća razmjena.' },
   { num: '07', title: 'Upsell Sekvenca', desc: '~6 min · Nastavi sa prodajom kroz celu sesiju sa rastućim cenama.' },
   { num: '08', title: 'Eskalacija Cena: $25 do $135', desc: '~5 min · Tačna lestvica cena po sesiji.' },
   { num: '09', title: 'Rukovanje Teškim Fanovima', desc: '~6 min · Skupaci, fantomi i kako ih reaktivirati.' },
-  { num: '10', title: 'Kompletna Skripta — Referentni List', desc: '~4 min · Cela sekvenca na jednom mestu.' },
+  { num: '10', title: 'Kompletna Skripta - Referentni List', desc: '~4 min · Cela sekvenca na jednom mestu.' },
 ];
 
 export default function ChattingScript() {
@@ -45,7 +45,7 @@ export default function ChattingScript() {
             Tačna skripta kojom naši čateri<br />
             <span style={{ color: '#a9875c' }}>zarađuju $1.400+ po sesiji.</span>
           </h1>
-          <p className="pb-sub">10 poglavlja. Tri faze. Prava skripta za čatovanje koja generiše $1.400+ po sesiji — izgradnja odnosa, tizovanje, PPV eskalacija, cela sekvenca. Delimo je jer većina vodiča za čatovanje kaže "budi flertujuća" i smatra to strategijom.</p>
+          <p className="pb-sub">10 poglavlja. Tri faze. Prava skripta za čatovanje koja generiše $1.400+ po sesiji - izgradnja odnosa, tizovanje, PPV eskalacija, cela sekvenca. Delimo je jer većina vodiča za čatovanje kaže "budi flertujuća" i smatra to strategijom.</p>
 
           <div className="pb-stats">
             {[
@@ -100,9 +100,9 @@ export default function ChattingScript() {
           <div className="pb-insight">
             <div className="pb-insight-num">"</div>
             <div className="pb-insight-text">
-              <strong>Nikad ne počinji seksualno.</strong> Ti si nevina, igriva devojka koja se polako uzbuđuje. On vodi seksualnu energiju — ti samo pratiš (a zapravo vodiš celu stvar).
+              <strong>Nikad ne počinji seksualno.</strong> Ti si nevina, igriva devojka koja se polako uzbuđuje. On vodi seksualnu energiju - ti samo pratiš (a zapravo vodiš celu stvar).
               <br /><br />
-              <span style={{ color: '#a9875c', fontSize: '0.85rem' }}>— Zlatno pravilo čatovanja</span>
+              <span style={{ color: '#a9875c', fontSize: '0.85rem' }}>- Zlatno pravilo čatovanja</span>
             </div>
           </div>
 

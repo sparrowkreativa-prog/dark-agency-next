@@ -40,8 +40,8 @@ const PLANS = [
     perks: [
       { title: 'VIP status + godišnja putovanja', desc: 'Ulaskom u Full Management dobijaš status VIP klijenta sa pristupom dodatnim pogodnostima; svake godine vodimo ceo VIP tim negde u svetu na team-building putovanje.' },
       { title: 'Premium lokacije za sadržaj', desc: 'Ustupamo ti na korišćenje prelepe vile, stanove i lokacije u preko 12 zemalja, da tvoj sadržaj uvek izgleda premijum.' },
-      { title: 'Oprema, svetla i garderoba', desc: 'Svetla, odeća i sav materijal koji ti treba — plaćamo mi.' },
-      { title: 'Personal Brand Manager', desc: 'Posvećen isključivo tvom dugoročnom imidžu, pozicioniranju i cross-platform brendu — odvojeno od account managera koji vodi svakodnevnu operativu.' },
+      { title: 'Oprema, svetla i garderoba', desc: 'Svetla, odeća i sav materijal koji ti treba - plaćamo mi.' },
+      { title: 'Personal Brand Manager', desc: 'Posvećen isključivo tvom dugoročnom imidžu, pozicioniranju i cross-platform brendu - odvojeno od account managera koji vodi svakodnevnu operativu.' },
     ],
     items: [
       'Sve iz Chat Only i Chat + Growth',
@@ -103,7 +103,7 @@ export default function Paketi() {
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity 0.7s ease, transform 0.7s ease' }}>
           <span className="chapter-label">Paketi</span>
           <h2 className="pk-title"><em className="pk-em">Izaberi</em> <em className="pk-em-gold">Svoj Model Saradnje</em></h2>
-          <p className="pk-sub">Bez unaprednih troškova — zarađujemo tek kada i ti zaradiš.</p>
+          <p className="pk-sub">Bez unaprednih troškova - zarađujemo tek kada i ti zaradiš.</p>
         </div>
 
         <div className="pk-grid">

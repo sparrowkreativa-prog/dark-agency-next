@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 const ROLES = [
-  { num: '01', title: 'Stratezi',            body: 'Mapiraju tvoju nišu, cene i prvih 90 dana — pre nego što se ijedan nalog pokrene.' },
+  { num: '01', title: 'Stratezi',            body: 'Mapiraju tvoju nišu, cene i prvih 90 dana - pre nego što se ijedan nalog pokrene.' },
   { num: '02', title: 'Četeri',              body: 'Generišu prihod 24/7, vreme odgovora ispod 5 minuta, svaka poruka.' },
   { num: '03', title: 'Content Menadžeri',   body: 'Zakazuju, optimizuju i maksimizuju svaku objavu.' },
   { num: '04', title: 'DMCA Specijalisti',   body: 'Prate 500+ platformi, skidanje sadržaja se meri satima.' },
@@ -38,7 +38,7 @@ export default function Tim() {
             Posvećen Tim Iza Svakog Naloga.<br />
             <span style={{ color: '#a9875c' }}>Niko Od Njih Nisi Ti.</span>
           </h2>
-          <p className="tm-sub">Kada tvoj nalog krene, ovo su ljudi koji rade na tvom biznisu — dok ti nastavljaš da živiš normalno.</p>
+          <p className="tm-sub">Kada tvoj nalog krene, ovo su ljudi koji rade na tvom biznisu - dok ti nastavljaš da živiš normalno.</p>
           <img src="/tim-girl.jpeg" alt="" className="tm-girl-img" />
         </div>
 
@@ -87,7 +87,7 @@ export default function Tim() {
             <em>Deo Koji Je </em><span style={{ fontStyle: 'italic', color: '#a9875c' }}>Zaista Ti.</span>
           </h3>
           <p className="tm-bottom-body">
-            Evo šta većina agencija neće reći naglas: novac dolazi od konekcije, a ne samo od sadržaja. Tvoj tim se bavi objavljivanjem, porukama, zaštitom — svime. Ono što ti donosiš je jedino što ne može da se prepusti nekome drugom: prava, topla ličnost kojoj se ljudi rado vraćaju. Ako ti je prirodno da neke ko se oseća viđenim, dobro ćeš proći ovde.
+            Evo šta većina agencija neće reći naglas: novac dolazi od konekcije, a ne samo od sadržaja. Tvoj tim se bavi objavljivanjem, porukama, zaštitom - svime. Ono što ti donosiš je jedino što ne može da se prepusti nekome drugom: prava, topla ličnost kojoj se ljudi rado vraćaju. Ako ti je prirodno da neke ko se oseća viđenim, dobro ćeš proći ovde.
           </p>
         </div>
 

@@ -49,7 +49,7 @@ export default function Referral() {
             <span style={{ color: '#a9875c' }}>kreatorku koju preporučiš.</span>
           </h1>
           <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.55)', maxWidth: 520, margin: '0 auto 40px', lineHeight: 1.75 }}>
-            Preporuči kreatorku Velluto Nero i zarađuj do 10% njenih mesečnih prihoda — svaki mesec, bez gornje granice. Jedna WhatsApp poruka je sve što treba.
+            Preporuči kreatorku Velluto Nero i zarađuj do 10% njenih mesečnih prihoda - svaki mesec, bez gornje granice. Jedna WhatsApp poruka je sve što treba.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 40, flexWrap: 'wrap' }}>
             {[
@@ -92,7 +92,7 @@ export default function Referral() {
               {
                 icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM9 12l2 2 4-4" />,
                 title: 'Nula Rizika',
-                desc: 'Dnevni ugovori koji se obnavljaju — kreatorka može da ode u svakom trenutku.',
+                desc: 'Dnevni ugovori koji se obnavljaju - kreatorka može da ode u svakom trenutku.',
               },
               {
                 icon: <path d="M16 7h6v6M22 7l-8.5 8.5-5-5L2 17" />,
@@ -134,7 +134,7 @@ export default function Referral() {
           {/* CTA */}
           <div style={{ textAlign: 'center', background: '#1a1a1a', borderRadius: 24, padding: '52px 32px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 'clamp(1.6rem,3.5vw,2.4rem)', color: '#fff', margin: '0 0 12px' }}>Spreman/a da počneš?</h2>
-            <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.5)', margin: '0 0 28px', maxWidth: 440, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>Pošalji nam poruku sa imenom i Instagramom kreatorke — mi se bavimo svim ostalim.</p>
+            <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.5)', margin: '0 0 28px', maxWidth: 440, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>Pošalji nam poruku sa imenom i Instagramom kreatorke - mi se bavimo svim ostalim.</p>
             <a
               href="https://wa.me/381000000000"
               className="btn-primary btn-large"

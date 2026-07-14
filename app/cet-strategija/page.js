@@ -4,7 +4,7 @@ import FadeInObserver from '@/components/FadeInObserver';
 
 export const metadata = {
   title: 'Čet Strategija | Velluto Nero',
-  description: 'Sistem iza meseci sa $100k+ naših kreatora — kompletna čet strategija korak po korak.',
+  description: 'Sistem iza meseci sa $100k+ naših kreatora - kompletna čet strategija korak po korak.',
 };
 
 export default function CetStrategija() {
@@ -60,13 +60,13 @@ export default function CetStrategija() {
                 <em>sa $100k+ naših kreatora</em>
               </h1>
               <p className="cs-lead">
-                10 poglavlja. tri dela. tačan sistem iza kreatora koji zarađuju $100k+/mesečno samo iz četa. skripte, prodajna psihologija, rešavanje prigovora, cela operacija — od prve poruke do nedelja sa $12k+.
+                10 poglavlja. tri dela. tačan sistem iza kreatora koji zarađuju $100k+/mesečno samo iz četa. skripte, prodajna psihologija, rešavanje prigovora, cela operacija - od prve poruke do nedelja sa $12k+.
               </p>
               <div className="cs-meta-pills">
                 <span>10 poglavlja</span>
                 <span>~2.5 sata čitanja</span>
                 <span>svi nivoi</span>
-                <span>besplatno — bez skrivenih uslova</span>
+                <span>besplatno - bez skrivenih uslova</span>
               </div>
             </div>
 
@@ -75,7 +75,7 @@ export default function CetStrategija() {
               <div className="cs-learn-col">
                 <h3 className="cs-box-heading">Šta ćeš naučiti</h3>
                 <ul className="cs-check-list">
-                  <li>Savladaj game plan u 7 koraka — od rapporta do zatvaranja</li>
+                  <li>Savladaj game plan u 7 koraka - od rapporta do zatvaranja</li>
                   <li>Piši opisne poruke koje drže pretplatnike u trošenju</li>
                   <li>Izgradi PPV lestvicu prodaje koja skalira na $200+ po sesiji</li>
                   <li>Postavi skripte, kontent setove i CRM koji radi sam od sebe</li>
@@ -103,28 +103,28 @@ export default function CetStrategija() {
               <div className="cs-fade-in cs-chapter-header">
                 <span className="cs-chapter-tag">Poglavlje 1 od 10</span>
                 <h2 className="cs-chapter-title">Poslovni model četa</h2>
-                <p className="cs-chapter-subtitle">Šta je četovanje u stvari — i zašto štampa novac</p>
+                <p className="cs-chapter-subtitle">Šta je četovanje u stvari - i zašto štampa novac</p>
                 <span className="cs-read-time">~15 min čitanja</span>
               </div>
 
               <blockquote className="cs-fade-in cs-pull-quote">
-                "Većina ljudi čuje 'OnlyFans četovanje' i zamišlja nekog tipa koji kuca čudne stvari na telefonu. To nije ovo. Četovanje je prodajni posao — jedan u kom top izvođači zarađuju $3.000+ mesečno radeći sa laptopa."
+                "Većina ljudi čuje 'OnlyFans četovanje' i zamišlja nekog tipa koji kuca čudne stvari na telefonu. To nije ovo. Četovanje je prodajni posao - jedan u kom top izvođači zarađuju $3.000+ mesečno radeći sa laptopa."
               </blockquote>
 
               <div className="cs-fade-in">
                 <h3 className="cs-h3">Šta je četovanje u stvari</h3>
-                <p className="cs-body">Četer je osoba koja stoji iza DM-ova na kreatorovom OnlyFans nalogu. Kreator pravi sadržaj — fotografije, video zapise, glasovne poruke. Četer prodaje. Pišeš pretplatnicima kao da si kreator, gradiš rapport, pretvараš neobavezne razgovore u prodaje i šalješ pay-per-view (PPV) sadržaj koji je kreator unapred snimio.</p>
+                <p className="cs-body">Četer je osoba koja stoji iza DM-ova na kreatorovom OnlyFans nalogu. Kreator pravi sadržaj - fotografije, video zapise, glasovne poruke. Četer prodaje. Pišeš pretplatnicima kao da si kreator, gradiš rapport, pretvараš neobavezne razgovore u prodaje i šalješ pay-per-view (PPV) sadržaj koji je kreator unapred snimio.</p>
                 <p className="cs-body">Zamisli ovako: kreator je proizvod. Ti si prodavac. A čet je tvoj prodajni pod.</p>
               </div>
 
               <div className="cs-fade-in cs-note">
                 <strong>Napomena</strong>
-                <p>Pretplatnici ne znaju da četer postoji. Koliko se njih tiče, razgovaraju direktno sa kreatorom — ženom koju prate, onom na fotografijama, onom o kojoj razmišljaju. I ta iluzija ne sme nikada da se sruši. Nikada.</p>
+                <p>Pretplatnici ne znaju da četer postoji. Koliko se njih tiče, razgovaraju direktno sa kreatorom - ženom koju prate, onom na fotografijama, onom o kojoj razmišljaju. I ta iluzija ne sme nikada da se sruši. Nikada.</p>
               </div>
 
               <div className="cs-fade-in">
                 <h3 className="cs-h3">Zašto je ovo pravi biznis</h3>
-                <p className="cs-body">OnlyFans je kreatorima isplatio više od 6 milijardi dolara samo u 2023. Ogroman deo tog prihoda — ponekad 50-90% prihoda kreatora — dolazi direktno iz DM prodaje. Ne od pretplata. Ne od napojnica. PPV poruke prodane jedan-na-jedan u četu.</p>
+                <p className="cs-body">OnlyFans je kreatorima isplatio više od 6 milijardi dolara samo u 2023. Ogroman deo tog prihoda - ponekad 50-90% prihoda kreatora - dolazi direktno iz DM prodaje. Ne od pretplata. Ne od napojnica. PPV poruke prodane jedan-na-jedan u četu.</p>
               </div>
 
               <div className="cs-fade-in cs-stat-block">
@@ -133,9 +133,9 @@ export default function CetStrategija() {
               </div>
 
               <div className="cs-fade-in">
-                <p className="cs-body">Zato postoje agencije. Jedan kreator ne može biti u DM-ovima 16 sati dnevno prodajući sadržaj, a istovremeno snimati, montirati i upravljati društvenim mrežama. Zato zapošljavaju četere — ili angažuju agenciju koja vodi celu operaciju.</p>
+                <p className="cs-body">Zato postoje agencije. Jedan kreator ne može biti u DM-ovima 16 sati dnevno prodajući sadržaj, a istovremeno snimati, montirati i upravljati društvenim mrežama. Zato zapošljavaju četere - ili angažuju agenciju koja vodi celu operaciju.</p>
                 <p className="cs-body">Potražnja za dobrim četerima je ogromna. A ponuda? Strašna. Većina ljudi koji pokušaju četovanje odustane u prvoj nedelji jer nemaju sistem. Improvizuju, izgaraju i ostavljaju novac svuda.</p>
-                <p className="cs-body">Ako možeš da pratiš proces, čitaš ljude i kucaš brzo — već imaš sirove veštine. Sve ostalo u ovom vodiču je sistem koji te veštine pretvara u konzistentnu prodaju.</p>
+                <p className="cs-body">Ako možeš da pratiš proces, čitaš ljude i kucaš brzo - već imaš sirove veštine. Sve ostalo u ovom vodiču je sistem koji te veštine pretvara u konzistentnu prodaju.</p>
               </div>
 
               <div className="cs-fade-in">
@@ -162,7 +162,7 @@ export default function CetStrategija() {
               </div>
 
               <div className="cs-fade-in">
-                <p className="cs-body">Bonus nivoi su zanimljiv deo. Dostižeš nedeljne prodajne ciljeve i bonusi počinju da se gomilaju — do $700/nedelji povrh satnice i provizije.</p>
+                <p className="cs-body">Bonus nivoi su zanimljiv deo. Dostižeš nedeljne prodajne ciljeve i bonusi počinju da se gomilaju - do $700/nedelji povrh satnice i provizije.</p>
               </div>
 
               <div className="cs-fade-in">
@@ -173,7 +173,7 @@ export default function CetStrategija() {
               <ol className="cs-steps">
                 <li className="cs-fade-in">
                   <span className="cs-step-num">01</span>
-                  <div><strong>Gradi rapport</strong><p>Razbij led. Ništa seksualno — samo normalan, prijateljski razgovor. Saznaj ko su oni.</p></div>
+                  <div><strong>Gradi rapport</strong><p>Razbij led. Ništa seksualno - samo normalan, prijateljski razgovor. Saznaj ko su oni.</p></div>
                 </li>
                 <li className="cs-fade-in">
                   <span className="cs-step-num">02</span>
@@ -185,11 +185,11 @@ export default function CetStrategija() {
                 </li>
                 <li className="cs-fade-in">
                   <span className="cs-step-num">04</span>
-                  <div><strong>Filtriraj</strong><p>Ako ne kupuju — prati ih, saznaj zašto, ponudi alternative. Ako i dalje neće da troše, nastavi dalje.</p></div>
+                  <div><strong>Filtriraj</strong><p>Ako ne kupuju - prati ih, saznaj zašto, ponudi alternative. Ako i dalje neće da troše, nastavi dalje.</p></div>
                 </li>
                 <li className="cs-fade-in">
                   <span className="cs-step-num">05</span>
-                  <div><strong>Upsell</strong><p>Ako kupuju — svu pažnju usmeri na njih. Prodaj sledeći komad, pa sledeći. Radi lestvicu prodaje.</p></div>
+                  <div><strong>Upsell</strong><p>Ako kupuju - svu pažnju usmeri na njih. Prodaj sledeći komad, pa sledeći. Radi lestvicu prodaje.</p></div>
                 </li>
                 <li className="cs-fade-in">
                   <span className="cs-step-num">06</span>
@@ -203,12 +203,12 @@ export default function CetStrategija() {
 
               <div className="cs-fade-in cs-img-wrap">
                 <Image src="/cet-strategija/ch1-game-plan-flow.webp" alt="Tok game plana u 7 koraka" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Tok četovanja u 7 koraka — od prvog rapporta do zatvaranja prodaje</p>
+                <p className="cs-img-caption">Tok četovanja u 7 koraka - od prvog rapporta do zatvaranja prodaje</p>
               </div>
 
               <div className="cs-fade-in">
                 <h3 className="cs-h3">Lestvica prodaje</h3>
-                <p className="cs-body">Sadržaj se ne prodaje po fiksnoj ceni. Svaki komad PPV sadržaja u sesiji košta više od prethodnog. Zovemo ovo lestvica prodaje — i ista je za sve kreatore.</p>
+                <p className="cs-body">Sadržaj se ne prodaje po fiksnoj ceni. Svaki komad PPV sadržaja u sesiji košta više od prethodnog. Zovemo ovo lestvica prodaje - i ista je za sve kreatore.</p>
               </div>
 
               <div className="cs-fade-in cs-table-wrap">
@@ -221,29 +221,29 @@ export default function CetStrategija() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr><td>1.</td><td>$25</td><td>Tizer nivo — niska ulazna barijera</td></tr>
+                    <tr><td>1.</td><td>$25</td><td>Tizer nivo - niska ulazna barijera</td></tr>
                     <tr><td>2.</td><td>$45</td><td>Malo više otkrivajuće, pretplatnik se zagrejava</td></tr>
                     <tr><td>3.</td><td>$65</td><td>Pretplatnik je angažovan i troši</td></tr>
                     <tr><td>4.</td><td>$95</td><td>Eksplicitniji sadržaj, duže trajanje</td></tr>
                     <tr><td>5.</td><td>$135</td><td>Blizu vrhunca seta</td></tr>
-                    <tr><td>6.</td><td>$200</td><td>OF maksimum po PPV — finale celog seta</td></tr>
+                    <tr><td>6.</td><td>$200</td><td>OF maksimum po PPV - finale celog seta</td></tr>
                   </tbody>
                 </table>
                 <p className="cs-table-caption">Standardna PPV lestvica cena</p>
               </div>
 
               <div className="cs-fade-in">
-                <p className="cs-body">Ako pretplatnik kupi svih šest, to je $565 iz jednog razgovora. I tu se ne staje — $200 je maksimum koji OnlyFans dozvoljava po PPV-u, ali možeš prodati više PPV-ova po $200 u istoj sesiji. Top četeri redovno prelaze $1.000 u jednom sedanju.</p>
+                <p className="cs-body">Ako pretplatnik kupi svih šest, to je $565 iz jednog razgovora. I tu se ne staje - $200 je maksimum koji OnlyFans dozvoljava po PPV-u, ali možeš prodati više PPV-ova po $200 u istoj sesiji. Top četeri redovno prelaze $1.000 u jednom sedanju.</p>
               </div>
 
               <div className="cs-fade-in cs-note cs-note--pink">
                 <strong>Upozorenje</strong>
-                <p>Lestvica je vodič, ne pravilo urezano u kamen. Dobri četeri prilagođavaju cene prema pretplatniku — student dobija niže ulazne tačke, visoki zarađivač koji slobodno daje napojnice gura se više. Poznaj svog klijenta.</p>
+                <p>Lestvica je vodič, ne pravilo urezano u kamen. Dobri četeri prilagođavaju cene prema pretplatniku - student dobija niže ulazne tačke, visoki zarađivač koji slobodno daje napojnice gura se više. Poznaj svog klijenta.</p>
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
                 <Image src="/cet-strategija/ch1-sales-ladder.webp" alt="PPV lestvica prodaje" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">PPV lestvica prodaje — kako pretplatnik napreduje kroz nivoe vrednosti</p>
+                <p className="cs-img-caption">PPV lestvica prodaje - kako pretplatnik napreduje kroz nivoe vrednosti</p>
               </div>
 
               <div className="cs-fade-in">
@@ -254,7 +254,7 @@ export default function CetStrategija() {
               <div className="cs-fade-in cs-priority-list">
                 <div className="cs-priority-item cs-priority-item--1">
                   <span className="cs-priority-time">odgovori za 2 min</span>
-                  <div><strong>Aktivne sesije</strong><p>Pretplatnici koji su trenutno u sesiji kupovine. Već su kupili najmanje jedan PPV i radiš lestvicu. Ovo je tvoj prioritet #1 — uvek.</p></div>
+                  <div><strong>Aktivne sesije</strong><p>Pretplatnici koji su trenutno u sesiji kupovine. Već su kupili najmanje jedan PPV i radiš lestvicu. Ovo je tvoj prioritet #1 - uvek.</p></div>
                 </div>
                 <div className="cs-priority-item cs-priority-item--2">
                   <span className="cs-priority-time">3 min</span>
@@ -284,19 +284,19 @@ export default function CetStrategija() {
 
               <div className="cs-fade-in cs-img-wrap">
                 <Image src="/cet-strategija/ch1-priority-system.webp" alt="Sistem prioriteta pretplatnika" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Matriks prioriteta — kako razvrstati pretplatnike prema potencijalu prihoda</p>
+                <p className="cs-img-caption">Matriks prioriteta - kako razvrstati pretplatnike prema potencijalu prihoda</p>
               </div>
 
               <div className="cs-fade-in">
                 <h3 className="cs-h3">Kako izgleda smena</h3>
-                <p className="cs-body">Smene traju 8 sati. Većina četera radi 40-48 sati nedeljno. Smene su koordinisane kroz Telegram — tamo se odvija sva interna komunikacija.</p>
+                <p className="cs-body">Smene traju 8 sati. Većina četera radi 40-48 sati nedeljno. Smene su koordinisane kroz Telegram - tamo se odvija sva interna komunikacija.</p>
               </div>
 
               <div className="cs-fade-in cs-shift-box">
                 <h4 className="cs-box-heading">Osnove smene</h4>
                 <ul className="cs-check-list">
                   <li>8-satne smene, 40-48 sati nedeljno</li>
-                  <li>Daljinski — radi sa bilo kog mesta sa stabilnim internetom</li>
+                  <li>Daljinski - radi sa bilo kog mesta sa stabilnim internetom</li>
                   <li>Više kreatorskih naloga po smeni</li>
                   <li>Prodaja se prati putem formulara posle svake smene</li>
                   <li>Rezultati se objavljuju u Telegram grupi svaki dan</li>
@@ -306,7 +306,7 @@ export default function CetStrategija() {
 
               <div className="cs-fade-in cs-note">
                 <strong>Napomena</strong>
-                <p>Ako četer ostavi PPV pretplatniku i on ga kupi posle završetka smene — to je i dalje njegova prodaja. Ali ako sledeći četer ubedi pretplatnika da kupi PPV koji je ostavljen, to je prodaja zatvarača. Prodaje idu onome ko ih je zatvorio.</p>
+                <p>Ako četer ostavi PPV pretplatniku i on ga kupi posle završetka smene - to je i dalje njegova prodaja. Ali ako sledeći četer ubedi pretplatnika da kupi PPV koji je ostavljen, to je prodaja zatvarača. Prodaje idu onome ko ih je zatvorio.</p>
               </div>
 
               <div className="cs-fade-in">
@@ -326,9 +326,9 @@ export default function CetStrategija() {
                   <tbody>
                     <tr><td>Ko četuje</td><td>Unajmljeni četeri (tim od 2-10+)</td><td>Ti ili jedan VA</td></tr>
                     <tr><td>Pokrivenost</td><td>24 sata/dan kroz smene</td><td>Ograničeno na tvoju dostupnost</td></tr>
-                    <tr><td>Prihod po kreatoru</td><td>Viši — više sati = više prodaje</td><td>Niži — ograničen tvojim vremenom</td></tr>
-                    <tr><td>Potrebna obuka</td><td>Da — pun sistem ukrcavanja</td><td>Samo ovaj vodič</td></tr>
-                    <tr><td>Složenost</td><td>Koordinacija smena, CRM, QA</td><td>Jednostavno — samo ti i DM-ovi</td></tr>
+                    <tr><td>Prihod po kreatoru</td><td>Viši - više sati = više prodaje</td><td>Niži - ograničen tvojim vremenom</td></tr>
+                    <tr><td>Potrebna obuka</td><td>Da - pun sistem ukrcavanja</td><td>Samo ovaj vodič</td></tr>
+                    <tr><td>Složenost</td><td>Koordinacija smena, CRM, QA</td><td>Jednostavno - samo ti i DM-ovi</td></tr>
                   </tbody>
                 </table>
                 <p className="cs-table-caption">Poređenje model agencije vs. solo četovanje</p>
@@ -336,11 +336,11 @@ export default function CetStrategija() {
 
               <div className="cs-fade-in">
                 <h3 className="cs-h3">Nepregovarajuće stvari</h3>
-                <p className="cs-body">Bez obzira da li vodiš tim ili četuješ solo — postoji nekoliko pravila koja odvajaju operacije koje traju od onih koje se raspadnu za mesec dana.</p>
+                <p className="cs-body">Bez obzira da li vodiš tim ili četuješ solo - postoji nekoliko pravila koja odvajaju operacije koje traju od onih koje se raspadnu za mesec dana.</p>
                 <ul className="cs-check-list cs-check-list--body">
-                  <li>Svaka smena mora biti pokrivena. Bez praznina, bez izgovora — propušteni sati su propušteni prihod.</li>
+                  <li>Svaka smena mora biti pokrivena. Bez praznina, bez izgovora - propušteni sati su propušteni prihod.</li>
                   <li>Četeri nikad ne rade za dve agencije. Ako ovo uhvatiš, odmah ih otpusti.</li>
-                  <li>Nikad ne izlazi iz karaktera. Pretplatnik veruje da razgovara sa kreatorom — čuvaj to pod svaku cenu.</li>
+                  <li>Nikad ne izlazi iz karaktera. Pretplatnik veruje da razgovara sa kreatorom - čuvaj to pod svaku cenu.</li>
                   <li>Dokumentuj sve. Beleške, predaje smena, evidencije prodaje. Ako nije zapisano, nije se ni desilo.</li>
                 </ul>
               </div>
@@ -348,11 +348,11 @@ export default function CetStrategija() {
               <div className="cs-fade-in cs-takeaways">
                 <h3 className="cs-box-heading">Ključne poruke</h3>
                 <ul className="cs-check-list">
-                  <li>Četovanje je prodajni posao — prodaješ unapred napravljeni sadržaj kroz DM-ove kao kreator</li>
+                  <li>Četovanje je prodajni posao - prodaješ unapred napravljeni sadržaj kroz DM-ove kao kreator</li>
                   <li>Zarada se kreće od ~$700/mes (nisko) do $3.000+/mes (top) za 40 sati/nedeljno</li>
                   <li>Game plan u 7 koraka je kičma svakog razgovora</li>
                   <li>Lestvica prodaje ceni PPV od $25 do $200 po sesiji</li>
-                  <li>Prioritizuj aktivne kupce iznad svega — vreme odgovora = prihod</li>
+                  <li>Prioritizuj aktivne kupce iznad svega - vreme odgovora = prihod</li>
                   <li>Ovaj vodič radi i za timove agencija i za solo kreatore</li>
                 </ul>
               </div>
@@ -376,39 +376,39 @@ export default function CetStrategija() {
               </blockquote>
 
               <div className="cs-fade-in">
-                <p className="cs-body">Funkcioniše. Ali samo ako prestaneš da budeš ti i počneš da budeš kreator. Ovo poglavlje je promena identiteta — mindset koji odvaja četere koji zarađuju $500/mesec od onih koji vuku $3.000+.</p>
+                <p className="cs-body">Funkcioniše. Ali samo ako prestaneš da budeš ti i počneš da budeš kreator. Ovo poglavlje je promena identiteta - mindset koji odvaja četere koji zarađuju $500/mesec od onih koji vuku $3.000+.</p>
               </div>
 
               <div className="cs-fade-in">
                 <h3 className="cs-h3">Zašto fanovi zapravo troše</h3>
-                <p className="cs-body">Većina ljudi pretpostavlja da pretplatnici plaćaju za sadržaj. Ne plaćaju. Sadržaj je svuda — besplatan, neograničen, jedno pretraživanje daleko. Ono za šta pretplatnici plaćaju je osećaj da razgovaraju sa stvarnom osobom koja zaista mari za njih.</p>
+                <p className="cs-body">Većina ljudi pretpostavlja da pretplatnici plaćaju za sadržaj. Ne plaćaju. Sadržaj je svuda - besplatan, neograničen, jedno pretraživanje daleko. Ono za šta pretplatnici plaćaju je osećaj da razgovaraju sa stvarnom osobom koja zaista mari za njih.</p>
                 <p className="cs-body">Pravi pokretači su emocionalni: intimnost, validacija, bekstvo i pažnja. Pretplatnik koji se oseća saslušanim, željenim i posebnim trošiće 10 puta više od onog koji samo gleda video zapise. To je cela premija DM-ova u odnosu na besplatne sajtove.</p>
               </div>
 
               <div className="cs-fade-in cs-stat-block">
                 <div className="cs-stat-num">50–90%</div>
-                <p className="cs-stat-desc">prihoda kreatora dolazi od DM prodaje — ne od pretplata, ne od napojnica. Čet je mesto gde živi novac.</p>
+                <p className="cs-stat-desc">prihoda kreatora dolazi od DM prodaje - ne od pretplata, ne od napojnica. Čet je mesto gde živi novac.</p>
               </div>
 
               <div className="cs-fade-in">
-                <p className="cs-body">Dakle, ako pretplatnici plaćaju za vezu — moraš biti neko vredno povezivanja. To počinje postajanjem kreatora.</p>
+                <p className="cs-body">Dakle, ako pretplatnici plaćaju za vezu - moraš biti neko vredno povezivanja. To počinje postajanjem kreatora.</p>
               </div>
 
               <div className="cs-fade-in">
                 <h3 className="cs-h3">Postani kreator</h3>
-                <p className="cs-body">Pretplatnici ne znaju da četeri postoje. Koliko se njih tiče, razgovaraju direktno sa kreatorom — ženom koju prate, onom na fotografijama, onom o kojoj razmišljaju. I ta iluzija ne može da se sruši. Nikada.</p>
+                <p className="cs-body">Pretplatnici ne znaju da četeri postoje. Koliko se njih tiče, razgovaraju direktno sa kreatorom - ženom koju prate, onom na fotografijama, onom o kojoj razmišljaju. I ta iluzija ne može da se sruši. Nikada.</p>
                 <p className="cs-body">Tvoj posao nije da "četuješ u ime" nekoga. Tvoj posao je da postaneš oni. Proučavaj sve: njihov OnlyFans feed, njihove društvene mreže, njihove natpise, njihovu ličnost u pričama. Čitaj njihove skripte. Nauči kako govore, koji sleng koriste, koje emojije bacaju.</p>
               </div>
 
               <div className="cs-fade-in cs-note">
                 <strong>Napomena</strong>
-                <p>Svaki kreator ima personu. Većina ih prati isti arhetip: nevina ali nestašna. Zabavna je, koketna, ali ne baca se na ljude. Zamisli to kao energija "dobre devojke koja samo tebi pokazuje ovu stranu". Taj arhetip gradi napetost — a napetost je ono što prodaje.</p>
+                <p>Svaki kreator ima personu. Većina ih prati isti arhetip: nevina ali nestašna. Zabavna je, koketna, ali ne baca se na ljude. Zamisli to kao energija "dobre devojke koja samo tebi pokazuje ovu stranu". Taj arhetip gradi napetost - a napetost je ono što prodaje.</p>
               </div>
 
               <div className="cs-fade-in">
                 <h3 className="cs-h3">Nevini arhetip</h3>
                 <p className="cs-body">Najveća greška novih četera je krenuti previše agresivno, previše brzo. Misle da eksplicitnost rano = više prodaje. Suprotno je tačno. Ako kreator deluje očajnički ili previše direktno, pretplatnici gube interesovanje. Nema potere, nema napetosti, nema gradnje.</p>
-                <p className="cs-body">Pristup "nevina ali nestašna" funkcioniše jer stavlja pretplatnika za volan. On se oseća kao da on eskalira, kao da mu ona pokazuje ovu stranu samo zbog njega. To je moćna psihologija — i konvertuje daleko bolje od agresivnosti.</p>
+                <p className="cs-body">Pristup "nevina ali nestašna" funkcioniše jer stavlja pretplatnika za volan. On se oseća kao da on eskalira, kao da mu ona pokazuje ovu stranu samo zbog njega. To je moćna psihologija - i konvertuje daleko bolje od agresivnosti.</p>
               </div>
 
               <div className="cs-fade-in cs-table-wrap">
@@ -421,44 +421,44 @@ export default function CetStrategija() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr><td>Sadržaj</td><td>Odmah skoči na eksplicitan sadržaj</td><td>Prvo gradi rapport — zadrži laganim i koketnim</td></tr>
+                    <tr><td>Sadržaj</td><td>Odmah skoči na eksplicitan sadržaj</td><td>Prvo gradi rapport - zadrži laganim i koketnim</td></tr>
                     <tr><td>Nadimci</td><td>Koristi milosna imena od starta (bebo, tata)</td><td>Bez nadimaka osim ako pretplatnik ne uvede</td></tr>
-                    <tr><td>Stil poruke</td><td>Šalji zidove teksta sa puno emojija</td><td>Prati njegovu energiju — kratko i neobavezno na početku</td></tr>
-                    <tr><td>Razgovor</td><td>Sama pokreni intimni razgovor</td><td>Neka pretplatnik vodi — odgovori na njegovu eskalaciju</td></tr>
+                    <tr><td>Stil poruke</td><td>Šalji zidove teksta sa puno emojija</td><td>Prati njegovu energiju - kratko i neobavezno na početku</td></tr>
+                    <tr><td>Razgovor</td><td>Sama pokreni intimni razgovor</td><td>Neka pretplatnik vodi - odgovori na njegovu eskalaciju</td></tr>
                     <tr><td>Ton</td><td>Zvuči kao prodajni skript</td><td>Zvuči kao stvarna osoba u stvarnom razgovoru</td></tr>
                   </tbody>
                 </table>
-                <p className="cs-table-caption">Arhetip u praksi — pogrešan vs. pravi pristup</p>
+                <p className="cs-table-caption">Arhetip u praksi - pogrešan vs. pravi pristup</p>
               </div>
 
               <div className="cs-fade-in">
-                <p className="cs-body">Nikad sama ne počini eksplicitne razgovore. Čak i ako pretplatnik otvori sa nečim direktnim, ne prati to odmah. Odbij nestašno — "ma zar bi? 🙈" ili "dosta si direktan haha". Neka napetost raste.</p>
+                <p className="cs-body">Nikad sama ne počini eksplicitne razgovore. Čak i ako pretplatnik otvori sa nečim direktnim, ne prati to odmah. Odbij nestašno - "ma zar bi? 🙈" ili "dosta si direktan haha". Neka napetost raste.</p>
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/cet-strategija/ch2-archetype-mirror.webp" alt="Promena identiteta — arhetip ogledalo" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Promena identiteta — postani kreator, ne samo zastupnik</p>
+                <Image src="/cet-strategija/ch2-archetype-mirror.webp" alt="Promena identiteta - arhetip ogledalo" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Promena identiteta - postani kreator, ne samo zastupnik</p>
               </div>
 
               <div className="cs-fade-in cs-checklist-box">
                 <h4 className="cs-box-heading">Čeklista za proučavanje kreatora</h4>
                 <ul className="cs-check-list">
-                  <li>Preglej njen OnlyFans feed — šta objavljuje, kako piše natpise</li>
-                  <li>Proveri njen Instagram, TikTok, Twitter — kako priča sa fanovima javno</li>
-                  <li>Pročitaj njene postojeće skripte — zapamti fraze i sleng koji koristi</li>
-                  <li>Proučava njenu ličnost — da li je nestašna, stidljiva, smela, sarcastična</li>
+                  <li>Preglej njen OnlyFans feed - šta objavljuje, kako piše natpise</li>
+                  <li>Proveri njen Instagram, TikTok, Twitter - kako priča sa fanovima javno</li>
+                  <li>Pročitaj njene postojeće skripte - zapamti fraze i sleng koji koristi</li>
+                  <li>Proučava njenu ličnost - da li je nestašna, stidljiva, smela, sarcastična</li>
                 </ul>
               </div>
 
               <div className="cs-fade-in">
                 <h3 className="cs-h3">Uskladi energiju</h3>
                 <p className="cs-body">Ovo je jednostavno ali skoro svi greše na početku. Kada ti pretplatnik pošalje poruku, odrazi njegov stil komunikacije. Kratke poruke? Odgovori kratko. Duge poruke? Možeš ići malo duže. Malo emojija? Ne davaj mu srca.</p>
-                <p className="cs-body">Instinkt novih četera je biti preterano uzbuđen. Pretplatnik kaže "hej" i oni odgovaraju sa tri rečenice, četiri emojija i pitanjem. To ne deluje prirodno — deluje kao bot korisničke podrške. Ili gore, prevara.</p>
+                <p className="cs-body">Instinkt novih četera je biti preterano uzbuđen. Pretplatnik kaže "hej" i oni odgovaraju sa tri rečenice, četiri emojija i pitanjem. To ne deluje prirodno - deluje kao bot korisničke podrške. Ili gore, prevara.</p>
               </div>
 
               <div className="cs-fade-in cs-note cs-note--pink">
                 <strong>Pravi primer</strong>
-                <p>Stavi se u poziciju muškarca. Pošalje DM devojci na Instagramu i kaže "zdravo". Ona odgovori: "Zdravo bebo baš sam sretna što mi pišeš baš sada! Šta radiš? 💖💕🥰🥵" — Pomislio bi da nešto ozbiljno nije u redu sa tom osobom. Ista pravila važe ovde.</p>
+                <p>Stavi se u poziciju muškarca. Pošalje DM devojci na Instagramu i kaže "zdravo". Ona odgovori: "Zdravo bebo baš sam sretna što mi pišeš baš sada! Šta radiš? 💖💕🥰🥵" - Pomislio bi da nešto ozbiljno nije u redu sa tom osobom. Ista pravila važe ovde.</p>
               </div>
 
               <div className="cs-fade-in cs-table-wrap">
@@ -476,21 +476,21 @@ export default function CetStrategija() {
                     <tr><td>Upravo sam se vratio s posla</td><td>Oh super!! Ispričaj mi sve o svom danu, hoću da znam sve o tome! 💕</td><td>dug dan? šta radiš</td></tr>
                   </tbody>
                 </table>
-                <p className="cs-table-caption">Usklađivanje energije u praksi — pretplatnici osete razliku</p>
+                <p className="cs-table-caption">Usklađivanje energije u praksi - pretplatnici osete razliku</p>
               </div>
 
               <div className="cs-fade-in">
-                <p className="cs-body">Kada nisi siguran kako da odgovoriš, podrazumevano ide kraće. Uvek možeš dodati više — ali ne možeš neoslatati pasus koji je naterao pretplatnika da se oseća kao da razgovara sa botom.</p>
+                <p className="cs-body">Kada nisi siguran kako da odgovoriš, podrazumevano ide kraće. Uvek možeš dodati više - ali ne možeš neoslatati pasus koji je naterao pretplatnika da se oseća kao da razgovara sa botom.</p>
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/cet-strategija/ch2-energy-matching.webp" alt="Usklađivanje energije — ogledalo ne nadvladan" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Ogledaj, ne nadvladavaj — usklađivanje energije je ključ prirodnog razgovora</p>
+                <Image src="/cet-strategija/ch2-energy-matching.webp" alt="Usklađivanje energije - ogledalo ne nadvladan" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Ogledaj, ne nadvladavaj - usklađivanje energije je ključ prirodnog razgovora</p>
               </div>
 
               <blockquote className="cs-fade-in cs-pull-quote">
-                "Ko je on tebi? Zašto si toliko uzbuđena što je tu? Stavi se u poziciju muškarca koji je poslao DM devojci na Instagramu i rekao zdravo — ona odgovori sa esejom punim emojija. Je li ovo normalno?"
-                <cite>— Obuka četera</cite>
+                "Ko je on tebi? Zašto si toliko uzbuđena što je tu? Stavi se u poziciju muškarca koji je poslao DM devojci na Instagramu i rekao zdravo - ona odgovori sa esejom punim emojija. Je li ovo normalno?"
+                <cite>- Obuka četera</cite>
               </blockquote>
 
               <div className="cs-fade-in">
@@ -502,11 +502,11 @@ export default function CetStrategija() {
                 <strong>Emojiji: manje je više</strong>
                 <p>Zlatno pravilo sa emojijima je jednostavno: prati nivo korišćenja pretplatnika. Ako ne koristi emojije, ne trpaj mu ih. Ako baca jedan po poruci, možeš i ti. Čim koristiš više emojija od pretplatnika, počinješ da deluješ lažno.</p>
                 <ul style={{ marginTop: 12 }}>
-                  <li>Rani razgovor: 🙈 😚 👀 — stidljivo, radoznalo, nestašno</li>
-                  <li>Kasnije u sesiji: drugačiji set — prati rastuću energiju</li>
+                  <li>Rani razgovor: 🙈 😚 👀 - stidljivo, radoznalo, nestašno</li>
+                  <li>Kasnije u sesiji: drugačiji set - prati rastuću energiju</li>
                   <li>Tastaturni emojiji deluju prirodnije: ;) :p ^^ xD</li>
                   <li>Maksimum jedan emoji po poruci u ranim fazama</li>
-                  <li>Nikad ne koristiti 🥵 💕 😍 rano — viču "prodajem ti nešto"</li>
+                  <li>Nikad ne koristiti 🥵 💕 😍 rano - viču "prodajem ti nešto"</li>
                 </ul>
               </div>
 
@@ -526,7 +526,7 @@ export default function CetStrategija() {
                     <tr><td>To zvuči stvarno zanimljivo, ispričaj mi više</td><td>omg to zvuči super reci mi više</td></tr>
                   </tbody>
                 </table>
-                <p className="cs-table-caption">Formalno vs. prirodno — pretplatnici osete razliku</p>
+                <p className="cs-table-caption">Formalno vs. prirodno - pretplatnici osete razliku</p>
               </div>
 
               <div className="cs-fade-in">
@@ -547,17 +547,17 @@ export default function CetStrategija() {
                   <em>kreatorima Velluto Nero</em>
                 </h2>
                 <p className="cs-locked-desc">
-                  10 zakona četera. Skripte. PPV strategija. Tipovi fanova. Rešavanje prigovora. Analitika. Skaliranje tima. Sistem koji radi bez tebe. Sve je u sledećih 8 poglavlja — i sve je uključeno kada se pridružiš.
+                  10 zakona četera. Skripte. PPV strategija. Tipovi fanova. Rešavanje prigovora. Analitika. Skaliranje tima. Sistem koji radi bez tebe. Sve je u sledećih 8 poglavlja - i sve je uključeno kada se pridružiš.
                 </p>
                 <ul className="cs-locked-list">
-                  <li>✓ Poglavlje 3 — 10 zakona četera (mindset koji pravi razliku)</li>
-                  <li>✓ Poglavlje 4 — Skripte i game plan: od prve reči do zatvaranja</li>
-                  <li>✓ Poglavlje 5 — PPV: kreiranje, opisivanje i prodaja sadržaja</li>
-                  <li>✓ Poglavlje 6 — Upsell, pretplatnici i izgradnja lojalnosti</li>
-                  <li>✓ Poglavlje 7 — Tipovi fanova i kako čitati svakog</li>
-                  <li>✓ Poglavlje 8 — Rešavanje svakog prigovora koji postoji</li>
-                  <li>✓ Poglavlje 9 — Analitika, CRM i optimizacija</li>
-                  <li>✓ Poglavlje 10 — Skaliranje, tim i sistem koji radi bez tebe</li>
+                  <li>✓ Poglavlje 3 - 10 zakona četera (mindset koji pravi razliku)</li>
+                  <li>✓ Poglavlje 4 - Skripte i game plan: od prve reči do zatvaranja</li>
+                  <li>✓ Poglavlje 5 - PPV: kreiranje, opisivanje i prodaja sadržaja</li>
+                  <li>✓ Poglavlje 6 - Upsell, pretplatnici i izgradnja lojalnosti</li>
+                  <li>✓ Poglavlje 7 - Tipovi fanova i kako čitati svakog</li>
+                  <li>✓ Poglavlje 8 - Rešavanje svakog prigovora koji postoji</li>
+                  <li>✓ Poglavlje 9 - Analitika, CRM i optimizacija</li>
+                  <li>✓ Poglavlje 10 - Skaliranje, tim i sistem koji radi bez tebe</li>
                 </ul>
                 <Link href="/#apply" className="btn-primary btn-large" style={{ marginTop: 32, display: 'inline-flex' }}>
                   Prijavi se za Velluto Nero <span className="btn-arrow">→</span>

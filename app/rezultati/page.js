@@ -154,7 +154,7 @@ function TestimonialStack() {
             key={c.name}
             className={`rz-nav-item${i === active ? ' rz-nav-item--active' : ''}`}
             onClick={() => setActive(i)}
-            aria-label={`Prikaži priču — ${c.name}`}
+            aria-label={`Prikaži priču - ${c.name}`}
           >
             <img src={c.img} alt={c.name} className="rz-nav-avatar" />
             <span className="rz-nav-textcol">
@@ -246,7 +246,7 @@ export default function Rezultati() {
               <div style={{ textAlign: 'center', marginBottom: 56 }}>
                 <span className="chapter-label">DUBINSKE ANALIZE</span>
                 <h2 className="rz-cases-title">Verifikovane Transformacije<br /><span style={{ color: '#a9875c' }}>Sa Pravim Brojkama.</span></h2>
-                <p className="rz-cases-sub">Pravi vremenski okviri, prave platforme, prave brojke — korak po korak kako smo ih izgradili.</p>
+                <p className="rz-cases-sub">Pravi vremenski okviri, prave platforme, prave brojke - korak po korak kako smo ih izgradili.</p>
               </div>
             </Reveal>
 
@@ -276,7 +276,7 @@ export default function Rezultati() {
                 creator: 'A.J.',
                 tag: 'Top 0.3% · 4 meseca sa Velluto Nero',
                 name: '$0 → $65.218/mes za 4 Meseca',
-                desc: 'Dve nedelje se plašila da pošalje prijavu. Izgradili smo joj kompletan growth engine od nule — brend, content flow, distribuciju i monetizaciju.',
+                desc: 'Dve nedelje se plašila da pošalje prijavu. Izgradili smo joj kompletan growth engine od nule - brend, content flow, distribuciju i monetizaciju.',
                 quote: 'Dve nedelje sam sedela na prijavi jer sam se plašila. Sada radim odakle hoću.',
                 stats: [
                   { end: 65, format: v => `$${Math.round(v)}K`, label: 'mesečno posle 4 meseca' },
@@ -285,7 +285,7 @@ export default function Rezultati() {
                 ],
                 levers: [
                   { title: 'Pozicioniranje', days: 'Dani 1–7', items: ['Izgradnja persone + ugla', 'Spajanje niše sa Reddit tražnjom', 'Konverzioni profil', '14 početnih content asseta'] },
-                  { title: 'Multi-Platform Lansiranje', days: 'Dani 7–23', items: ['Dnevni Reddit posting (3 varijacije/dan)', '3 Twitter posting klastera/dan', 'Cross-platform usmeravanje fanova', 'Bez spama — value-first lansiranje'] },
+                  { title: 'Multi-Platform Lansiranje', days: 'Dani 7–23', items: ['Dnevni Reddit posting (3 varijacije/dan)', '3 Twitter posting klastera/dan', 'Cross-platform usmeravanje fanova', 'Bez spama - value-first lansiranje'] },
                   { title: 'Čet & PPV Sistem', days: 'Dani 10–26', items: ['Brzi odgovori + E.I.P.S. poruke', 'Triggerovane PPV lestvice', 'Monetizacija ranih fanova', 'Welcome sekvenca koja konvertuje'] },
                 ],
               },
@@ -301,7 +301,7 @@ export default function Rezultati() {
                     </div>
                     <div className="rz-case-headtext">
                       <span className="rz-case-tag">{cs.tag}</span>
-                      <h3 className="rz-case-name">{cs.creator} — <em>{cs.name}</em></h3>
+                      <h3 className="rz-case-name">{cs.creator} - <em>{cs.name}</em></h3>
                     </div>
                   </div>
 

@@ -10,7 +10,7 @@ const creatorsData  = [
 ];
 const liveRevPts    = "6,144 38,134 70,137 102,121 134,108 166,111 198,85 230,62 262,32 294,6";
 
-/* phone farm — 10 devices, indices that have green dot (6 live) */
+/* phone farm - 10 devices, indices that have green dot (6 live) */
 const activeDots = new Set([0, 2, 3, 5, 7, 9]);
 
 function useFadeIn(threshold = 0.2) {
@@ -186,10 +186,10 @@ const FeatureIcons = {
 };
 
 const features = [
-  { icon: 'crm',   title: 'Sopstveni CRM',         desc: 'Svaka kreatorka, nalog, objava i razgovor — sve u jednom dashboardu koji smo sami napravili.' },
+  { icon: 'crm',   title: 'Sopstveni CRM',         desc: 'Svaka kreatorka, nalog, objava i razgovor - sve u jednom dashboardu koji smo sami napravili.' },
   { icon: 'phone', title: 'Phone farm',              desc: 'Farma uređaja koja zagreva naloge i objavljuje na svim platformama 24/7.' },
   { icon: 'app',   title: 'Aplikacija za kreatorke', desc: 'Liste za snimanje, dnevni zadaci, vodiči i upload u džepu. Uvek znaš tačno šta da snimaš.' },
-  { icon: 'chart', title: 'Analitika uživo',         desc: 'Prihod, retencija i podaci o levku u realnom vremenu — odluke na osnovu brojki, ne osećaja.' },
+  { icon: 'chart', title: 'Analitika uživo',         desc: 'Prihod, retencija i podaci o levku u realnom vremenu - odluke na osnovu brojki, ne osećaja.' },
 ];
 
 export default function Masina() {
@@ -208,7 +208,7 @@ export default function Masina() {
             Nismo Kupili Softver.<br />Sami Smo Ga Napravili.
           </h2>
           <p className="section-sub" style={{ color: 'rgba(255,255,255,0.65)' }}>
-            Većina agencija vodi tvoju stranicu s telefonom i tabelom. Mi tvoju vodimo na infrastrukturi koju smo sami napravili — pa ništa ne promakne i sve skalira.
+            Većina agencija vodi tvoju stranicu s telefonom i tabelom. Mi tvoju vodimo na infrastrukturi koju smo sami napravili - pa ništa ne promakne i sve skalira.
           </p>
         </div>
 
@@ -239,7 +239,7 @@ export default function Masina() {
         .m-glow { position: absolute; top: 0; right: 0; width: 40rem; height: 40rem; background: rgba(255,255,255,0.12); filter: blur(120px); border-radius: 50%; pointer-events: none; }
         .m-wrap { position: relative; max-width: 1060px; margin: 0 auto; padding: 0 24px; }
 
-        /* Header — centered */
+        /* Header - centered */
         .m-header { margin-bottom: 40px; text-align: center; }
         .m-header .section-title { font-size: clamp(1.8rem, 3.5vw, 2.8rem); }
         .m-header .section-sub { margin-left: auto; margin-right: auto; }
@@ -291,7 +291,7 @@ export default function Masina() {
         .m-ig-act-dot { width: 5px; height: 5px; border-radius: 50%; background: rgba(255,255,255,0.25); }
         .m-ig-likes { height: 2.5px; width: 24px; margin: 0 3px 2px; border-radius: 2px; background: rgba(255,255,255,0.2); }
         .m-ig-caption { height: 2px; width: 80%; margin: 0 3px 3px; border-radius: 2px; background: rgba(255,255,255,0.12); }
-        /* live dot — pulse ring animation */
+        /* live dot - pulse ring animation */
         .m-phone-dot {
           position: absolute; top: -4px; right: -4px;
           width: 9px; height: 9px; border-radius: 50%;

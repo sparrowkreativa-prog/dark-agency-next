@@ -30,7 +30,7 @@ export const siteData = {
   problem: {
     label: 'ZAŠTO SMO OSNOVALI VELLUTO NERO',
     title: 'Agencija Koju Vode Žene, za Žene.',
-    sub: 'Videli smo industriju kojom dominiraju agencije kojima upravljaju muškarci — koje svoje kreatorke nisu zaista razumele. Znali smo da mora postojati bolji način. Ne upravljamo samo nalozima — gradimo carstva, uz posvećen tim koji poštuje granice i štiti privatnost svakog kreatora kao preduzetnika kakav zaista jeste.',
+    sub: 'Videli smo industriju kojom dominiraju agencije kojima upravljaju muškarci - koje svoje kreatorke nisu zaista razumele. Znali smo da mora postojati bolji način. Ne upravljamo samo nalozima - gradimo carstva, uz posvećen tim koji poštuje granice i štiti privatnost svakog kreatora kao preduzetnika kakav zaista jeste.',
     stats: [
       { num: '5.000+',   label: 'Primljenih prijava' },
       { num: '0,4%',     label: 'Stopa prihvatanja' },
@@ -88,7 +88,7 @@ export const siteData = {
   masina: {
     label: 'Mašina',
     title: 'Naša Infrastruktura Radi 24/7 Za Tebe.',
-    sub: 'Dok spavaš, naš sistem aktivno upravlja tvojim nalogom — content, poruke, analitika, zaštita.',
+    sub: 'Dok spavaš, naš sistem aktivno upravlja tvojim nalogom - content, poruke, analitika, zaštita.',
     crm: {
       totalRevenue: '612.847',
       activeCreators: 61,
@@ -133,7 +133,7 @@ export const siteData = {
   roster: {
     label: 'Roster',
     title: 'Pravi Kreatori. Pravi Brojevi.',
-    sub: 'Svaki rezultat je verifikovan. Na prvom pozivu možeš odabrati bilo kog klijenta — logujemo se uživo.',
+    sub: 'Svaki rezultat je verifikovan. Na prvom pozivu možeš odabrati bilo kog klijenta - logujemo se uživo.',
     cases: [
       {
         id: 'K.R.',
@@ -181,7 +181,7 @@ export const siteData = {
   services: {
     label: 'ŠTA RADIMO',
     title: 'Full Management, u potpunosti',
-    sub: 'Naša agencija pruža All Inclusive uslugu — sav posao možeš prepustiti nama: marketing, menadžment, održavanje profila i dopisivanje sa fanovima, pa sve do finansijskih i pravnih pitanja. Na tebi je samo da kreiraš prethodno dogovoreni sadržaj, a lični menadžer ti stoji na raspolaganju 24 časa svih 7 dana u nedelji.',
+    sub: 'Naša agencija pruža All Inclusive uslugu - sav posao možeš prepustiti nama: marketing, menadžment, održavanje profila i dopisivanje sa fanovima, pa sve do finansijskih i pravnih pitanja. Na tebi je samo da kreiraš prethodno dogovoreni sadržaj, a lični menadžer ti stoji na raspolaganju 24 časa svih 7 dana u nedelji.',
     quote: '4+ godine. 140+ klijenata. Nula curenja identiteta.',
     items: [
       { num: '01', icon: 'user-circle',     title: 'Personal Brand Manager',      body: 'Privatni brend menadžer koji vodi organizaciju sadržaja i strateški rukovodi rastom tvog brenda.' },
@@ -255,8 +255,8 @@ export const siteData = {
     bigNum: '$20K',
     title: 'Tri Garancije. Složene. Bez Sitnog Slova.',
     items: [
-      { label: 'Lansiranje',  text: 'Cilj $20K+ u prvoj nedelji, ostvareno 140+ puta od nule. Ništa unapred — zaradimo samo kada i ti zaradiš.' },
-      { label: 'Podrška',    text: 'Ispod 5 minuta odgovora, 24/7. Ne cilj — mereni operativni standard.' },
+      { label: 'Lansiranje',  text: 'Cilj $20K+ u prvoj nedelji, ostvareno 140+ puta od nule. Ništa unapred - zaradimo samo kada i ti zaradiš.' },
+      { label: 'Podrška',    text: 'Ispod 5 minuta odgovora, 24/7. Ne cilj - mereni operativni standard.' },
       { label: 'Izlaz',      text: 'Odi kad hoćeš. Nula naknada, nula penala, nula pitanja. Bez ugovora, ikad.' },
     ],
     cta: { label: 'Prijavi se', href: '/#apply' },
@@ -265,7 +265,7 @@ export const siteData = {
   faq: {
     label: 'Pitanja',
     title: 'Direktni Odgovori. Bez Sitnog Slova.',
-    sub: 'Pitanja koja sebi već postavljaš — odgovorena direktno.',
+    sub: 'Pitanja koja sebi već postavljaš - odgovorena direktno.',
     items: [
       {
         q: 'Da li će neko koga znam saznati?',
@@ -277,23 +277,23 @@ export const siteData = {
       },
       {
         q: 'Kako znam da ovo nije prevara?',
-        a: 'Na prvom pozivu ti odabiraš bilo kog klijenta iz naše liste. Logujemo se u živi dashboard dok gledaš — pravi prihodi, u realnom vremenu. Ne PDF. Ne screenshot. Ne naplaćujemo ništa unapred i zaradimo samo kada i ti zaradiš.',
+        a: 'Na prvom pozivu ti odabiraš bilo kog klijenta iz naše liste. Logujemo se u živi dashboard dok gledaš - pravi prihodi, u realnom vremenu. Ne PDF. Ne screenshot. Ne naplaćujemo ništa unapred i zaradimo samo kada i ti zaradiš.',
       },
       {
         q: 'Nemam pratioce niti iskustvo. Mogu li da uspem?',
-        a: 'Nula je naša idealna startna pozicija — nema loših navika za odučavanje. Gradimo tvoj brend, strategiju i publiku od nule. Sve što trebaš je ~20 sati nedeljno i volja da slediš sistem koji je radio 140+ puta.',
+        a: 'Nula je naša idealna startna pozicija - nema loših navika za odučavanje. Gradimo tvoj brend, strategiju i publiku od nule. Sve što trebaš je ~20 sati nedeljno i volja da slediš sistem koji je radio 140+ puta.',
       },
       {
         q: 'Da li moram da pokazujem lice?',
-        a: 'Ne. Neki od naših najuspešnijih klijenata nikad nisu pokazali lice. Izgradili smo potpuno anonimne persone. Tvoj nivo udobnosti postavlja granicu — mi projektujemo sve unutar nje.',
+        a: 'Ne. Neki od naših najuspešnijih klijenata nikad nisu pokazali lice. Izgradili smo potpuno anonimne persone. Tvoj nivo udobnosti postavlja granicu - mi projektujemo sve unutar nje.',
       },
       {
         q: 'Koliko uzimate?',
-        a: 'Ništa unapred. Radimo na podeli prihoda — zaradimo samo kada i ti zaradiš. Tvoj posvećeni tim, strategija i kompletne operacije su uključeni.',
+        a: 'Ništa unapred. Radimo na podeli prihoda - zaradimo samo kada i ti zaradiš. Tvoj posvećeni tim, strategija i kompletne operacije su uključeni.',
       },
       {
         q: 'Koliko traje ugovor?',
-        a: 'Nema zaključavanja i nema minimalnog roka. Ako hoćeš da odeš u bilo kom trenutku, odeš — nula naknada, nula penala, nula pitanja.',
+        a: 'Nema zaključavanja i nema minimalnog roka. Ako hoćeš da odeš u bilo kom trenutku, odeš - nula naknada, nula penala, nula pitanja.',
       },
       {
         q: 'Kako izgleda onboarding?',
@@ -310,7 +310,7 @@ export const siteData = {
       items: [
         'Još jedna godina kada si razmišljao/la a nisi počeo/la.',
         'Gledaš druge u tvojoj branši kako zarađuju šestocifrene iznose.',
-        'Govoriš sebi da ćeš početi sledećeg meseca — opet.',
+        'Govoriš sebi da ćeš početi sledećeg meseca - opet.',
       ],
     },
     col2: {
@@ -318,7 +318,7 @@ export const siteData = {
       items: [
         'Produkcijski tim je lansirao tvoj nalog u prvoj nedelji.',
         'Arhitektura privatnosti te štiti od prvog dana.',
-        'Isti sistem koji je izgradio svaki broj na ovoj strani — sada gradi tvoj.',
+        'Isti sistem koji je izgradio svaki broj na ovoj strani - sada gradi tvoj.',
       ],
     },
     line: 'Isti dvanaest meseci u svakom slučaju. Jedina promenljiva je da li tim stoji iza tebe.',

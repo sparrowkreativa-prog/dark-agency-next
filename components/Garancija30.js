@@ -29,7 +29,7 @@ export default function Garancija30() {
   return (
     <section className="g30-section" ref={ref}>
       <div className="g30-inner">
-        {/* Left — text */}
+        {/* Left - text */}
         <div
           className="g30-left"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity 0.8s ease, transform 0.8s ease' }}
@@ -42,7 +42,7 @@ export default function Garancija30() {
           </p>
         </div>
 
-        {/* Right — liquid glass box, 8 cells */}
+        {/* Right - liquid glass box, 8 cells */}
         <div
           className="g30-right"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s' }}
@@ -102,7 +102,7 @@ export default function Garancija30() {
         }
         .g30-text strong { color: #a9875c; font-weight: 700; }
 
-        /* Liquid glass box — 8 cells */
+        /* Liquid glass box - 8 cells */
         .g30-box {
           background: rgba(255,255,255,0.05);
           backdrop-filter: blur(28px) saturate(1.6);

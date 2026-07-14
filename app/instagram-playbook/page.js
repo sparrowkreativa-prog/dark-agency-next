@@ -4,7 +4,7 @@ import FadeInObserver from '@/components/FadeInObserver';
 
 export const metadata = {
   title: 'Instagram Vodič za Rast | Velluto Nero',
-  description: 'Sistem koji koristimo da kreatore vodimo od nule do 100k+ pratilaca — istraživanje, lansiranje, rast, skaliranje na više naloga.',
+  description: 'Sistem koji koristimo da kreatore vodimo od nule do 100k+ pratilaca - istraživanje, lansiranje, rast, skaliranje na više naloga.',
 };
 
 export default function InstagramPlaybook() {
@@ -60,13 +60,13 @@ export default function InstagramPlaybook() {
                 <em>od nule do 100k+ pratilaca</em>
               </h1>
               <p className="cs-lead">
-                12 poglavlja. četiri dela. tačan sistem iza kreatora koji idu od nule do 100k+ pratilaca — istraživanje, lansiranje, rast, skaliranje na više naloga, sve. delimo ga jer, iskreno, većina vodiča vani kaže "objavljuj konzistentno" i zove to strategijom.
+                12 poglavlja. četiri dela. tačan sistem iza kreatora koji idu od nule do 100k+ pratilaca - istraživanje, lansiranje, rast, skaliranje na više naloga, sve. delimo ga jer, iskreno, većina vodiča vani kaže "objavljuj konzistentno" i zove to strategijom.
               </p>
               <div className="cs-meta-pills">
                 <span>12 poglavlja</span>
                 <span>~3 sata čitanja</span>
                 <span>početnici dobrodošli</span>
-                <span>besplatno — bez skrivenih uslova</span>
+                <span>besplatno - bez skrivenih uslova</span>
               </div>
             </div>
 
@@ -89,7 +89,7 @@ export default function InstagramPlaybook() {
                   <li>Kreatori koji žele da porastu na Instagramu ali ne znaju odakle da počnu</li>
                   <li>Kreatori koji objavljuju konzistentno ali ne vide rezultate</li>
                   <li>Kreatori spremni da skaliraju dalje od jednog naloga</li>
-                  <li>Svi koji žele proveren, ponovljiv sistem — ne nagađanje</li>
+                  <li>Svi koji žele proveren, ponovljiv sistem - ne nagađanje</li>
                 </ul>
               </div>
             </div>
@@ -122,8 +122,8 @@ export default function InstagramPlaybook() {
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/instagram-playbook/ch1-targeted-vs-generic.webp" alt="Ciljano vs generičko — ciljano uvek pobedi" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Ciljano pobedi generičko — svaki put</p>
+                <Image src="/instagram-playbook/ch1-targeted-vs-generic.webp" alt="Ciljano vs generičko - ciljano uvek pobedi" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Ciljano pobedi generičko - svaki put</p>
               </div>
 
               <div className="cs-fade-in">
@@ -170,7 +170,7 @@ export default function InstagramPlaybook() {
                     <strong>Replikabilnost</strong>
                     <p>Možeš li praviti sadržaj u ovoj niši svaki dan? Ne jednom nedeljno. Ne kad ti se prohte. Svaki dan.<br /><br />
                     Boks je odličan primer. Imaš klipove sa treninga. Sparinge. Rad na lopti. Probe outfita. Rutine oporavka. Kulise sa teretane. Mogla bi snimiti 3 komada sadržaja svaki dan bez puno napora.<br /><br />
-                    Replikabilnost je najmanji kritični od tri pravila — ali niše kao jahanje konja, skijanje ili surfovanje zahtevaju specifične lokacije ili uslove. Teško je za dnevno objavljivanje — ali ako zaista živiš tim stilom života, zarađivački potencijal je ogroman.</p>
+                    Replikabilnost je najmanji kritični od tri pravila - ali niše kao jahanje konja, skijanje ili surfovanje zahtevaju specifične lokacije ili uslove. Teško je za dnevno objavljivanje - ali ako zaista živiš tim stilom života, zarađivački potencijal je ogroman.</p>
                   </div>
                 </li>
               </ol>
@@ -191,19 +191,19 @@ export default function InstagramPlaybook() {
                     <tr><th>Niša</th><th>Procenjeni TAM</th><th>Verdikt</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td>"Sportska devojka"</td><td>~80M</td><td>Previše široko — nevidljiva</td></tr>
-                    <tr><td>"Boks devojka"</td><td>~4M</td><td>⭐ Slatka tačka — osvoji je</td></tr>
-                    <tr><td>"Levo-ruka southpaw boks ASMR"</td><td>~50K</td><td>Previše usko — nema publike</td></tr>
-                    <tr><td>"Goth fitness devojka"</td><td>~3M</td><td>Dobro — specifično i dostupno</td></tr>
-                    <tr><td>"Devojka koja vežba"</td><td>~60M</td><td>Previše široko — nema identiteta</td></tr>
+                    <tr><td>"Sportska devojka"</td><td>~80M</td><td>Previše široko - nevidljiva</td></tr>
+                    <tr><td>"Boks devojka"</td><td>~4M</td><td>⭐ Slatka tačka - osvoji je</td></tr>
+                    <tr><td>"Levo-ruka southpaw boks ASMR"</td><td>~50K</td><td>Previše usko - nema publike</td></tr>
+                    <tr><td>"Goth fitness devojka"</td><td>~3M</td><td>Dobro - specifično i dostupno</td></tr>
+                    <tr><td>"Devojka koja vežba"</td><td>~60M</td><td>Previše široko - nema identiteta</td></tr>
                   </tbody>
                 </table>
-                <p className="cs-table-caption">Primeri TAM-a — ciljaj oko 3 miliona na Instagramu</p>
+                <p className="cs-table-caption">Primeri TAM-a - ciljaj oko 3 miliona na Instagramu</p>
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
                 <Image src="/instagram-playbook/ch1-niche-spectrum.webp" alt="Spektar niše od preuskog do preširokog" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Pronađi slatku tačku — ni preusko, ni preširoko</p>
+                <p className="cs-img-caption">Pronađi slatku tačku - ni preusko, ni preširoko</p>
               </div>
 
               <div className="cs-fade-in">
@@ -237,7 +237,7 @@ export default function InstagramPlaybook() {
 
               <div className="cs-fade-in cs-img-wrap">
                 <Image src="/instagram-playbook/ch1-niche-expansion.webp" alt="Koncentrični krugovi proširenja niše" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Počni malo, pa se širi prema van — od pod-niše do šire kategorije</p>
+                <p className="cs-img-caption">Počni malo, pa se širi prema van - od pod-niše do šire kategorije</p>
               </div>
 
               <div className="cs-fade-in cs-note cs-note--pink">
@@ -252,27 +252,27 @@ export default function InstagramPlaybook() {
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/instagram-playbook/ch1-3word-test.webp" alt="Test od 3 reči — prolaz ili pad" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Test od 3 reči — prolaz ili pad</p>
+                <Image src="/instagram-playbook/ch1-3word-test.webp" alt="Test od 3 reči - prolaz ili pad" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Test od 3 reči - prolaz ili pad</p>
               </div>
 
               <div className="cs-fade-in cs-compare-grid">
                 <div className="cs-compare-col cs-compare-col--good">
                   <h4>✓ Prolaz</h4>
                   <ul>
-                    <li>"Boks devojka" — jasna slika, lako pamtljivo</li>
-                    <li>"Goth fitness devojka" — jedinstveno, upečatljivo</li>
-                    <li>"Weather devojka" — ikonično, svi znaju ko misliš</li>
-                    <li>"Devojka koja tuče Lamboe" — odmah prepoznatljivo</li>
+                    <li>"Boks devojka" - jasna slika, lako pamtljivo</li>
+                    <li>"Goth fitness devojka" - jedinstveno, upečatljivo</li>
+                    <li>"Weather devojka" - ikonično, svi znaju ko misliš</li>
+                    <li>"Devojka koja tuče Lamboe" - odmah prepoznatljivo</li>
                   </ul>
                 </div>
                 <div className="cs-compare-col cs-compare-col--bad">
                   <h4>✗ Pad</h4>
                   <ul>
-                    <li>"Devojka koja objavljuje stvari" — to su svi</li>
-                    <li>"Lepa devojka" — polovina Instagrama</li>
-                    <li>"Sportska devojka" — koji sport? koji vibe?</li>
-                    <li>"Ugodna devojka" — ne govori ništa konkretno</li>
+                    <li>"Devojka koja objavljuje stvari" - to su svi</li>
+                    <li>"Lepa devojka" - polovina Instagrama</li>
+                    <li>"Sportska devojka" - koji sport? koji vibe?</li>
+                    <li>"Ugodna devojka" - ne govori ništa konkretno</li>
                   </ul>
                 </div>
               </div>
@@ -283,7 +283,7 @@ export default function InstagramPlaybook() {
               </div>
 
               <div className="cs-fade-in cs-takeaways">
-                <h3 className="cs-box-heading">Ključne poruke — Poglavlje 1</h3>
+                <h3 className="cs-box-heading">Ključne poruke - Poglavlje 1</h3>
                 <ul className="cs-check-list">
                   <li>50K ciljanih pratilaca pobedi 500K nasumičnih svaki put</li>
                   <li>Svaka niša mora proći 3 testa: Autentičnost, TAM (~3M) i Replikabilnost</li>
@@ -340,17 +340,17 @@ export default function InstagramPlaybook() {
                 <div className="cs-compare-col cs-compare-col--good">
                   <h4>✓ Brend koji prolazi</h4>
                   <ul>
-                    <li>"Weather devojka" — svi znaju ko je to</li>
-                    <li>"Devojka koja tuče Lamboe" — odmah prepoznatljivo</li>
-                    <li>"Goth odbojkašica" — jasna slika u glavi</li>
+                    <li>"Weather devojka" - svi znaju ko je to</li>
+                    <li>"Devojka koja tuče Lamboe" - odmah prepoznatljivo</li>
+                    <li>"Goth odbojkašica" - jasna slika u glavi</li>
                   </ul>
                 </div>
                 <div className="cs-compare-col cs-compare-col--bad">
                   <h4>✗ Brend koji pada</h4>
                   <ul>
-                    <li>"Lepa devojka" — može biti iko</li>
-                    <li>"Devojka koja objavljuje" — to je doslovno svako</li>
-                    <li>"Prijatna devojka" — ne govori ništa</li>
+                    <li>"Lepa devojka" - može biti iko</li>
+                    <li>"Devojka koja objavljuje" - to je doslovno svako</li>
+                    <li>"Prijatna devojka" - ne govori ništa</li>
                   </ul>
                 </div>
               </div>
@@ -373,8 +373,8 @@ export default function InstagramPlaybook() {
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/instagram-playbook/ch2-iceberg.webp" alt="Ledeni brig — ono što vide vs ono što ih tera da plaćaju" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Ledeni brig — ono što vide (izgled) vs ono što ih tera da plaćaju (ličnost)</p>
+                <Image src="/instagram-playbook/ch2-iceberg.webp" alt="Ledeni brig - ono što vide vs ono što ih tera da plaćaju" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Ledeni brig - ono što vide (izgled) vs ono što ih tera da plaćaju (ličnost)</p>
               </div>
 
               <div className="cs-fade-in">
@@ -394,8 +394,8 @@ export default function InstagramPlaybook() {
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/instagram-playbook/ch2-revenue-plateau.webp" alt="Dijagram platoa prihoda — svi simptomi imaju isti uzrok" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Svaki simptom ima isti uzrok — slab brend</p>
+                <Image src="/instagram-playbook/ch2-revenue-plateau.webp" alt="Dijagram platoa prihoda - svi simptomi imaju isti uzrok" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Svaki simptom ima isti uzrok - slab brend</p>
               </div>
 
               <div className="cs-fade-in cs-priority-list">
@@ -461,8 +461,8 @@ export default function InstagramPlaybook() {
               </div>
 
               <div className="cs-fade-in cs-img-wrap">
-                <Image src="/instagram-playbook/ch2-parasocial.webp" alt="Parasocijalni odnosi — najveći pokretač prihoda" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
-                <p className="cs-img-caption">Parasocijalni odnosi — zašto su kreatori koji dele lični život dramatično profitabilniji</p>
+                <Image src="/instagram-playbook/ch2-parasocial.webp" alt="Parasocijalni odnosi - najveći pokretač prihoda" width={760} height={420} sizes="(max-width: 768px) calc(100vw - 48px), 760px" style={{ width: '100%', height: 'auto' }} />
+                <p className="cs-img-caption">Parasocijalni odnosi - zašto su kreatori koji dele lični život dramatično profitabilniji</p>
               </div>
 
               <div className="cs-fade-in cs-stat-block">
@@ -475,13 +475,13 @@ export default function InstagramPlaybook() {
               </div>
 
               <div className="cs-fade-in cs-takeaways">
-                <h3 className="cs-box-heading">Ključne poruke — Poglavlje 2</h3>
+                <h3 className="cs-box-heading">Ključne poruke - Poglavlje 2</h3>
                 <ul className="cs-check-list">
-                  <li>Brend je osećaj koji ljudi dobijaju kada vide tvoj sadržaj — pre nego što vide tvoje ime</li>
+                  <li>Brend je osećaj koji ljudi dobijaju kada vide tvoj sadržaj - pre nego što vide tvoje ime</li>
                   <li>Šestica sa ličnošću uvek zarađuje više od desetice bez nje</li>
                   <li>Izgled zaustavlja skrolovanje. Ličnost otvara novčanik</li>
                   <li>Plato prihoda je gotovo uvek problem brenda, ne sadržaja</li>
-                  <li>Gradi brend pre nego što skaliraš — ne posle</li>
+                  <li>Gradi brend pre nego što skaliraš - ne posle</li>
                   <li>Parasocijalni odnosi su jedini najveći pokretač životne vrednosti pretplatnika</li>
                 </ul>
               </div>
@@ -502,16 +502,16 @@ export default function InstagramPlaybook() {
                   Postavljanje naloga. Strategija sadržaja. Plan rasta od 0 do 10k. Skaliranje na više naloga. Analitika i KPI-jevi. Sve je u sledećih 10 poglavlja.
                 </p>
                 <ul className="cs-locked-list">
-                  <li>✓ Poglavlje 3 — Postavljanje naloga i optimizacija profila</li>
-                  <li>✓ Poglavlje 4 — Kreiranje sadržaja i batching sistem</li>
-                  <li>✓ Poglavlje 5 — Strategija hashtagova i otkrivanja</li>
-                  <li>✓ Poglavlje 6 — Plan rasta: od 0 do 1k pratilaca</li>
-                  <li>✓ Poglavlje 7 — Od 1k do 10k: fazni plan skaliranja</li>
-                  <li>✓ Poglavlje 8 — Rast sa više naloga i cross-platform</li>
-                  <li>✓ Poglavlje 9 — Saradnje, reposti i virusni rast</li>
-                  <li>✓ Poglavlje 10 — Konverzija pratilaca u pretplatnike</li>
-                  <li>✓ Poglavlje 11 — KPI-jevi, analitika i dijagnostika</li>
-                  <li>✓ Poglavlje 12 — Sistem koji radi bez tebe</li>
+                  <li>✓ Poglavlje 3 - Postavljanje naloga i optimizacija profila</li>
+                  <li>✓ Poglavlje 4 - Kreiranje sadržaja i batching sistem</li>
+                  <li>✓ Poglavlje 5 - Strategija hashtagova i otkrivanja</li>
+                  <li>✓ Poglavlje 6 - Plan rasta: od 0 do 1k pratilaca</li>
+                  <li>✓ Poglavlje 7 - Od 1k do 10k: fazni plan skaliranja</li>
+                  <li>✓ Poglavlje 8 - Rast sa više naloga i cross-platform</li>
+                  <li>✓ Poglavlje 9 - Saradnje, reposti i virusni rast</li>
+                  <li>✓ Poglavlje 10 - Konverzija pratilaca u pretplatnike</li>
+                  <li>✓ Poglavlje 11 - KPI-jevi, analitika i dijagnostika</li>
+                  <li>✓ Poglavlje 12 - Sistem koji radi bez tebe</li>
                 </ul>
                 <Link href="/#apply" className="btn-primary btn-large" style={{ marginTop: 32, display: 'inline-flex' }}>
                   Prijavi se za Velluto Nero <span className="btn-arrow">→</span>

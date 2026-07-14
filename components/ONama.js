@@ -40,13 +40,13 @@ export default function ONama() {
           <source src="/video3.mp4" type="video/mp4" />
         </video>
         <p className="on-text">
-          Naša agencija je porodični biznis, a jedan od osnivača je žena — agencija sa 8-cifrenim godišnjim prihodom kreatora, 5+ godina iskustva i poslovanjem u 12 zemalja. Imamo sopstveni CRM sistem i tim od 230+ zaposlenih.
+          Naša agencija je porodični biznis, a jedan od osnivača je žena - agencija sa 8-cifrenim godišnjim prihodom kreatora, 5+ godina iskustva i poslovanjem u 12 zemalja. Imamo sopstveni CRM sistem i tim od 230+ zaposlenih.
         </p>
         <p className="on-text">
           Jedina smo agencija u regionu sa sedištima u Milanu i Njujorku, dok naš srpski tim deluje iz kancelarije u Beogradu. Ova kombinacija nam omogućava da spojimo regionalnu blizinu sa direktnim pristupom najzahtevnijim svetskim tržištima.
         </p>
         <p className="on-text">
-          Sa nama, klijenti ne dobijaju samo agenciju — dobijaju pouzdanog partnera vođenog ličnim pristupom i globalnim iskustvom.
+          Sa nama, klijenti ne dobijaju samo agenciju - dobijaju pouzdanog partnera vođenog ličnim pristupom i globalnim iskustvom.
         </p>
         <img src="/porodica-2.jpeg" alt="" className="on-family-img" />
       </div>

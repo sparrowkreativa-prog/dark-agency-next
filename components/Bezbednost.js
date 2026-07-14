@@ -2,9 +2,9 @@
 import { useEffect, useRef, useState } from 'react';
 
 const PARAGRAPHS = [
-  'Sistem je osmišljen tako da je identitet modela maksimalno zaštićen i obezbeđen na Balkanu — niko ne mora da zna da snimaš content, ukoliko sama ne poželiš drugačije. Privatni nalozi na društvenim mrežama se ne diraju, niti im agencija ima pristup.',
-  'Geolokacije i pristup se blokiraju za države u kojima ne želiš da se content pojavi — uključujući potpuno onemogućen pristup iz Srbije, jer radimo isključivo tržište Amerike i Italije.',
-  'Kao dodatna sigurnost, devojke imaju mogućnost da potpuno promene svoj look uz profesionalne perike, sočiva i privremene minimalističke tetovaže — isključivo za dan snimanja.',
+  'Sistem je osmišljen tako da je identitet modela maksimalno zaštićen i obezbeđen na Balkanu - niko ne mora da zna da snimaš content, ukoliko sama ne poželiš drugačije. Privatni nalozi na društvenim mrežama se ne diraju, niti im agencija ima pristup.',
+  'Geolokacije i pristup se blokiraju za države u kojima ne želiš da se content pojavi - uključujući potpuno onemogućen pristup iz Srbije, jer radimo isključivo tržište Amerike i Italije.',
+  'Kao dodatna sigurnost, devojke imaju mogućnost da potpuno promene svoj look uz profesionalne perike, sočiva i privremene minimalističke tetovaže - isključivo za dan snimanja.',
 ];
 
 const STATS = [
@@ -51,7 +51,7 @@ export default function Bezbednost() {
 
       <div className="bz-inner">
 
-        {/* Left — text */}
+        {/* Left - text */}
         <div className="bz-left"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateX(-28px)', transition: 'opacity 0.9s ease 0.1s, transform 0.9s ease 0.1s' }}>
           <h2 className="bz-title">Tvoj Identitet.<br /><span style={{ color: '#a9875c' }}>Tvoja Pravila.</span></h2>
@@ -70,7 +70,7 @@ export default function Bezbednost() {
           </div>
         </div>
 
-        {/* Right — stats + decorative panel */}
+        {/* Right - stats + decorative panel */}
         <div className="bz-right"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateX(28px)', transition: 'opacity 0.9s ease 0.25s, transform 0.9s ease 0.25s' }}>
 

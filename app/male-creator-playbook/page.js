@@ -98,7 +98,7 @@ export default function MaleCreatorPlaybook() {
           <div className="pb-insight">
             <div className="pb-insight-num">2–3×</div>
             <div className="pb-insight-text">
-              <strong>Muška publika troši 2–3× više na PPV</strong> u poređenju sa ženskim kreatorskim publikama. Matematika je jednostavna — manje kreatora koji se takmiče za publiku koja je voljna da troši znači veće prihode po pretplatniku.
+              <strong>Muška publika troši 2–3× više na PPV</strong> u poređenju sa ženskim kreatorskim publikama. Matematika je jednostavna - manje kreatora koji se takmiče za publiku koja je voljna da troši znači veće prihode po pretplatniku.
             </div>
           </div>
 

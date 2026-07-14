@@ -9,7 +9,7 @@ const platforms = ['OnlyFans', 'TikTok', 'X / Twitter', 'Reddit', 'OFTV', 'YouTu
 const features = [
   { icon: <><circle cx="11" cy="11" r="7" /><path d="m21 21-4.35-4.35" /></>, title: 'Analiza platformi', desc: 'Proveravamo svaku platformu na kojoj si i identifikujemo one koje propuštaš.' },
   { icon: <><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="5" /><circle cx="12" cy="12" r="1.2" fill="#a9875c" /></>, title: 'Fokus na glavnu platformu', desc: 'Kažemo ti tačno koju platformu da prioritizuješ i zašto.' },
-  { icon: <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />, title: 'Brze popravke', desc: 'Pokvareni linkovi, praznine u levku, problemi sa bio-om — hvatamo ono što ti nedostaje.' },
+  { icon: <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />, title: 'Brze popravke', desc: 'Pokvareni linkovi, praznine u levku, problemi sa bio-om - hvatamo ono što ti nedostaje.' },
   { icon: <path d="M16 7h6v6M22 7l-8.5 8.5-5-5L2 17" />, title: 'Strategija sadržaja', desc: 'Koji tipovi sadržaja da fokusiraš i koliko često da objavljuješ.' },
 ];
 
@@ -74,14 +74,14 @@ export default function GrowthAudit() {
                 Dobij svoju<br /><em>besplatnu analizu rasta</em>
               </h1>
               <p className="cs-lead">
-                Ostavi svoje profile i poslaćemo ti personalizovani pregled — koje platforme da fokusiraš, šta radiš dobro, šta je pokvareno i tačno kako to popraviti.
+                Ostavi svoje profile i poslaćemo ti personalizovani pregled - koje platforme da fokusiraš, šta radiš dobro, šta je pokvareno i tačno kako to popraviti.
               </p>
             </div>
 
             {/* What you'll get */}
             <div className="cs-fade-in ga-features-intro">
               <p className="ga-features-label">Šta ćeš dobiti</p>
-              <p className="ga-features-sub">Pravi pregled od pravih ljudi — ne automatizovani izveštaj. Gledamo tvoje naloge i kažemo ti tačno šta da radiš.</p>
+              <p className="ga-features-sub">Pravi pregled od pravih ljudi - ne automatizovani izveštaj. Gledamo tvoje naloge i kažemo ti tačno šta da radiš.</p>
             </div>
 
             <div className="ga-features-grid">
@@ -193,7 +193,7 @@ export default function GrowthAudit() {
             <div className="cs-fade-in ga-agency-section">
               <div className="ga-agency-inner">
                 <h2 className="ga-agency-title">Hoćeš da mi upravljamo svime?</h2>
-                <p className="ga-agency-desc">Ako hoćeš tim koji vodi tvoj Instagram, OnlyFans, čet i promociju — to takođe radimo. Bez troškova unapred · Bez dugih ugovora · Puna kontrola naloga</p>
+                <p className="ga-agency-desc">Ako hoćeš tim koji vodi tvoj Instagram, OnlyFans, čet i promociju - to takođe radimo. Bez troškova unapred · Bez dugih ugovora · Puna kontrola naloga</p>
                 <div className="ga-stats">
                   <div className="ga-stat">
                     <span className="ga-stat-num">140+</span>

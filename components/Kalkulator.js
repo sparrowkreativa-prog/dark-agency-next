@@ -251,7 +251,7 @@ export default function Kalkulator({ light = false }) {
         .kalk-em { font-style: italic; color: #a9875c; }
         .kalk-sub { font-size: 15px; color: rgba(255,255,255,0.4); margin: 0; }
 
-        /* Dashboard shell — liquid glass */
+        /* Dashboard shell - liquid glass */
         .kalk-dashboard {
           background: rgba(255,255,255,0.06);
           backdrop-filter: blur(28px) saturate(1.6);
@@ -393,7 +393,7 @@ export default function Kalkulator({ light = false }) {
           .kalk-tab-body { padding: 20px 16px 20px; }
         }
         ${light ? `
-        /* Light varijanta — bela pozadina sekcije, dashboard ostaje taman */
+        /* Light varijanta - bela pozadina sekcije, dashboard ostaje taman */
         .kalk-section { background: #fff; }
         .kalk-title { color: #1a1a1a; }
         .kalk-em-plain { color: rgba(26,26,26,0.75); }

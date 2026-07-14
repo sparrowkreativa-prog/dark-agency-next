@@ -39,7 +39,7 @@ function parseStat(raw) {
       format: (n) => '$' + Math.round(n) + 'M+',
     };
   }
-  // fallback — no animation
+  // fallback - no animation
   return { end: null, format: () => raw };
 }
 

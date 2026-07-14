@@ -107,7 +107,7 @@ export default function SplitHero() {
           </h2>
 
           <p className="sh-body">
-            Bez eksperimenata. Bez nagađanja. Bez nestajanja. Svaki dan vodimo naloge u 0,01% — na sopstvenom CRM-u, sopstvenoj phone farm i s chat timom koji igra na duge staze. Ti daješ sadržaj, mi mašinu.
+            Bez eksperimenata. Bez nagađanja. Bez nestajanja. Svaki dan vodimo naloge u 0,01% - na sopstvenom CRM-u, sopstvenoj phone farm i s chat timom koji igra na duge staze. Ti daješ sadržaj, mi mašinu.
           </p>
 
           <div className="sh-ctas">
@@ -129,7 +129,7 @@ export default function SplitHero() {
           </div>
         </div>
 
-        {/* Right column — photo + floating cards */}
+        {/* Right column - photo + floating cards */}
         <div className="sh-right" ref={imgRef}>
           {/* Glow blob */}
           <div className="sh-glow" />
@@ -143,10 +143,10 @@ export default function SplitHero() {
             />
           </div>
 
-          {/* CRM card — bottom left */}
+          {/* CRM card - bottom left */}
           <CrmCard animate={animate} />
 
-          {/* Top 0.2% badge — top right */}
+          {/* Top 0.2% badge - top right */}
           <div className="sh-badge-top"
             style={{
               opacity: animate ? 1 : 0,
@@ -162,7 +162,7 @@ export default function SplitHero() {
             </div>
           </div>
 
-          {/* 8.2× pill — middle right */}
+          {/* 8.2× pill - middle right */}
           <div className="sh-trend-pill"
             style={{
               opacity: animate ? 1 : 0,

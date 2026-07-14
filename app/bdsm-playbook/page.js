@@ -43,7 +43,7 @@ export default function BdsmPlaybook() {
             Vodič za BDSM kreatore<br />
             <span style={{ color: '#a9875c' }}>koji zarađuju 2× više po fanu.</span>
           </h1>
-          <p className="pb-sub">Kompletan sistem za izgradnju profitabilnog BDSM brenda — od pozicioniranja niše i inverzije čatovanja do psihologije pretplatnika, dinamike sesije i strategije cena koja je jednoj stranici udvostručila prihode za jedan mesec.</p>
+          <p className="pb-sub">Kompletan sistem za izgradnju profitabilnog BDSM brenda - od pozicioniranja niše i inverzije čatovanja do psihologije pretplatnika, dinamike sesije i strategije cena koja je jednoj stranici udvostručila prihode za jedan mesec.</p>
 
           <div className="pb-stats">
             {[
@@ -98,7 +98,7 @@ export default function BdsmPlaybook() {
           <div className="pb-insight">
             <div className="pb-insight-num">$10K→$25K</div>
             <div className="pb-insight-text">
-              <strong>Za jedan mesec, bez ekstra saobraćaja.</strong> Preokret cena i ispravna dinamika sesije su sve što je bilo potrebno. Isti fanovi, isti sadržaj — samo ispravna strategija.
+              <strong>Za jedan mesec, bez ekstra saobraćaja.</strong> Preokret cena i ispravna dinamika sesije su sve što je bilo potrebno. Isti fanovi, isti sadržaj - samo ispravna strategija.
             </div>
           </div>
 

@@ -15,7 +15,7 @@ const tools = [
   {
     tag: 'Najbolje za IG kreatore sa 5–20k pratilaca',
     title: 'Instagram vodič za rast',
-    desc: 'Kako smo povećali Mijin IG sa 12k na 220k pratilaca — tačan vodič korak po korak.',
+    desc: 'Kako smo povećali Mijin IG sa 12k na 220k pratilaca - tačan vodič korak po korak.',
     cta: 'Čitaj vodič',
     href: '/instagram-playbook',
     img: '/free-tools/instagram-playbook.jpg',
@@ -24,7 +24,7 @@ const tools = [
   {
     tag: 'Najbolje za kreatore koji sami vode čet',
     title: 'Čet Strategija',
-    desc: 'Kako pretvaramo neobavezne pretplatnike u kupce koji se vraćaju — tačne skripte, upsell taktike i retencija koje naš tim koristi svaki dan.',
+    desc: 'Kako pretvaramo neobavezne pretplatnike u kupce koji se vraćaju - tačne skripte, upsell taktike i retencija koje naš tim koristi svaki dan.',
     cta: 'Preuzmi skripte',
     href: '/cet-strategija',
     img: '/free-tools/chatting-strategy.jpg',
@@ -108,7 +108,7 @@ export default function FreeTools() {
         >
           <p className="ft-eyebrow">Još nisi spremna? Odnesi ovo sa sobom.</p>
           <h2 className="ft-heading">Uzmi naše prave vodič materijale.</h2>
-          <p className="ft-sub">Bez email zahteva. Bez upsella. Samo pravi sistemi koje koristimo — besplatno za kreatore koji žele sami.</p>
+          <p className="ft-sub">Bez email zahteva. Bez upsella. Samo pravi sistemi koje koristimo - besplatno za kreatore koji žele sami.</p>
         </div>
 
         <div className="ft-grid">

@@ -3,9 +3,9 @@ import Link from 'next/link';
 import SiteFooter from '@/components/SiteFooter';
 
 const CHAPTERS = [
-  { num: '01', title: 'Zašto je Reddit Najpotcenjeniji Izvor Saobraćaja', desc: '~12 min · $80 LTV po fanu — i većina kreatora to radi potpuno pogrešno.' },
-  { num: '02', title: 'SFW Prednost — Zašto Nikada Ne Postujemo Golišave Slike', desc: '~14 min · NSFW postovi se skrivaju. SFW postovi dosežu milione. Matematika je jasna.' },
-  { num: '03', title: 'Odabir Subreddita — Najteži Deo', desc: '~15 min · Pronalaženje pravih subreddita je 80% posla. Evo kako to radimo.' },
+  { num: '01', title: 'Zašto je Reddit Najpotcenjeniji Izvor Saobraćaja', desc: '~12 min · $80 LTV po fanu - i većina kreatora to radi potpuno pogrešno.' },
+  { num: '02', title: 'SFW Prednost - Zašto Nikada Ne Postujemo Golišave Slike', desc: '~14 min · NSFW postovi se skrivaju. SFW postovi dosežu milione. Matematika je jasna.' },
+  { num: '03', title: 'Odabir Subreddita - Najteži Deo', desc: '~15 min · Pronalaženje pravih subreddita je 80% posla. Evo kako to radimo.' },
   { num: '04', title: 'Podešavanje Naloga i Bezbednost', desc: '~10 min · Anti-detect browseri, proksiji i protokol zagrevanja od 7 dana.' },
   { num: '05', title: 'Dnevni Radni Tok Objavljivanja', desc: '~12 min · Tačan redosled koji generiše 100+ pretplatnika dnevno.' },
   { num: '06', title: 'AI Sadržaj za $0.15 po Slici', desc: '~8 min · Kreiranje jedinstvenih varijacija sadržaja skoro besplatno.' },
@@ -51,7 +51,7 @@ export default function RedditPlaybook() {
             SFW strategija koja generiše<br />
             <span style={{ color: '#a9875c' }}>100+ pretplatnika dnevno.</span>
           </h1>
-          <p className="pb-sub">Tačan SFW-only Reddit sistem koji generiše 100+ OnlyFans pretplatnika dnevno. Odabir subreddita, bezbednost naloga, radni tok objavljivanja, AI kreiranje sadržaja i skaliranje — sve iz realnih operacija koje rade 3+ godine.</p>
+          <p className="pb-sub">Tačan SFW-only Reddit sistem koji generiše 100+ OnlyFans pretplatnika dnevno. Odabir subreddita, bezbednost naloga, radni tok objavljivanja, AI kreiranje sadržaja i skaliranje - sve iz realnih operacija koje rade 3+ godine.</p>
 
           <div className="pb-stats">
             {STATS.map(s => (
@@ -111,7 +111,7 @@ export default function RedditPlaybook() {
           {/* CTA */}
           <div className="pb-cta-box">
             <h2 className="pb-cta-title">Želiš da Velluto Nero vodi tvoj Reddit?</h2>
-            <p className="pb-cta-sub">Naš tim se bavi odabirom subreddita, upravljanjem nalozima, dnevnim objavljivanjem i skaliranjem — ti se fokusiraš na sadržaj.</p>
+            <p className="pb-cta-sub">Naš tim se bavi odabirom subreddita, upravljanjem nalozima, dnevnim objavljivanjem i skaliranjem - ti se fokusiraš na sadržaj.</p>
             <Link href="/#apply" className="btn-primary btn-large">
               Prijavi se <span className="btn-arrow">→</span>
             </Link>

@@ -209,7 +209,7 @@ export default function LiveDashboard() {
         .ld-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         @media (max-width: 700px) { .ld-grid { grid-template-columns: 1fr; } }
 
-        /* Card — liquid glass */
+        /* Card - liquid glass */
         .ld-card {
           background: rgba(255,255,255,0.72);
           backdrop-filter: blur(24px) saturate(1.8);

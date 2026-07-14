@@ -4,9 +4,9 @@ import SiteFooter from '@/components/SiteFooter';
 import { useState } from 'react';
 
 const STEPS = [
-  { icon: <><path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" /></>, title: 'Pošalji Podatke', desc: 'Ostavi svoj Instagram i broj telefona — koristimo ih da verifikujemo da si aktivna kreatorka.' },
+  { icon: <><path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" /></>, title: 'Pošalji Podatke', desc: 'Ostavi svoj Instagram i broj telefona - koristimo ih da verifikujemo da si aktivna kreatorka.' },
   { icon: <><circle cx="11" cy="11" r="7" /><path d="m21 21-4.35-4.35" /></>, title: 'Mi Skeniramo', desc: 'Pretražujemo web za tvoj procureli sadržaj na tube sajtovima, forumima i file hostovima.' },
-  { icon: <><path d="M12 3v18" /><path d="M5 7h14" /><path d="M5 7 3 12c0 1.5 1.5 2.5 3 2.5S9 13.5 9 12L7 7" /><path d="M17 7l-2 5c0 1.5 1.5 2.5 3 2.5s3-1 3-2.5l-2-5" /><path d="M8 21h8" /></>, title: 'Mi Podnosimo Takedown', desc: 'DMCA obaveštenja se šalju svakoj platformi koja hostuje tvoj sadržaj — profesionalno i legalno.' },
+  { icon: <><path d="M12 3v18" /><path d="M5 7h14" /><path d="M5 7 3 12c0 1.5 1.5 2.5 3 2.5S9 13.5 9 12L7 7" /><path d="M17 7l-2 5c0 1.5 1.5 2.5 3 2.5s3-1 3-2.5l-2-5" /><path d="M8 21h8" /></>, title: 'Mi Podnosimo Takedown', desc: 'DMCA obaveštenja se šalju svakoj platformi koja hostuje tvoj sadržaj - profesionalno i legalno.' },
   { icon: <><circle cx="12" cy="12" r="9" /><path d="m8.5 12.5 2.5 2.5 5-5.5" /></>, title: 'Sadržaj Je Uklonjen', desc: 'Procureli sadržaj je uklonjen. Pratimo dok sve ne bude gotovo.' },
 ];
 
@@ -46,7 +46,7 @@ export default function Dmca() {
           <span style={{ display: 'block', fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', color: '#a9875c', textTransform: 'uppercase', marginBottom: 20 }}>ALAT · BESPLATNO · OGRANIČENO</span>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2rem,5vw,3.2rem)', fontStyle: 'italic', color: '#fff', lineHeight: 1.1, margin: '0 0 20px' }}>
             Pronašla si procureli sadržaj?<br />
-            <span style={{ color: '#a9875c' }}>Uklonićemo ga — besplatno.</span>
+            <span style={{ color: '#a9875c' }}>Uklonićemo ga - besplatno.</span>
           </h1>
           <p style={{ fontSize: '1rem', color: 'rgba(255,255,255,0.55)', maxWidth: 520, margin: '0 auto', lineHeight: 1.75 }}>
             Bez ugovora, bez troškova. Podnosi DMCA zahteve profesionalno i legalno. Pratimo dok svaki komad sadržaja ne bude uklonjen.
@@ -113,7 +113,7 @@ export default function Dmca() {
           {/* CTA */}
           <div style={{ marginTop: 64, textAlign: 'center', background: '#1a1a1a', borderRadius: 24, padding: '52px 32px' }}>
             <h2 style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 'clamp(1.6rem,3.5vw,2.4rem)', color: '#fff', margin: '0 0 12px' }}>Želiš da upravljamo svime za tebe?</h2>
-            <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.5)', margin: '0 0 28px', maxWidth: 460, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>DMCA takedowni, strategija sadržaja, čatovanje, promocija — mi se bavimo svime dok ti se fokusiraš na kreiranje.</p>
+            <p style={{ fontSize: '0.95rem', color: 'rgba(255,255,255,0.5)', margin: '0 0 28px', maxWidth: 460, marginLeft: 'auto', marginRight: 'auto', lineHeight: 1.7 }}>DMCA takedowni, strategija sadržaja, čatovanje, promocija - mi se bavimo svime dok ti se fokusiraš na kreiranje.</p>
             <Link href="/#apply" className="btn-primary btn-large">
               Prijavi se <span className="btn-arrow">→</span>
             </Link>

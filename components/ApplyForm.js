@@ -2,9 +2,9 @@
 import { useState, useEffect, useRef } from 'react';
 
 const TESTIMONIALS = [
-  { quote: '"Bila sam ubeđena da je svaka agencija prevara. Ono što me je promenilo bio je način na koji su zaštitili moj identitet pre nego što smo uopšte razgovarali o brojevima."', cite: 'K.R. — Lifestyle, Top 0.05%' },
-  { quote: '"Nemam ni jednog pratioca i potpuno sam anonimna — to je bio uslov. Izgradili su sve oko toga. Moja porodica i dalje misli da radim u marketingu."', cite: 'S.T. — Fitness, Top 0.01%' },
-  { quote: '"Skoro nisam aplicirala. Godinu dana kasnije imam tim koji radi sve za mene, dok ja zarađujem."', cite: 'A.J. — Glamour, Top 0.3%' },
+  { quote: '"Bila sam ubeđena da je svaka agencija prevara. Ono što me je promenilo bio je način na koji su zaštitili moj identitet pre nego što smo uopšte razgovarali o brojevima."', cite: 'K.R. - Lifestyle, Top 0.05%' },
+  { quote: '"Nemam ni jednog pratioca i potpuno sam anonimna - to je bio uslov. Izgradili su sve oko toga. Moja porodica i dalje misli da radim u marketingu."', cite: 'S.T. - Fitness, Top 0.01%' },
+  { quote: '"Skoro nisam aplicirala. Godinu dana kasnije imam tim koji radi sve za mene, dok ja zarađujem."', cite: 'A.J. - Glamour, Top 0.3%' },
 ];
 
 const STEPS = ['Kontakt', 'O tebi', 'Tvoj rad', 'Finalno'];
@@ -149,11 +149,11 @@ export default function ApplyForm() {
   const dqCopy = {
     gender: {
       h: 'Radimo isključivo sa kreatoricama',
-      b: 'Cela naša operacija — od strategije do skaliranja — izgrađena je specifično za kreatorice. Zahvaljujemo na iskrenosti i radije ćemo ti to reći odmah nego da gubimo tvoje vreme.',
+      b: 'Cela naša operacija - od strategije do skaliranja - izgrađena je specifično za kreatorice. Zahvaljujemo na iskrenosti i radije ćemo ti to reći odmah nego da gubimo tvoje vreme.',
     },
     'age-over': {
       h: 'Naš trenutni program je za određeni uzrasni opseg',
-      b: 'Naš program lansiranja je trenutno skoopiran za specifičan uzrasni opseg. To nije refleksija tebe — već kako je ovaj program dizajniran. Ako se situacija promeni, uvek možeš da se vratiš.',
+      b: 'Naš program lansiranja je trenutno skoopiran za specifičan uzrasni opseg. To nije refleksija tebe - već kako je ovaj program dizajniran. Ako se situacija promeni, uvek možeš da se vratiš.',
     },
     fit: {
       h: 'Trenutno nije pravi fit',
@@ -238,7 +238,7 @@ export default function ApplyForm() {
               <div className="apply-disqualify">
                 <h3>{dqCopy[dqReason]?.h}</h3>
                 <p>{dqCopy[dqReason]?.b}</p>
-                <p className="apply-disqualify-sub">Ako znaš nekoga ko bi odgovarao — nagradimo preporuke.</p>
+                <p className="apply-disqualify-sub">Ako znaš nekoga ko bi odgovarao - nagradimo preporuke.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate>
@@ -264,7 +264,7 @@ export default function ApplyForm() {
                 {/* ── STEP 1 ── */}
                 {step === 1 && (
                   <div className="apply-step">
-                    <p className="apply-step-title">Počnimo ovde — 60 sekundi</p>
+                    <p className="apply-step-title">Počnimo ovde - 60 sekundi</p>
 
                     <div className="apply-field">
                       <label className="apply-label">Ime *</label>
@@ -372,7 +372,7 @@ export default function ApplyForm() {
                 {step === 3 && (
                   <div className="apply-step">
                     <p className="apply-step-title">Odakle krećeš</p>
-                    <p className="apply-step-sub">Nema pogrešnih odgovora. Potpisujemo kreatorice na svakom nivou — ovo samo oblikuje plan.</p>
+                    <p className="apply-step-sub">Nema pogrešnih odgovora. Potpisujemo kreatorice na svakom nivou - ovo samo oblikuje plan.</p>
 
                     <div className="apply-field">
                       <label className="apply-label">Tvoja glavna platforma *</label>

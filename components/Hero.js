@@ -191,17 +191,17 @@ export default function Hero() {
         {/* OF icon */}
         <img src="/of-icon.png" alt="" style={{ width: 150, height: 150, objectFit: 'contain', marginBottom: 16 }} />
 
-        {/* Locations — outside glass */}
-        <p className="hero-locations">NEW YORK &nbsp;—&nbsp; MILANO &nbsp;—&nbsp; BEOGRAD</p>
+        {/* Locations - outside glass */}
+        <p className="hero-locations">NEW YORK &nbsp;-&nbsp; MILANO &nbsp;-&nbsp; BEOGRAD</p>
 
-        {/* Headline — outside glass */}
+        {/* Headline - outside glass */}
         <h1 className="hero-headline">
           {hero.headline.split('\n').map((line, i) => (
             <span key={i} className={`headline-line${i === 2 ? ' headline-line--pink' : ''}`}>{line}</span>
           ))}
         </h1>
 
-        {/* Glass box — sub + CTA only */}
+        {/* Glass box - sub + CTA only */}
         <div className="hero-glass">
           <p className="hero-sub">{hero.subtext}</p>
           <div className="hero-cta-wrap">
@@ -222,10 +222,10 @@ export default function Hero() {
         {/* Video between glass and stats */}
         <HeroVideo />
 
-        {/* Slogan — between boxes */}
+        {/* Slogan - between boxes */}
         <p className="hero-slogan">DO IT FOR YOUR FAMILY!</p>
 
-        {/* Stats — separate box */}
+        {/* Stats - separate box */}
         <div className="hero-stats-box" ref={statsBoxRef}>
           {/* Row 1 */}
           <div className="hero-stats">
@@ -382,7 +382,7 @@ export default function Hero() {
           }
         }
 
-        /* Stats box — identical liquid glass to hero-glass */
+        /* Stats box - identical liquid glass to hero-glass */
         .hero-stats-box {
           width: 100%;
           background: rgba(250,250,248,0.62);
