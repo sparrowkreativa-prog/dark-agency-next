@@ -203,7 +203,11 @@ export default function Hero() {
 
         {/* Glass box - sub + CTA only */}
         <div className="hero-glass">
-          <p className="hero-sub">{hero.subtext}</p>
+          <p className="hero-sub">
+            <span className="hero-sub-line">Ne gradimo ti nalog.</span>
+            <span className="hero-sub-line">Gradimo ti sledeći život.</span>
+            <span className="hero-sub-rest">Obezbeđujemo ti standard iza brojki: slobodu da živiš gde poželiš, luksuz kakav si zamišljala, slobodno vreme, zaštitu identiteta i brend koji izgleda kao naslovna strana magazina.</span>
+          </p>
           <div className="hero-cta-wrap">
             <a href={hero.cta.href} className="btn-primary btn-large">
               {hero.cta.label} <span className="btn-arrow">→</span>
