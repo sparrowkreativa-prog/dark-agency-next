@@ -102,9 +102,7 @@ export default function Garancija30() {
           margin: 0;
         }
         .g30-text strong {
-          font-family: var(--font-display);
-          font-style: italic;
-          font-weight: 400;
+          font-weight: 700;
           font-size: 1.2em;
           color: #a9875c;
         }

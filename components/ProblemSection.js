@@ -163,8 +163,8 @@ export default function ProblemSection({ problem }) {
         .ps-section .section-title { color: #fff; }
         .ps-section .section-sub { color: rgba(255,255,255,0.5); }
         .ps-sub-em {
-          font-family: var(--font-display);
-          font-style: italic;
+          font-style: normal;
+          font-weight: 700;
           font-size: 1.25em;
           color: #a9875c;
         }

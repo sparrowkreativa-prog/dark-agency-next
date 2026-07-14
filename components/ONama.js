@@ -89,14 +89,14 @@ export default function ONama() {
           max-width: 600px;
         }
         .on-em {
-          font-family: var(--font-display);
-          font-style: italic;
+          font-style: normal;
+          font-weight: 700;
           font-size: 1.18em;
           color: #1a1a1a;
         }
         .on-text--em {
-          font-family: var(--font-display);
-          font-style: italic;
+          font-style: normal;
+          font-weight: 700;
           font-size: 1.3rem;
           color: #911f39;
           line-height: 1.65;
