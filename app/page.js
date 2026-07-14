@@ -12,6 +12,7 @@ import FAQ from '@/components/FAQ';
 import ApplyForm from '@/components/ApplyForm';
 import PressBar from '@/components/PressBar';
 import ONama from '@/components/ONama';
+import Garancija30 from '@/components/Garancija30';
 import MarqueeBar from '@/components/MarqueeBar';
 import SplitHero from '@/components/SplitHero';
 import FreeTools from '@/components/FreeTools';
@@ -38,6 +39,8 @@ export default function Home() {
         <Hero />
 
         <PressBar />
+
+        <Garancija30 />
 
         <ONama />
 

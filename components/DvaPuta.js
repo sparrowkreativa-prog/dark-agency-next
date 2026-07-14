@@ -212,6 +212,7 @@ export default function DvaPuta() {
         <div className="dp-grid">
           {CARDS.map((card, i) => (
             <div key={card.badge}
+              id={card.featured ? undefined : 'krece-od-nule'}
               className={`dp-card${card.featured ? ' dp-card--featured' : ''}`}
               style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(28px)', transition: `opacity 0.7s ease ${0.15 + i * 0.14}s, transform 0.7s ease ${0.15 + i * 0.14}s` }}>
 
@@ -286,6 +287,7 @@ export default function DvaPuta() {
 
         /* Card */
         .dp-card {
+          scroll-margin-top: 100px;
           background: rgba(255,255,255,0.05);
           backdrop-filter: blur(28px) saturate(1.6);
           -webkit-backdrop-filter: blur(28px) saturate(1.6);
