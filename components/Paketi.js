@@ -285,17 +285,6 @@ export default function Paketi() {
         }
         .pk-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
         .pk-table { width: 100%; border-collapse: collapse; min-width: 480px; }
-        @media (max-width: 680px) {
-          .pk-table-scroll { overflow-x: visible; }
-          .pk-table { min-width: 0; table-layout: fixed; }
-          .pk-th { white-space: normal; font-size: 8.5px; letter-spacing: 0.04em; padding: 6px 3px; line-height: 1.3; }
-          .pk-th-label { width: 34%; }
-          .pk-td { padding: 8px 4px; font-size: 10.5px; line-height: 1.35; }
-          .pk-td-label { word-break: break-word; }
-          .pk-cell-check svg { width: 12px; height: 12px; }
-          .pk-cell-dash { font-size: 12px; }
-          .pk-cell-text { font-size: 8.5px; letter-spacing: 0.03em; }
-        }
         .pk-th {
           font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;
           color: #999; padding: 8px 14px; text-align: center; border-bottom: 1.5px solid rgba(0,0,0,0.08);
@@ -314,6 +303,27 @@ export default function Paketi() {
         .pk-cell-dash { color: #ccc; font-size: 15px; line-height: 1; }
         .pk-cell-text { font-size: 11px; color: #888; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
         .pk-cell-text--full { color: #911f39; }
+
+        /* Mobile: cela tabela vidljiva, bez skrola */
+        @media (max-width: 680px) {
+          .pk-table-scroll { overflow-x: visible; }
+          .pk-table { min-width: 0; table-layout: fixed; width: 100%; }
+          .pk-th {
+            white-space: normal;
+            word-break: break-word;
+            font-size: 9px;
+            letter-spacing: 0.02em;
+            padding: 6px 3px;
+            line-height: 1.35;
+            vertical-align: bottom;
+          }
+          .pk-th-label { width: 31%; }
+          .pk-td { padding: 9px 4px; font-size: 11px; line-height: 1.35; }
+          .pk-td-label { word-break: break-word; }
+          .pk-cell-check svg { width: 13px; height: 13px; }
+          .pk-cell-dash { font-size: 12px; }
+          .pk-cell-text { font-size: 8.5px; letter-spacing: 0.02em; word-break: break-word; }
+        }
 
         /* Swipe hint */
         .pk-swipe-hint {
