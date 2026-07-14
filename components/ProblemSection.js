@@ -133,7 +133,11 @@ export default function ProblemSection({ problem }) {
             <span style={{ color: '#a9875c' }}>za Žene.</span>
           </h2>
           <img src="/buss_woman.jpeg" alt="" className="ps-buss-img" />
-          <p className="section-sub">{problem.sub}</p>
+          <p className="section-sub" style={{ color: '#fff' }}>
+            Videli smo industriju kojom dominiraju agencije kojima upravljaju muškarci - koje svoje kreatorke nisu zaista razumele.{' '}
+            <em className="ps-sub-em">Znali smo da mora postojati bolji način.</em>{' '}
+            Ne upravljamo samo nalozima - gradimo carstva, uz posvećen tim koji poštuje granice i štiti privatnost svakog kreatora kao preduzetnika kakav zaista jeste.
+          </p>
         </div>
 
         {/* 5-column stats row */}
@@ -158,6 +162,12 @@ export default function ProblemSection({ problem }) {
         }
         .ps-section .section-title { color: #fff; }
         .ps-section .section-sub { color: rgba(255,255,255,0.5); }
+        .ps-sub-em {
+          font-family: var(--font-display);
+          font-style: italic;
+          font-size: 1.25em;
+          color: #a9875c;
+        }
         .ps-section .chapter-label { color: #a9875c; border-color: rgba(169,135,92,0.35); }
         .ps-stats-row {
           display: grid;
