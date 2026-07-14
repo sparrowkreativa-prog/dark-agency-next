@@ -35,7 +35,7 @@ export default function Garancija30() {
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity 0.8s ease, transform 0.8s ease' }}
         >
           <h2 className="g30-title">
-            <em><span style={{ color: '#fff' }}>U Koliko Već Imaš Nalog</span><br />i Posluješ na <img src="/of-icon.png" alt="OnlyFans" className="g30-of-icon" />:</em>
+            <em><span style={{ color: '#fff' }}>U Koliko Već Imaš Nalog</span><br />i Posluješ na <img src="/of-icon-2.png" alt="OnlyFans" className="g30-of-icon" />:</em>
           </h2>
           <p className="g30-text">
             Jedina smo agencija na svetu koja daje <strong>30-dnevnu garanciju</strong> da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti <strong>minimum 3 puta</strong> na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, <strong>isplaćujemo ti razliku kao da jesmo.</strong>
