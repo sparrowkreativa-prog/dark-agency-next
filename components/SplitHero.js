@@ -197,7 +197,7 @@ export default function SplitHero() {
       <style>{`
         .sh-section { padding: 20px 0 64px; }
         .sh-top-label { text-align: center; margin-bottom: 24px; }
-        .sh-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+        .sh-inner { max-width: 1060px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
         @media (max-width: 900px) { .sh-inner { grid-template-columns: 1fr; gap: 40px; } .sh-left { text-align: center; } .sh-ctas { justify-content: center; } .sh-trust { justify-content: center; } .sh-body { margin-left: auto; margin-right: auto; } .sh-badge { display: inline-flex; } }
 
         /* Left */
@@ -249,7 +249,7 @@ export default function SplitHero() {
         .sh-trend-num { font-size: 0.95rem; font-weight: 800; color: #1a1a1a; }
 
         /* Stats row */
-        .sh-stats-row { max-width: 1200px; margin: 48px auto 0; padding: 0 24px; }
+        .sh-stats-row { max-width: 1060px; margin: 48px auto 0; padding: 0 24px; }
         .sh-stats-row > div {
           display: grid;
           grid-template-columns: repeat(4, 1fr);

@@ -61,7 +61,7 @@ export default function ONama() {
           padding-bottom: 8px;
         }
         .on-inner {
-          max-width: 760px;
+          max-width: 1060px;
           margin: 0 auto;
           padding: 0 24px;
           text-align: center;

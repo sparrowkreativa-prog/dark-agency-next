@@ -242,7 +242,7 @@ export default function Kalkulator({ light = false }) {
 
       <style>{`
         .kalk-section { padding: 80px 0; background: #1a1a1a; }
-        .kalk-container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+        .kalk-container { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
 
         .kalk-header { text-align: center; margin-bottom: 40px; }
         .kalk-header .chapter-label { color: #a9875c; border-color: rgba(169,135,92,0.35); }

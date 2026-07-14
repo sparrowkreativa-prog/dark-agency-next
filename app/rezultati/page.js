@@ -403,7 +403,7 @@ export default function Rezultati() {
           overflow: hidden;
         }
         .rz-hero-inner {
-          max-width: 1140px;
+          max-width: 1060px;
           margin: 0 auto;
           display: grid;
           grid-template-columns: 1fr 1fr;

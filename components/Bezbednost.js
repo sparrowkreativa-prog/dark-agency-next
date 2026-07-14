@@ -121,12 +121,12 @@ export default function Bezbednost() {
         }
         .bz-top-label {
           text-align: center;
-          max-width: 1100px;
+          max-width: 1060px;
           margin: 0 auto;
           padding: 0 24px 8px;
         }
         .bz-inner {
-          max-width: 1100px;
+          max-width: 1060px;
           margin: 0 auto;
           padding: 0 24px;
           display: grid;
