@@ -28,6 +28,10 @@ function HeroVideo() {
         loop
         playsInline
         preload="auto"
+        controls
+        controlsList="nodownload noplaybackrate"
+        disablePictureInPicture
+        onContextMenu={e => e.preventDefault()}
         className="hero-between-video"
       >
         <source src="/ITALO-cica.mp4" type="video/mp4" />
@@ -298,7 +302,7 @@ export default function Hero() {
         }
         .hv-mute-btn {
           position: absolute;
-          bottom: 14px;
+          top: 14px;
           right: 14px;
           display: flex;
           align-items: center;
