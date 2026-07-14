@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
-import Kalkulator from '@/components/Kalkulator';
+import ReferralKalkulator from '@/components/ReferralKalkulator';
+import SiteFooter from '@/components/SiteFooter';
 
 const STEPS = [
   { num: '1', title: 'Pošalji Poruku', desc: 'Pošalji kratku poruku sa imenom kreatorke i njenim Instagramom.' },
@@ -64,8 +65,8 @@ export default function Referral() {
           </div>
         </div>
 
-        {/* Kalkulator */}
-        <Kalkulator />
+        {/* Kalkulator preporuke */}
+        <ReferralKalkulator />
 
         <div className="container" style={{ paddingTop: 56 }}>
           {/* How it works */}
@@ -118,6 +119,8 @@ export default function Referral() {
           </div>
         </div>
       </main>
+
+      <SiteFooter />
     </div>
   );
 }
