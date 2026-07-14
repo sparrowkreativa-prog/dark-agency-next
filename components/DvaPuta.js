@@ -153,6 +153,7 @@ const CARDS = [
       'Pročitamo 300+ tvojih ranijih chatova da vidimo kako su fanovi vođeni',
       'Pregledamo tvoj sadržaj na mrežama i pozicioniranje',
       'Zatim sve optimizujemo i skaliramo ono što već radi',
+      'Dobijaš svog ličnog brend menadžera koji će ti biti na raspolaganju 24h i tim od još troje ljudi.',
     ],
     featured: true,
   },
