@@ -84,13 +84,36 @@ export default function Referral() {
           {/* Benefits */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 56 }}>
             {[
-              { icon: '💰', title: 'Do 10% Mesečno', desc: 'Recurring. Bez gornje granice. Što više kreatorka zarađuje, više zarađuješ ti.' },
-              { icon: '🛡️', title: 'Nula Rizika', desc: 'Dnevni ugovori koji se obnavljaju — kreatorka može da ode u svakom trenutku.' },
-              { icon: '📈', title: 'Dokazani Rezultati', desc: 'Prosečno 10–20× rast prihoda za kreatorke kojima upravljamo.' },
-              { icon: '👁️', title: 'Potpuna Transparentnost', desc: 'Nikad ne menjamo lozinke, nikad ne skrivamo prihode, pun kontrola naloga uvek.' },
+              {
+                icon: <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />,
+                title: 'Do 10% Mesečno',
+                desc: 'Recurring. Bez gornje granice. Što više kreatorka zarađuje, više zarađuješ ti.',
+              },
+              {
+                icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10zM9 12l2 2 4-4" />,
+                title: 'Nula Rizika',
+                desc: 'Dnevni ugovori koji se obnavljaju — kreatorka može da ode u svakom trenutku.',
+              },
+              {
+                icon: <path d="M16 7h6v6M22 7l-8.5 8.5-5-5L2 17" />,
+                title: 'Dokazani Rezultati',
+                desc: 'Prosečno 10–20× rast prihoda za kreatorke kojima upravljamo.',
+              },
+              {
+                icon: <><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" /><circle cx="12" cy="12" r="3" /></>,
+                title: 'Potpuna Transparentnost',
+                desc: 'Nikad ne menjamo lozinke, nikad ne skrivamo prihode, puna kontrola naloga uvek.',
+              },
             ].map(b => (
               <div key={b.title} style={{ background: '#fff', border: '1px solid rgba(0,0,0,0.07)', borderRadius: 16, padding: '24px 20px' }}>
-                <div style={{ fontSize: 24, marginBottom: 10 }}>{b.icon}</div>
+                <div style={{
+                  width: 52, height: 52, borderRadius: 14,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  background: 'rgba(169,135,92,0.08)', border: '1.5px solid rgba(169,135,92,0.4)',
+                  marginBottom: 14,
+                }}>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#a9875c" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">{b.icon}</svg>
+                </div>
                 <h3 style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '1.05rem', color: '#1a1a1a', margin: '0 0 8px' }}>{b.title}</h3>
                 <p style={{ fontSize: '0.875rem', color: '#777', lineHeight: 1.65, margin: 0 }}>{b.desc}</p>
               </div>
