@@ -2,7 +2,7 @@ export const siteData = {
   nav: {
     logo: 'Velluto Nero',
     links: [
-      { label: 'Rezultati', href: '#results' },
+      { label: 'Rezultati', href: '/rezultati' },
       { label: 'Usluge', href: '#services' },
       { label: 'Resursi', href: '/resursi' },
       { label: 'FAQ', href: '#faq' },
