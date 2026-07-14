@@ -130,7 +130,7 @@ export default function Kalkulator({ light = false }) {
 
               {/* CTA */}
               <div className="kalk-cta">
-                <a href="#apply" className="kalk-cta-btn">
+                <a href="/#apply" className="kalk-cta-btn">
                   <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                   Prijavi Se
                 </a>
@@ -172,7 +172,7 @@ export default function Kalkulator({ light = false }) {
               </div>
 
               <div className="kalk-cta">
-                <a href="#apply" className="kalk-cta-btn">
+                <a href="/#apply" className="kalk-cta-btn">
                   <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                   Rasti Sa Nama
                 </a>
@@ -230,7 +230,7 @@ export default function Kalkulator({ light = false }) {
               </div>
 
               <div className="kalk-cta">
-                <a href="#apply" className="kalk-cta-btn">
+                <a href="/#apply" className="kalk-cta-btn">
                   <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                   Tvoj Reech
                 </a>

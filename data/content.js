@@ -7,13 +7,13 @@ export const siteData = {
       { label: 'Resursi', href: '/resursi' },
       { label: 'FAQ', href: '#faq' },
     ],
-    cta: { label: 'Prijavi se', href: '#apply' },
+    cta: { label: 'Prijavi se', href: '/#apply' },
   },
 
   hero: {
     headline: 'BUILDING\nEMPIRES\nTOGETHER',
     subtext: 'Ne gradimo ti nalog. Gradimo ti sledeći život.\nObezbeđujemo ti standard iza brojki: slobodu da živiš gde poželiš, luksuz kakav si zamišljala, slobodno vreme, zaštitu identiteta i brend koji izgleda kao naslovna strana magazina.',
-    cta: { label: 'PRIJAVI SE NA LISTU ČEKANJA', href: '#apply' },
+    cta: { label: 'PRIJAVI SE NA LISTU ČEKANJA', href: '/#apply' },
     microcopy: '60-sekundi prijava · manje od 2% primljenih · nula troškova unapred',
     stats: [
       { num: '$11M+', label: 'Generisano za kreatore', idx: 1 },
@@ -259,7 +259,7 @@ export const siteData = {
       { label: 'Podrška',    text: 'Ispod 5 minuta odgovora, 24/7. Ne cilj — mereni operativni standard.' },
       { label: 'Izlaz',      text: 'Odi kad hoćeš. Nula naknada, nula penala, nula pitanja. Bez ugovora, ikad.' },
     ],
-    cta: { label: 'Prijavi se', href: '#apply' },
+    cta: { label: 'Prijavi se', href: '/#apply' },
   },
 
   faq: {
@@ -322,13 +322,13 @@ export const siteData = {
       ],
     },
     line: 'Isti dvanaest meseci u svakom slučaju. Jedina promenljiva je da li tim stoji iza tebe.',
-    cta: { label: 'Prijavi se', href: '#apply' },
+    cta: { label: 'Prijavi se', href: '/#apply' },
     disclaimer: '*Rezultati variraju u zavisnosti od niše, publike i truda. Prošli rezultati ne garantuju buduće.',
   },
 
   footer: {
     tagline: 'Promenila je sve. Niko nikad nije saznao.',
-    cta: { label: 'Prijavi se', href: '#apply' },
+    cta: { label: 'Prijavi se', href: '/#apply' },
     copy: `© ${new Date().getFullYear()} Velluto Nero. Sva prava zadržana.`,
     legal: [
       { label: 'Politika privatnosti', href: '/privacy' },

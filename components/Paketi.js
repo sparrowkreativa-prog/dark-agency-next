@@ -190,7 +190,7 @@ export default function Paketi() {
         {/* Bottom CTA */}
         <div className="pk-bottom"
           style={{ opacity: vis ? 1 : 0, transition: 'opacity 0.7s ease 0.5s' }}>
-          <a href="#apply" className="pk-bottom-cta">
+          <a href="/#apply" className="pk-bottom-cta">
             Prijavi se i zajedno ćemo odlučiti <span>→</span>
           </a>
         </div>

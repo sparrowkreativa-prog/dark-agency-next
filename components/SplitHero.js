@@ -111,7 +111,7 @@ export default function SplitHero() {
           </p>
 
           <div className="sh-ctas">
-            <a href="#apply" className="btn-primary btn-large">
+            <a href="/#apply" className="btn-primary btn-large">
               Prijavi se za 60 sekundi <span className="btn-arrow">→</span>
             </a>
             <a href="#roster" className="sh-ghost-btn">
