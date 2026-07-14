@@ -40,9 +40,9 @@ export default function ONama() {
           <source src="/video3.mp4" type="video/mp4" />
         </video>
         <p className="on-text">
-          Naša agencija je porodični biznis, a jedan od osnivača je žena - agencija sa 8-cifrenim godišnjim prihodom kreatora, 5+ godina iskustva i poslovanjem u 12 zemalja. Imamo sopstveni CRM sistem i tim od 230+ zaposlenih.
+          Naša agencija je porodični biznis, a jedan od osnivača je žena - agencija sa <em className="on-em">8-cifrenim godišnjim prihodom</em> kreatora, <em className="on-em">5+ godina iskustva</em> i poslovanjem u <em className="on-em">12 zemalja</em>. Imamo sopstveni CRM sistem i tim od <em className="on-em">230+ zaposlenih</em>.
         </p>
-        <p className="on-text">
+        <p className="on-text on-text--em">
           Jedina smo agencija u regionu sa sedištima u Milanu i Njujorku, dok naš srpski tim deluje iz kancelarije u Beogradu. Ova kombinacija nam omogućava da spojimo regionalnu blizinu sa direktnim pristupom najzahtevnijim svetskim tržištima.
         </p>
         <p className="on-text">
@@ -87,6 +87,19 @@ export default function ONama() {
           line-height: 1.8;
           margin: 0 auto 18px;
           max-width: 600px;
+        }
+        .on-em {
+          font-family: var(--font-display);
+          font-style: italic;
+          font-size: 1.18em;
+          color: #1a1a1a;
+        }
+        .on-text--em {
+          font-family: var(--font-display);
+          font-style: italic;
+          font-size: 1.15rem;
+          color: #1a1a1a;
+          line-height: 1.7;
         }
       `}</style>
     </section>
