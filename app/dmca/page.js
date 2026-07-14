@@ -4,10 +4,10 @@ import SiteFooter from '@/components/SiteFooter';
 import { useState } from 'react';
 
 const STEPS = [
-  { icon: '📝', title: 'Pošalji Podatke', desc: 'Ostavi svoj Instagram i broj telefona — koristimo ih da verifikujemo da si aktivna kreatorka.' },
-  { icon: '🔍', title: 'Mi Skeniramo', desc: 'Pretražujemo web za tvoj procureli sadržaj na tube sajtovima, forumima i file hostovima.' },
-  { icon: '⚖️', title: 'Mi Podnosimo Takedown', desc: 'DMCA obaveštenja se šalju svakoj platformi koja hostuje tvoj sadržaj — profesionalno i legalno.' },
-  { icon: '✅', title: 'Sadržaj Je Uklonjen', desc: 'Procureli sadržaj je uklonjen. Pratimo dok sve ne bude gotovo.' },
+  { icon: <><path d="M12 20h9" /><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" /></>, title: 'Pošalji Podatke', desc: 'Ostavi svoj Instagram i broj telefona — koristimo ih da verifikujemo da si aktivna kreatorka.' },
+  { icon: <><circle cx="11" cy="11" r="7" /><path d="m21 21-4.35-4.35" /></>, title: 'Mi Skeniramo', desc: 'Pretražujemo web za tvoj procureli sadržaj na tube sajtovima, forumima i file hostovima.' },
+  { icon: <><path d="M12 3v18" /><path d="M5 7h14" /><path d="M5 7 3 12c0 1.5 1.5 2.5 3 2.5S9 13.5 9 12L7 7" /><path d="M17 7l-2 5c0 1.5 1.5 2.5 3 2.5s3-1 3-2.5l-2-5" /><path d="M8 21h8" /></>, title: 'Mi Podnosimo Takedown', desc: 'DMCA obaveštenja se šalju svakoj platformi koja hostuje tvoj sadržaj — profesionalno i legalno.' },
+  { icon: <><circle cx="12" cy="12" r="9" /><path d="m8.5 12.5 2.5 2.5 5-5.5" /></>, title: 'Sadržaj Je Uklonjen', desc: 'Procureli sadržaj je uklonjen. Pratimo dok sve ne bude gotovo.' },
 ];
 
 export default function Dmca() {
@@ -58,7 +58,14 @@ export default function Dmca() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 20, marginBottom: 56 }}>
             {STEPS.map((s, i) => (
               <div key={i} style={{ background: '#fff', border: '1px solid rgba(0,0,0,0.07)', borderRadius: 16, padding: '24px 20px' }}>
-                <div style={{ fontSize: 28, marginBottom: 12 }}>{s.icon}</div>
+                <div style={{
+                  width: 52, height: 52, borderRadius: 14,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  background: 'rgba(169,135,92,0.08)', border: '1.5px solid rgba(169,135,92,0.4)',
+                  marginBottom: 14,
+                }}>
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#a9875c" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">{s.icon}</svg>
+                </div>
                 <h3 style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '1.1rem', color: '#1a1a1a', margin: '0 0 8px' }}>{s.title}</h3>
                 <p style={{ fontSize: '0.875rem', color: '#777', lineHeight: 1.65, margin: 0 }}>{s.desc}</p>
               </div>
