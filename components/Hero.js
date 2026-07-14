@@ -181,7 +181,7 @@ export default function Hero() {
   return (
     <section className="hero-section has-video">
       <video className="hero-video" autoPlay muted loop playsInline aria-hidden="true" poster="/hero-bg.jpg">
-        <source src="/NEW%20HERO%20VIDEO.mp4" type="video/mp4" />
+        <source src="/panther.mp4" type="video/mp4" />
       </video>
       <div className="hero-bg" aria-hidden="true" />
       <div className="hero-orb hero-orb-1" aria-hidden="true" />
