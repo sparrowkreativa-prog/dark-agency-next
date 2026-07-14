@@ -97,9 +97,9 @@ export default function ONama() {
         .on-text--em {
           font-family: var(--font-display);
           font-style: italic;
-          font-size: 1.15rem;
-          color: #1a1a1a;
-          line-height: 1.7;
+          font-size: 1.3rem;
+          color: #911f39;
+          line-height: 1.65;
         }
       `}</style>
     </section>
