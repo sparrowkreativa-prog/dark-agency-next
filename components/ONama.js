@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function ONama() {
   const ref = useRef(null);
+  const videoRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -18,6 +19,20 @@ export default function ONama() {
     return () => { clearTimeout(t); io?.disconnect(); };
   }, []);
 
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        vid.muted = true;
+        vid.play().catch(() => {});
+        io.disconnect();
+      }
+    }, { threshold: 0.1 });
+    io.observe(vid);
+    return () => io.disconnect();
+  }, []);
+
   return (
     <section className="on-section" ref={ref}>
       <div className="on-top-label">
@@ -29,6 +44,7 @@ export default function ONama() {
       >
         <h2 className="on-title">Porodična Priča.<br /><span style={{ color: '#a9875c' }}>Globalni Domen.</span></h2>
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
