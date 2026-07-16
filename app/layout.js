@@ -2,6 +2,7 @@ import './globals.css';
 import { DM_Serif_Display } from 'next/font/google';
 import Script from 'next/script';
 import ScrollToTop from '@/components/ScrollToTop';
+import ChatButton from '@/components/ChatButton';
 
 const dmSerifDisplay = DM_Serif_Display({
   weight: '400',
@@ -22,6 +23,11 @@ export default function RootLayout({ children }) {
       <body>
         {children}
         <ScrollToTop />
+        <ChatButton />
+        <Script id="tawk-init" strategy="afterInteractive">{`
+          var Tawk_API = Tawk_API || {};
+          Tawk_API.onLoad = function() { Tawk_API.hideWidget(); };
+        `}</Script>
         <Script
           id="tawk-to"
           strategy="afterInteractive"
