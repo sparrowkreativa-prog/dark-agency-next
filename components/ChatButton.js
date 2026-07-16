@@ -7,16 +7,12 @@ export default function ChatButton() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!window.Tawk_API?.onLoad) return;
+      if (typeof window.Tawk_API?.hideWidget !== 'function') return;
       clearInterval(interval);
-
-      window.Tawk_API.onLoad = () => {};
 
       window.Tawk_API.hideWidget();
 
-      window.Tawk_API.onUnreadCountChanged = (count) => {
-        setUnread(count);
-      };
+      window.Tawk_API.onUnreadCountChanged = (count) => setUnread(count);
       window.Tawk_API.onChatMaximized = () => setOpen(true);
       window.Tawk_API.onChatMinimized = () => setOpen(false);
       window.Tawk_API.onChatHidden = () => setOpen(false);
