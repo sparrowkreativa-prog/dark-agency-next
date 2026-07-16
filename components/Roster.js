@@ -104,8 +104,16 @@ function RevenueCard({ c, animate, index }) {
 
 function Carousel({ animate }) {
   const [active, setActive] = useState(5);
-  const prev = () => setActive(i => (i - 1 + SLIDES.length) % SLIDES.length);
-  const next = () => setActive(i => (i + 1) % SLIDES.length);
+  const [animKey, setAnimKey] = useState(0);
+  const [dir, setDir] = useState(1);
+
+  const go = (newIndex) => {
+    setDir(newIndex > active ? 1 : -1);
+    setActive(newIndex);
+    setAnimKey(k => k + 1);
+  };
+  const prev = () => go((active - 1 + SLIDES.length) % SLIDES.length);
+  const next = () => go((active + 1) % SLIDES.length);
   const s = SLIDES[active];
 
   return (
@@ -114,7 +122,7 @@ function Carousel({ animate }) {
       transform: animate ? 'none' : 'translateY(24px)',
       transition: 'opacity 0.7s ease 0.45s, transform 0.7s ease 0.45s',
     }}>
-      <div className="rc-slide">
+      <div className="rc-slide" key={animKey} style={{ animation: `rc-slide-in-${dir > 0 ? 'right' : 'left'} 0.38s cubic-bezier(0.22,1,0.36,1) both` }}>
         <div className="rc-slide-left">
           <span className="rc-platform-tag">
             {s.platform === 'Instagram' ? <IgIcon /> : <OfIcon />}
@@ -352,6 +360,15 @@ export default function Roster() {
           transition: width 0.3s, background 0.3s; padding: 0;
         }
         .rc-dot--active { width: 20px; background: #a9875c; }
+
+        @keyframes rc-slide-in-right {
+          from { opacity: 0; transform: translateX(32px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes rc-slide-in-left {
+          from { opacity: 0; transform: translateX(-32px); }
+          to   { opacity: 1; transform: translateX(0); }
+        }
 
         .rc-disclaimer {
           font-size: 0.72rem; color: #aaa; margin-top: 28px;

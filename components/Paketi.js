@@ -248,7 +248,7 @@ export default function Paketi() {
 
         /* Plan header */
         .pk-plan-header { text-align: center; }
-        .pk-plan-title { font-family: var(--font-display); font-size: 20px; font-style: italic; color: #1a1a1a; margin: 0 0 4px; line-height: 1.2; }
+        .pk-plan-title { font-family: var(--font-display); font-size: 25px; font-style: italic; color: #1a1a1a; margin: 0 0 4px; line-height: 1.2; }
         .pk-card--featured .pk-plan-title { color: #911f39; }
         .pk-plan-subtitle { font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: #aaa; margin: 0; font-weight: 600; }
 
@@ -278,10 +278,13 @@ export default function Paketi() {
         }
         @media (max-width: 680px) { .pk-table-wrap { padding: 20px 16px; } }
         .pk-table-label {
-          display: inline-flex; align-items: center; gap: 7px;
-          font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em;
-          color: #911f39; background: rgba(145,31,57,0.07); border: 1px solid rgba(145,31,57,0.18);
-          border-radius: 999px; padding: 5px 14px; margin-bottom: 20px;
+          display: flex; align-items: center; justify-content: center; gap: 8px;
+          font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em;
+          color: #fff; background: #911f39;
+          border-radius: 12px 12px 0 0; padding: 12px 20px; margin: -28px -32px 20px;
+        }
+        @media (max-width: 680px) {
+          .pk-table-label { margin: -20px -16px 16px; border-radius: 8px 8px 0 0; }
         }
         .pk-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
         .pk-table { width: 100%; border-collapse: collapse; min-width: 480px; }

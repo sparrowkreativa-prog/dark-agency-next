@@ -79,6 +79,7 @@ export default function Garancija30() {
         @media (max-width: 860px) {
           .g30-inner { grid-template-columns: 1fr; gap: 40px; }
           .g30-title { text-align: center; }
+          .g30-text { text-align: center; }
         }
         .g30-title {
           font-family: var(--font-display);

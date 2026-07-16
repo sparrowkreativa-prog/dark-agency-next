@@ -304,6 +304,14 @@ export default function DvaPuta() {
           border: 1px solid rgba(145,31,57,0.3);
           box-shadow: 0 8px 48px rgba(145,31,57,0.15), 0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.10);
         }
+        .dp-card:not(.dp-card--featured) {
+          border-color: rgba(145,31,57,0.2);
+          animation: dp-glow-pulse 2.8s ease-in-out infinite;
+        }
+        @keyframes dp-glow-pulse {
+          0%, 100% { box-shadow: 0 8px 40px rgba(0,0,0,0.4), 0 0 18px rgba(145,31,57,0.08), inset 0 1px 0 rgba(255,255,255,0.08); }
+          50%       { box-shadow: 0 8px 52px rgba(145,31,57,0.22), 0 0 44px rgba(145,31,57,0.16), inset 0 1px 0 rgba(255,255,255,0.08); }
+        }
 
         /* Badge */
         .dp-badge {

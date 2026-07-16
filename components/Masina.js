@@ -164,22 +164,22 @@ function LiveRevPanel({ vis }) {
 /* ── Feature cards ── */
 const FeatureIcons = {
   crm: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
     </svg>
   ),
   phone: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="17" r="1"/>
     </svg>
   ),
   app: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
     </svg>
   ),
   chart: (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/>
     </svg>
   ),
@@ -225,8 +225,10 @@ export default function Masina() {
             {features.map((f, i) => (
               <div key={i} className="m-feature-card"
                 style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: `opacity 0.9s ease ${1.0 + i * 0.15}s, transform 0.9s ease ${1.0 + i * 0.15}s` }}>
-                <div className="m-feature-icon">{FeatureIcons[f.icon]}</div>
-                <h3 className="m-feature-title">{f.title}</h3>
+                <div className="m-feature-head">
+                  <div className="m-feature-icon">{FeatureIcons[f.icon]}</div>
+                  <h3 className="m-feature-title">{f.title}</h3>
+                </div>
                 <p className="m-feature-desc">{f.desc}</p>
               </div>
             ))}
@@ -310,10 +312,11 @@ export default function Masina() {
         /* Feature cards */
         .m-feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
         @media (max-width: 560px) { .m-feature-grid { grid-template-columns: 1fr; } }
-        .m-feature-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); border-radius: 18px; padding: 22px; backdrop-filter: blur(28px) saturate(1.6); -webkit-backdrop-filter: blur(28px) saturate(1.6); box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.18); transition: border-color .2s, box-shadow .2s; }
+        .m-feature-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); border-radius: 18px; padding: 22px; backdrop-filter: blur(28px) saturate(1.6); -webkit-backdrop-filter: blur(28px) saturate(1.6); box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.18); transition: border-color .2s, box-shadow .2s; display: flex; flex-direction: column; gap: 12px; }
         .m-feature-card:hover { border-color: rgba(255,255,255,0.32); box-shadow: 0 12px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.22); }
-        .m-feature-icon { width: 36px; height: 36px; border-radius: 10px; background: rgba(169,135,92,0.12); border: 1px solid rgba(169,135,92,0.25); display: flex; align-items: center; justify-content: center; color: #a9875c; margin-bottom: 14px; }
-        .m-feature-title { font-size: 1rem; font-weight: 700; font-style: italic; color: #fff; margin-bottom: 7px; }
+        .m-feature-head { display: flex; align-items: center; gap: 12px; }
+        .m-feature-icon { width: 48px; height: 48px; flex-shrink: 0; border-radius: 12px; background: rgba(169,135,92,0.12); border: 1px solid rgba(169,135,92,0.25); display: flex; align-items: center; justify-content: center; color: #a9875c; }
+        .m-feature-title { font-size: 1.05rem; font-weight: 700; font-style: italic; color: #fff; margin: 0; line-height: 1.25; }
         .m-feature-desc { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0; }
       `}</style>
     </section>
