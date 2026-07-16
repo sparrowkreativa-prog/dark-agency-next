@@ -48,8 +48,8 @@ export async function POST(req) {
     `;
 
     const { error } = await resend.emails.send({
-      from: 'Velluto Nero <onboarding@resend.dev>',
-      to: 'sparrowkreativa@gmail.com',
+      from: 'Velluto Nero <noreply@vellutonero.international>',
+      to: 'velluto.nero.int@gmail.com',
       subject: `Nova prijava — ${form.firstName} (${form.ofStatus})`,
       html,
       replyTo: form.email,
