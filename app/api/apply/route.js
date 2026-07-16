@@ -47,13 +47,15 @@ export async function POST(req) {
       </div>
     `;
 
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'Velluto Nero <onboarding@resend.dev>',
-      to: 'velluto.nero.int@gmail.com',
+      to: 'sparrowkreativa@gmail.com',
       subject: `Nova prijava — ${form.firstName} (${form.ofStatus})`,
       html,
       replyTo: form.email,
     });
+
+    if (error) throw new Error(error.message);
 
     return Response.json({ ok: true });
   } catch (err) {
