@@ -135,8 +135,13 @@ export default function ApplyForm() {
     setSending(true);
     setSubmitError('');
     try {
-      // In production, POST to your API endpoint
-      await new Promise(r => setTimeout(r, 1200)); // simulate network
+      const res = await fetch('/api/apply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || 'Server greška');
       localStorage.removeItem('da_apply_v1');
       setSubmitted(true);
     } catch {
