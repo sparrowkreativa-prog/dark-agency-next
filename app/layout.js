@@ -1,5 +1,6 @@
 import './globals.css';
 import { DM_Serif_Display } from 'next/font/google';
+import Script from 'next/script';
 import ScrollToTop from '@/components/ScrollToTop';
 
 const dmSerifDisplay = DM_Serif_Display({
@@ -18,7 +19,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={dmSerifDisplay.variable}>
-      <body>{children}<ScrollToTop /></body>
+      <body>
+        {children}
+        <ScrollToTop />
+        <Script
+          id="tawk-to"
+          strategy="afterInteractive"
+          src="https://embed.tawk.to/6a58a563bca1d21d4c999241/1jtl4c3e9"
+          crossOrigin="*"
+        />
+      </body>
     </html>
   );
 }
