@@ -6,45 +6,97 @@ export async function POST(req) {
   try {
     const form = await req.json();
 
+    const row = (label, value, shade) => `
+      <tr>
+        <td style="padding:11px 16px;font-family:Georgia,serif;font-size:11px;text-transform:uppercase;letter-spacing:0.12em;color:#6b6356;width:150px;background:${shade ? 'rgba(255,255,255,0.04)' : 'transparent'};border-bottom:1px solid rgba(255,255,255,0.06);">${label}</td>
+        <td style="padding:11px 16px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#f0ede8;background:${shade ? 'rgba(255,255,255,0.04)' : 'transparent'};border-bottom:1px solid rgba(255,255,255,0.06);">${value}</td>
+      </tr>`;
+
+    const section = (title, rows) => `
+      <tr><td colspan="2" style="padding:22px 16px 10px;">
+        <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+          <tr><td style="padding-bottom:12px;">
+            <span style="font-family:Arial,sans-serif;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.18em;color:#a9875c;">◆ ${title}</span>
+          </td></tr>
+        </table>
+      </td></tr>
+      ${rows}
+      <tr><td colspan="2" style="padding:8px 0;"></td></tr>`;
+
     const html = `
-      <div style="font-family:sans-serif;max-width:600px;margin:0 auto;padding:32px;background:#fafaf8;">
-        <div style="background:#911f39;padding:20px 28px;border-radius:12px 12px 0 0;">
-          <h1 style="color:#fff;margin:0;font-size:20px;letter-spacing:0.05em;">VELLUTO NERO — Nova Prijava</h1>
-        </div>
-        <div style="background:#fff;border:1px solid #e8e4df;border-top:none;border-radius:0 0 12px 12px;padding:28px;">
+    <!DOCTYPE html>
+    <html>
+    <body style="margin:0;padding:0;background:#111;">
+      <table width="100%" cellpadding="0" cellspacing="0" style="background:#111;padding:32px 16px;">
+        <tr><td align="center">
+          <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
 
-          <h2 style="color:#911f39;font-size:14px;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 16px;">Kontakt</h2>
-          <table style="width:100%;border-collapse:collapse;margin-bottom:24px;">
-            <tr><td style="padding:8px 0;color:#888;font-size:13px;width:140px;">Ime</td><td style="padding:8px 0;font-size:13px;font-weight:600;color:#1a1a1a;">${form.firstName}</td></tr>
-            <tr style="background:#fafaf8;"><td style="padding:8px 6px;color:#888;font-size:13px;">Email</td><td style="padding:8px 6px;font-size:13px;font-weight:600;color:#1a1a1a;">${form.email}</td></tr>
-            <tr><td style="padding:8px 0;color:#888;font-size:13px;">Telefon</td><td style="padding:8px 0;font-size:13px;font-weight:600;color:#1a1a1a;">${form.countryCode} ${form.phone}</td></tr>
+            <!-- Header -->
+            <tr><td style="background:linear-gradient(135deg,#1e0a10 0%,#2a0f1a 100%);border-radius:16px 16px 0 0;padding:32px 32px 28px;border:1px solid rgba(169,135,92,0.25);border-bottom:none;">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td>
+                    <div style="font-family:Georgia,serif;font-size:22px;font-style:italic;color:#a9875c;letter-spacing:0.04em;margin-bottom:4px;">Velluto Nero</div>
+                    <div style="font-family:Arial,sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.28em;color:rgba(169,135,92,0.55);">Management Agency</div>
+                  </td>
+                  <td align="right">
+                    <div style="display:inline-block;background:rgba(145,31,57,0.2);border:1px solid rgba(145,31,57,0.4);border-radius:999px;padding:6px 16px;">
+                      <span style="font-family:Arial,sans-serif;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.16em;color:#911f39;">Nova Prijava</span>
+                    </div>
+                  </td>
+                </tr>
+              </table>
+              <div style="margin-top:24px;padding-top:20px;border-top:1px solid rgba(169,135,92,0.15);">
+                <div style="font-family:Arial,sans-serif;font-size:11px;color:rgba(240,237,232,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Kandidatkinja</div>
+                <div style="font-family:Georgia,serif;font-size:28px;font-style:italic;color:#f0ede8;">${form.firstName}</div>
+              </div>
+            </td></tr>
+
+            <!-- Body -->
+            <tr><td style="background:#1a1a1a;border:1px solid rgba(169,135,92,0.15);border-top:none;border-bottom:none;">
+              <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+
+                ${section('Kontakt', `
+                  ${row('Email', `<a href="mailto:${form.email}" style="color:#a9875c;text-decoration:none;">${form.email}</a>`, false)}
+                  ${row('Telefon', `${form.countryCode} ${form.phone}`, true)}
+                `)}
+
+                ${section('O Kreatorici', `
+                  ${row('Tip usluge', form.serviceType === 'full-management' ? 'Puno upravljanje' : form.serviceType === 'dmca-only' ? 'Samo DMCA zaštita' : 'Nisam sigurna', false)}
+                  ${row('Pol', form.gender, true)}
+                  ${row('Godine', form.age, false)}
+                  ${row('Zemlja', form.country, true)}
+                  ${row('Cilj', form.goal, false)}
+                `)}
+
+                ${section('Platforma &amp; Sadržaj', `
+                  ${row('Platforma', form.platform, false)}
+                  ${row('Handle', form.handle, true)}
+                  ${row('OF status', form.ofStatus, false)}
+                  ${row('Agencija ranije', form.agency, true)}
+                  ${row('Sadržaj', form.content, false)}
+                  ${row('Sati/nedeljno', form.hours, true)}
+                  ${form.goalDetail ? row('Za 12 meseci', form.goalDetail, false) : ''}
+                `)}
+
+              </table>
+            </td></tr>
+
+            <!-- Footer -->
+            <tr><td style="background:linear-gradient(135deg,#1e0a10 0%,#2a0f1a 100%);border-radius:0 0 16px 16px;padding:20px 32px;border:1px solid rgba(169,135,92,0.25);border-top:1px solid rgba(169,135,92,0.15);">
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="font-family:Arial,sans-serif;font-size:11px;color:rgba(169,135,92,0.6);">vellutonero.international</td>
+                  <td align="right" style="font-family:Georgia,serif;font-size:11px;font-style:italic;color:rgba(169,135,92,0.5);">Building Empires Together</td>
+                </tr>
+              </table>
+            </td></tr>
+
           </table>
-
-          <h2 style="color:#911f39;font-size:14px;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 16px;">O Kreatorici</h2>
-          <table style="width:100%;border-collapse:collapse;margin-bottom:24px;">
-            <tr><td style="padding:8px 0;color:#888;font-size:13px;width:140px;">Tip usluge</td><td style="padding:8px 0;font-size:13px;font-weight:600;color:#1a1a1a;">${form.serviceType}</td></tr>
-            <tr style="background:#fafaf8;"><td style="padding:8px 6px;color:#888;font-size:13px;">Pol</td><td style="padding:8px 6px;font-size:13px;font-weight:600;color:#1a1a1a;">${form.gender}</td></tr>
-            <tr><td style="padding:8px 0;color:#888;font-size:13px;">Godine</td><td style="padding:8px 0;font-size:13px;font-weight:600;color:#1a1a1a;">${form.age}</td></tr>
-            <tr style="background:#fafaf8;"><td style="padding:8px 6px;color:#888;font-size:13px;">Zemlja</td><td style="padding:8px 6px;font-size:13px;font-weight:600;color:#1a1a1a;">${form.country}</td></tr>
-            <tr><td style="padding:8px 0;color:#888;font-size:13px;">Cilj</td><td style="padding:8px 0;font-size:13px;font-weight:600;color:#1a1a1a;">${form.goal}</td></tr>
-          </table>
-
-          <h2 style="color:#911f39;font-size:14px;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 16px;">Platforma & Sadržaj</h2>
-          <table style="width:100%;border-collapse:collapse;margin-bottom:24px;">
-            <tr><td style="padding:8px 0;color:#888;font-size:13px;width:140px;">Platforma</td><td style="padding:8px 0;font-size:13px;font-weight:600;color:#1a1a1a;">${form.platform}</td></tr>
-            <tr style="background:#fafaf8;"><td style="padding:8px 6px;color:#888;font-size:13px;">Handle</td><td style="padding:8px 6px;font-size:13px;font-weight:600;color:#1a1a1a;">${form.handle}</td></tr>
-            <tr><td style="padding:8px 0;color:#888;font-size:13px;">OF status</td><td style="padding:8px 0;font-size:13px;font-weight:600;color:#1a1a1a;">${form.ofStatus}</td></tr>
-            <tr style="background:#fafaf8;"><td style="padding:8px 6px;color:#888;font-size:13px;">Agencija ranije</td><td style="padding:8px 6px;font-size:13px;font-weight:600;color:#1a1a1a;">${form.agency}</td></tr>
-            <tr><td style="padding:8px 0;color:#888;font-size:13px;">Sadržaj</td><td style="padding:8px 0;font-size:13px;font-weight:600;color:#1a1a1a;">${form.content}</td></tr>
-            <tr style="background:#fafaf8;"><td style="padding:8px 6px;color:#888;font-size:13px;">Sati/nedeljno</td><td style="padding:8px 6px;font-size:13px;font-weight:600;color:#1a1a1a;">${form.hours}</td></tr>
-            ${form.goalDetail ? `<tr><td style="padding:8px 0;color:#888;font-size:13px;">Za 12 meseci</td><td style="padding:8px 0;font-size:13px;color:#1a1a1a;">${form.goalDetail}</td></tr>` : ''}
-          </table>
-
-          <div style="background:#f8f0f3;border:1px solid rgba(145,31,57,0.15);border-radius:8px;padding:14px 18px;font-size:12px;color:#911f39;text-align:center;">
-            Prijava primljena · Velluto Nero
-          </div>
-        </div>
-      </div>
+        </td></tr>
+      </table>
+    </body>
+    </html>
     `;
 
     const { error } = await resend.emails.send({
