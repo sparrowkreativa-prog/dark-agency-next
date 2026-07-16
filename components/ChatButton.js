@@ -68,6 +68,12 @@ export default function ChatButton() {
           transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s;
           animation: vn-chat-pulse 3s ease-in-out infinite;
         }
+        @media (max-width: 768px) {
+          .vn-chat-btn {
+            bottom: 80px;
+            right: 16px;
+          }
+        }
         .vn-chat-btn:hover {
           transform: scale(1.08);
           box-shadow: 0 10px 36px rgba(145,31,57,0.6);
