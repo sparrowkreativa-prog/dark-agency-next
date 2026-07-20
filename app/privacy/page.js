@@ -184,9 +184,7 @@ You can request deletion at any time (see Section 9).`,
 • Object to processing
 • Withdraw consent
 • Receive a copy (data portability)
-• File a complaint with the Slovenian Information Commissioner (IP RS)
-
-Contact us anytime: info@vellutonero.com`,
+• File a complaint with the Slovenian Information Commissioner (IP RS)`,
   },
   {
     num: '10.',
