@@ -333,6 +333,7 @@ export const siteData = {
     legal: [
       { label: 'Politika privatnosti', href: '/privacy' },
       { label: 'Uslovi korišćenja', href: '/terms' },
+      { label: 'Cookies', href: '/cookies' },
     ],
   },
 };
