@@ -211,11 +211,6 @@ You can manage or revoke cookies anytime via your Cookie Policy page or the "Coo
     title: 'Policy Updates',
     content: `We may update this Privacy Policy to stay compliant. We will update the "Last updated" date at the top of this page.`,
   },
-  {
-    num: '13.',
-    title: 'Contact',
-    content: `Velluto Nero\nKraljevic Marka 16, Valjevo, 14000 Valjevo, Serbia\ninfo@vellutonero.com\nvellutonero.international`,
-  },
 ];
 
 export default function PrivacyPolicy() {
@@ -243,7 +238,7 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </h1>
           <p style={{ fontSize: 13, color: '#888', marginBottom: 56, borderBottom: '1px solid rgba(0,0,0,0.08)', paddingBottom: 24 }}>
-            Last updated: 19th March 2026 &nbsp;·&nbsp; Company: Velluto Nero &nbsp;·&nbsp; Registered in: Serbia &nbsp;·&nbsp; Contact: <a href="mailto:info@vellutonero.com" style={{ color: '#911f39', textDecoration: 'none' }}>info@vellutonero.com</a>
+            Last updated: 19th March 2026 &nbsp;·&nbsp; Company: Velluto Nero &nbsp;·&nbsp; Registered in: Serbia
           </p>
 
           {sections.map((s) => (
