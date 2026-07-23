@@ -203,11 +203,21 @@ export default function Hero() {
 
         {/* Glass box - sub + CTA only */}
         <div className="hero-glass">
-          <p className="hero-sub">
-            <span className="hero-sub-line">Ne gradimo ti nalog.</span>
-            <span className="hero-sub-line">Gradimo ti sledeći život.</span>
-            <span className="hero-sub-rest">Obezbeđujemo ti standard iza brojki: slobodu da živiš gde poželiš, luksuz kakav si zamišljala, slobodno vreme, zaštitu identiteta i brend koji izgleda kao naslovna strana magazina.</span>
-          </p>
+          <div className="hero-sub">
+            <p className="hero-sub-body">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
+
+            <p className="hero-sub-accent">CILJ $70K + u prvom mesecu</p>
+
+            <p className="hero-sub-body">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš.</p>
+
+            <p className="hero-sub-body">Potpuna zaštita identiteta i privatnih podataka.</p>
+
+            <ul className="hero-sub-list">
+              <li>Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</li>
+            </ul>
+
+            <p className="hero-sub-accent">14 dana da stranica krene od nule.</p>
+          </div>
           <div className="hero-cta-wrap">
             <a href={hero.cta.href} className="btn-primary btn-large">
               {hero.cta.label} <span className="btn-arrow">→</span>
@@ -331,6 +341,37 @@ export default function Hero() {
           pointer-events: auto;
         }
 
+        .hero-sub {
+          text-align: left;
+          margin-bottom: 24px;
+        }
+        .hero-sub-body {
+          font-size: 14px;
+          color: rgba(255,255,255,0.82);
+          line-height: 1.75;
+          margin: 0 0 14px;
+        }
+        .hero-sub-accent {
+          font-family: var(--font-dm-serif), Georgia, serif;
+          font-style: italic;
+          font-size: 20px;
+          color: #fff;
+          margin: 18px 0 14px;
+          line-height: 1.3;
+        }
+        .hero-sub-list {
+          margin: 0 0 14px;
+          padding-left: 18px;
+        }
+        .hero-sub-list li {
+          font-size: 14px;
+          color: rgba(255,255,255,0.82);
+          line-height: 1.75;
+        }
+        @media (max-width: 640px) {
+          .hero-sub { text-align: left; }
+          .hero-sub-accent { font-size: 18px; }
+        }
         .hero-locations {
           margin-bottom: 20px;
         }
