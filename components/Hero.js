@@ -342,12 +342,12 @@ export default function Hero() {
         }
 
         .hero-sub {
-          text-align: left;
+          text-align: center;
           margin-bottom: 24px;
         }
         .hero-sub-body {
           font-size: 14px;
-          color: rgba(255,255,255,0.82);
+          color: #1a1a1a;
           line-height: 1.75;
           margin: 0 0 14px;
         }
@@ -355,21 +355,22 @@ export default function Hero() {
           font-family: var(--font-dm-serif), Georgia, serif;
           font-style: italic;
           font-size: 20px;
-          color: #fff;
+          color: #911f39;
           margin: 18px 0 14px;
           line-height: 1.3;
         }
         .hero-sub-list {
           margin: 0 0 14px;
           padding-left: 18px;
+          text-align: left;
+          display: inline-block;
         }
         .hero-sub-list li {
           font-size: 14px;
-          color: rgba(255,255,255,0.82);
+          color: #1a1a1a;
           line-height: 1.75;
         }
         @media (max-width: 640px) {
-          .hero-sub { text-align: left; }
           .hero-sub-accent { font-size: 18px; }
         }
         .hero-locations {
