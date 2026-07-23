@@ -230,6 +230,10 @@ export default function Hero() {
               </span>
               <span className="hm-rest">&nbsp;·&nbsp;manje od 2% primljenih&nbsp;·&nbsp;nula troškova unapred</span>
             </p>
+            <div className="hero-secondary-btns">
+              <a href="#rezultati" className="hero-btn-dark">POGLEDAJ NAŠE REZULTATE</a>
+              <a href="#resursi" className="hero-btn-gold">POGLEDAJ ŠTA ZNAMO</a>
+            </div>
           </div>
         </div>
 
@@ -398,6 +402,36 @@ export default function Hero() {
         }
         .hero-cta-wrap {
           margin-bottom: 0;
+        }
+        .hero-secondary-btns {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          margin-top: 16px;
+        }
+        .hero-btn-dark, .hero-btn-gold {
+          display: block;
+          width: 100%;
+          text-align: center;
+          border-radius: 999px;
+          font-size: 13px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          padding: 13px 24px;
+          text-decoration: none;
+          transition: opacity 0.2s, transform 0.2s;
+        }
+        .hero-btn-dark {
+          background: #1a1a1a;
+          color: #fff;
+        }
+        .hero-btn-gold {
+          background: #a9875c;
+          color: #fff;
+        }
+        .hero-btn-dark:hover, .hero-btn-gold:hover {
+          opacity: 0.88;
+          transform: translateY(-1px);
         }
 
         /* Microcopy mobile split */
