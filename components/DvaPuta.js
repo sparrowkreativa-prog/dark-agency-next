@@ -161,6 +161,7 @@ const CARDS = [
     icon: SPROUT_ICON,
     badge: 'KREĆEŠ OD NULE?',
     title: 'Nova si u svemu? Gradimo to s tobom.',
+    insert: true,
     steps: [
       'Postoji set načina koji smo osmislili da tvoja privatnost, identitet i izgled bude potpuno promenjen i zaštićen tako da niko neće znati iz tvog grada ili zemlje da si to ti ukoliko na tome insistiraš.',
       'Dobijaš svog ličnog brend menadžera koji će ti biti na raspolaganju 24h i tim od još troje ljudi koji će te postepeno učiti svemu.',
@@ -224,6 +225,25 @@ export default function DvaPuta() {
 
               {/* Heading */}
               <h3 className="dp-card-title"><em>{card.title}</em></h3>
+
+              {/* Insert bz-left content in the "od nule" card */}
+              {card.insert && (
+                <div className="dp-insert">
+                  <h4 className="dp-insert-title">Tvoj Identitet.<br /><span style={{ color: '#a9875c' }}>Tvoja Pravila.</span></h4>
+                  <div className="dp-insert-paras">
+                    <p>Sistem je osmišljen tako da je identitet modela maksimalno zaštićen i obezbeđen na Balkanu - niko ne mora da zna da snimaš content, ukoliko sama ne poželiš drugačije. Privatni nalozi na društvenim mrežama se ne diraju, niti im agencija ima pristup.</p>
+                    <p>Geolokacije i pristup se blokiraju za države u kojima ne želiš da se content pojavi - uključujući potpuno onemogućen pristup iz Srbije, jer radimo isključivo tržište Amerike i Italije.</p>
+                    <p>Kao dodatna sigurnost, devojke imaju mogućnost da potpuno promene svoj look uz profesionalne perike, sočiva i privremene minimalističke tetovaže - isključivo za dan snimanja.</p>
+                  </div>
+                  <div className="dp-insert-shields">
+                    <span className="dp-shield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Geo-blokiranje Srbije</span>
+                    <span className="dp-shield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>Nulti pristup privatnim profilima</span>
+                    <span className="dp-shield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Zaštita identiteta za snimanje</span>
+                    <span className="dp-shield"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Samo US &amp; IT tržište</span>
+                  </div>
+                </div>
+              )}
+
               {/* Steps */}
               <ul className="dp-steps">
                 {card.steps.map((step, idx) => (
@@ -349,6 +369,52 @@ export default function DvaPuta() {
           line-height: 1.25;
         }
         .dp-card--featured .dp-card-title { color: #fff; }
+
+        /* Insert block */
+        .dp-insert {
+          border-top: 1px solid rgba(255,255,255,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+          padding: 20px 0;
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+        .dp-insert-title {
+          font-family: var(--font-display);
+          font-style: italic;
+          font-size: clamp(16px, 2vw, 20px);
+          color: #fff;
+          margin: 0;
+          line-height: 1.2;
+        }
+        .dp-insert-paras {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+        .dp-insert-paras p {
+          font-size: 13.5px;
+          color: rgba(255,255,255,0.72);
+          line-height: 1.7;
+          margin: 0;
+        }
+        .dp-insert-shields {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .dp-shield {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 11px;
+          font-weight: 600;
+          color: #a9875c;
+          background: rgba(169,135,92,0.08);
+          border: 1px solid rgba(169,135,92,0.25);
+          border-radius: 999px;
+          padding: 5px 12px;
+        }
 
         /* Steps */
         .dp-steps {
