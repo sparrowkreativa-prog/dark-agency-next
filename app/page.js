@@ -46,10 +46,10 @@ export default function Home() {
 
         <MarqueeBar />
 
+        <Paketi />
+
         {/* Problem / Zašto */}
         <ProblemSection problem={problem} />
-
-        <Paketi />
 
         <DvaPuta />
 
