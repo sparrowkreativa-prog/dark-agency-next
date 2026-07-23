@@ -231,8 +231,8 @@ export default function Hero() {
               <span className="hm-rest">&nbsp;·&nbsp;manje od 2% primljenih&nbsp;·&nbsp;nula troškova unapred</span>
             </p>
             <div className="hero-secondary-btns">
-              <a href="#rezultati" className="hero-btn-dark">POGLEDAJ NAŠE REZULTATE</a>
-              <a href="#resursi" className="hero-btn-gold">POGLEDAJ ŠTA ZNAMO</a>
+              <a href="https://www.vellutonero.international/rezultati" className="hero-btn-dark">POGLEDAJ NAŠE REZULTATE</a>
+              <a href="https://www.vellutonero.international/resursi" className="hero-btn-gold">POGLEDAJ ŠTA ZNAMO</a>
             </div>
           </div>
         </div>
