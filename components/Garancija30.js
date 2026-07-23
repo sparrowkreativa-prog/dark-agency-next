@@ -12,9 +12,23 @@ const STAVKE = [
   'Sistem je organizovan tako da je tvoje samo da snimaš – obim posla 6 do 8 sati nedeljno.',
 ];
 
+const NULA_KORACI = [
+  'Postoji set načina koji smo osmislili da tvoja privatnost, identitet i izgled bude potpuno promenjen i zaštićen tako da niko neće znati iz tvog grada ili zemlje da si to ti ukoliko na tome insistiraš.',
+  'Dobijaš svog ličnog brend menadžera koji će ti biti na raspolaganju 24h i tim od još troje ljudi koji će te postepeno učiti svemu.',
+  'Tvoj nalog, tvoja šifra, tvoj račun – nula troškova unapred, procenat uzimamo tek kad ti zaradiš.',
+  'Ako više ne želiš da radiš sa nama, odlaziš slobodno, bez raskida ugovora i bez troškova.',
+  'Otvaramo ti nove profile u Americi i Italiji – na Instagramu, TikToku, X-u, Threads-u i Redditu – i gradimo ti brend i zajednicu koja će za 30 dana praviti zaradu veću od tvog najboljeg meseca na Balkanu.',
+  'Sistem je organizovan tako da je tvoje samo da snimaš – obim posla 6 do 8 sati nedeljno.',
+  'Kreiramo tvoje profile i podešavamo naloge.',
+  'Učimo te kako da snimaš sadržaj koji prodaje.',
+  'Pokažemo ti tačno kako da koristiš naš CRM.',
+  'Zajedno mapiramo šta voliš (a šta ne), tvoj cilj i plan da ga dostigneš.',
+];
+
 export default function Garancija30() {
   const ref = useRef(null);
   const [vis, setVis] = useState(false);
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -25,6 +39,15 @@ export default function Garancija30() {
     io.observe(el);
     return () => io.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [modal]);
 
   return (
     <section className="g30-section" ref={ref}>
@@ -42,7 +65,7 @@ export default function Garancija30() {
           </p>
         </div>
 
-        {/* Right - liquid glass box, 8 cells */}
+        {/* Right - liquid glass box */}
         <div
           className="g30-right"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s' }}
@@ -56,11 +79,43 @@ export default function Garancija30() {
             ))}
           </div>
 
-          <a href="#krece-od-nule" className="g30-btn">
+          <button className="g30-btn" onClick={() => setModal(true)}>
             Krećeš od nule? <span className="btn-arrow">→</span>
-          </a>
+          </button>
         </div>
       </div>
+
+      {/* Modal */}
+      {modal && (
+        <div className="g30-modal-backdrop" onClick={() => setModal(false)}>
+          <div className="g30-modal" onClick={e => e.stopPropagation()}>
+            <button className="g30-modal-close" onClick={() => setModal(false)} aria-label="Zatvori">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+              </svg>
+            </button>
+
+            <div className="g30-modal-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 20h10"/><path d="M10 20c5.5-2.5 8-6 8-6H2s3 6.5 8 6z"/>
+                <path d="M14 13c0-4-3-7-7-7-1.93 0-3.68.78-4.95 2.05"/><path d="M14 13c.67-4.33 3-7.33 7-8"/>
+              </svg>
+              KREĆEŠ OD NULE?
+            </div>
+
+            <h3 className="g30-modal-title"><em>Nova si u svemu? Gradimo to s tobom.</em></h3>
+
+            <ul className="g30-modal-steps">
+              {NULA_KORACI.map((k, i) => (
+                <li key={i} className="g30-modal-step">
+                  <span className="g30-modal-num">{i + 1}</span>
+                  <span className="g30-modal-text">{k}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
 
       <style>{`
         .g30-section {
@@ -108,7 +163,7 @@ export default function Garancija30() {
           color: #a9875c;
         }
 
-        /* Liquid glass box - 8 cells */
+        /* Liquid glass box */
         .g30-box {
           background: rgba(255,255,255,0.05);
           backdrop-filter: blur(28px) saturate(1.6);
@@ -127,7 +182,7 @@ export default function Garancija30() {
           display: flex;
           align-items: flex-start;
           gap: 12px;
-          padding: 20px 20px;
+          padding: 20px;
           border-bottom: 1px solid rgba(255,255,255,0.08);
         }
         .g30-cell:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
@@ -170,11 +225,123 @@ export default function Garancija30() {
           font-weight: 700;
           border-radius: 999px;
           padding: 15px 32px;
-          text-decoration: none;
+          border: none;
+          cursor: pointer;
+          width: 100%;
           transition: transform 0.2s, box-shadow 0.2s;
           box-shadow: 0 8px 28px rgba(145,31,57,0.35);
         }
         .g30-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(145,31,57,0.5); }
+
+        /* Modal */
+        .g30-modal-backdrop {
+          position: fixed;
+          inset: 0;
+          z-index: 10000;
+          background: rgba(0,0,0,0.72);
+          backdrop-filter: blur(6px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 24px;
+          animation: g30-fade-in 0.2s ease;
+        }
+        @keyframes g30-fade-in {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        .g30-modal {
+          position: relative;
+          background: #1e1e1e;
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 24px;
+          padding: 36px 32px 32px;
+          max-width: 620px;
+          width: 100%;
+          max-height: 85vh;
+          overflow-y: auto;
+          box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+          animation: g30-slide-up 0.25s cubic-bezier(0.22,1,0.36,1);
+        }
+        @keyframes g30-slide-up {
+          from { opacity: 0; transform: translateY(24px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 480px) {
+          .g30-modal { padding: 28px 20px 24px; border-radius: 18px; }
+        }
+        .g30-modal-close {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: rgba(255,255,255,0.08);
+          border: 1px solid rgba(255,255,255,0.14);
+          color: rgba(255,255,255,0.7);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: background 0.2s;
+        }
+        .g30-modal-close:hover { background: rgba(255,255,255,0.16); }
+        .g30-modal-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: #a9875c;
+          border: 1px solid rgba(169,135,92,0.3);
+          border-radius: 999px;
+          padding: 5px 14px;
+          margin-bottom: 16px;
+        }
+        .g30-modal-title {
+          font-family: var(--font-display), Georgia, serif;
+          font-style: italic;
+          font-size: clamp(1.3rem, 3vw, 1.7rem);
+          color: #fff;
+          margin: 0 0 24px;
+          line-height: 1.3;
+        }
+        .g30-modal-steps {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 14px;
+        }
+        .g30-modal-step {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+        }
+        .g30-modal-num {
+          flex-shrink: 0;
+          width: 26px;
+          height: 26px;
+          border-radius: 50%;
+          background: rgba(169,135,92,0.12);
+          border: 1px solid rgba(169,135,92,0.35);
+          color: #a9875c;
+          font-size: 11px;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-top: 1px;
+        }
+        .g30-modal-text {
+          font-size: 14px;
+          color: rgba(255,255,255,0.78);
+          line-height: 1.65;
+        }
       `}</style>
     </section>
   );
