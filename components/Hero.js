@@ -201,25 +201,26 @@ export default function Hero() {
           ))}
         </h1>
 
-        {/* Glass box - sub + CTA only */}
+        {/* Glass box — 3 parts */}
         <div className="hero-glass">
-          <div className="hero-sub">
-            <p className="hero-sub-body">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
 
-            <p className="hero-sub-accent">CILJ $70K + u prvom mesecu</p>
-
-            <p className="hero-sub-body">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš.</p>
-
-            <p className="hero-sub-body">Potpuna zaštita identiteta i privatnih podataka.</p>
-
-            <ul className="hero-sub-list">
-              <li>Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</li>
-            </ul>
-
-            <p className="hero-sub-accent">14 dana da stranica krene od nule.</p>
+          {/* Part 1 — garancija */}
+          <div className="hero-part hero-part--1">
+            <p className="hero-p1-text">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
           </div>
-          <div className="hero-cta-wrap">
-            <a href={hero.cta.href} className="btn-primary btn-large">
+
+          {/* Part 2 — cilj */}
+          <div className="hero-part hero-part--2">
+            <p className="hero-p2-accent">CILJ $70K + u prvom mesecu</p>
+          </div>
+
+          {/* Part 3 — uslovi + CTA */}
+          <div className="hero-part hero-part--3">
+            <p className="hero-p3-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš.</p>
+            <p className="hero-p3-text">Potpuna zaštita identiteta i privatnih podataka.</p>
+            <p className="hero-p3-text">· Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš. · <em>14 dana da stranica krene od nule.</em></p>
+
+            <a href={hero.cta.href} className="btn-primary btn-large" style={{ marginTop: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
               {hero.cta.label} <span className="btn-arrow">→</span>
             </a>
             <p className="hero-waitlist-note">PRIMAMO SAMO 2 KLIJENTA MESEČNO</p>
@@ -235,6 +236,7 @@ export default function Hero() {
               <a href="https://www.vellutonero.international/resursi" className="hero-btn-gold">POGLEDAJ ŠTA ZNAMO</a>
             </div>
           </div>
+
         </div>
 
         {/* Video between glass and stats */}
@@ -345,49 +347,64 @@ export default function Hero() {
           pointer-events: auto;
         }
 
-        .hero-sub {
-          text-align: center;
-          margin-bottom: 24px;
+        /* 3-part glass structure */
+        .hero-part {
+          width: 100%;
         }
-        .hero-sub-body {
-          font-size: 14px;
+        .hero-part--1 {
+          padding-bottom: 20px;
+          border-bottom: 1px solid rgba(0,0,0,0.1);
+          margin-bottom: 20px;
+        }
+        .hero-part--2 {
+          padding-bottom: 20px;
+          border-bottom: 1px solid rgba(0,0,0,0.1);
+          margin-bottom: 20px;
+        }
+        .hero-p1-text {
+          font-size: 16px;
           color: #1a1a1a;
-          line-height: 1.75;
-          margin: 0 0 14px;
+          line-height: 1.8;
+          margin: 0;
+          text-align: center;
         }
-        .hero-sub-accent {
+        .hero-p2-accent {
           font-family: var(--font-dm-serif), Georgia, serif;
           font-style: italic;
-          font-size: 20px;
+          font-size: 26px;
           color: #911f39;
-          margin: 18px 0 14px;
-          line-height: 1.3;
+          margin: 0;
+          line-height: 1.2;
+          text-align: center;
         }
-        .hero-sub-list {
-          margin: 0 0 14px;
-          padding-left: 18px;
-          text-align: left;
-          display: inline-block;
-        }
-        .hero-sub-list li {
-          font-size: 14px;
+        .hero-p3-text {
+          font-size: 15px;
           color: #1a1a1a;
           line-height: 1.75;
+          margin: 0 0 12px;
+          text-align: center;
+        }
+        .hero-p3-text em {
+          font-family: var(--font-dm-serif), Georgia, serif;
+          font-style: italic;
+          color: #911f39;
         }
         @media (max-width: 640px) {
-          .hero-sub-accent { font-size: 18px; }
+          .hero-p1-text { font-size: 14px; }
+          .hero-p2-accent { font-size: 22px; }
+          .hero-p3-text { font-size: 13px; }
         }
         .hero-locations {
           margin-bottom: 20px;
         }
         .hero-waitlist-note {
-          font-size: 11px;
+          font-size: 13px;
           font-weight: 700;
-          letter-spacing: 0.22em;
+          letter-spacing: 0.18em;
           color: #911f39;
           text-transform: uppercase;
           text-align: center;
-          margin: 10px 0 4px;
+          margin: 12px 0 6px;
         }
         .hero-headline {
           margin-bottom: 24px;
