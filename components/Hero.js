@@ -189,7 +189,7 @@ export default function Hero() {
 
       <div className="hero-inner">
         {/* OF icon */}
-        <img src="/of-icon.png" alt="" style={{ width: 150, height: 150, objectFit: 'contain', marginBottom: 16 }} />
+        <img src="/of-icon.png" alt="" className="hero-of-icon" style={{ width: 150, height: 150, objectFit: 'contain', marginBottom: 16 }} />
 
         {/* Locations - outside glass */}
         <p className="hero-locations">NEW YORK &nbsp;-&nbsp; MILANO &nbsp;-&nbsp; BEOGRAD</p>
@@ -352,7 +352,8 @@ export default function Hero() {
           padding: 24px 32px;
         }
         @media (max-width: 640px) {
-          .hero-glass-block { padding: 18px 20px; }
+          .hero-glass-block { padding: 12px 4px; }
+          .hero-of-icon { width: 100px !important; height: 100px !important; margin-bottom: 8px !important; }
         }
         .hero-p1-text {
           font-size: 17px;
