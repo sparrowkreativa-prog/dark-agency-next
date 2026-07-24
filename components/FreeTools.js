@@ -106,9 +106,17 @@ export default function FreeTools() {
           ref={headRef}
           style={{ opacity: 0, transform: 'translateY(24px)', transition: 'opacity 0.6s ease, transform 0.6s ease', textAlign: 'center', marginBottom: 48 }}
         >
-          <p className="ft-eyebrow">Još nisi spremna? Odnesi ovo sa sobom.</p>
-          <h2 className="ft-heading">Uzmi naše prave vodič materijale.</h2>
-          <p className="ft-sub">Bez email zahteva. Bez upsella. Samo pravi sistemi koje koristimo - besplatno za kreatore koji žele sami.</p>
+          <p className="ft-eyebrow">AFILIATE</p>
+          <h2 className="ft-heading">
+            <span style={{ color: '#fff' }}>Još Uvek Nisi Spremna</span>
+            <br />
+            <span style={{ color: '#a9875c' }}>Ili Želiš Sama da Radiš?</span>
+          </h2>
+          <p className="ft-sub">U redu, poklanjamo ti potpuno besplatno naše vodiče uz pomoć kojih smo izgradili ceo sistem.</p>
+          <div className="ft-arrow-wrap" aria-hidden="true">
+            <svg className="ft-arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+            <svg className="ft-arrow-icon ft-arrow-icon--delay" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+          </div>
         </div>
 
         <div className="ft-grid">

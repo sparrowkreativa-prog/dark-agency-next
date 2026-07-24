@@ -579,6 +579,10 @@ em { font-style: italic; color: var(--color-accent-pink); }
 .ft-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #911f39; margin-bottom: 12px; }
 .ft-heading { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); color: #ffffff; font-style: italic; margin-bottom: 14px; line-height: 1.15; }
 .ft-sub { font-size: 1rem; color: rgba(255,255,255,0.7); max-width: 560px; margin: 0 auto; line-height: 1.7; }
+.ft-arrow-wrap { display: flex; flex-direction: column; align-items: center; gap: 0; margin-top: 20px; }
+.ft-arrow-icon { color: rgba(255,255,255,0.35); animation: ft-bounce 1.4s ease-in-out infinite; }
+.ft-arrow-icon--delay { animation-delay: 0.22s; }
+@keyframes ft-bounce { 0%, 100% { transform: translateY(0); opacity: 0.35; } 50% { transform: translateY(6px); opacity: 0.7; } }
 .ft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 @media (max-width: 900px) { .ft-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } }
 @media (min-width: 600px) and (max-width: 900px) { .ft-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; } }

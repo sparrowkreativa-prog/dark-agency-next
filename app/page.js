@@ -269,9 +269,6 @@ export default function Home() {
         {/* Apply Form */}
         <ApplyForm />
 
-        {/* Free Tools */}
-        <FreeTools />
-
         {/* Final CTA */}
         <SectionFade>
           <section className="section-final-cta">
@@ -310,6 +307,9 @@ export default function Home() {
             </div>
           </section>
         </SectionFade>
+
+        {/* Free Tools / Afiliate */}
+        <FreeTools />
 
       </main>
 
