@@ -234,6 +234,7 @@ export default function Hero() {
               <a href="https://www.vellutonero.international/rezultati" className="hero-btn-dark">POGLEDAJ NAŠE REZULTATE</a>
               <a href="https://www.vellutonero.international/resursi" className="hero-btn-gold">POGLEDAJ ŠTA ZNAMO</a>
             </div>
+            <p className="hero-btn-hint">(klikni na dugme)</p>
           </div>
         </div>
 
