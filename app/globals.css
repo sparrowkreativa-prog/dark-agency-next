@@ -162,8 +162,8 @@ em { font-style: italic; color: var(--color-accent-pink); }
 .headline-line--pink { color: #a9875c; text-shadow: none; }
 .headline-line--accent { border-width: 1px; border-color: #a9875c; border-style: none; color: #a9875c; padding: 8px 16px; border-radius: 8px; }
 @media (max-width: 700px) {
-  .hero-headline { font-size: clamp(28px, 11vw, 56px); }
-  .headline-line { white-space: normal; overflow-wrap: break-word; }
+  .hero-headline { font-size: clamp(22px, 7.5vw, 44px); }
+  .headline-line { white-space: nowrap; }
   .headline-line:nth-child(2) { color: #a9875c; }
 }
 .hero-headline em { display: block; background: linear-gradient(135deg, var(--color-accent-pink), #f7a8c9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-bottom: 0.18em; }
