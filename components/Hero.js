@@ -231,14 +231,14 @@ export default function Hero() {
         <p className="hero-p1-text">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
 
         {/* Glass 2 — cilj */}
-        <div className="hero-glass hero-glass-sm">
+        <div className="hero-glass hero-glass-sm" style={{ marginTop: 12 }}>
           <p className="hero-p2-accent">CILJ $70K + u prvom mesecu</p>
         </div>
 
         <p className="hero-p1-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš. Potpuna zaštita identiteta i privatnih podataka. Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</p>
 
         {/* Glass 3 — CTA blok */}
-        <div className="hero-glass-sm">
+        <div className="hero-glass-sm" style={{ marginTop: 12 }}>
           <p className="hero-p2-accent" style={{ marginBottom: 20 }}>14 dana da stranica krene od nule.</p>
 
           <div className="hero-cta-wrap">
