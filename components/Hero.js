@@ -352,7 +352,7 @@ export default function Hero() {
           padding: 24px 32px;
         }
         @media (max-width: 640px) {
-          .hero-glass-block { padding: 12px 4px; margin-bottom: 18px; }
+          .hero-glass-block { padding: 6px 4px; margin-bottom: 4px; }
           .hero-of-icon { width: 100px !important; height: 100px !important; margin-bottom: 8px !important; }
         }
         .hero-p1-text {
