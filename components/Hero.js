@@ -202,7 +202,7 @@ export default function Hero() {
         </h1>
 
         {/* Glass 1 — garancija */}
-        <div className="hero-glass hero-glass-block">
+        <div className="hero-glass hero-glass-block hero-glass-block--dark">
           <p className="hero-p1-text">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
         </div>
 
@@ -216,7 +216,7 @@ export default function Hero() {
           <p className="hero-p3-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš.</p>
           <p className="hero-p3-text">Potpuna zaštita identiteta i privatnih podataka.</p>
           <p className="hero-p3-text">Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</p>
-          <p className="hero-p2-accent" style={{ marginTop: 8 }}>14 dana da stranica krene od nule.</p>
+          <p className="hero-p2-accent" style={{ marginTop: 8, marginBottom: 28 }}>14 dana da stranica krene od nule.</p>
 
           <div className="hero-cta-wrap">
             <a href={hero.cta.href} className="btn-primary btn-large">
@@ -353,9 +353,14 @@ export default function Hero() {
         @media (max-width: 640px) {
           .hero-glass-block { padding: 18px 20px; }
         }
+        /* Glass 1 — crna pozadina */
+        .hero-glass-block--dark {
+          background: rgba(0,0,0,0.82) !important;
+          border-color: rgba(255,255,255,0.12) !important;
+        }
         .hero-p1-text {
-          font-size: 16px;
-          color: #1a1a1a;
+          font-size: 17px;
+          color: #a9875c;
           line-height: 1.8;
           margin: 0;
           text-align: center;
@@ -410,14 +415,13 @@ export default function Hero() {
         .hero-secondary-btns {
           display: flex;
           flex-direction: column;
-          align-items: center;
+          align-items: stretch;
           gap: 10px;
           margin-top: 16px;
         }
         .hero-btn-dark, .hero-btn-gold {
-          display: inline-block;
-          width: fit-content;
-          min-width: 260px;
+          display: block;
+          width: 100%;
           text-align: center;
           border-radius: 999px;
           font-size: 13px;
@@ -426,9 +430,6 @@ export default function Hero() {
           padding: 13px 28px;
           text-decoration: none;
           transition: opacity 0.2s, transform 0.2s;
-        }
-        @media (max-width: 480px) {
-          .hero-btn-dark, .hero-btn-gold { width: 100%; min-width: 0; }
         }
         .hero-btn-dark {
           background: #1a1a1a;
