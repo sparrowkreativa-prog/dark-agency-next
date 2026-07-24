@@ -376,8 +376,8 @@ export default function Hero() {
         /* Compact glass blocks */
         .hero-glass-sm {
           background: rgba(255,255,255,0.18);
-          backdrop-filter: blur(28px) saturate(1.8);
-          -webkit-backdrop-filter: blur(28px) saturate(1.8);
+          backdrop-filter: blur(14px) saturate(1.8);
+          -webkit-backdrop-filter: blur(14px) saturate(1.8);
           border: 1px solid rgba(255,255,255,0.35);
           border-radius: 20px;
           padding: 20px 28px;
@@ -500,11 +500,13 @@ export default function Hero() {
         /* Stats box - identical liquid glass to hero-glass */
         .hero-stats-box {
           width: 100%;
-          background: rgba(250,250,248,0.62);
-          border: 1px solid rgba(255,255,255,0.65);
+          background: rgba(255,255,255,0.18);
+          backdrop-filter: blur(14px) saturate(1.8);
+          -webkit-backdrop-filter: blur(14px) saturate(1.8);
+          border: 1px solid rgba(255,255,255,0.35);
           border-radius: 24px;
           padding: 20px 24px;
-          box-shadow: 0 8px 48px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+          box-shadow: 0 4px 32px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.6);
         }
         .hero-stats {
           display: grid;
