@@ -165,6 +165,22 @@ export default function Hero() {
       obs2.observe(statsBoxRef.current);
     }
 
+    /* ── hero counter ── */
+    const counterEl = document.querySelector('.hero-counter');
+    if (counterEl) {
+      const target = parseInt(counterEl.dataset.target, 10);
+      const dur = 2000;
+      let start = null;
+      const step = (ts) => {
+        if (!start) start = ts;
+        const p = Math.min((ts - start) / dur, 1);
+        counterEl.textContent = Math.round(easeOutCubic(p) * target);
+        if (p < 1) requestAnimationFrame(step);
+        else counterEl.textContent = target;
+      };
+      setTimeout(() => requestAnimationFrame(step), 300);
+    }
+
     /* ── scroll progress ── */
     const bar = document.createElement('div');
     bar.id = 'scroll-progress';
@@ -194,39 +210,45 @@ export default function Hero() {
         {/* Locations - outside glass */}
         <p className="hero-locations">NEW YORK &nbsp;-&nbsp; MILANO &nbsp;-&nbsp; BEOGRAD</p>
 
-        {/* Headline - outside glass */}
+        {/* Headline — counter */}
         <h1 className="hero-headline">
-          {hero.headline.split('\n').map((line, i) => (
-            <span key={i} className={`headline-line${i === 2 ? ' headline-line--pink' : ''}`}>{line}</span>
-          ))}
+          <span className="headline-line">
+            <span className="hero-counter" data-target="11">0</span>M+
+          </span>
+          <span className="headline-line headline-line--sub">Generisano za OnlyFans Kreatore</span>
         </h1>
 
         <p className="hero-p1-text">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
 
-        <p className="hero-p2-accent">CILJ $70K + u prvom mesecu</p>
+        {/* Glass 2 — cilj */}
+        <div className="hero-glass hero-glass-sm">
+          <p className="hero-p2-accent">CILJ $70K + u prvom mesecu</p>
+        </div>
 
-        <p className="hero-p3-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš.</p>
-        <p className="hero-p3-text">Potpuna zaštita identiteta i privatnih podataka.</p>
-        <p className="hero-p3-text">Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</p>
-        <p className="hero-p2-accent" style={{ marginTop: 8, marginBottom: 28 }}>14 dana da stranica krene od nule.</p>
+        {/* Glass 3 — CTA blok */}
+        <div className="hero-glass hero-glass-sm">
+          <p className="hero-p3-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš.</p>
+          <p className="hero-p3-text">Potpuna zaštita identiteta i privatnih podataka.</p>
+          <p className="hero-p3-text">Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</p>
+          <p className="hero-p2-accent" style={{ marginTop: 8, marginBottom: 20 }}>14 dana da stranica krene od nule.</p>
 
-        <div className="hero-cta-wrap">
-          <a href={hero.cta.href} className="btn-primary btn-large">
-            {hero.cta.label} <span className="btn-arrow">→</span>
-          </a>
-          <p className="hero-waitlist-note">PRIMAMO SAMO 2 KLIJENTA MESEČNO</p>
-          <p className="hero-microcopy">
-            <span className="hm-first">
-              <span className="pulse-dot" aria-hidden="true" />
-              60-sekundi prijava
-            </span>
-            <span className="hm-rest">&nbsp;·&nbsp;manje od 2% primljenih&nbsp;·&nbsp;nula troškova unapred</span>
-          </p>
-          <div className="hero-secondary-btns">
-            <a href="https://www.vellutonero.international/rezultati" className="hero-btn-dark">POGLEDAJ NAŠE REZULTATE</a>
-            <a href="https://www.vellutonero.international/resursi" className="hero-btn-gold">POGLEDAJ ŠTA ZNAMO</a>
+          <div className="hero-cta-wrap">
+            <a href={hero.cta.href} className="btn-primary btn-large">
+              {hero.cta.label} <span className="btn-arrow">→</span>
+            </a>
+            <p className="hero-waitlist-note">PRIMAMO SAMO 2 KLIJENTA MESEČNO</p>
+            <p className="hero-microcopy">
+              <span className="hm-first">
+                <span className="pulse-dot" aria-hidden="true" />
+                60-sekundi prijava
+              </span>
+              <span className="hm-rest">&nbsp;·&nbsp;manje od 2% primljenih&nbsp;·&nbsp;nula troškova unapred</span>
+            </p>
+            <div className="hero-secondary-btns">
+              <a href="https://www.vellutonero.international/rezultati" className="hero-btn-dark">POGLEDAJ NAŠE REZULTATE <span className="btn-arrow">→</span></a>
+              <a href="https://www.vellutonero.international/resursi" className="hero-btn-gold">POGLEDAJ ŠTA ZNAMO <span className="btn-arrow">→</span></a>
+            </div>
           </div>
-          <p className="hero-btn-hint">(klikni na dugme)</p>
         </div>
 
         {/* Video between glass and stats */}
@@ -340,6 +362,32 @@ export default function Hero() {
         @media (max-width: 640px) {
           .hero-of-icon { width: 100px !important; height: 100px !important; margin-bottom: 8px !important; }
         }
+
+        /* Headline — counter style */
+        .headline-line--sub {
+          font-size: clamp(16px, 3.5vw, 28px);
+          color: #1a1a1a !important;
+          font-style: normal;
+          letter-spacing: 0.01em;
+          margin-top: 4px;
+        }
+
+        /* Compact glass blocks */
+        .hero-glass-sm {
+          background: rgba(255,255,255,0.55);
+          backdrop-filter: blur(20px) saturate(1.6);
+          -webkit-backdrop-filter: blur(20px) saturate(1.6);
+          border: 1px solid rgba(255,255,255,0.7);
+          border-radius: 20px;
+          padding: 20px 28px;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.9);
+          width: 100%;
+          margin-bottom: 12px;
+        }
+        @media (max-width: 640px) {
+          .hero-glass-sm { padding: 16px 18px; border-radius: 16px; margin-bottom: 10px; }
+        }
+
         .hero-p1-text {
           font-size: 17px;
           color: #1a1a1a;
