@@ -225,12 +225,13 @@ export default function Hero() {
           <p className="hero-p2-accent">CILJ $70K + u prvom mesecu</p>
         </div>
 
+        <p className="hero-p3-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš.</p>
+        <p className="hero-p3-text">Potpuna zaštita identiteta i privatnih podataka.</p>
+        <p className="hero-p3-text">Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</p>
+
         {/* Glass 3 — CTA blok */}
-        <div className="hero-glass hero-glass-sm">
-          <p className="hero-p3-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš.</p>
-          <p className="hero-p3-text">Potpuna zaštita identiteta i privatnih podataka.</p>
-          <p className="hero-p3-text">Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</p>
-          <p className="hero-p2-accent" style={{ marginTop: 8, marginBottom: 20 }}>14 dana da stranica krene od nule.</p>
+        <div className="hero-glass-sm">
+          <p className="hero-p2-accent" style={{ marginBottom: 20 }}>14 dana da stranica krene od nule.</p>
 
           <div className="hero-cta-wrap">
             <a href={hero.cta.href} className="btn-primary btn-large">
@@ -374,13 +375,13 @@ export default function Hero() {
 
         /* Compact glass blocks */
         .hero-glass-sm {
-          background: rgba(255,255,255,0.55);
-          backdrop-filter: blur(20px) saturate(1.6);
-          -webkit-backdrop-filter: blur(20px) saturate(1.6);
-          border: 1px solid rgba(255,255,255,0.7);
+          background: rgba(255,255,255,0.18);
+          backdrop-filter: blur(28px) saturate(1.8);
+          -webkit-backdrop-filter: blur(28px) saturate(1.8);
+          border: 1px solid rgba(255,255,255,0.35);
           border-radius: 20px;
           padding: 20px 28px;
-          box-shadow: 0 4px 24px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.9);
+          box-shadow: 0 4px 32px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.6);
           width: 100%;
           margin-bottom: 12px;
         }
