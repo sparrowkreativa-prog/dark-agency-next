@@ -158,11 +158,13 @@ em { font-style: italic; color: var(--color-accent-pink); }
 .hero-locations { font-size: 11px; font-weight: 700; letter-spacing: 0.22em; color: #911f39; text-transform: uppercase; margin: 0 auto 18px; }
 .hero-headline { font-size: clamp(40px, 9.5vw, 108px); line-height: 1.0; margin-bottom: 28px; }
 .headline-line { display: block; font-family: 'DM Serif Display', serif; font-style: italic; white-space: nowrap; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,0.35); }
+.headline-line:nth-child(2) { color: #a9875c; text-shadow: none; }
 .headline-line--pink { color: #a9875c; text-shadow: none; }
 .headline-line--accent { border-width: 1px; border-color: #a9875c; border-style: none; color: #a9875c; padding: 8px 16px; border-radius: 8px; }
 @media (max-width: 700px) {
   .hero-headline { font-size: clamp(28px, 11vw, 56px); }
   .headline-line { white-space: normal; overflow-wrap: break-word; }
+  .headline-line:nth-child(2) { color: #a9875c; }
 }
 .hero-headline em { display: block; background: linear-gradient(135deg, var(--color-accent-pink), #f7a8c9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-bottom: 0.18em; }
 .hero-sub { font-size: 16px; color: #1a1a1a; max-width: 640px; margin: 0 auto 32px; line-height: 1.75; }
