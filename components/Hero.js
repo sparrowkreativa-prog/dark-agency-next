@@ -215,7 +215,7 @@ export default function Hero() {
           <span className="headline-line">
             <span className="hero-counter" data-target="11">0</span>M+
           </span>
-          <span className="headline-line headline-line--sub"><em>Generisano za OnlyFans Kreatore</em></span>
+          <span className="headline-line headline-line--sub" style={{ color: '#1a1a1a' }}><em>Generisano za OnlyFans Kreatore</em></span>
         </h1>
 
         <div className="hero-channels-wrap">
@@ -226,6 +226,7 @@ export default function Hero() {
             ))}
           </div>
         </div>
+        <p className="hero-channels-label" style={{ marginTop: 10 }}>NE JOŠ JEDNA ČETING AGENCIJA ILI ONLY FANS MENADŽER</p>
 
         <p className="hero-p1-text">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
 
@@ -234,9 +235,7 @@ export default function Hero() {
           <p className="hero-p2-accent">CILJ $70K + u prvom mesecu</p>
         </div>
 
-        <p className="hero-p3-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš.</p>
-        <p className="hero-p3-text">Potpuna zaštita identiteta i privatnih podataka.</p>
-        <p className="hero-p3-text">Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</p>
+        <p className="hero-p1-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš. Potpuna zaštita identiteta i privatnih podataka. Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</p>
 
         {/* Glass 3 — CTA blok */}
         <div className="hero-glass-sm">
