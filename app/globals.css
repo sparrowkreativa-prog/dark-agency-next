@@ -162,7 +162,7 @@ em { font-style: italic; color: var(--color-accent-pink); }
   .headline-line { white-space: nowrap; }
   .headline-line:nth-child(2) { color: #a9875c; }
 }
-.hero-headline em { display: block; background: linear-gradient(135deg, var(--color-accent-pink), #f7a8c9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-bottom: 0.18em; }
+.hero-headline em { font-style: inherit; }
 .hero-sub { font-size: 16px; color: #1a1a1a; max-width: 640px; margin: 0 auto 32px; line-height: 1.75; }
 .hero-sub-line { display: block; font-weight: 700; font-size: 1.35em; color: #1a1a1a; line-height: 1.35; }
 .hero-sub-rest { display: block; margin-top: 14px; color: #1a1a1a; }

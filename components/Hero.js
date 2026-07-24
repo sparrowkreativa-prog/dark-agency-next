@@ -212,10 +212,10 @@ export default function Hero() {
 
         {/* Headline — counter */}
         <h1 className="hero-headline">
-          <span className="headline-line">
+          <span className="headline-line hero-hl-num">
             <span className="hero-counter" data-target="11">0</span>M+
           </span>
-          <span className="headline-line headline-line--sub" style={{ color: '#1a1a1a' }}><em>Generisano za OnlyFans Kreatore</em></span>
+          <span className="hero-hl-sub">Generisano za OnlyFans Kreatore</span>
         </h1>
 
         <div className="hero-channels-wrap">
@@ -372,13 +372,22 @@ export default function Hero() {
           .hero-of-icon { width: 100px !important; height: 100px !important; margin-bottom: 8px !important; }
         }
 
-        /* Headline — counter style */
-        .headline-line--sub {
-          font-size: clamp(16px, 3.5vw, 28px);
-          color: #1a1a1a !important;
+        /* Headline — number */
+        .hero-hl-num {
+          color: #911f39;
+          text-shadow: none;
+        }
+        /* Headline — sub text (B9 style: large, black, bold) */
+        .hero-hl-sub {
+          display: block;
+          font-family: 'DM Serif Display', serif;
           font-style: italic;
-          letter-spacing: 0.01em;
+          font-size: clamp(28px, 7vw, 72px);
+          color: #1a1a1a;
+          line-height: 1.1;
           margin-top: 4px;
+          -webkit-text-fill-color: #1a1a1a;
+          background: none;
         }
 
         /* Channels */
