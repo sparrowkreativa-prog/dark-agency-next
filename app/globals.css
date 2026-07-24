@@ -147,7 +147,7 @@ em { font-style: italic; color: var(--color-accent-pink); }
 .has-video .hero-orb { z-index: 1; opacity: 0; }
 .has-video .hero-inner { z-index: 2; }
 .has-video .hero-glass { background: transparent; }
-.hero-bg { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, rgba(250,248,245,0.72) 0%, rgba(250,248,245,0.82) 100%); }
+.hero-bg { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, rgba(250,248,245,0.58) 0%, rgba(250,248,245,0.68) 100%); }
 .hero-orb { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(40px); }
 .hero-orb-1 { width: min(300px,60vw); height: min(300px,60vw); top: 15%; left: 10%; background: radial-gradient(circle, rgba(169,135,92,0.06), transparent 70%); }
 .hero-orb-2 { width: min(250px,50vw); height: min(250px,50vw); bottom: 10%; right: 8%; background: radial-gradient(circle, rgba(247,168,201,0.04), transparent 70%); }
