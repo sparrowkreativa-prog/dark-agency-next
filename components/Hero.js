@@ -202,7 +202,7 @@ export default function Hero() {
         </h1>
 
         {/* Glass 1 — garancija */}
-        <div className="hero-glass hero-glass-block hero-glass-block--dark">
+        <div className="hero-glass hero-glass-block">
           <p className="hero-p1-text">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
         </div>
 
@@ -290,7 +290,7 @@ export default function Hero() {
           font-weight: 700;
           letter-spacing: 0.42em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.42);
+          color: rgba(26,26,26,0.35);
           margin: 16px 0;
           width: 100%;
           display: flex;
@@ -302,7 +302,7 @@ export default function Hero() {
           content: '';
           flex: 1;
           height: 1px;
-          background: rgba(255,255,255,0.15);
+          background: rgba(0,0,0,0.12);
         }
         .hv-wrap {
           position: relative;
@@ -354,14 +354,9 @@ export default function Hero() {
         @media (max-width: 640px) {
           .hero-glass-block { padding: 18px 20px; }
         }
-        /* Glass 1 — crna pozadina */
-        .hero-glass-block--dark {
-          background: rgba(0,0,0,0.82) !important;
-          border-color: rgba(255,255,255,0.12) !important;
-        }
         .hero-p1-text {
           font-size: 17px;
-          color: #a9875c;
+          color: #1a1a1a;
           line-height: 1.8;
           margin: 0;
           text-align: center;
@@ -377,7 +372,7 @@ export default function Hero() {
         }
         .hero-p3-text {
           font-size: 15px;
-          color: #1a1a1a;
+          color: #333;
           line-height: 1.75;
           margin: 0 0 10px;
           text-align: center;
