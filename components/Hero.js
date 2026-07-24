@@ -201,26 +201,25 @@ export default function Hero() {
           ))}
         </h1>
 
-        {/* Glass box — 3 parts */}
-        <div className="hero-glass">
+        {/* Glass 1 — garancija */}
+        <div className="hero-glass hero-glass-block">
+          <p className="hero-p1-text">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
+        </div>
 
-          {/* Part 1 — garancija */}
-          <div className="hero-part hero-part--1">
-            <p className="hero-p1-text">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
-          </div>
+        {/* Glass 2 — cilj */}
+        <div className="hero-glass hero-glass-block">
+          <p className="hero-p2-accent">CILJ $70K + u prvom mesecu</p>
+        </div>
 
-          {/* Part 2 — cilj */}
-          <div className="hero-part hero-part--2">
-            <p className="hero-p2-accent">CILJ $70K + u prvom mesecu</p>
-          </div>
+        {/* Glass 3 — uslovi + CTA */}
+        <div className="hero-glass hero-glass-block">
+          <p className="hero-p3-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš.</p>
+          <p className="hero-p3-text">Potpuna zaštita identiteta i privatnih podataka.</p>
+          <p className="hero-p3-text">Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</p>
+          <p className="hero-p2-accent" style={{ marginTop: 8 }}>14 dana da stranica krene od nule.</p>
 
-          {/* Part 3 — uslovi + CTA */}
-          <div className="hero-part hero-part--3">
-            <p className="hero-p3-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš.</p>
-            <p className="hero-p3-text">Potpuna zaštita identiteta i privatnih podataka.</p>
-            <p className="hero-p3-text">· Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš. · <em>14 dana da stranica krene od nule.</em></p>
-
-            <a href={hero.cta.href} className="btn-primary btn-large" style={{ marginTop: 20, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+          <div className="hero-cta-wrap">
+            <a href={hero.cta.href} className="btn-primary btn-large">
               {hero.cta.label} <span className="btn-arrow">→</span>
             </a>
             <p className="hero-waitlist-note">PRIMAMO SAMO 2 KLIJENTA MESEČNO</p>
@@ -236,7 +235,6 @@ export default function Hero() {
               <a href="https://www.vellutonero.international/resursi" className="hero-btn-gold">POGLEDAJ ŠTA ZNAMO</a>
             </div>
           </div>
-
         </div>
 
         {/* Video between glass and stats */}
@@ -347,19 +345,13 @@ export default function Hero() {
           pointer-events: auto;
         }
 
-        /* 3-part glass structure */
-        .hero-part {
-          width: 100%;
+        /* Separate liquid glass blocks */
+        .hero-glass-block {
+          margin-bottom: 12px;
+          padding: 24px 32px;
         }
-        .hero-part--1 {
-          padding-bottom: 20px;
-          border-bottom: 1px solid rgba(0,0,0,0.1);
-          margin-bottom: 20px;
-        }
-        .hero-part--2 {
-          padding-bottom: 20px;
-          border-bottom: 1px solid rgba(0,0,0,0.1);
-          margin-bottom: 20px;
+        @media (max-width: 640px) {
+          .hero-glass-block { padding: 18px 20px; }
         }
         .hero-p1-text {
           font-size: 16px;
@@ -381,13 +373,8 @@ export default function Hero() {
           font-size: 15px;
           color: #1a1a1a;
           line-height: 1.75;
-          margin: 0 0 12px;
+          margin: 0 0 10px;
           text-align: center;
-        }
-        .hero-p3-text em {
-          font-family: var(--font-dm-serif), Georgia, serif;
-          font-style: italic;
-          color: #911f39;
         }
         @media (max-width: 640px) {
           .hero-p1-text { font-size: 14px; }
@@ -423,20 +410,25 @@ export default function Hero() {
         .hero-secondary-btns {
           display: flex;
           flex-direction: column;
+          align-items: center;
           gap: 10px;
           margin-top: 16px;
         }
         .hero-btn-dark, .hero-btn-gold {
-          display: block;
-          width: 100%;
+          display: inline-block;
+          width: fit-content;
+          min-width: 260px;
           text-align: center;
           border-radius: 999px;
           font-size: 13px;
           font-weight: 700;
           letter-spacing: 0.06em;
-          padding: 13px 24px;
+          padding: 13px 28px;
           text-decoration: none;
           transition: opacity 0.2s, transform 0.2s;
+        }
+        @media (max-width: 480px) {
+          .hero-btn-dark, .hero-btn-gold { width: 100%; min-width: 0; }
         }
         .hero-btn-dark {
           background: #1a1a1a;
