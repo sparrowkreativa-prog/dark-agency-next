@@ -201,41 +201,32 @@ export default function Hero() {
           ))}
         </h1>
 
-        {/* Glass 1 — garancija */}
-        <div className="hero-glass hero-glass-block">
-          <p className="hero-p1-text">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
-        </div>
+        <p className="hero-p1-text">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
 
-        {/* Glass 2 — cilj */}
-        <div className="hero-glass hero-glass-block">
-          <p className="hero-p2-accent">CILJ $70K + u prvom mesecu</p>
-        </div>
+        <p className="hero-p2-accent">CILJ $70K + u prvom mesecu</p>
 
-        {/* Glass 3 — uslovi + CTA */}
-        <div className="hero-glass hero-glass-block">
-          <p className="hero-p3-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš.</p>
-          <p className="hero-p3-text">Potpuna zaštita identiteta i privatnih podataka.</p>
-          <p className="hero-p3-text">Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</p>
-          <p className="hero-p2-accent" style={{ marginTop: 8, marginBottom: 28 }}>14 dana da stranica krene od nule.</p>
+        <p className="hero-p3-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš.</p>
+        <p className="hero-p3-text">Potpuna zaštita identiteta i privatnih podataka.</p>
+        <p className="hero-p3-text">Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</p>
+        <p className="hero-p2-accent" style={{ marginTop: 8, marginBottom: 28 }}>14 dana da stranica krene od nule.</p>
 
-          <div className="hero-cta-wrap">
-            <a href={hero.cta.href} className="btn-primary btn-large">
-              {hero.cta.label} <span className="btn-arrow">→</span>
-            </a>
-            <p className="hero-waitlist-note">PRIMAMO SAMO 2 KLIJENTA MESEČNO</p>
-            <p className="hero-microcopy">
-              <span className="hm-first">
-                <span className="pulse-dot" aria-hidden="true" />
-                60-sekundi prijava
-              </span>
-              <span className="hm-rest">&nbsp;·&nbsp;manje od 2% primljenih&nbsp;·&nbsp;nula troškova unapred</span>
-            </p>
-            <div className="hero-secondary-btns">
-              <a href="https://www.vellutonero.international/rezultati" className="hero-btn-dark">POGLEDAJ NAŠE REZULTATE</a>
-              <a href="https://www.vellutonero.international/resursi" className="hero-btn-gold">POGLEDAJ ŠTA ZNAMO</a>
-            </div>
-            <p className="hero-btn-hint">(klikni na dugme)</p>
+        <div className="hero-cta-wrap">
+          <a href={hero.cta.href} className="btn-primary btn-large">
+            {hero.cta.label} <span className="btn-arrow">→</span>
+          </a>
+          <p className="hero-waitlist-note">PRIMAMO SAMO 2 KLIJENTA MESEČNO</p>
+          <p className="hero-microcopy">
+            <span className="hm-first">
+              <span className="pulse-dot" aria-hidden="true" />
+              60-sekundi prijava
+            </span>
+            <span className="hm-rest">&nbsp;·&nbsp;manje od 2% primljenih&nbsp;·&nbsp;nula troškova unapred</span>
+          </p>
+          <div className="hero-secondary-btns">
+            <a href="https://www.vellutonero.international/rezultati" className="hero-btn-dark">POGLEDAJ NAŠE REZULTATE</a>
+            <a href="https://www.vellutonero.international/resursi" className="hero-btn-gold">POGLEDAJ ŠTA ZNAMO</a>
           </div>
+          <p className="hero-btn-hint">(klikni na dugme)</p>
         </div>
 
         {/* Video between glass and stats */}
@@ -346,13 +337,7 @@ export default function Hero() {
           pointer-events: auto;
         }
 
-        /* Separate liquid glass blocks */
-        .hero-glass-block {
-          margin-bottom: 12px;
-          padding: 24px 32px;
-        }
         @media (max-width: 640px) {
-          .hero-glass-block { padding: 6px 4px; margin-bottom: 4px; }
           .hero-of-icon { width: 100px !important; height: 100px !important; margin-bottom: 8px !important; }
         }
         .hero-p1-text {
@@ -379,9 +364,11 @@ export default function Hero() {
           text-align: center;
         }
         @media (max-width: 640px) {
-          .hero-p1-text { font-size: 14px; }
-          .hero-p2-accent { font-size: 22px; }
-          .hero-p3-text { font-size: 13px; }
+          .hero-p1-text { font-size: 14px; margin-bottom: 10px; }
+          .hero-p2-accent { font-size: 22px; margin: 10px 0; }
+          .hero-p3-text { font-size: 13px; margin: 0 0 6px; }
+          .hero-headline { margin-bottom: 10px; }
+          .hero-locations { margin-bottom: 10px; }
         }
         .hero-locations {
           margin-bottom: 20px;
@@ -397,14 +384,6 @@ export default function Hero() {
         }
         .hero-headline {
           margin-bottom: 24px;
-        }
-        .hero-glass {
-          width: 100%;
-          margin-bottom: 20px;
-          padding: 32px 48px 28px;
-        }
-        @media (max-width: 640px) {
-          .hero-glass { padding: 24px 20px 20px; }
         }
         .hero-cta-wrap {
           margin-bottom: 0;
