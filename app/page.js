@@ -23,6 +23,7 @@ import Kalkulator from '@/components/Kalkulator';
 import LiveDashboard from '@/components/LiveDashboard';
 import NotificationToast from '@/components/NotificationToast';
 import Paketi from '@/components/Paketi';
+import PutKlijenta from '@/components/PutKlijenta';
 import DvaPuta from '@/components/DvaPuta';
 import Bezbednost from '@/components/Bezbednost';
 import Tim from '@/components/Tim';
@@ -39,6 +40,8 @@ export default function Home() {
         <Hero />
 
         <PressBar />
+
+        <PutKlijenta />
 
         <Garancija30 />
 
