@@ -215,8 +215,17 @@ export default function Hero() {
           <span className="headline-line">
             <span className="hero-counter" data-target="11">0</span>M+
           </span>
-          <span className="headline-line headline-line--sub">Generisano za OnlyFans Kreatore</span>
+          <span className="headline-line headline-line--sub"><em>Generisano za OnlyFans Kreatore</em></span>
         </h1>
+
+        <div className="hero-channels-wrap">
+          <p className="hero-channels-label">Full Management Service za 8 Različitih Kanala</p>
+          <div className="hero-channels-pills">
+            {['INSTAGRAM','TIKTOK','X','REDDIT','THREADS','TELEGRAM','CLAPPER','OF'].map(ch => (
+              <span key={ch} className="hero-channel-pill">{ch}</span>
+            ))}
+          </div>
+        </div>
 
         <p className="hero-p1-text">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
 
@@ -368,9 +377,40 @@ export default function Hero() {
         .headline-line--sub {
           font-size: clamp(16px, 3.5vw, 28px);
           color: #1a1a1a !important;
-          font-style: normal;
+          font-style: italic;
           letter-spacing: 0.01em;
           margin-top: 4px;
+        }
+
+        /* Channels */
+        .hero-channels-wrap {
+          margin: 12px 0 10px;
+          width: 100%;
+        }
+        .hero-channels-label {
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          color: #1a1a1a;
+          text-transform: uppercase;
+          margin: 0 0 10px;
+          text-align: center;
+        }
+        .hero-channels-pills {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          justify-content: center;
+        }
+        .hero-channel-pill {
+          display: inline-block;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          color: #1a1a1a;
+          border: 1.5px solid #1a1a1a;
+          border-radius: 999px;
+          padding: 5px 12px;
         }
 
         /* Compact glass blocks */
