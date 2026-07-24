@@ -198,6 +198,7 @@ export default function Paketi() {
 
       <style>{`
         .pk-section { padding: 96px 0; background: #fafaf8; }
+        @media (max-width: 640px) { .pk-section { padding: 48px 0; } }
         .pk-container { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
 
         .pk-header { text-align: center; margin-bottom: 52px; }

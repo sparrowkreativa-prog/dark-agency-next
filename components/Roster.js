@@ -248,6 +248,7 @@ export default function Roster() {
 
       <style>{`
         .rc-section { padding: 96px 0; background: #fafaf8; }
+        @media (max-width: 640px) { .rc-section { padding: 48px 0; } }
 
         /* Main two-column layout */
         .rc-main-layout {

@@ -197,6 +197,7 @@ export default function LiveDashboard() {
 
       <style>{`
         .ld-section { padding: 80px 0; background: #fafaf8; }
+        @media (max-width: 640px) { .ld-section { padding: 48px 0; } }
         .ld-container { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
 
         .ld-header { text-align: center; margin-bottom: 48px; }

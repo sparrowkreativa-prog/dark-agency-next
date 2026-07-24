@@ -98,6 +98,7 @@ export default function Tim() {
           padding: 96px 0;
           background: #fafaf8;
         }
+        @media (max-width: 640px) { .tm-section { padding: 48px 0; } }
 
         /* Header */
         .tm-header {

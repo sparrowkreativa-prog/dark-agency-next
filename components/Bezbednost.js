@@ -119,6 +119,7 @@ export default function Bezbednost() {
           padding: 96px 0;
           background: #fafaf8;
         }
+        @media (max-width: 640px) { .bz-section { padding: 48px 0; } }
         .bz-top-label {
           text-align: center;
           max-width: 1060px;

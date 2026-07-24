@@ -133,6 +133,7 @@ export default function ServicesSection({ services }) {
           padding: 96px 0;
           background: #fafaf8;
         }
+        @media (max-width: 640px) { .svc-section { padding: 48px 0; } }
         .svc-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);

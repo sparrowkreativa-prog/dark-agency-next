@@ -238,6 +238,7 @@ export default function Masina() {
 
       <style>{`
         .m-section { position: relative; background: #1a1a1a; color: #fff; overflow: hidden; padding: 80px 0 88px; }
+        @media (max-width: 640px) { .m-section { padding: 48px 0; } }
         .m-glow { position: absolute; top: 0; right: 0; width: 40rem; height: 40rem; background: rgba(255,255,255,0.12); filter: blur(120px); border-radius: 50%; pointer-events: none; }
         .m-wrap { position: relative; max-width: 1060px; margin: 0 auto; padding: 0 24px; }
 

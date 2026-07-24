@@ -267,6 +267,7 @@ export default function DvaPuta() {
           background: #1a1a1a;
           padding: 80px 0 96px;
         }
+        @media (max-width: 640px) { .dp-section { padding: 48px 0; } }
         .dp-container {
           max-width: 1060px;
           margin: 0 auto;

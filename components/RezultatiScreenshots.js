@@ -445,6 +445,7 @@ export default function RezultatiScreenshots() {
 
       <style>{`
         .rz-section { padding: 96px 0 0; background: #fafaf8; }
+        @media (max-width: 640px) { .rz-section { padding: 48px 0 0; } }
         .rz-inner { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
         .rz-header { text-align: center; margin-bottom: 48px; }
         .rz-title { font-family: var(--font-display); font-size: clamp(28px,5vw,42px); font-style: italic; color: #1a1a1a; margin: 0; line-height: 1.1; }

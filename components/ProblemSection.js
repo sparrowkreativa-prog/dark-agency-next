@@ -160,6 +160,7 @@ export default function ProblemSection({ problem }) {
           padding: 80px 0 96px;
           background: #1a1a1a;
         }
+        @media (max-width: 640px) { .ps-section { padding: 48px 0; } }
         .ps-section .section-title { color: #fff; }
         .ps-section .section-sub { color: rgba(255,255,255,0.5); }
         .ps-sub-em {

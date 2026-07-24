@@ -72,6 +72,7 @@ export default function ONama() {
           padding: 80px 0;
           background: #fafaf8;
         }
+        @media (max-width: 640px) { .on-section { padding: 48px 0; } }
         .on-top-label {
           text-align: center;
           padding-bottom: 8px;
