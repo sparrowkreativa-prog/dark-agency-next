@@ -44,7 +44,7 @@ export default function PutKlijenta() {
         <div className="pk2-header">
           <span className="chapter-label">Put Klijenta</span>
           <h2 className="pk2-heading">
-            <em>Od Prijave </em><em style={{ color: '#a9875c' }}>do Prve Zarade</em>
+            <em style={{ color: '#1a1a1a' }}>Od Prijave </em><em style={{ color: '#a9875c' }}>do Prve Zarade</em>
           </h2>
         </div>
 
