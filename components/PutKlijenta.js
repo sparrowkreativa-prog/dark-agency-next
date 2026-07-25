@@ -14,7 +14,7 @@ const STEPS = [
   },
   {
     num: '3',
-    title: 'Onboarding (do 4 nedelje)',
+    title: 'Onboarding (do 2 nedelje)',
     desc: 'Kreiranje social media kita i definisanje finalnog predloga saradnje.',
   },
   {
