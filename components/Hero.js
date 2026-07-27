@@ -213,7 +213,7 @@ export default function Hero() {
         {/* Headline — counter */}
         <h1 className="hero-headline">
           <span className="headline-line hero-hl-num">
-            <span className="hero-counter" data-target="11">0</span>M+
+            $<span className="hero-counter" data-target="11">0</span>M+
           </span>
           <span className="hero-hl-sub">Generisano za OnlyFans Kreatore</span>
         </h1>
@@ -228,7 +228,7 @@ export default function Hero() {
         </div>
         <p className="hero-channels-label" style={{ marginTop: 10 }}>NE JOŠ JEDNA ČETING AGENCIJA ILI ONLY FANS MENADŽER</p>
 
-        <p className="hero-p1-text">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
+        <p className="hero-p1-text hero-p1-highlight">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
 
         {/* Glass 2 — cilj */}
         <div className="hero-glass hero-glass-sm" style={{ marginTop: 12 }}>
@@ -443,6 +443,14 @@ export default function Hero() {
           line-height: 1.8;
           margin: 0;
           text-align: center;
+        }
+        .hero-p1-highlight {
+          border-left: 3px solid #911f39;
+          padding-left: 16px;
+          text-align: left;
+          background: rgba(145,31,57,0.04);
+          border-radius: 0 8px 8px 0;
+          padding: 12px 16px;
         }
         .hero-p2-accent {
           font-family: var(--font-dm-serif), Georgia, serif;

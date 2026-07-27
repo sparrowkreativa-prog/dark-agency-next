@@ -101,7 +101,7 @@ export default function PutKlijenta() {
           .pk2-steps { grid-template-columns: repeat(2, 1fr); gap: 28px; }
         }
         @media (max-width: 480px) {
-          .pk2-steps { grid-template-columns: 1fr; gap: 24px; }
+          .pk2-steps { grid-template-columns: repeat(2, 1fr); gap: 20px; }
           .pk2-header { margin-bottom: 36px; }
         }
 
