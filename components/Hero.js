@@ -445,12 +445,18 @@ export default function Hero() {
           text-align: center;
         }
         .hero-p1-highlight {
-          border-left: 3px solid #911f39;
-          padding-left: 16px;
-          text-align: left;
-          background: rgba(145,31,57,0.04);
-          border-radius: 0 8px 8px 0;
-          padding: 12px 16px;
+          border: 1.5px solid #a9875c;
+          border-radius: 999px;
+          padding: 14px 24px;
+          text-align: center;
+          text-transform: uppercase;
+          font-weight: 400;
+          letter-spacing: 0.04em;
+          background: transparent;
+          font-size: 13px;
+        }
+        @media (max-width: 640px) {
+          .hero-p1-highlight { font-size: 11px; padding: 12px 16px; }
         }
         .hero-p2-accent {
           font-family: var(--font-dm-serif), Georgia, serif;
