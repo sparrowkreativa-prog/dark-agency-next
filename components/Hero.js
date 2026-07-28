@@ -226,9 +226,9 @@ export default function Hero() {
             ))}
           </div>
         </div>
-        <p className="hero-channels-label" style={{ marginTop: 10 }}>NE JOŠ JEDNA ČETING AGENCIJA ILI ONLY FANS MENADŽER</p>
+        <p className="hero-channels-label" style={{ marginTop: 10 }}>NE JOŠ JEDNA ČETING AGENCIJA ILI ONLYFANS MENADŽER</p>
 
-        <p className="hero-p1-text hero-p1-highlight">Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
+        <p className="hero-p1-text" style={{ color: '#a9875c', fontWeight: 700, WebkitTextFillColor: '#a9875c' }}>Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
 
         {/* Glass 2 — cilj */}
         <div className="hero-glass hero-glass-sm" style={{ marginTop: 12 }}>
@@ -443,20 +443,6 @@ export default function Hero() {
           line-height: 1.8;
           margin: 0;
           text-align: center;
-        }
-        .hero-p1-highlight {
-          border: 1.5px solid #a9875c;
-          border-radius: 999px;
-          padding: 14px 24px;
-          text-align: center;
-          text-transform: uppercase;
-          font-weight: 400;
-          letter-spacing: 0.04em;
-          background: transparent;
-          font-size: 13px;
-        }
-        @media (max-width: 640px) {
-          .hero-p1-highlight { font-size: 11px; padding: 12px 16px; }
         }
         .hero-p2-accent {
           font-family: var(--font-dm-serif), Georgia, serif;

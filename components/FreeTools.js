@@ -106,7 +106,7 @@ export default function FreeTools() {
           ref={headRef}
           style={{ opacity: 0, transform: 'translateY(24px)', transition: 'opacity 0.6s ease, transform 0.6s ease', textAlign: 'center', marginBottom: 48 }}
         >
-          <p className="ft-eyebrow">AFILIATE</p>
+          <p className="ft-eyebrow">AFFILIATE</p>
           <h2 className="ft-heading">
             <span style={{ color: '#fff' }}>Još Uvek Nisi Spremna</span>
             <br />

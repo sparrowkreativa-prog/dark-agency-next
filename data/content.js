@@ -60,7 +60,7 @@ export const siteData = {
       {
         num: '02',
         title: 'Tvoj content engine',
-        desc: 'Strategija, raspoređivanje i produkcija -sve u rukama tvog tima, da se ti možeš fokusirati na ono što samo ti možeš da radiš.',
+        desc: 'Strategija, raspoređivanje i produkcija - sve u rukama tvog tima, da se ti možeš fokusirati na ono što samo ti možeš da radiš.',
         items: [
           'Kompletan content kalendar planiran svakih 30 dana',
           'Raspoređivanje objava, opisi i optimizacija',
