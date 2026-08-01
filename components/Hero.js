@@ -34,7 +34,7 @@ function HeroVideo() {
         onContextMenu={e => e.preventDefault()}
         className="hero-between-video"
       >
-        <source src="/ITALO-cica.mp4" type="video/mp4" />
+        <source src="/nova-italija.mp4" type="video/mp4" />
       </video>
 
       <button
