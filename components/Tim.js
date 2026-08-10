@@ -1,15 +1,71 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { useLang } from '@/hooks/useContent';
 
-const ROLES = [
-  { num: '01', title: 'Stratezi',            body: 'Mapiraju tvoju nišu, cene i prvih 90 dana - pre nego što se ijedan nalog pokrene.' },
-  { num: '02', title: 'Četeri',              body: 'Generišu prihod 24/7, vreme odgovora ispod 5 minuta, svaka poruka.' },
-  { num: '03', title: 'Content Menadžeri',   body: 'Zakazuju, optimizuju i maksimizuju svaku objavu.' },
-  { num: '04', title: 'DMCA Specijalisti',   body: 'Prate 500+ platformi, skidanje sadržaja se meri satima.' },
-  { num: '05', title: 'Mentori',             body: 'Lično mentorstvo od žena koje su same izgradile ovo.' },
-];
+const T = {
+  sr: {
+    label: 'TIM',
+    title1: 'Posvećen Tim Iza Svakog Naloga.',
+    title2: 'Niko Od Njih Nisi Ti.',
+    sub: 'Kada tvoj nalog krene, ovo su ljudi koji rade na tvom biznisu - dok ti nastavljaš da živiš normalno.',
+    roles: [
+      { num: '01', title: 'Stratezi',            body: 'Mapiraju tvoju nišu, cene i prvih 90 dana - pre nego što se ijedan nalog pokrene.' },
+      { num: '02', title: 'Četeri',              body: 'Generišu prihod 24/7, vreme odgovora ispod 5 minuta, svaka poruka.' },
+      { num: '03', title: 'Content Menadžeri',   body: 'Zakazuju, optimizuju i maksimizuju svaku objavu.' },
+      { num: '04', title: 'DMCA Specijalisti',   body: 'Prate 500+ platformi, skidanje sadržaja se meri satima.' },
+      { num: '05', title: 'Mentori',             body: 'Lično mentorstvo od žena koje su same izgradile ovo.' },
+    ],
+    barYou: 'Ti',
+    barTeam: 'Tvoj Tim',
+    barCaption: 'Ti kreiraš. Tim vodi sve ostalo.',
+    bottomTitle1: 'Deo Koji Je ',
+    bottomTitle2: 'Zaista Ti.',
+    bottomBody: 'Evo šta većina agencija neće reći naglas: novac dolazi od konekcije, a ne samo od sadržaja. Tvoj tim se bavi objavljivanjem, porukama, zaštitom - svime. Ono što ti donosiš je jedino što ne može da se prepusti nekome drugom: prava, topla ličnost kojoj se ljudi rado vraćaju. Ako ti je prirodno da neko ko se oseća viđenim, dobro ćeš proći ovde.',
+  },
+  en: {
+    label: 'THE TEAM',
+    title1: 'A Dedicated Team Behind Every Account.',
+    title2: 'None of Them Are You.',
+    sub: 'When your account launches, these are the people working on your business — while you continue to live normally.',
+    roles: [
+      { num: '01', title: 'Strategists',       body: 'They map your niche, pricing and the first 90 days — before a single account goes live.' },
+      { num: '02', title: 'Chatters',          body: 'They generate revenue 24/7, response time under 5 minutes, every message.' },
+      { num: '03', title: 'Content Managers',  body: 'They schedule, optimize and maximize every post.' },
+      { num: '04', title: 'DMCA Specialists',  body: 'They monitor 500+ platforms — takedowns are measured in hours.' },
+      { num: '05', title: 'Mentors',           body: 'Personal mentorship from women who built this themselves.' },
+    ],
+    barYou: 'You',
+    barTeam: 'Your Team',
+    barCaption: 'You create. The team runs everything else.',
+    bottomTitle1: 'The Part That Is ',
+    bottomTitle2: 'Truly You.',
+    bottomBody: 'Here\'s what most agencies won\'t say out loud: money comes from connection, not just content. Your team handles posting, messaging, protection — everything. What you bring is the only thing that can\'t be delegated: a real, warm personality that people love coming back to. If making someone feel seen comes naturally to you, you\'ll do well here.',
+  },
+  it: {
+    label: 'IL TEAM',
+    title1: 'Un Team Dedicato Dietro Ogni Account.',
+    title2: 'Nessuno di Loro Sei Tu.',
+    sub: 'Quando il tuo account viene avviato, queste sono le persone che lavorano al tuo business — mentre tu continui a vivere normalmente.',
+    roles: [
+      { num: '01', title: 'Strateghi',          body: 'Mappano la tua nicchia, i prezzi e i primi 90 giorni — prima che qualsiasi account vada live.' },
+      { num: '02', title: 'Chatter',            body: 'Generano entrate 24/7, tempo di risposta sotto i 5 minuti, ogni messaggio.' },
+      { num: '03', title: 'Content Manager',    body: 'Programmano, ottimizzano e massimizzano ogni post.' },
+      { num: '04', title: 'Specialisti DMCA',   body: 'Monitorano 500+ piattaforme — i takedown si misurano in ore.' },
+      { num: '05', title: 'Mentor',             body: 'Mentoring personale da donne che hanno costruito tutto questo da zero.' },
+    ],
+    barYou: 'Tu',
+    barTeam: 'Il Tuo Team',
+    barCaption: 'Tu crei. Il team gestisce tutto il resto.',
+    bottomTitle1: 'La Parte Che È ',
+    bottomTitle2: 'Davvero Te.',
+    bottomBody: 'Ecco cosa la maggior parte delle agenzie non dirà mai ad alta voce: il denaro viene dalla connessione, non solo dai contenuti. Il tuo team si occupa di pubblicazione, messaggi, protezione — di tutto. Quello che porti è l\'unica cosa che non può essere delegata: una personalità autentica e calorosa a cui le persone amano tornare. Se far sentire qualcuno visto ti viene naturale, qui andrai benissimo.',
+  },
+};
 
 export default function Tim() {
+  const lang = useLang();
+  const t = T[lang] || T.sr;
+
   const ref = useRef(null);
   const [vis, setVis] = useState(false);
 
@@ -17,35 +73,33 @@ export default function Tim() {
     const el = ref.current;
     if (!el) return;
     let io;
-    const t = setTimeout(() => {
+    const timer = setTimeout(() => {
       io = new IntersectionObserver(([e]) => {
         if (e.isIntersecting) { setVis(true); io.disconnect(); }
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       io.observe(el);
     }, 150);
-    return () => { clearTimeout(t); io?.disconnect(); };
+    return () => { clearTimeout(timer); io?.disconnect(); };
   }, []);
 
   return (
     <section className="tm-section" ref={ref}>
       <div className="container">
 
-        {/* Header */}
         <div className="tm-header"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(20px)', transition: 'opacity 0.9s ease, transform 0.9s ease' }}>
-          <span className="chapter-label">TIM</span>
+          <span className="chapter-label">{t.label}</span>
           <h2 className="tm-title">
-            Posvećen Tim Iza Svakog Naloga.<br />
-            <span style={{ color: '#a9875c' }}>Niko Od Njih Nisi Ti.</span>
+            {t.title1}<br />
+            <span style={{ color: '#a9875c' }}>{t.title2}</span>
           </h2>
-          <p className="tm-sub">Kada tvoj nalog krene, ovo su ljudi koji rade na tvom biznisu - dok ti nastavljaš da živiš normalno.</p>
+          <p className="tm-sub">{t.sub}</p>
           <img src="/tim-girl.jpeg" alt="" className="tm-girl-img" />
         </div>
 
-        {/* 5-col role grid */}
         <div className="tm-grid"
           style={{ opacity: vis ? 1 : 0, transition: 'opacity 0.9s ease 0.2s' }}>
-          {ROLES.map((r, i) => (
+          {t.roles.map((r, i) => (
             <div key={r.num} className="tm-role"
               style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(16px)', transition: `opacity 0.7s ease ${0.25 + i * 0.1}s, transform 0.7s ease ${0.25 + i * 0.1}s` }}>
               <p className="tm-role-num">{r.num}</p>
@@ -55,40 +109,33 @@ export default function Tim() {
           ))}
         </div>
 
-        {/* Hours split bar */}
         <div className="tm-bar-wrap"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(16px)', transition: 'opacity 0.8s ease 0.55s, transform 0.8s ease 0.55s' }}>
 
-          {/* Labels above bar */}
           <div className="tm-bar-labels">
             <div>
-              <p className="tm-bar-label">Ti</p>
+              <p className="tm-bar-label">{t.barYou}</p>
               <p className="tm-bar-num">8–10<span className="tm-bar-unit">h/ned</span></p>
             </div>
             <div style={{ textAlign: 'right' }}>
-              <p className="tm-bar-label tm-bar-label--right">Tvoj Tim</p>
+              <p className="tm-bar-label tm-bar-label--right">{t.barTeam}</p>
               <p className="tm-bar-num tm-bar-num--right">150+<span className="tm-bar-unit">h/ned</span></p>
             </div>
           </div>
 
-          {/* Animated fill bar */}
           <div className="tm-bar">
-            <div className="tm-bar-fill"
-              style={{ width: vis ? '6%' : '0%' }} />
+            <div className="tm-bar-fill" style={{ width: vis ? '6%' : '0%' }} />
           </div>
 
-          <p className="tm-bar-caption">Ti kreiraš. Tim vodi sve ostalo.</p>
+          <p className="tm-bar-caption">{t.barCaption}</p>
         </div>
 
-        {/* Bottom text */}
         <div className="tm-bottom"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(16px)', transition: 'opacity 0.8s ease 0.7s, transform 0.8s ease 0.7s' }}>
           <h3 className="tm-bottom-title">
-            <em>Deo Koji Je </em><span style={{ fontStyle: 'italic', color: '#a9875c' }}>Zaista Ti.</span>
+            <em>{t.bottomTitle1}</em><span style={{ fontStyle: 'italic', color: '#a9875c' }}>{t.bottomTitle2}</span>
           </h3>
-          <p className="tm-bottom-body">
-            Evo šta većina agencija neće reći naglas: novac dolazi od konekcije, a ne samo od sadržaja. Tvoj tim se bavi objavljivanjem, porukama, zaštitom - svime. Ono što ti donosiš je jedino što ne može da se prepusti nekome drugom: prava, topla ličnost kojoj se ljudi rado vraćaju. Ako ti je prirodno da neke ko se oseća viđenim, dobro ćeš proći ovde.
-          </p>
+          <p className="tm-bottom-body">{t.bottomBody}</p>
         </div>
 
       </div>
@@ -100,7 +147,6 @@ export default function Tim() {
         }
         @media (max-width: 640px) { .tm-section { padding: 48px 0; } }
 
-        /* Header */
         .tm-header {
           text-align: center;
           max-width: 680px;
@@ -130,7 +176,6 @@ export default function Tim() {
           margin-top: 32px;
         }
 
-        /* Role grid */
         .tm-grid {
           display: grid;
           grid-template-columns: repeat(5, 1fr);
@@ -157,10 +202,7 @@ export default function Tim() {
           box-shadow: 0 12px 32px rgba(169,135,92,0.12);
         }
         @media (max-width: 900px) {
-          .tm-role {
-            padding: 20px 14px;
-            text-align: center;
-          }
+          .tm-role { padding: 20px 14px; text-align: center; }
         }
 
         .tm-role-num {
@@ -186,7 +228,6 @@ export default function Tim() {
           margin: 0;
         }
 
-        /* Hours bar */
         .tm-bar-wrap {
           max-width: 700px;
           margin: 0 auto 56px;
@@ -244,7 +285,6 @@ export default function Tim() {
           margin: 12px 0 0;
         }
 
-        /* Bottom text */
         .tm-bottom {
           max-width: 640px;
           margin: 0 auto;
