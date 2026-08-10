@@ -38,8 +38,39 @@ function getContent(lang) {
   return siteData;
 }
 
+const PAGE_T = {
+  sr: {
+    includedTitle1: 'Svaki Sistem Koji Ti Treba',
+    includedTitle2: 'Već Radi.',
+    qualifyTitle1: 'Primamo Manje',
+    qualifyTitle2: 'od 2% Prijava.',
+    tcVerified: 'Verifikovano na live dashboardu · krenula od nule',
+    tcThen: 'Tada',
+    tcNow: 'Sada',
+  },
+  en: {
+    includedTitle1: 'Every System You Need',
+    includedTitle2: 'Already Running.',
+    qualifyTitle1: 'We Accept Fewer Than',
+    qualifyTitle2: '2% of Applications.',
+    tcVerified: 'Verified on live dashboard · started from zero',
+    tcThen: 'Then',
+    tcNow: 'Now',
+  },
+  it: {
+    includedTitle1: 'Ogni Sistema di Cui Hai Bisogno',
+    includedTitle2: 'Già Operativo.',
+    qualifyTitle1: 'Accettiamo Meno del',
+    qualifyTitle2: '2% delle Candidature.',
+    tcVerified: 'Verificato su dashboard live · partita da zero',
+    tcThen: 'Prima',
+    tcNow: 'Ora',
+  },
+};
+
 export default function Home({ params }) {
   const data = getContent(params.lang);
+  const pt = PAGE_T[params.lang] || PAGE_T.sr;
   const { problem, included, services, qualify, testimonials, guarantee, finalCta, footer } = data;
 
   return (
@@ -79,8 +110,8 @@ export default function Home({ params }) {
               <div className="section-header">
                 <span className="chapter-label">{included.label}</span>
                 <h2 className="section-title">
-                  Svaki Sistem Koji Ti Treba<br />
-                  <span style={{ color: '#a9875c' }}>Već Radi.</span>
+                  {pt.includedTitle1}<br />
+                  <span style={{ color: '#a9875c' }}>{pt.includedTitle2}</span>
                 </h2>
                 <p className="section-sub">{included.sub}</p>
               </div>
@@ -142,7 +173,7 @@ export default function Home({ params }) {
             <div className="container">
               <div className="section-header">
                 <span className="chapter-label">{qualify.label}</span>
-                <h2 className="section-title">Primamo Manje<br /><span style={{ color: '#a9875c' }}>od 2% Prijava.</span></h2>
+                <h2 className="section-title">{pt.qualifyTitle1}<br /><span style={{ color: '#a9875c' }}>{pt.qualifyTitle2}</span></h2>
                 <p className="section-sub">{qualify.sub}</p>
               </div>
               <div className="qualify-grid">
@@ -231,12 +262,12 @@ export default function Home({ params }) {
                           </div>
                         </div>
                         <p className="tc-amount">{t.amount}</p>
-                        <p className="tc-verified">Verifikovano na live dashboardu · <span style={{whiteSpace:'nowrap'}}>krenula od nule</span></p>
+                        <p className="tc-verified">{pt.tcVerified}</p>
                         <div className="tc-then-wrap">
-                          <p className="tc-then-text"><span className="tc-label">Tada&nbsp;&nbsp;</span>{t.then}</p>
+                          <p className="tc-then-text"><span className="tc-label">{pt.tcThen}&nbsp;&nbsp;</span>{t.then}</p>
                         </div>
                         <div className="tc-now-wrap">
-                          <p className="tc-now-text"><span className="tc-label tc-label--now">Sada&nbsp;&nbsp;</span>{t.now}</p>
+                          <p className="tc-now-text"><span className="tc-label tc-label--now">{pt.tcNow}&nbsp;&nbsp;</span>{t.now}</p>
                         </div>
                       </div>
                     </div>
