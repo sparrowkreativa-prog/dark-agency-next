@@ -1,11 +1,61 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { usePathname } from 'next/navigation';
-import { siteData } from '@/data/content';
+import { useContent } from '@/hooks/useContent';
+
+const T = {
+  sr: {
+    channelsLabel: 'Full Management Service za 8 Različitih Kanala',
+    notJust: 'NE JOŠ JEDNA ČETING AGENCIJA ILI ONLYFANS MENADŽER',
+    guarantee: 'Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.',
+    goal: 'CILJ $70K + u prvom mesecu',
+    noUpfront: 'Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš. Potpuna zaštita identiteta i privatnih podataka. Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.',
+    days14: '14 dana da stranica krene od nule.',
+    waitlist: 'PRIMAMO SAMO 2 KLIJENTA MESEČNO',
+    microcopy1: '60-sekundi prijava',
+    microcopy2: ' · manje od 2% primljenih · nula troškova unapred',
+    btnResults: 'POGLEDAJ NAŠE REZULTATE',
+    btnResources: 'POGLEDAJ ŠTA ZNAMO',
+    muteOn: 'Uključi zvuk',
+    muteOff: 'Isključi zvuk',
+    headline: 'Generisano za OnlyFans Kreatore',
+  },
+  en: {
+    channelsLabel: 'Full Management Service for 8 Different Channels',
+    notJust: 'NOT JUST ANOTHER CHATTING AGENCY OR ONLYFANS MANAGER',
+    guarantee: 'We are the only agency in the world that gives a 30-day guarantee that your current income, if you are already active in the Balkans, will grow at least 3× in the markets where our agency operates, within the first 30 days. If we fail to deliver, we pay you the difference as if we had.',
+    goal: 'GOAL: $70K+ IN THE FIRST MONTH',
+    noUpfront: 'Your account, your password, your money — zero upfront costs, we take a percentage only when you earn. Complete identity and personal data protection. We don\'t touch your current earnings, you keep the majority, cancel whenever you want.',
+    days14: '14 days for the page to grow from zero.',
+    waitlist: 'WE ACCEPT ONLY 2 CLIENTS PER MONTH',
+    microcopy1: '60-second application',
+    microcopy2: ' · less than 2% accepted · zero upfront costs',
+    btnResults: 'SEE OUR RESULTS',
+    btnResources: 'SEE WHAT WE KNOW',
+    muteOn: 'Unmute',
+    muteOff: 'Mute',
+    headline: 'Generated for OnlyFans Creators',
+  },
+  it: {
+    channelsLabel: 'Servizio di Gestione Completo per 8 Canali Diversi',
+    notJust: 'NON LA SOLITA AGENZIA DI CHAT O MANAGER ONLYFANS',
+    guarantee: 'Siamo l\'unica agenzia al mondo che offre una garanzia di 30 giorni: il tuo reddito attuale, se sei già attiva nei Balcani, aumenterà almeno 3 volte nei mercati in cui opera la nostra agenzia, entro i primi 30 giorni. Se non lo realizziamo, ti paghiamo la differenza come se lo avessimo fatto.',
+    goal: 'OBIETTIVO: $70K+ NEL PRIMO MESE',
+    noUpfront: 'Il tuo account, la tua password, il tuo denaro — zero costi anticipati, prendiamo una percentuale solo quando guadagni. Protezione completa dell\'identità e dei dati personali. Non tocchiamo i tuoi guadagni attuali, tieni la maggior parte, disdici quando vuoi.',
+    days14: '14 giorni per far crescere la pagina da zero.',
+    waitlist: 'ACCETTIAMO SOLO 2 CLIENTI AL MESE',
+    microcopy1: 'Candidatura in 60 secondi',
+    microcopy2: ' · meno del 2% accettato · zero costi anticipati',
+    btnResults: 'GUARDA I NOSTRI RISULTATI',
+    btnResources: 'GUARDA COSA SAPPIAMO',
+    muteOn: 'Attiva audio',
+    muteOff: 'Disattiva audio',
+    headline: 'Generato per i Creator di OnlyFans',
+  },
+};
 
 function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
 
-function HeroVideo() {
+function HeroVideo({ t }) {
   const videoRef = useRef(null);
   const [muted, setMuted] = useState(true);
   const [showBtn, setShowBtn] = useState(false);
@@ -41,24 +91,22 @@ function HeroVideo() {
       <button
         className={`hv-mute-btn${showBtn ? ' hv-mute-btn--visible' : ''}`}
         onClick={e => { e.stopPropagation(); toggleMute(); }}
-        aria-label={muted ? 'Uključi zvuk' : 'Isključi zvuk'}
+        aria-label={muted ? t.muteOn : t.muteOff}
       >
         {muted ? (
-          /* muted icon */
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
             <line x1="23" y1="9" x2="17" y2="15"/>
             <line x1="17" y1="9" x2="23" y2="15"/>
           </svg>
         ) : (
-          /* unmuted icon */
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
             <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
             <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
           </svg>
         )}
-        <span>{muted ? 'Uključi zvuk' : 'Isključi zvuk'}</span>
+        <span>{muted ? t.muteOn : t.muteOff}</span>
       </button>
     </div>
   );
@@ -93,16 +141,15 @@ function Row2Stat({ end, label, delay, trigger }) {
 }
 
 export default function Hero() {
-  const { hero } = siteData;
+  const { data, lang } = useContent();
+  const { hero } = data;
+  const t = T[lang] || T.sr;
+
   const statsRef = useRef([]);
   const statsBoxRef = useRef(null);
   const [row2Trigger, setRow2Trigger] = useState(false);
-  const pathname = usePathname();
-  const segments = pathname.split('/');
-  const lang = segments.find(s => ['sr', 'en', 'it'].includes(s)) || 'sr';
 
   useEffect(() => {
-    /* ── cycle for $11M+ ── */
     const CYCLE = ['1M','2M','3M','4M','5M','6M','7M','8M','9M','10M','11M'];
 
     function animateStat1(el) {
@@ -161,7 +208,6 @@ export default function Hero() {
       statsRef.current.forEach((el) => { if (el) obs.observe(el); });
     }
 
-    /* ── row2 trigger ── */
     if (statsBoxRef.current && 'IntersectionObserver' in window) {
       const obs2 = new IntersectionObserver(([entry]) => {
         if (entry.isIntersecting) { setRow2Trigger(true); obs2.disconnect(); }
@@ -169,7 +215,6 @@ export default function Hero() {
       obs2.observe(statsBoxRef.current);
     }
 
-    /* ── hero counter ── */
     const counterEl = document.querySelector('.hero-counter');
     if (counterEl) {
       const target = parseInt(counterEl.dataset.target, 10);
@@ -185,7 +230,6 @@ export default function Hero() {
       setTimeout(() => requestAnimationFrame(step), 300);
     }
 
-    /* ── scroll progress ── */
     const bar = document.createElement('div');
     bar.id = 'scroll-progress';
     document.body.prepend(bar);
@@ -200,79 +244,67 @@ export default function Hero() {
 
   return (
     <section className="hero-section has-video">
-      {/* <video className="hero-video" autoPlay muted loop playsInline aria-hidden="true" poster="/hero-bg.jpg">
-        <source src="/VN_hero_vid_5.mp4" type="video/mp4" />
-      </video> */}
       <div className="hero-bg" aria-hidden="true" />
       <div className="hero-orb hero-orb-1" aria-hidden="true" />
       <div className="hero-orb hero-orb-2" aria-hidden="true" />
 
       <div className="hero-inner">
-        {/* OF icon */}
         <img src="/of-icon.png" alt="" className="hero-of-icon" style={{ width: 150, height: 150, objectFit: 'contain', marginBottom: 16 }} />
 
-        {/* Locations - outside glass */}
         <p className="hero-locations">NEW YORK &nbsp;-&nbsp; MILANO &nbsp;-&nbsp; BEOGRAD</p>
 
-        {/* Headline — counter */}
         <h1 className="hero-headline">
           <span className="headline-line hero-hl-num">
             $<span className="hero-counter" data-target="11">0</span>M+
           </span>
-          <span className="hero-hl-sub">Generisano za OnlyFans Kreatore</span>
+          <span className="hero-hl-sub">{t.headline}</span>
         </h1>
 
         <div className="hero-channels-wrap">
-          <p className="hero-channels-label">Full Management Service za 8 Različitih Kanala</p>
+          <p className="hero-channels-label">{t.channelsLabel}</p>
           <div className="hero-channels-pills">
             {['INSTAGRAM','TIKTOK','X','REDDIT','THREADS','TELEGRAM','CLAPPER','OF'].map(ch => (
               <span key={ch} className="hero-channel-pill">{ch}</span>
             ))}
           </div>
         </div>
-        <p className="hero-channels-label" style={{ marginTop: 10 }}>NE JOŠ JEDNA ČETING AGENCIJA ILI ONLYFANS MENADŽER</p>
+        <p className="hero-channels-label" style={{ marginTop: 10 }}>{t.notJust}</p>
 
-        <p className="hero-p1-text" style={{ color: '#a9875c', fontWeight: 700, WebkitTextFillColor: '#a9875c' }}>Jedina smo agencija na svetu koja daje 30-dnevnu garanciju da će tvoj trenutni prihod, ukoliko već posluješ na Balkanu, porasti minimum 3 puta na tržištima na kojima naša agencija posluje, u prvih 30 dana. Ukoliko to ne ispunimo, isplaćujemo ti razliku kao da jesmo.</p>
+        <p className="hero-p1-text" style={{ color: '#a9875c', fontWeight: 700, WebkitTextFillColor: '#a9875c' }}>{t.guarantee}</p>
 
-        {/* Glass 2 — cilj */}
         <div className="hero-glass hero-glass-sm" style={{ marginTop: 12 }}>
-          <p className="hero-p2-accent">CILJ $70K + u prvom mesecu</p>
+          <p className="hero-p2-accent">{t.goal}</p>
         </div>
 
-        <p className="hero-p1-text">Tvoj nalog, tvoja šifra, tvoj račun — nula troškova unapred, procenat uzimamo tek kad ti zaradiš. Potpuna zaštita identiteta i privatnih podataka. Ne diramo tvoju trenutnu zaradu, zadržavaš većinu, otkaži kad želiš.</p>
+        <p className="hero-p1-text">{t.noUpfront}</p>
 
-        {/* Glass 3 — CTA blok */}
         <div className="hero-glass-sm" style={{ marginTop: 12 }}>
-          <p className="hero-p2-accent" style={{ marginBottom: 20 }}>14 dana da stranica krene od nule.</p>
+          <p className="hero-p2-accent" style={{ marginBottom: 20 }}>{t.days14}</p>
 
           <div className="hero-cta-wrap">
             <a href={hero.cta.href} className="btn-primary btn-large">
               {hero.cta.label} <span className="btn-arrow">→</span>
             </a>
-            <p className="hero-waitlist-note">PRIMAMO SAMO 2 KLIJENTA MESEČNO</p>
+            <p className="hero-waitlist-note">{t.waitlist}</p>
             <p className="hero-microcopy">
               <span className="hm-first">
                 <span className="pulse-dot" aria-hidden="true" />
-                60-sekundi prijava
+                {t.microcopy1}
               </span>
-              <span className="hm-rest">&nbsp;·&nbsp;manje od 2% primljenih&nbsp;·&nbsp;nula troškova unapred</span>
+              <span className="hm-rest">{t.microcopy2}</span>
             </p>
             <div className="hero-secondary-btns">
-              <a href={`/${lang}/rezultati`} className="hero-btn-dark">POGLEDAJ NAŠE REZULTATE <span className="btn-arrow">→</span></a>
-              <a href={`/${lang}/resursi`} className="hero-btn-gold">POGLEDAJ ŠTA ZNAMO <span className="btn-arrow">→</span></a>
+              <a href={`/${lang}/rezultati`} className="hero-btn-dark">{t.btnResults} <span className="btn-arrow">→</span></a>
+              <a href={`/${lang}/resursi`} className="hero-btn-gold">{t.btnResources} <span className="btn-arrow">→</span></a>
             </div>
           </div>
         </div>
 
-        {/* Video between glass and stats */}
-        <HeroVideo />
+        <HeroVideo t={t} />
 
-        {/* Slogan - between boxes */}
         <p className="hero-slogan">DO IT FOR YOUR FAMILY!</p>
 
-        {/* Stats - separate box */}
         <div className="hero-stats-box" ref={statsBoxRef}>
-          {/* Row 1 */}
           <div className="hero-stats">
             {hero.stats.map((s, i) => (
               <div key={s.label} className={`stat-item${i === 1 ? ' stat-item--bordered' : ''}`}>
@@ -290,10 +322,8 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* Divider */}
           <div className="hero-stats-divider" />
 
-          {/* Row 2 */}
           <div className="hero-stats">
             {hero.statsRow2.map((s, i) => (
               <div key={s.label} className={`stat-item${i === 1 ? ' stat-item--bordered' : ''}`}>
@@ -376,12 +406,10 @@ export default function Hero() {
           .hero-of-icon { width: 100px !important; height: 100px !important; margin-bottom: 8px !important; }
         }
 
-        /* Headline — number */
         .hero-hl-num {
           color: #911f39;
           text-shadow: none;
         }
-        /* Headline — sub text (B9 style: large, black, bold) */
         .hero-hl-sub {
           display: block;
           font-family: 'DM Serif Display', serif;
@@ -394,7 +422,6 @@ export default function Hero() {
           background: none;
         }
 
-        /* Channels */
         .hero-channels-wrap {
           margin: 12px 0 10px;
           width: 100%;
@@ -425,7 +452,6 @@ export default function Hero() {
           padding: 5px 12px;
         }
 
-        /* Compact glass blocks */
         .hero-glass-sm {
           background: rgba(255,255,255,0.18);
           backdrop-filter: blur(14px) saturate(1.8);
@@ -521,7 +547,6 @@ export default function Hero() {
           transform: translateY(-1px);
         }
 
-        /* Microcopy mobile split */
         .hero-microcopy {
           display: flex;
           flex-wrap: wrap;
@@ -549,7 +574,6 @@ export default function Hero() {
           }
         }
 
-        /* Stats box - identical liquid glass to hero-glass */
         .hero-stats-box {
           width: 100%;
           background: rgba(255,255,255,0.18);

@@ -1,30 +1,47 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { useLang } from '@/hooks/useContent';
 
-const STEPS = [
-  {
-    num: '1',
-    title: 'Prijava',
-    desc: 'Prijavljuješ se i tim procenjuje da li odgovaraš standardima agencije.',
+const T = {
+  sr: {
+    label: 'Put Klijenta',
+    heading1: 'Od Prijave ',
+    heading2: 'do Prve Zarade',
+    steps: [
+      { num: '1', title: 'Prijava',                desc: 'Prijavljuješ se i tim procenjuje da li odgovaraš standardima agencije.' },
+      { num: '2', title: 'Analiza (48h)',           desc: 'Detaljna analiza brenda, publike i sadržaja, bezbednosni sistemi i plan rasta.' },
+      { num: '3', title: 'Onboarding (do 2 nedelje)', desc: 'Kreiranje social media kita i definisanje finalnog predloga saradnje.' },
+      { num: '4', title: 'Prva zarada',             desc: 'Prvi priliv sredstava na tvoj račun i početak dugoročnog partnerstva.' },
+    ],
   },
-  {
-    num: '2',
-    title: 'Analiza (48h)',
-    desc: 'Detaljna analiza brenda, publike i sadržaja, bezbednosni sistemi i plan rasta.',
+  en: {
+    label: 'Client Journey',
+    heading1: 'From Application ',
+    heading2: 'to First Earnings',
+    steps: [
+      { num: '1', title: 'Application',               desc: 'You apply and the team evaluates whether you meet the agency\'s standards.' },
+      { num: '2', title: 'Analysis (48h)',             desc: 'In-depth analysis of your brand, audience and content, security systems and growth plan.' },
+      { num: '3', title: 'Onboarding (up to 2 weeks)', desc: 'Creating the social media kit and defining the final collaboration proposal.' },
+      { num: '4', title: 'First Earnings',             desc: 'First funds arrive in your account and the start of a long-term partnership.' },
+    ],
   },
-  {
-    num: '3',
-    title: 'Onboarding (do 2 nedelje)',
-    desc: 'Kreiranje social media kita i definisanje finalnog predloga saradnje.',
+  it: {
+    label: 'Percorso Cliente',
+    heading1: 'Dalla Candidatura ',
+    heading2: 'al Primo Guadagno',
+    steps: [
+      { num: '1', title: 'Candidatura',                  desc: 'Ti candidi e il team valuta se soddisfi gli standard dell\'agenzia.' },
+      { num: '2', title: 'Analisi (48h)',                 desc: 'Analisi approfondita del brand, del pubblico e dei contenuti, sistemi di sicurezza e piano di crescita.' },
+      { num: '3', title: 'Onboarding (fino a 2 settimane)', desc: 'Creazione del social media kit e definizione della proposta di collaborazione finale.' },
+      { num: '4', title: 'Primo Guadagno',                desc: 'Primo afflusso di fondi sul tuo conto e inizio di una partnership a lungo termine.' },
+    ],
   },
-  {
-    num: '4',
-    title: 'Prva zarada',
-    desc: 'Prvi priliv sredstava na tvoj račun i početak dugoročnog partnerstva.',
-  },
-];
+};
 
 export default function PutKlijenta() {
+  const lang = useLang();
+  const t = T[lang] || T.sr;
+
   const ref = useRef(null);
   const [vis, setVis] = useState(false);
 
@@ -42,14 +59,14 @@ export default function PutKlijenta() {
     <section className="pk2-section" ref={ref}>
       <div className="pk2-container">
         <div className="pk2-header">
-          <span className="chapter-label">Put Klijenta</span>
+          <span className="chapter-label">{t.label}</span>
           <h2 className="pk2-heading">
-            <em style={{ color: '#1a1a1a' }}>Od Prijave </em><em style={{ color: '#a9875c' }}>do Prve Zarade</em>
+            <em style={{ color: '#1a1a1a' }}>{t.heading1}</em><em style={{ color: '#a9875c' }}>{t.heading2}</em>
           </h2>
         </div>
 
         <div className="pk2-steps">
-          {STEPS.map((s, i) => (
+          {t.steps.map((s, i) => (
             <div
               key={s.num}
               className="pk2-step"

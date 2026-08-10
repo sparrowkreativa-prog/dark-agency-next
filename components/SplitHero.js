@@ -1,5 +1,60 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { useLang } from '@/hooks/useContent';
+
+const T = {
+  sr: {
+    label: 'Primamo Nove Kreatorke',
+    headline1: 'Rasti na OnlyFans-u',
+    headline2: 'Uz Sistem Koji Već Radi.',
+    body: 'Bez eksperimenata. Bez nagađanja. Bez nestajanja. Svaki dan vodimo naloge u 0,01% - na sopstvenom CRM-u, sopstvenoj phone farm i s chat timom koji igra na duge staze. Ti daješ sadržaj, mi mašinu.',
+    cta: 'Prijavi se za 60 sekundi',
+    ghost: 'Pogledaj kako radi',
+    trust: ['€0 unapred', 'Zadržavaš većinu', 'Otkaži kad želiš'],
+    badgeSub: 'Percentil rostera',
+    stats: [
+      { num: '7 cifara', label: 'kreatorskog prihoda godišnje' },
+      { num: '50+',      label: 'sadržaja nedeljno' },
+      { num: '12',       label: 'zemalja u kojima radimo' },
+      { num: '14 dana',  label: 'da stranica krene od nule' },
+    ],
+    crmPeriod: 'Ovog meseca',
+  },
+  en: {
+    label: 'Accepting New Creators',
+    headline1: 'Grow on OnlyFans',
+    headline2: 'With a System That Already Works.',
+    body: 'No experiments. No guessing. No disappearing. Every day we run accounts in the top 0.01% — on our own CRM, our own phone farm and a chat team that plays the long game. You give the content, we run the machine.',
+    cta: 'Apply in 60 seconds',
+    ghost: 'See how it works',
+    trust: ['€0 upfront', 'You keep the majority', 'Cancel anytime'],
+    badgeSub: 'Roster percentile',
+    stats: [
+      { num: '7 figures', label: 'creator revenue per year' },
+      { num: '50+',       label: 'pieces of content weekly' },
+      { num: '12',        label: 'countries we operate in' },
+      { num: '14 days',   label: 'to launch from zero' },
+    ],
+    crmPeriod: 'This month',
+  },
+  it: {
+    label: 'Accettiamo Nuove Creator',
+    headline1: 'Cresci su OnlyFans',
+    headline2: 'Con un Sistema Già Funzionante.',
+    body: 'Niente esperimenti. Niente supposizioni. Niente sparizioni. Ogni giorno gestiamo account nel top 0,01% — sul nostro CRM, la nostra phone farm e un team di chat che gioca sul lungo periodo. Tu dai il contenuto, noi gestiamo la macchina.',
+    cta: 'Candidati in 60 secondi',
+    ghost: 'Guarda come funziona',
+    trust: ['€0 anticipati', 'Tieni la maggior parte', 'Disdici quando vuoi'],
+    badgeSub: 'Percentile roster',
+    stats: [
+      { num: '7 cifre',   label: 'di guadagno annuo per creator' },
+      { num: '50+',       label: 'contenuti a settimana' },
+      { num: '12',        label: 'paesi in cui operiamo' },
+      { num: '14 giorni', label: 'per partire da zero' },
+    ],
+    crmPeriod: 'Questo mese',
+  },
+};
 
 const crmMonths = [6.0, 10.2, 14.4, 23.8, 31.1, 36.5, 40.8, 44.5, 47.9, 50];
 
@@ -15,7 +70,7 @@ function buildPath(pts, W = 300, H = 56, pad = 6) {
   return { line, fill };
 }
 
-function CrmCard({ animate }) {
+function CrmCard({ animate, period }) {
   const { line, fill } = buildPath(crmMonths);
   return (
     <div className="sh-crm-card">
@@ -23,7 +78,7 @@ function CrmCard({ animate }) {
         <span className="sh-crm-dot" />
         <span className="sh-crm-live-label">Velluto Nero CRM · live</span>
       </div>
-      <div className="sh-crm-period">Ovog meseca</div>
+      <div className="sh-crm-period">{period}</div>
       <div className="sh-crm-amount"
         style={{ opacity: animate ? 1 : 0, transition: 'opacity 0.9s ease 1.6s' }}>
         $378,765
@@ -53,14 +108,10 @@ function CrmCard({ animate }) {
   );
 }
 
-const stats = [
-  { num: '7 cifara', label: 'kreatorskog prihoda godišnje' },
-  { num: '50+',     label: 'sadržaja nedeljno' },
-  { num: '12',      label: 'zemalja u kojima radimo' },
-  { num: '14 dana', label: 'da stranica krene od nule' },
-];
-
 export default function SplitHero() {
+  const lang = useLang();
+  const t = T[lang] || T.sr;
+
   const imgRef = useRef(null);
   const statsRef = useRef(null);
   const [animate, setAnimate] = useState(false);
@@ -70,71 +121,65 @@ export default function SplitHero() {
     const el = imgRef.current;
     if (!el) return;
     let io;
-    const t = setTimeout(() => {
+    const t2 = setTimeout(() => {
       io = new IntersectionObserver(([e]) => {
         if (e.isIntersecting) { setAnimate(true); io.disconnect(); }
       }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
       io.observe(el);
     }, 150);
-    return () => { clearTimeout(t); io?.disconnect(); };
+    return () => { clearTimeout(t2); io?.disconnect(); };
   }, []);
 
   useEffect(() => {
     const el = statsRef.current;
     if (!el) return;
     let io;
-    const t = setTimeout(() => {
+    const t2 = setTimeout(() => {
       io = new IntersectionObserver(([e]) => {
         if (e.isIntersecting) { setStatsAnimate(true); io.disconnect(); }
       }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
       io.observe(el);
     }, 150);
-    return () => { clearTimeout(t); io?.disconnect(); };
+    return () => { clearTimeout(t2); io?.disconnect(); };
   }, []);
 
   return (
     <section className="sh-section">
       <div className="sh-top-label">
-        <span className="chapter-label">Primamo Nove Kreatorke</span>
+        <span className="chapter-label">{t.label}</span>
       </div>
 
       <div className="sh-inner">
-        {/* Left column */}
         <div className="sh-left">
           <h2 className="sh-headline">
-            <em style={{ color: '#1a1a1a' }}>Rasti na OnlyFans-u</em>{' '}
-            <em className="sh-headline-em">Uz Sistem Koji Već Radi.</em>
+            <em style={{ color: '#1a1a1a' }}>{t.headline1}</em>{' '}
+            <em className="sh-headline-em">{t.headline2}</em>
           </h2>
 
-          <p className="sh-body">
-            Bez eksperimenata. Bez nagađanja. Bez nestajanja. Svaki dan vodimo naloge u 0,01% - na sopstvenom CRM-u, sopstvenoj phone farm i s chat timom koji igra na duge staze. Ti daješ sadržaj, mi mašinu.
-          </p>
+          <p className="sh-body">{t.body}</p>
 
           <div className="sh-ctas">
             <a href="#apply" className="btn-primary btn-large">
-              Prijavi se za 60 sekundi <span className="btn-arrow">→</span>
+              {t.cta} <span className="btn-arrow">→</span>
             </a>
             <a href="#roster" className="sh-ghost-btn">
-              Pogledaj kako radi
+              {t.ghost}
             </a>
           </div>
 
           <div className="sh-trust">
-            {['€0 unapred', 'Zadržavaš većinu', 'Otkaži kad želiš'].map(t => (
-              <div key={t} className="sh-trust-item">
+            {t.trust.map(item => (
+              <div key={item} className="sh-trust-item">
                 <span className="sh-trust-diamond">◆</span>
-                <span className="sh-trust-text">{t}</span>
+                <span className="sh-trust-text">{item}</span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Right column - photo + floating cards */}
         <div className="sh-right" ref={imgRef}>
-          {/* Glow blob */}
           <div className="sh-glow" />
 
-          {/* Video */}
           <div className="sh-photo-wrap">
             <img
               src="/split-hero-2.jpg"
@@ -143,10 +188,8 @@ export default function SplitHero() {
             />
           </div>
 
-          {/* CRM card - bottom left */}
-          <CrmCard animate={animate} />
+          <CrmCard animate={animate} period={t.crmPeriod} />
 
-          {/* Top 0.2% badge - top right */}
           <div className="sh-badge-top"
             style={{
               opacity: animate ? 1 : 0,
@@ -157,12 +200,11 @@ export default function SplitHero() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 20h20M5 20V10l7-7 7 7v10"/><path d="M9 20v-5h6v5"/></svg>
             </span>
             <div>
-              <div className="sh-badge-top-sub">Percentil rostera</div>
+              <div className="sh-badge-top-sub">{t.badgeSub}</div>
               <div className="sh-badge-top-main">Top 0.2%</div>
             </div>
           </div>
 
-          {/* 8.2× pill - middle right */}
           <div className="sh-trend-pill"
             style={{
               opacity: animate ? 1 : 0,
@@ -177,10 +219,9 @@ export default function SplitHero() {
         </div>
       </div>
 
-      {/* Stats row */}
       <div className="sh-stats-row" ref={statsRef}>
         <div>
-          {stats.map((s, i) => (
+          {t.stats.map((s, i) => (
             <div key={i} className="sh-stat-card"
               style={{
                 opacity: statsAnimate ? 1 : 0,
@@ -200,7 +241,6 @@ export default function SplitHero() {
         .sh-inner { max-width: 1060px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
         @media (max-width: 900px) { .sh-inner { grid-template-columns: 1fr; gap: 40px; } .sh-left { text-align: center; } .sh-ctas { justify-content: center; } .sh-trust { justify-content: center; } .sh-body { margin-left: auto; margin-right: auto; } .sh-badge { display: inline-flex; } }
 
-        /* Left */
         .sh-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 0.75rem; font-weight: 700; color: #c43a7a; background: #fdf0f6; border: 1px solid #f8d0e8; border-radius: 999px; padding: 6px 14px; margin-bottom: 20px; }
         .sh-badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; animation: dot-blink 1.2s ease-in-out infinite; flex-shrink: 0; }
         .sh-headline { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.1; color: #1a1a1a; margin: 0 0 20px; }
@@ -221,13 +261,11 @@ export default function SplitHero() {
         .sh-trust-text { font-size: 0.82rem; font-weight: 800; color: #911f39; letter-spacing: 0.08em; text-transform: uppercase; }
         @media (max-width: 900px) { .sh-trust { justify-content: center; } }
 
-        /* Right */
         .sh-right { position: relative; }
         .sh-glow { position: absolute; inset: -24px; background: rgba(169,135,92,0.15); filter: blur(60px); border-radius: 3rem; pointer-events: none; }
         .sh-photo-wrap { position: relative; aspect-ratio: 4/5; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.15); }
         @media (max-width: 900px) { .sh-photo-wrap { max-width: 420px; margin: 0 auto; } }
 
-        /* CRM card */
         .sh-crm-card { position: absolute; bottom: -20px; left: -28px; width: 220px; background: #fff; border-radius: 16px; padding: 14px 16px 10px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
         @media (max-width: 560px) { .sh-crm-card { left: -8px; width: 180px; } }
         .sh-crm-live { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
@@ -236,19 +274,16 @@ export default function SplitHero() {
         .sh-crm-period { font-size: 0.65rem; color: #aaa; margin-bottom: 2px; }
         .sh-crm-amount { font-family: var(--font-display); font-size: 1.5rem; color: #1a1a1a; line-height: 1.1; margin-bottom: 4px; }
 
-        /* Top badge */
         .sh-badge-top { position: absolute; top: -12px; right: -8px; background: #a9875c; border-radius: 14px; padding: 8px 14px; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 20px rgba(169,135,92,0.4); }
         @media (max-width: 900px) { .sh-badge-top { right: 8px; } }
         .sh-badge-top-icon { font-size: 1.2rem; }
         .sh-badge-top-sub { font-size: 0.6rem; color: rgba(255,255,255,0.8); line-height: 1; }
         .sh-badge-top-main { font-size: 0.85rem; font-weight: 800; color: #fff; }
 
-        /* Trend pill */
         .sh-trend-pill { position: absolute; top: 50%; right: -20px; transform: translateY(-50%); background: #fff; border-radius: 12px; padding: 8px 14px; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
         @media (max-width: 900px) { .sh-trend-pill { right: -8px; } }
         .sh-trend-num { font-size: 0.95rem; font-weight: 800; color: #1a1a1a; }
 
-        /* Stats row */
         .sh-stats-row { max-width: 1060px; margin: 48px auto 0; padding: 0 24px; }
         .sh-stats-row > div {
           display: grid;

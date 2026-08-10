@@ -1,10 +1,11 @@
 'use client';
 import { useState } from 'react';
 import SectionFade from './SectionFade';
-import { siteData } from '@/data/content';
+import { useContent } from '@/hooks/useContent';
 
 export default function FAQ() {
-  const { faq } = siteData;
+  const { data } = useContent();
+  const { faq } = data;
   const [open, setOpen] = useState(null);
 
   return (

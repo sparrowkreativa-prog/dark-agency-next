@@ -1,16 +1,81 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { useLang } from '@/hooks/useContent';
 
-const PARAGRAPHS = [
-  'Sistem je osmišljen tako da je identitet modela maksimalno zaštićen i obezbeđen na Balkanu - niko ne mora da zna da snimaš content, ukoliko sama ne poželiš drugačije. Privatni nalozi na društvenim mrežama se ne diraju, niti im agencija ima pristup.',
-  'Geolokacije i pristup se blokiraju za države u kojima ne želiš da se content pojavi - uključujući potpuno onemogućen pristup iz Srbije, jer radimo isključivo tržište Amerike i Italije.',
-  'Kao dodatna sigurnost, devojke imaju mogućnost da potpuno promene svoj look uz profesionalne perike, sočiva i privremene minimalističke tetovaže - isključivo za dan snimanja.',
-];
-
-const STATS = [
-  { num: '6–8h',               label: 'angažovanja nedeljno' },
-  { num: '10.000–100.000 €',   label: 'mesečna zarada modela' },
-];
+const T = {
+  sr: {
+    label: 'BEZBEDNOST I PRIVATNOST',
+    title1: 'Tvoj Identitet.',
+    title2: 'Tvoja Pravila.',
+    paragraphs: [
+      'Sistem je osmišljen tako da je identitet modela maksimalno zaštićen i obezbeđen na Balkanu - niko ne mora da zna da snimaš content, ukoliko sama ne poželiš drugačije. Privatni nalozi na društvenim mrežama se ne diraju, niti im agencija ima pristup.',
+      'Geolokacije i pristup se blokiraju za države u kojima ne želiš da se content pojavi - uključujući potpuno onemogućen pristup iz Srbije, jer radimo isključivo tržište Amerike i Italije.',
+      'Kao dodatna sigurnost, devojke imaju mogućnost da potpuno promene svoj look uz profesionalne perike, sočiva i privremene minimalističke tetovaže - isključivo za dan snimanja.',
+    ],
+    stats: [
+      { num: '6–8h',             label: 'angažovanja nedeljno' },
+      { num: '10.000–100.000 €', label: 'mesečna zarada modela' },
+    ],
+    shields: [
+      { icon: 'lock',  text: 'Geo-blokiranje Srbije' },
+      { icon: 'eye',   text: 'Nulti pristup privatnim profilima' },
+      { icon: 'mask',  text: 'Zaštita identiteta za snimanje' },
+      { icon: 'globe', text: 'Samo US & IT tržište' },
+    ],
+    panelLabel: 'Velluto Nero · Zaštita',
+    lockText: 'Identitet je zaštićen',
+    lockSub: 'Sistem aktivan 24/7',
+    bars: ['Geo-blok', 'Anonimnost', 'DMCA', 'Pristup'],
+  },
+  en: {
+    label: 'SECURITY & PRIVACY',
+    title1: 'Your Identity.',
+    title2: 'Your Rules.',
+    paragraphs: [
+      'The system is designed so that the model\'s identity is maximally protected on the Balkans — no one needs to know you film content unless you choose otherwise. Private social media accounts are not touched, and the agency has no access to them.',
+      'Geolocations and access are blocked for countries where you do not want content to appear — including completely disabled access from Serbia, since we operate exclusively in the US and Italian markets.',
+      'As an extra layer of security, models have the option to completely change their look with professional wigs, lenses and temporary minimalist tattoos — exclusively for filming days.',
+    ],
+    stats: [
+      { num: '6–8h',            label: 'of engagement per week' },
+      { num: '€10K–€100K',      label: 'monthly model earnings' },
+    ],
+    shields: [
+      { icon: 'lock',  text: 'Serbia geo-blocking' },
+      { icon: 'eye',   text: 'Zero access to private profiles' },
+      { icon: 'mask',  text: 'Identity protection for filming' },
+      { icon: 'globe', text: 'US & IT market only' },
+    ],
+    panelLabel: 'Velluto Nero · Security',
+    lockText: 'Identity is protected',
+    lockSub: 'System active 24/7',
+    bars: ['Geo-block', 'Anonymity', 'DMCA', 'Access'],
+  },
+  it: {
+    label: 'SICUREZZA E PRIVACY',
+    title1: 'La Tua Identità.',
+    title2: 'Le Tue Regole.',
+    paragraphs: [
+      'Il sistema è progettato in modo che l\'identità della modella sia massimamente protetta nei Balcani — nessuno deve sapere che giri contenuti a meno che tu non lo voglia. I profili privati sui social media non vengono toccati e l\'agenzia non vi ha accesso.',
+      'Le geolocalizzazioni e l\'accesso vengono bloccati per i paesi in cui non vuoi che il contenuto appaia — incluso l\'accesso completamente disabilitato dalla Serbia, poiché operiamo esclusivamente nei mercati statunitense e italiano.',
+      'Come ulteriore sicurezza, le modelle hanno la possibilità di cambiare completamente il loro look con parrucche professionali, lenti e tatuaggi temporanei minimalisti — esclusivamente per i giorni di ripresa.',
+    ],
+    stats: [
+      { num: '6–8h',           label: 'di impegno settimanale' },
+      { num: '€10K–€100K',     label: 'guadagno mensile modella' },
+    ],
+    shields: [
+      { icon: 'lock',  text: 'Geo-blocco Serbia' },
+      { icon: 'eye',   text: 'Zero accesso ai profili privati' },
+      { icon: 'mask',  text: 'Protezione identità per riprese' },
+      { icon: 'globe', text: 'Solo mercato US & IT' },
+    ],
+    panelLabel: 'Velluto Nero · Sicurezza',
+    lockText: 'Identità protetta',
+    lockSub: 'Sistema attivo 24/7',
+    bars: ['Geo-blocco', 'Anonimato', 'DMCA', 'Accesso'],
+  },
+};
 
 const ShieldIcons = {
   lock: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>,
@@ -19,14 +84,10 @@ const ShieldIcons = {
   globe:<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
 };
 
-const SHIELDS = [
-  { icon: 'lock',  text: 'Geo-blokiranje Srbije' },
-  { icon: 'eye',   text: 'Nulti pristup privatnim profilima' },
-  { icon: 'mask',  text: 'Zaštita identiteta za snimanje' },
-  { icon: 'globe', text: 'Samo US & IT tržište' },
-];
-
 export default function Bezbednost() {
+  const lang = useLang();
+  const t = T[lang] || T.sr;
+
   const ref = useRef(null);
   const [vis, setVis] = useState(false);
 
@@ -34,43 +95,39 @@ export default function Bezbednost() {
     const el = ref.current;
     if (!el) return;
     let io;
-    const t = setTimeout(() => {
+    const t2 = setTimeout(() => {
       io = new IntersectionObserver(([e]) => {
         if (e.isIntersecting) { setVis(true); io.disconnect(); }
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       io.observe(el);
     }, 150);
-    return () => { clearTimeout(t); io?.disconnect(); };
+    return () => { clearTimeout(t2); io?.disconnect(); };
   }, []);
 
   return (
     <section className="bz-section" ref={ref}>
       <div className="bz-top-label">
-        <span className="chapter-label">BEZBEDNOST I PRIVATNOST</span>
+        <span className="chapter-label">{t.label}</span>
       </div>
 
       <div className="bz-inner">
-
-        {/* Left - text */}
         <div className="bz-left"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateX(-28px)', transition: 'opacity 0.9s ease 0.1s, transform 0.9s ease 0.1s' }}>
-          <h2 className="bz-title">Tvoj Identitet.<br /><span style={{ color: '#a9875c' }}>Tvoja Pravila.</span></h2>
+          <h2 className="bz-title">{t.title1}<br /><span style={{ color: '#a9875c' }}>{t.title2}</span></h2>
 
           <div className="bz-paras">
-            {PARAGRAPHS.map((p, i) => (
+            {t.paragraphs.map((p, i) => (
               <p key={i} className="bz-para">{p}</p>
             ))}
           </div>
 
-          {/* Shield pills */}
           <div className="bz-shields">
-            {SHIELDS.map((s, i) => (
+            {t.shields.map((s, i) => (
               <span key={i} className="bz-shield">{ShieldIcons[s.icon]}{s.text}</span>
             ))}
           </div>
         </div>
 
-        {/* Right - stats + decorative panel */}
         <div className="bz-right"
           style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateX(28px)', transition: 'opacity 0.9s ease 0.25s, transform 0.9s ease 0.25s' }}>
 
@@ -79,17 +136,17 @@ export default function Bezbednost() {
               <span className="bz-panel-dot" style={{ background: '#ff5f57' }} />
               <span className="bz-panel-dot" style={{ background: '#febc2e' }} />
               <span className="bz-panel-dot" style={{ background: '#28c840' }} />
-              <span className="bz-panel-label">Velluto Nero · Zaštita</span>
+              <span className="bz-panel-label">{t.panelLabel}</span>
             </div>
 
             <div className="bz-lock-wrap">
               <div className="bz-lock-icon">🔐</div>
-              <div className="bz-lock-text">Identitet je zaštićen</div>
-              <div className="bz-lock-sub">Sistem aktivan 24/7</div>
+              <div className="bz-lock-text">{t.lockText}</div>
+              <div className="bz-lock-sub">{t.lockSub}</div>
             </div>
 
             <div className="bz-stat-list">
-              {STATS.map((s, i) => (
+              {t.stats.map((s, i) => (
                 <div key={i} className="bz-stat-item"
                   style={{ opacity: vis ? 1 : 0, transition: `opacity 0.8s ease ${0.6 + i * 0.18}s` }}>
                   <div className="bz-stat-num">{s.num}</div>
@@ -99,7 +156,7 @@ export default function Bezbednost() {
             </div>
 
             <div className="bz-bar-wrap">
-              {['Geo-blok', 'Anonimnost', 'DMCA', 'Pristup'].map((l, i) => (
+              {t.bars.map((l, i) => (
                 <div key={i} className="bz-bar-row">
                   <span className="bz-bar-lbl">{l}</span>
                   <div className="bz-bar-track">
@@ -142,7 +199,6 @@ export default function Bezbednost() {
           .bz-paras { text-align: center; }
         }
 
-        /* Left */
         .bz-title {
           font-family: var(--font-display);
           font-size: clamp(2rem, 3.5vw, 2.8rem);
@@ -162,7 +218,6 @@ export default function Bezbednost() {
           border-radius: 999px; padding: 6px 14px;
         }
 
-        /* Right panel */
         .bz-panel {
           background: #1a1a2e;
           border-radius: 20px;
