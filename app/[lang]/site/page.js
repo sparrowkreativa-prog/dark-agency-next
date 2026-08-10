@@ -68,14 +68,15 @@ const PAGE_T = {
   },
 };
 
-export default function Home({ params }) {
-  const data = getContent(params.lang);
-  const pt = PAGE_T[params.lang] || PAGE_T.sr;
+export default async function Home({ params }) {
+  const { lang } = await params;
+  const data = getContent(lang);
+  const pt = PAGE_T[lang] || PAGE_T.sr;
   const { problem, included, services, qualify, testimonials, guarantee, finalCta, footer } = data;
 
   return (
     <>
-      <Header lang={params.lang} />
+      <Header lang={lang} />
       <main id="main-content" style={{ paddingTop: 80 }}>
 
         <Hero />
