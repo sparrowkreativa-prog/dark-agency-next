@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { siteData } from '@/data/content';
 
 function easeOutCubic(t) { return 1 - Math.pow(1 - t, 3); }
@@ -96,6 +97,9 @@ export default function Hero() {
   const statsRef = useRef([]);
   const statsBoxRef = useRef(null);
   const [row2Trigger, setRow2Trigger] = useState(false);
+  const pathname = usePathname();
+  const segments = pathname.split('/');
+  const lang = segments.find(s => ['sr', 'en', 'it'].includes(s)) || 'sr';
 
   useEffect(() => {
     /* ── cycle for $11M+ ── */
@@ -254,8 +258,8 @@ export default function Hero() {
               <span className="hm-rest">&nbsp;·&nbsp;manje od 2% primljenih&nbsp;·&nbsp;nula troškova unapred</span>
             </p>
             <div className="hero-secondary-btns">
-              <a href="https://www.vellutonero.international/rezultati" className="hero-btn-dark">POGLEDAJ NAŠE REZULTATE <span className="btn-arrow">→</span></a>
-              <a href="https://www.vellutonero.international/resursi" className="hero-btn-gold">POGLEDAJ ŠTA ZNAMO <span className="btn-arrow">→</span></a>
+              <a href={`/${lang}/rezultati`} className="hero-btn-dark">POGLEDAJ NAŠE REZULTATE <span className="btn-arrow">→</span></a>
+              <a href={`/${lang}/resursi`} className="hero-btn-gold">POGLEDAJ ŠTA ZNAMO <span className="btn-arrow">→</span></a>
             </div>
           </div>
         </div>
