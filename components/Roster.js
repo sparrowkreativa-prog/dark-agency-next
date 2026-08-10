@@ -1,6 +1,79 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import SectionFade from './SectionFade';
+import { useLang } from '@/hooks/useContent';
+
+const T = {
+  sr: {
+    label: 'Roster',
+    title1: 'Tihi Luksuz.',
+    title2: 'Glasni Rezultati.',
+    sub: 'Stvarne krive rasta sa našeg rostera (anonimizovano). Provereno, ne izmišljeno.',
+    disclaimer: 'Zarada nije zagarantovana i varira prema trudu, niši i početnoj publici. Zato smo selektivni.',
+    mo: '/mes',
+    prevLabel: 'Prethodni',
+    nextLabel: 'Sledeći',
+    topCases: [
+      { duration: 'za 6 meseci', niche: 'Lifestyle', before: '$0',   after: '$84K',  months: [0, 4, 9, 18, 38, 68, 84] },
+      { duration: 'za 9 meseci', niche: 'Fitnes',    before: '$12K', after: '$210K', months: [12, 28, 45, 80, 120, 165, 195, 210] },
+      { duration: 'za 5 meseci', niche: 'Glamur',    before: '$3K',  after: '$128K', months: [3, 12, 35, 68, 110, 128] },
+    ],
+    slides: [
+      { platform: 'Instagram', metric: '0 → 214K',    unit: 'pratilaca', period: 'za 3 meseca',  months: [0, 5, 15, 35, 80, 145, 190, 214] },
+      { platform: 'OnlyFans',  metric: '$0 → $161K',  unit: 'mesečno',   period: 'za 3 meseca',  months: [0, 12, 28, 45, 72, 110, 145, 161] },
+      { platform: 'OnlyFans',  metric: '$12K → $254K', unit: 'mesečno',  period: 'za 12 meseci', months: [12, 28, 45, 75, 110, 155, 200, 230, 245, 254] },
+      { platform: 'Instagram', metric: '0 → 89K',     unit: 'pratilaca', period: 'za 2 meseca',  months: [0, 8, 22, 45, 68, 89] },
+      { platform: 'OnlyFans',  metric: '$3K → $65K',  unit: 'mesečno',   period: 'za 4 meseca',  months: [3, 12, 28, 45, 55, 65] },
+      { platform: 'OnlyFans',  metric: '$0 → $84K',   unit: 'mesečno',   period: 'za 6 meseci',  months: [0, 8, 22, 40, 58, 72, 84] },
+    ],
+  },
+  en: {
+    label: 'Roster',
+    title1: 'Silent Luxury.',
+    title2: 'Loud Results.',
+    sub: 'Real growth curves from our roster (anonymized). Verified, not made up.',
+    disclaimer: 'Earnings are not guaranteed and vary by effort, niche and starting audience. That\'s why we\'re selective.',
+    mo: '/mo',
+    prevLabel: 'Previous',
+    nextLabel: 'Next',
+    topCases: [
+      { duration: 'in 6 months', niche: 'Lifestyle', before: '$0',   after: '$84K',  months: [0, 4, 9, 18, 38, 68, 84] },
+      { duration: 'in 9 months', niche: 'Fitness',   before: '$12K', after: '$210K', months: [12, 28, 45, 80, 120, 165, 195, 210] },
+      { duration: 'in 5 months', niche: 'Glamour',   before: '$3K',  after: '$128K', months: [3, 12, 35, 68, 110, 128] },
+    ],
+    slides: [
+      { platform: 'Instagram', metric: '0 → 214K',    unit: 'followers', period: 'in 3 months',  months: [0, 5, 15, 35, 80, 145, 190, 214] },
+      { platform: 'OnlyFans',  metric: '$0 → $161K',  unit: 'monthly',   period: 'in 3 months',  months: [0, 12, 28, 45, 72, 110, 145, 161] },
+      { platform: 'OnlyFans',  metric: '$12K → $254K', unit: 'monthly',  period: 'in 12 months', months: [12, 28, 45, 75, 110, 155, 200, 230, 245, 254] },
+      { platform: 'Instagram', metric: '0 → 89K',     unit: 'followers', period: 'in 2 months',  months: [0, 8, 22, 45, 68, 89] },
+      { platform: 'OnlyFans',  metric: '$3K → $65K',  unit: 'monthly',   period: 'in 4 months',  months: [3, 12, 28, 45, 55, 65] },
+      { platform: 'OnlyFans',  metric: '$0 → $84K',   unit: 'monthly',   period: 'in 6 months',  months: [0, 8, 22, 40, 58, 72, 84] },
+    ],
+  },
+  it: {
+    label: 'Roster',
+    title1: 'Lusso Silenzioso.',
+    title2: 'Risultati Rumorosi.',
+    sub: 'Curve di crescita reali dal nostro roster (anonimizzate). Verificate, non inventate.',
+    disclaimer: 'I guadagni non sono garantiti e variano in base all\'impegno, alla nicchia e al pubblico iniziale. Per questo siamo selettivi.',
+    mo: '/mese',
+    prevLabel: 'Precedente',
+    nextLabel: 'Successivo',
+    topCases: [
+      { duration: 'in 6 mesi', niche: 'Lifestyle', before: '$0',   after: '$84K',  months: [0, 4, 9, 18, 38, 68, 84] },
+      { duration: 'in 9 mesi', niche: 'Fitness',   before: '$12K', after: '$210K', months: [12, 28, 45, 80, 120, 165, 195, 210] },
+      { duration: 'in 5 mesi', niche: 'Glamour',   before: '$3K',  after: '$128K', months: [3, 12, 35, 68, 110, 128] },
+    ],
+    slides: [
+      { platform: 'Instagram', metric: '0 → 214K',    unit: 'follower', period: 'in 3 mesi',  months: [0, 5, 15, 35, 80, 145, 190, 214] },
+      { platform: 'OnlyFans',  metric: '$0 → $161K',  unit: 'mensile',  period: 'in 3 mesi',  months: [0, 12, 28, 45, 72, 110, 145, 161] },
+      { platform: 'OnlyFans',  metric: '$12K → $254K', unit: 'mensile', period: 'in 12 mesi', months: [12, 28, 45, 75, 110, 155, 200, 230, 245, 254] },
+      { platform: 'Instagram', metric: '0 → 89K',     unit: 'follower', period: 'in 2 mesi',  months: [0, 8, 22, 45, 68, 89] },
+      { platform: 'OnlyFans',  metric: '$3K → $65K',  unit: 'mensile',  period: 'in 4 mesi',  months: [3, 12, 28, 45, 55, 65] },
+      { platform: 'OnlyFans',  metric: '$0 → $84K',   unit: 'mensile',  period: 'in 6 mesi',  months: [0, 8, 22, 40, 58, 72, 84] },
+    ],
+  },
+};
 
 /* ── chart helpers ── */
 function buildPath(months, W = 300, H = 90, pad = 6) {
@@ -45,23 +118,6 @@ function MiniChart({ months, animate, H = 90 }) {
   );
 }
 
-/* ── top 3 revenue cards ── */
-const TOP_CASES = [
-  { duration: 'za 6 meseci',  niche: 'Lifestyle', before: '$0',   after: '$84K',  months: [0, 4, 9, 18, 38, 68, 84] },
-  { duration: 'za 9 meseci',  niche: 'Fitnes',    before: '$12K', after: '$210K', months: [12, 28, 45, 80, 120, 165, 195, 210] },
-  { duration: 'za 5 meseci',  niche: 'Glamur',    before: '$3K',  after: '$128K', months: [3, 12, 35, 68, 110, 128] },
-];
-
-/* ── carousel slides ── */
-const SLIDES = [
-  { platform: 'Instagram', metric: '0 → 214K',    unit: 'pratilaca', period: 'za 3 meseca',  months: [0, 5, 15, 35, 80, 145, 190, 214] },
-  { platform: 'OnlyFans',  metric: '$0 → $161K',  unit: 'mesečno',   period: 'za 3 meseca',  months: [0, 12, 28, 45, 72, 110, 145, 161] },
-  { platform: 'OnlyFans',  metric: '$12K → $254K', unit: 'mesečno',  period: 'za 12 meseci', months: [12, 28, 45, 75, 110, 155, 200, 230, 245, 254] },
-  { platform: 'Instagram', metric: '0 → 89K',     unit: 'pratilaca', period: 'za 2 meseca',  months: [0, 8, 22, 45, 68, 89] },
-  { platform: 'OnlyFans',  metric: '$3K → $65K',  unit: 'mesečno',   period: 'za 4 meseca',  months: [3, 12, 28, 45, 55, 65] },
-  { platform: 'OnlyFans',  metric: '$0 → $84K',   unit: 'mesečno',   period: 'za 6 meseci',  months: [0, 8, 22, 40, 58, 72, 84] },
-];
-
 const IgIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
@@ -76,7 +132,7 @@ const OfIcon = () => (
   </svg>
 );
 
-function RevenueCard({ c, animate, index }) {
+function RevenueCard({ c, animate, index, mo }) {
   return (
     <div className="rc-card" style={{
       opacity: animate ? 1 : 0,
@@ -93,7 +149,7 @@ function RevenueCard({ c, animate, index }) {
           <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
         </svg>
         <span className="rc-after">{c.after}</span>
-        <span className="rc-mo">/mes</span>
+        <span className="rc-mo">{mo}</span>
       </div>
       <div className="rc-chart">
         <MiniChart months={c.months} animate={animate} H={55} />
@@ -102,8 +158,8 @@ function RevenueCard({ c, animate, index }) {
   );
 }
 
-function Carousel({ animate }) {
-  const [active, setActive] = useState(5);
+function Carousel({ animate, slides, prevLabel, nextLabel }) {
+  const [active, setActive] = useState(slides.length - 1);
   const [animKey, setAnimKey] = useState(0);
   const [dir, setDir] = useState(1);
 
@@ -112,9 +168,9 @@ function Carousel({ animate }) {
     setActive(newIndex);
     setAnimKey(k => k + 1);
   };
-  const prev = () => go((active - 1 + SLIDES.length) % SLIDES.length);
-  const next = () => go((active + 1) % SLIDES.length);
-  const s = SLIDES[active];
+  const prev = () => go((active - 1 + slides.length) % slides.length);
+  const next = () => go((active + 1) % slides.length);
+  const s = slides[active];
 
   return (
     <div className="rc-carousel" style={{
@@ -142,19 +198,19 @@ function Carousel({ animate }) {
         </div>
       </div>
 
-      <button className="rc-nav rc-nav--prev" onClick={prev} aria-label="Prethodni">
+      <button className="rc-nav rc-nav--prev" onClick={prev} aria-label={prevLabel}>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="m15 18-6-6 6-6"/>
         </svg>
       </button>
-      <button className="rc-nav rc-nav--next" onClick={next} aria-label="Sledeći">
+      <button className="rc-nav rc-nav--next" onClick={next} aria-label={nextLabel}>
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="m9 18 6-6-6-6"/>
         </svg>
       </button>
 
       <div className="rc-dots">
-        {SLIDES.map((_, i) => (
+        {slides.map((_, i) => (
           <button key={i} className={`rc-dot${i === active ? ' rc-dot--active' : ''}`}
             onClick={() => setActive(i)} aria-label={`Slide ${i + 1}`} />
         ))}
@@ -197,6 +253,9 @@ function RosterVideo() {
 }
 
 export default function Roster() {
+  const lang = useLang();
+  const t = T[lang] || T.sr;
+
   const ref = useRef(null);
   const [animate, setAnimate] = useState(false);
 
@@ -204,13 +263,13 @@ export default function Roster() {
     const el = ref.current;
     if (!el) return;
     let io;
-    const t = setTimeout(() => {
+    const timer = setTimeout(() => {
       io = new IntersectionObserver(([e]) => {
         if (e.isIntersecting) { setAnimate(true); io.disconnect(); }
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       io.observe(el);
     }, 150);
-    return () => { clearTimeout(t); io?.disconnect(); };
+    return () => { clearTimeout(timer); io?.disconnect(); };
   }, []);
 
   return (
@@ -218,12 +277,11 @@ export default function Roster() {
       <section className="rc-section" ref={ref}>
         <div className="container">
           <div className="section-header" style={{ maxWidth: 640, margin: '0 auto 48px', textAlign: 'center' }}>
-            <span className="chapter-label">Roster</span>
-            <h2 className="section-title">Tihi Luksuz.<br /><span style={{ color: '#a9875c' }}>Glasni Rezultati.</span></h2>
-            <p className="section-sub">Stvarne krive rasta sa našeg rostera (anonimizovano). Provereno, ne izmišljeno.</p>
+            <span className="chapter-label">{t.label}</span>
+            <h2 className="section-title">{t.title1}<br /><span style={{ color: '#a9875c' }}>{t.title2}</span></h2>
+            <p className="section-sub">{t.sub}</p>
           </div>
 
-          {/* Video + cards layout */}
           <div className="rc-main-layout" style={{ maxWidth: 1100, margin: '0 auto' }}>
             <div className="rc-video-col">
               <RosterVideo />
@@ -231,18 +289,18 @@ export default function Roster() {
             <div className="rc-cards-col">
               <div className="rc-cards-box">
                 <div className="rc-grid">
-                  {TOP_CASES.map((c, i) => (
-                    <RevenueCard key={i} c={c} animate={animate} index={i} />
+                  {t.topCases.map((c, i) => (
+                    <RevenueCard key={i} c={c} animate={animate} index={i} mo={t.mo} />
                   ))}
                 </div>
                 <div className="rc-carousel-wrap">
-                  <Carousel animate={animate} />
+                  <Carousel animate={animate} slides={t.slides} prevLabel={t.prevLabel} nextLabel={t.nextLabel} />
                 </div>
               </div>
             </div>
           </div>
 
-          <p className="rc-disclaimer">Zarada nije zagarantovana i varira prema trudu, niši i početnoj publici. Zato smo selektivni.</p>
+          <p className="rc-disclaimer">{t.disclaimer}</p>
         </div>
       </section>
 
@@ -250,7 +308,6 @@ export default function Roster() {
         .rc-section { padding: 96px 0; background: #fafaf8; }
         @media (max-width: 640px) { .rc-section { padding: 48px 0; } }
 
-        /* Main two-column layout */
         .rc-main-layout {
           display: grid;
           grid-template-columns: 380px 1fr;
@@ -262,42 +319,24 @@ export default function Roster() {
           .rc-video-col { order: -1; }
         }
 
-        /* Video col stretches full height */
-        .rc-video-col {
-          display: flex;
-          flex-direction: column;
-        }
+        .rc-video-col { display: flex; flex-direction: column; }
 
-        /* Video fills entire col height */
         .rc-video {
-          flex: 1;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 18px;
-          background: #000;
+          flex: 1; width: 100%; height: 100%;
+          object-fit: cover; border-radius: 18px; background: #000;
           box-shadow: 0 20px 60px rgba(0,0,0,0.15), 0 4px 16px rgba(0,0,0,0.08);
-          display: block;
-          min-height: 0;
+          display: block; min-height: 0;
         }
-        @media (max-width: 860px) {
-          .rc-video { height: auto; max-height: 480px; }
-        }
+        @media (max-width: 860px) { .rc-video { height: auto; max-height: 480px; } }
 
-        /* Cards column wrapper */
         .rc-cards-col { min-width: 0; display: flex; flex-direction: column; }
         .rc-cards-box {
-          flex: 1;
-          background: #fff;
-          border: 1px solid rgba(0,0,0,0.07);
-          border-radius: 20px;
-          padding: 16px;
+          flex: 1; background: #fff; border: 1px solid rgba(0,0,0,0.07);
+          border-radius: 20px; padding: 16px;
           box-shadow: 0 2px 16px rgba(0,0,0,0.05);
-          display: flex;
-          flex-direction: column;
+          display: flex; flex-direction: column;
         }
 
-        /* cards stacked vertically */
         .rc-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
 
         .rc-card {
