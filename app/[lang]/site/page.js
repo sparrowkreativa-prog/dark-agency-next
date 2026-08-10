@@ -23,6 +23,8 @@ import DvaPuta from '@/components/DvaPuta';
 import Bezbednost from '@/components/Bezbednost';
 import Tim from '@/components/Tim';
 import { siteData } from '@/data/content';
+import { siteDataEn } from '@/data/content.en';
+import { siteDataIt } from '@/data/content.it';
 
 export const dynamic = 'force-static';
 
@@ -30,8 +32,15 @@ export function generateStaticParams() {
   return [{ lang: 'sr' }, { lang: 'en' }, { lang: 'it' }];
 }
 
+function getContent(lang) {
+  if (lang === 'en') return siteDataEn;
+  if (lang === 'it') return siteDataIt;
+  return siteData;
+}
+
 export default function Home({ params }) {
-  const { problem, included, services, qualify, testimonials, guarantee, finalCta, footer } = siteData;
+  const data = getContent(params.lang);
+  const { problem, included, services, qualify, testimonials, guarantee, finalCta, footer } = data;
 
   return (
     <>
@@ -320,7 +329,7 @@ export default function Home({ params }) {
         <div className="footer-inner">
           <div className="footer-top">
             <div>
-              <div className="footer-brand-name">{siteData.nav.logo}</div>
+              <div className="footer-brand-name">{data.nav.logo}</div>
               <p className="footer-tagline">{footer.tagline}</p>
             </div>
             <a href="#apply" className="btn-outline" style={{ borderColor: '#a9875c', color: '#a9875c' }}>
