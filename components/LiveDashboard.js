@@ -1,92 +1,216 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { useLang } from '@/hooks/useContent';
 
-const ACTIVITY_ITEMS = [
-  'Vikend zarada gore za 34%',
-  'Dnevni cilj prihoda premašen',
-  'Subscription streak: 6 meseci',
-  'Tip narudžbina: $125',
-  'Promo kod iskorišćen 47×',
-  'Nova kreatorka dostigla Top 0.1%',
-  'Mesečni rekord probijen',
-  'PPV otvorilo 89% pretplatnika',
+const T = {
+  sr: {
+    label: 'Live Dashboard',
+    titlePlain: 'Naš Uticaj',
+    titleGold: 'U Brojevima',
+    sub: 'Metrike u realnom vremenu iz naše mreže kreatorki i tržišnog dosega.',
+    keyMetricsTitle: 'Ključne Metrike',
+    platformTitle: 'Doseg Platformi',
+    platformBadge: 'Godišnje',
+    activityTitle: 'Nedavna Dostignuća',
+    activityBadge: 'Danas',
+    growthTitle: 'Prosečan Rast Kreatorki',
+    platformNote: '300–500M pregleda mesečno na svim platformama',
+    metrics: [
+      { val: '7 cifara', label: 'Godišnji prihod rostera' },
+      { val: '6.000+', label: 'Primljenih prijava' },
+      { val: '94%', label: 'Stopa zadržavanja' },
+      { val: '2%', label: 'Stopa prihvatanja' },
+    ],
+    platforms: [
+      { name: 'Instagram',  val: '2.4B pregleda/god', pct: 100 },
+      { name: 'TikTok',     val: '1.8B pregleda/god', pct: 75 },
+      { name: 'YouTube',    val: '1.2B pregleda/god', pct: 50 },
+      { name: 'X / Twitter', val: '600M pregleda/god', pct: 25 },
+    ],
+    activity: [
+      'Vikend zarada gore za 34%',
+      'Dnevni cilj prihoda premašen',
+      'Subscription streak: 6 meseci',
+      'Tip narudžbina: $125',
+      'Promo kod iskorišćen 47×',
+      'Nova kreatorka dostigla Top 0.1%',
+      'Mesečni rekord probijen',
+      'PPV otvorilo 89% pretplatnika',
+    ],
+    growthBars: [
+      { label: 'Start',  val: '$20K', h: 15 },
+      { label: 'Mes 1',  val: '$35K', h: 27 },
+      { label: 'Mes 2',  val: '$50K', h: 38 },
+      { label: 'Mes 3',  val: '$70K', h: 54 },
+      { label: 'Mes 4',  val: '$90K', h: 69 },
+      { label: 'Mes 5',  val: '$110K', h: 85 },
+      { label: 'Mes 6',  val: '$130K', h: 100 },
+    ],
+    timeAgo: (mins, h) => {
+      if (mins < 1) return 'Upravo';
+      if (mins === 1) return 'Pre 1 min';
+      if (mins < 60) return `Pre ${mins} min`;
+      return h === 1 ? 'Pre 1h' : `Pre ${h}h`;
+    },
+  },
+  en: {
+    label: 'Live Dashboard',
+    titlePlain: 'Our Impact',
+    titleGold: 'In Numbers',
+    sub: 'Real-time metrics from our creator network and market reach.',
+    keyMetricsTitle: 'Key Metrics',
+    platformTitle: 'Platform Reach',
+    platformBadge: 'Annual',
+    activityTitle: 'Recent Achievements',
+    activityBadge: 'Today',
+    growthTitle: 'Average Creator Growth',
+    platformNote: '300–500M views monthly across all platforms',
+    metrics: [
+      { val: '7 figures', label: 'Annual roster revenue' },
+      { val: '6,000+', label: 'Applications received' },
+      { val: '94%', label: 'Retention rate' },
+      { val: '2%', label: 'Acceptance rate' },
+    ],
+    platforms: [
+      { name: 'Instagram',  val: '2.4B views/yr', pct: 100 },
+      { name: 'TikTok',     val: '1.8B views/yr', pct: 75 },
+      { name: 'YouTube',    val: '1.2B views/yr', pct: 50 },
+      { name: 'X / Twitter', val: '600M views/yr', pct: 25 },
+    ],
+    activity: [
+      'Weekend earnings up 34%',
+      'Daily revenue target exceeded',
+      'Subscription streak: 6 months',
+      'Tip order: $125',
+      'Promo code used 47×',
+      'New creator reached Top 0.1%',
+      'Monthly record broken',
+      'PPV opened by 89% of subscribers',
+    ],
+    growthBars: [
+      { label: 'Start',   val: '$20K', h: 15 },
+      { label: 'Mo 1',    val: '$35K', h: 27 },
+      { label: 'Mo 2',    val: '$50K', h: 38 },
+      { label: 'Mo 3',    val: '$70K', h: 54 },
+      { label: 'Mo 4',    val: '$90K', h: 69 },
+      { label: 'Mo 5',    val: '$110K', h: 85 },
+      { label: 'Mo 6',    val: '$130K', h: 100 },
+    ],
+    timeAgo: (mins, h) => {
+      if (mins < 1) return 'Just now';
+      if (mins === 1) return '1 min ago';
+      if (mins < 60) return `${mins} min ago`;
+      return h === 1 ? '1h ago' : `${h}h ago`;
+    },
+  },
+  it: {
+    label: 'Live Dashboard',
+    titlePlain: 'Il Nostro Impatto',
+    titleGold: 'In Numeri',
+    sub: 'Metriche in tempo reale dalla nostra rete di creator e dalla portata di mercato.',
+    keyMetricsTitle: 'Metriche Chiave',
+    platformTitle: 'Portata delle Piattaforme',
+    platformBadge: 'Annuale',
+    activityTitle: 'Risultati Recenti',
+    activityBadge: 'Oggi',
+    growthTitle: 'Crescita Media delle Creator',
+    platformNote: '300–500M visualizzazioni mensili su tutte le piattaforme',
+    metrics: [
+      { val: '7 cifre', label: 'Fatturato annuo del roster' },
+      { val: '6.000+', label: 'Candidature ricevute' },
+      { val: '94%', label: 'Tasso di fidelizzazione' },
+      { val: '2%', label: 'Tasso di accettazione' },
+    ],
+    platforms: [
+      { name: 'Instagram',  val: '2.4B views/anno', pct: 100 },
+      { name: 'TikTok',     val: '1.8B views/anno', pct: 75 },
+      { name: 'YouTube',    val: '1.2B views/anno', pct: 50 },
+      { name: 'X / Twitter', val: '600M views/anno', pct: 25 },
+    ],
+    activity: [
+      'Guadagni del weekend su del 34%',
+      'Obiettivo di entrate giornaliero superato',
+      'Subscription streak: 6 mesi',
+      'Mancia: $125',
+      'Codice promo usato 47×',
+      'Nuova creator raggiunto Top 0.1%',
+      'Record mensile battuto',
+      'PPV aperto dall\'89% degli abbonati',
+    ],
+    growthBars: [
+      { label: 'Inizio',  val: '$20K', h: 15 },
+      { label: 'Mes 1',   val: '$35K', h: 27 },
+      { label: 'Mes 2',   val: '$50K', h: 38 },
+      { label: 'Mes 3',   val: '$70K', h: 54 },
+      { label: 'Mes 4',   val: '$90K', h: 69 },
+      { label: 'Mes 5',   val: '$110K', h: 85 },
+      { label: 'Mes 6',   val: '$130K', h: 100 },
+    ],
+    timeAgo: (mins, h) => {
+      if (mins < 1) return 'Adesso';
+      if (mins === 1) return '1 min fa';
+      if (mins < 60) return `${mins} min fa`;
+      return h === 1 ? '1h fa' : `${h}h fa`;
+    },
+  },
+};
+
+const PLATFORM_ICONS = [
+  <svg key="ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>,
+  <svg key="tt" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg>,
+  <svg key="yt" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>,
+  <svg key="x" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>,
 ];
 
-const PLATFORMS = [
-  { name: 'Instagram', val: '2.4B pregleda/god', pct: 100,
-    icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> },
-  { name: 'TikTok', val: '1.8B pregleda/god', pct: 75,
-    icon: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/></svg> },
-  { name: 'YouTube', val: '1.2B pregleda/god', pct: 50,
-    icon: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> },
-  { name: 'X / Twitter', val: '600M pregleda/god', pct: 25,
-    icon: <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> },
-];
-
-const GROWTH_BARS = [
-  { label: 'Start', val: '$20K', h: 15 },
-  { label: 'Mes 1', val: '$35K', h: 27 },
-  { label: 'Mes 2', val: '$50K', h: 38 },
-  { label: 'Mes 3', val: '$70K', h: 54 },
-  { label: 'Mes 4', val: '$90K', h: 69 },
-  { label: 'Mes 5', val: '$110K', h: 85 },
-  { label: 'Mes 6', val: '$130K', h: 100 },
-];
-
-const METRICS = [
-  { val: '7 cifara', label: 'Godišnji prihod rostera' },
-  { val: '6.000+', label: 'Primljenih prijava' },
-  { val: '94%', label: 'Stopa zadržavanja' },
-  { val: '2%', label: 'Stopa prihvatanja' },
-];
-
-function timeAgo(ts) {
-  const mins = Math.floor((Date.now() - ts) / 60000);
-  if (mins < 1) return 'Upravo';
-  if (mins === 1) return 'Pre 1 min';
-  if (mins < 60) return `Pre ${mins} min`;
-  const h = Math.floor(mins / 60);
-  return h === 1 ? 'Pre 1h' : `Pre ${h}h`;
-}
-
-function makeInitialFeed() {
+function makeInitialFeed(activity) {
   const now = Date.now();
-  // stagger initial items: 6, 19, 37, 58, 82 minutes ago
   const offsets = [6, 19, 37, 58, 82];
-  return ACTIVITY_ITEMS.slice(0, 5).map((text, i) => ({
+  return activity.slice(0, 5).map((text, i) => ({
     text,
     ts: now - offsets[i] * 60000,
   }));
 }
 
 export default function LiveDashboard() {
+  const lang = useLang();
+  const t = T[lang] || T.sr;
+
   const ref = useRef(null);
   const [vis, setVis] = useState(false);
-  const [feed, setFeed] = useState(makeInitialFeed);
+  const [feed, setFeed] = useState(() => makeInitialFeed(t.activity));
   const [feedIdx, setFeedIdx] = useState(5);
   const [, setTick] = useState(0);
+
+  // Reset feed when lang changes
+  const prevLang = useRef(lang);
+  useEffect(() => {
+    if (prevLang.current !== lang) {
+      prevLang.current = lang;
+      setFeed(makeInitialFeed(t.activity));
+      setFeedIdx(5);
+    }
+  }, [lang, t.activity]);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     let io;
-    const t = setTimeout(() => {
+    const timer = setTimeout(() => {
       io = new IntersectionObserver(([e]) => {
         if (e.isIntersecting) { setVis(true); io.disconnect(); }
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
       io.observe(el);
     }, 150);
-    return () => { clearTimeout(t); io?.disconnect(); };
+    return () => { clearTimeout(timer); io?.disconnect(); };
   }, []);
 
-  // new item every 25–40s
   useEffect(() => {
     let timer;
     const schedule = () => {
       timer = setTimeout(() => {
         setFeedIdx(i => {
-          const next = i % ACTIVITY_ITEMS.length;
-          setFeed(prev => [{ text: ACTIVITY_ITEMS[next], ts: Date.now() }, ...prev.slice(0, 4)]);
+          const next = i % t.activity.length;
+          setFeed(prev => [{ text: t.activity[next], ts: Date.now() }, ...prev.slice(0, 4)]);
           return next + 1;
         });
         schedule();
@@ -94,35 +218,38 @@ export default function LiveDashboard() {
     };
     schedule();
     return () => clearTimeout(timer);
+  }, [t.activity]);
+
+  useEffect(() => {
+    const timer = setInterval(() => setTick(n => n + 1), 60000);
+    return () => clearInterval(timer);
   }, []);
 
-  // refresh time labels every 60s
-  useEffect(() => {
-    const t = setInterval(() => setTick(n => n + 1), 60000);
-    return () => clearInterval(t);
-  }, []);
+  function timeAgo(ts) {
+    const mins = Math.floor((Date.now() - ts) / 60000);
+    const h = Math.floor(mins / 60);
+    return t.timeAgo(mins, h);
+  }
 
   return (
     <section className="ld-section" ref={ref}>
       <div className="ld-container">
         <div className="ld-header">
           <span className="chapter-label">Live Dashboard</span>
-          <h2 className="ld-title"><em className="ld-em-plain">Naš Uticaj</em> <em className="ld-em">U Brojevima</em></h2>
-          <p className="ld-sub">Metrike u realnom vremenu iz naše mreže kreatorki i tržišnog dosega.</p>
+          <h2 className="ld-title"><em className="ld-em-plain">{t.titlePlain}</em> <em className="ld-em">{t.titleGold}</em></h2>
+          <p className="ld-sub">{t.sub}</p>
         </div>
 
         <div className="ld-grid">
 
-          {/* ── Key Metrics ── */}
+          {/* Key Metrics */}
           <div className="ld-card" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.0s, transform 0.7s ease 0.0s' }}>
             <div className="ld-card-head">
-              <span className="ld-card-title">Ključne Metrike</span>
-              <span className="ld-badge">
-                <span className="ld-badge-dot" />Live
-              </span>
+              <span className="ld-card-title">{t.keyMetricsTitle}</span>
+              <span className="ld-badge"><span className="ld-badge-dot" />Live</span>
             </div>
             <div className="ld-metrics">
-              {METRICS.map((m, i) => (
+              {t.metrics.map((m, i) => (
                 <div key={i} className="ld-metric">
                   <div className="ld-metric-val">{m.val}</div>
                   <div className="ld-metric-label">{m.label}</div>
@@ -131,16 +258,16 @@ export default function LiveDashboard() {
             </div>
           </div>
 
-          {/* ── Platform Reach ── */}
+          {/* Platform Reach */}
           <div className="ld-card" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s' }}>
             <div className="ld-card-head">
-              <span className="ld-card-title">Doseg Platformi</span>
-              <span className="ld-badge ld-badge--gold">Godišnje</span>
+              <span className="ld-card-title">{t.platformTitle}</span>
+              <span className="ld-badge ld-badge--gold">{t.platformBadge}</span>
             </div>
             <div className="ld-platforms">
-              {PLATFORMS.map((p, i) => (
+              {t.platforms.map((p, i) => (
                 <div key={i} className="ld-platform-row">
-                  <div className="ld-platform-icon">{p.icon}</div>
+                  <div className="ld-platform-icon">{PLATFORM_ICONS[i]}</div>
                   <div className="ld-platform-info">
                     <div className="ld-platform-head">
                       <span className="ld-platform-name">{p.name}</span>
@@ -153,14 +280,14 @@ export default function LiveDashboard() {
                 </div>
               ))}
             </div>
-            <p className="ld-platform-note">300–500M pregleda mesečno na svim platformama</p>
+            <p className="ld-platform-note">{t.platformNote}</p>
           </div>
 
-          {/* ── Activity Feed ── */}
+          {/* Activity Feed */}
           <div className="ld-card" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s' }}>
             <div className="ld-card-head">
-              <span className="ld-card-title">Nedavna Dostignuća</span>
-              <span className="ld-badge">Danas</span>
+              <span className="ld-card-title">{t.activityTitle}</span>
+              <span className="ld-badge">{t.activityBadge}</span>
             </div>
             <div className="ld-feed">
               {feed.map((item, i) => (
@@ -173,14 +300,14 @@ export default function LiveDashboard() {
             </div>
           </div>
 
-          {/* ── Growth Chart ── */}
+          {/* Growth Chart */}
           <div className="ld-card" style={{ opacity: vis ? 1 : 0, transform: vis ? 'none' : 'translateY(24px)', transition: 'opacity 0.7s ease 0.3s, transform 0.7s ease 0.3s' }}>
             <div className="ld-card-head">
-              <span className="ld-card-title">Prosečan Rast Kreatorki</span>
+              <span className="ld-card-title">{t.growthTitle}</span>
               <span className="ld-badge ld-badge--gold">+550% avg</span>
             </div>
             <div className="ld-chart">
-              {GROWTH_BARS.map((b, i) => (
+              {t.growthBars.map((b, i) => (
                 <div key={i} className="ld-bar-wrap">
                   <span className="ld-bar-val">{b.val}</span>
                   <div className="ld-bar-track">
@@ -204,13 +331,11 @@ export default function LiveDashboard() {
         .ld-title { font-family: var(--font-display); font-size: clamp(28px,4vw,40px); color: #1a1a1a; margin: 12px 0 10px; line-height: 1.1; }
         .ld-em-plain { font-style: italic; color: #1a1a1a; }
         .ld-em { font-style: italic; color: #a9875c; }
-        .ld-sub { font-size: 15px; color: #888; margin: 0; max-width: 520px; margin: 0 auto; }
+        .ld-sub { font-size: 15px; color: #888; margin: 0 auto; max-width: 520px; }
 
-        /* Grid */
         .ld-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         @media (max-width: 700px) { .ld-grid { grid-template-columns: 1fr; } }
 
-        /* Card - liquid glass */
         .ld-card {
           background: rgba(255,255,255,0.72);
           backdrop-filter: blur(24px) saturate(1.8);
@@ -222,20 +347,18 @@ export default function LiveDashboard() {
           display: flex; flex-direction: column; gap: 18px;
         }
 
-        /* Card header */
         .ld-card-head { display: flex; align-items: center; justify-content: space-between; }
         .ld-card-title { font-size: 13px; font-weight: 700; color: #1a1a1a; text-transform: uppercase; letter-spacing: 0.08em; }
         .ld-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #911f39; background: rgba(145,31,57,0.08); border: 1px solid rgba(145,31,57,0.2); border-radius: 999px; padding: 4px 10px; }
         .ld-badge--gold { color: #a9875c; background: rgba(169,135,92,0.08); border-color: rgba(169,135,92,0.25); }
         .ld-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #22c55e; animation: dot-blink 1.2s ease-in-out infinite; }
+        @keyframes dot-blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-        /* Metrics */
         .ld-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .ld-metric { background: rgba(169,135,92,0.06); border: 1px solid rgba(169,135,92,0.15); border-radius: 12px; padding: 16px 14px; }
         .ld-metric-val { font-family: var(--font-display); font-size: clamp(18px,2vw,22px); font-style: italic; color: #a9875c; line-height: 1; margin-bottom: 5px; }
         .ld-metric-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #999; line-height: 1.4; }
 
-        /* Platforms */
         .ld-platforms { display: flex; flex-direction: column; gap: 14px; }
         .ld-platform-row { display: flex; align-items: center; gap: 12px; }
         .ld-platform-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(169,135,92,0.1); border: 1px solid rgba(169,135,92,0.2); display: flex; align-items: center; justify-content: center; color: #a9875c; flex-shrink: 0; }
@@ -247,7 +370,6 @@ export default function LiveDashboard() {
         .ld-fill { height: 100%; background: linear-gradient(90deg, #911f39, #a9875c); border-radius: 2px; }
         .ld-platform-note { font-size: 11px; color: #bbb; text-align: center; margin: 0; }
 
-        /* Feed */
         .ld-feed { display: flex; flex-direction: column; gap: 10px; }
         .ld-feed-item { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 8px; background: rgba(0,0,0,0.02); transition: background 0.3s; }
         .ld-feed-item--new { background: rgba(145,31,57,0.05); animation: feed-pop 0.4s ease; }
@@ -257,7 +379,6 @@ export default function LiveDashboard() {
         .ld-feed-text { flex: 1; font-size: 13px; color: #444; }
         .ld-feed-time { font-size: 10px; color: #bbb; white-space: nowrap; flex-shrink: 0; }
 
-        /* Bar chart */
         .ld-chart { display: flex; align-items: flex-end; gap: 8px; height: 160px; }
         .ld-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; height: 100%; }
         .ld-bar-val { font-size: 9px; color: #aaa; text-align: center; white-space: nowrap; }

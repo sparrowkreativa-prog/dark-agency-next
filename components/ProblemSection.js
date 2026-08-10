@@ -1,44 +1,49 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { useLang } from '@/hooks/useContent';
 
-/* Parse a stat string into { end, format }
-   "5.000+"      → end=5000,  format(n) → "5.000+"
-   "0,4%"        → end=0.4,   format(n) → "0,4%"
-   "2/mesečno"   → end=2,     format(n) → "2/mesečno"
-   "3+ god"      → end=3,     format(n) → "3+ god"
-   "$11M+"       → end=11,    format(n) → "$11M+"
-*/
+const T = {
+  sr: {
+    body1: 'Videli smo industriju kojom dominiraju agencije kojima upravljaju muškarci - koje svoje kreatorke nisu zaista razumele.',
+    body2: 'Znali smo da mora postojati bolji način.',
+    body3: 'Ne upravljamo samo nalozima - gradimo carstva, uz posvećen tim koji poštuje granice i štiti privatnost svakog kreatora kao preduzetnika kakav zaista jeste.',
+  },
+  en: {
+    body1: 'We saw an industry dominated by male-run agencies that never truly understood their creators.',
+    body2: 'We knew there had to be a better way.',
+    body3: 'We don\'t just manage accounts — we build empires, with a dedicated team that respects boundaries and protects every creator\'s privacy as the entrepreneur they truly are.',
+  },
+  it: {
+    body1: 'Abbiamo visto un\'industria dominata da agenzie gestite da uomini che non hanno mai capito davvero le loro creator.',
+    body2: 'Sapevamo che doveva esistere un modo migliore.',
+    body3: 'Non gestiamo solo account — costruiamo imperi, con un team dedicato che rispetta i limiti e protegge la privacy di ogni creator come l\'imprenditrice che è davvero.',
+  },
+};
+
+/* Parse a stat string into { end, format } */
 function parseStat(raw) {
+  // 5.000+ (SR/IT style thousands)
   if (raw === '5.000+') {
-    return {
-      end: 5000,
-      format: (n) => Math.round(n).toLocaleString('de-DE').replace(/,/g, '.') + '+',
-    };
+    return { end: 5000, format: (n) => Math.round(n).toLocaleString('de-DE').replace(/,/g, '.') + '+' };
   }
+  // percentage with comma (SR/IT)
   if (raw === '0,4%') {
-    return {
-      end: 0.4,
-      format: (n) => n.toFixed(1).replace('.', ',') + '%',
-    };
+    return { end: 0.4, format: (n) => n.toFixed(1).replace('.', ',') + '%' };
   }
-  if (raw === '2/mesečno') {
-    return {
-      end: 2,
-      format: (n) => Math.round(n) + '/mesečno',
-    };
+  // percentage with dot (EN)
+  if (raw === '0.4%') {
+    return { end: 0.4, format: (n) => n.toFixed(1) + '%' };
   }
-  if (raw === '3+ god') {
-    return {
-      end: 3,
-      format: (n) => Math.round(n) + '+ god',
-    };
-  }
-  if (raw === '$11M+') {
-    return {
-      end: 11,
-      format: (n) => '$' + Math.round(n) + 'M+',
-    };
-  }
+  // per month variants
+  if (raw === '2/mesečno') return { end: 2, format: (n) => Math.round(n) + '/mesečno' };
+  if (raw === '2/month')   return { end: 2, format: (n) => Math.round(n) + '/month' };
+  if (raw === '2/mese')    return { end: 2, format: (n) => Math.round(n) + '/mese' };
+  // year variants
+  if (raw === '3+ god')    return { end: 3, format: (n) => Math.round(n) + '+ god' };
+  if (raw === '3+ yrs')    return { end: 3, format: (n) => Math.round(n) + '+ yrs' };
+  if (raw === '3+ anni')   return { end: 3, format: (n) => Math.round(n) + '+ anni' };
+  // money
+  if (raw === '$11M+') return { end: 11, format: (n) => '$' + Math.round(n) + 'M+' };
   // fallback - no animation
   return { end: null, format: () => raw };
 }
@@ -65,11 +70,8 @@ function StatCard({ num, label, index, trigger }) {
 
     timerRef.current = setTimeout(() => {
       setShow(true);
-
-      if (end === null) return; // no animation for unknown formats
-
+      if (end === null) return;
       const startTime = performance.now();
-
       const tick = (now) => {
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
@@ -78,10 +80,9 @@ function StatCard({ num, label, index, trigger }) {
         if (progress < 1) {
           rafRef.current = requestAnimationFrame(tick);
         } else {
-          setDisplayNum(format(end)); // ensure exact final value
+          setDisplayNum(format(end));
         }
       };
-
       rafRef.current = requestAnimationFrame(tick);
     }, stagger);
 
@@ -107,6 +108,9 @@ function StatCard({ num, label, index, trigger }) {
 }
 
 export default function ProblemSection({ problem }) {
+  const lang = useLang();
+  const t = T[lang] || T.sr;
+
   const ref = useRef(null);
   const [trigger, setTrigger] = useState(false);
 
@@ -114,14 +118,19 @@ export default function ProblemSection({ problem }) {
     const el = ref.current;
     if (!el) return;
     let io;
-    const t = setTimeout(() => {
+    const timer = setTimeout(() => {
       io = new IntersectionObserver(([e]) => {
         if (e.isIntersecting) { setTrigger(true); io.disconnect(); }
       }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
       io.observe(el);
     }, 150);
-    return () => { clearTimeout(t); io?.disconnect(); };
+    return () => { clearTimeout(timer); io?.disconnect(); };
   }, []);
+
+  // Split title at the last comma to highlight the final phrase in gold
+  const titleParts = problem.title.split(', ');
+  const titleMain = titleParts.slice(0, -1).join(', ') + ',';
+  const titleGold = ' ' + titleParts[titleParts.length - 1];
 
   return (
     <section className="ps-section">
@@ -129,18 +138,17 @@ export default function ProblemSection({ problem }) {
         <div className="section-header">
           <span className="chapter-label">{problem.label}</span>
           <h2 className="section-title">
-            {problem.title.split('za Žene.')[0]}
-            <span style={{ color: '#a9875c' }}>za Žene.</span>
+            {titleMain}
+            <span style={{ color: '#a9875c' }}>{titleGold}</span>
           </h2>
           <img src="/buss_woman.jpeg" alt="" className="ps-buss-img" />
           <p className="section-sub" style={{ color: '#fff' }}>
-            Videli smo industriju kojom dominiraju agencije kojima upravljaju muškarci - koje svoje kreatorke nisu zaista razumele.{' '}
-            <em className="ps-sub-em">Znali smo da mora postojati bolji način.</em>{' '}
-            Ne upravljamo samo nalozima - gradimo carstva, uz posvećen tim koji poštuje granice i štiti privatnost svakog kreatora kao preduzetnika kakav zaista jeste.
+            {t.body1}{' '}
+            <em className="ps-sub-em">{t.body2}</em>{' '}
+            {t.body3}
           </p>
         </div>
 
-        {/* 5-column stats row */}
         <div className="ps-stats-row" ref={ref}>
           {problem.stats.map((s, i) => (
             <StatCard key={s.num} num={s.num} label={s.label} index={i} trigger={trigger} />
@@ -184,40 +192,24 @@ export default function ProblemSection({ problem }) {
           box-shadow: 0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.1);
         }
         @media (max-width: 900px) {
-          .ps-stats-row {
-            grid-template-columns: repeat(3, 1fr);
-          }
+          .ps-stats-row { grid-template-columns: repeat(3, 1fr); }
           .ps-stat-col:nth-child(4),
-          .ps-stat-col:nth-child(5) {
-            border-bottom: none;
-          }
+          .ps-stat-col:nth-child(5) { border-bottom: none; }
         }
         @media (max-width: 560px) {
-          .ps-stats-row {
-            grid-template-columns: 1fr 1fr;
-          }
-          .ps-stat-col:last-child {
-            grid-column: 1 / -1;
-            border-right: none;
-            border-top: 1px solid rgba(255,255,255,0.08);
-          }
+          .ps-stats-row { grid-template-columns: 1fr 1fr; }
+          .ps-stat-col:last-child { grid-column: 1 / -1; border-right: none; border-top: 1px solid rgba(255,255,255,0.08); }
         }
-
         .ps-stat-col {
           padding: 36px 28px;
           text-align: center;
           border-right: 1px solid rgba(255,255,255,0.08);
           position: relative;
         }
-        .ps-stat-col:last-child {
-          border-right: none;
-        }
+        .ps-stat-col:last-child { border-right: none; }
         @media (max-width: 900px) {
-          .ps-stat-col {
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-          }
+          .ps-stat-col { border-bottom: 1px solid rgba(255,255,255,0.08); }
         }
-
         .ps-stat-num {
           font-family: var(--font-display);
           font-style: italic;
