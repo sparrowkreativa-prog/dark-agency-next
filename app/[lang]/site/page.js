@@ -1,13 +1,8 @@
-'use client';
-import { builder, BuilderComponent } from '@builder.io/react';
-import { BUILDER_API_KEY } from '@/lib/builder';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import SectionFade from '@/components/SectionFade';
 import Masina from '@/components/Masina';
 import Roster from '@/components/Roster';
-
-builder.init(BUILDER_API_KEY);
 import FAQ from '@/components/FAQ';
 import ApplyForm from '@/components/ApplyForm';
 import PressBar from '@/components/PressBar';
@@ -28,6 +23,8 @@ import DvaPuta from '@/components/DvaPuta';
 import Bezbednost from '@/components/Bezbednost';
 import Tim from '@/components/Tim';
 import { siteData } from '@/data/content';
+
+export const dynamic = 'force-static';
 
 export function generateStaticParams() {
   return [{ lang: 'sr' }, { lang: 'en' }, { lang: 'it' }];
