@@ -519,8 +519,10 @@ export default function Rezultati() {
       </footer>
 
       <style>{`
-        .rz-hero { background: #1a1a1a; padding: 72px 24px 88px; overflow: hidden; }
+        #site-header { z-index: 1000 !important; }
+        .rz-hero { background: #1a1a1a; padding: 72px 24px 88px; overflow: hidden; position: relative; z-index: 0; isolation: isolate; }
         .rz-hero-inner { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+        .rz-hero-right { padding-top: 20px; }
         @media (max-width: 900px) { .rz-hero-inner { grid-template-columns: 1fr; gap: 64px; } }
         .rz-eyebrow { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.22em; color: #911f39; margin-bottom: 24px; text-transform: uppercase; }
         .rzp-title { font-family: var(--font-display); font-style: italic; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.1; color: #fff; margin: 0 0 20px; }
