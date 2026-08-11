@@ -520,7 +520,7 @@ export default function Rezultati() {
 
       <style>{`
         #site-header { z-index: 1000 !important; }
-        .rz-hero { background: #1a1a1a; padding: 72px 24px 88px; overflow: hidden; position: relative; z-index: 0; isolation: isolate; }
+        .rz-hero { background: #1a1a1a; padding: 112px 24px 88px; overflow: hidden; position: relative; z-index: 0; isolation: isolate; }
         .rz-hero-inner { max-width: 1060px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
         .rz-hero-right { padding-top: 20px; }
         @media (max-width: 900px) { .rz-hero-inner { grid-template-columns: 1fr; gap: 64px; } }
