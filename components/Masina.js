@@ -8,7 +8,7 @@ const T = {
     title: 'Nismo Kupili Softver.\nSami Smo Ga Napravili.',
     sub: 'Većina agencija vodi tvoju stranicu s telefonom i tabelom. Mi tvoju vodimo na infrastrukturi koju smo sami napravili - pa ništa ne promakne i sve skalira.',
     crm: { label: 'Kreatorke', today: 'Danas', rosterLabel: 'Roster prihod', foot: 'Custom CRM · svaka kreatorka, nalog i čet na jednom mestu' },
-    phone: { sub: '10+ uređaja / kreatorka', foot: 'Phone farm · zagrevanje i objave na svim nalozima 24/7' },
+    phone: { sub: '10+ uređaja / kreatorka', phoneLabel: '1 Instagram profil = 1 telefon', foot: 'Phone farm · zagrevanje i objave na svim nalozima 24/7' },
     live: { title: 'Live prihod', retLabel: 'Retencija', accLabel: 'Nalozi' },
     features: [
       { icon: 'crm',   title: 'Sopstveni CRM',         desc: 'Svaka kreatorka, nalog, objava i razgovor - sve u jednom dashboardu koji smo sami napravili.' },
@@ -22,7 +22,7 @@ const T = {
     title: 'We Didn\'t Buy Software.\nWe Built It Ourselves.',
     sub: 'Most agencies run your page with a phone and a spreadsheet. We run yours on infrastructure we built ourselves — so nothing slips through and everything scales.',
     crm: { label: 'Creators', today: 'Today', rosterLabel: 'Roster revenue', foot: 'Custom CRM · every creator, account and chat in one place' },
-    phone: { sub: '10+ devices / creator', foot: 'Phone farm · warming and posting on all accounts 24/7' },
+    phone: { sub: '10+ devices / creator', phoneLabel: '1 Instagram profile = 1 phone', foot: 'Phone farm · warming and posting on all accounts 24/7' },
     live: { title: 'Live revenue', retLabel: 'Retention', accLabel: 'Accounts' },
     features: [
       { icon: 'crm',   title: 'Our Own CRM',        desc: 'Every creator, account, post and conversation — all in one dashboard we built ourselves.' },
@@ -36,7 +36,7 @@ const T = {
     title: 'Non Abbiamo Comprato Software.\nL\'Abbiamo Costruito Noi.',
     sub: 'La maggior parte delle agenzie gestisce il tuo profilo con un telefono e un foglio di calcolo. Noi lo gestiamo su un\'infrastruttura che abbiamo costruito noi stessi — così niente sfugge e tutto scala.',
     crm: { label: 'Creator', today: 'Oggi', rosterLabel: 'Ricavi roster', foot: 'CRM personalizzato · ogni creator, account e chat in un unico posto' },
-    phone: { sub: '10+ dispositivi / creator', foot: 'Phone farm · riscaldamento e post su tutti gli account 24/7' },
+    phone: { sub: '10+ dispositivi / creator', phoneLabel: '1 profilo Instagram = 1 telefono', foot: 'Phone farm · riscaldamento e post su tutti gli account 24/7' },
     live: { title: 'Ricavi in tempo reale', retLabel: 'Ritenzione', accLabel: 'Account' },
     features: [
       { icon: 'crm',   title: 'CRM Proprietario',    desc: 'Ogni creator, account, post e conversazione — tutto in un unico dashboard che abbiamo costruito noi.' },
@@ -146,7 +146,7 @@ function PhoneFarmPanel({ vis, t }) {
       <div className="m-farm-status">
         <span className="m-farm-active"><span className="m-farm-dot"/>posting</span>
         <span style={{ color: 'rgba(255,255,255,0.4)' }}>·</span>
-        <span style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.7rem' }}>1 Instagram profil = 1 telefon</span>
+        <span style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.7rem' }}>{t.phone.phoneLabel}</span>
       </div>
       <div className="m-panel-foot">{t.phone.foot}</div>
     </div>

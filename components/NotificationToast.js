@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { useLang } from '@/hooks/useContent';
 
 const NAMES = [
   // Srbija
@@ -32,7 +33,7 @@ const CITIES = [
   'Pljevalja','Kotora','Budve','Ulcinja',
 ];
 
-const ACTIONS = [
+const ACTIONS_SR = [
   'gleda „Šta je uključeno"',
   'gleda „Primamo Nove Kreatorke"',
   'čita o bezbednosti i privatnosti',
@@ -44,17 +45,51 @@ const ACTIONS = [
   'istražuje garancije',
   'čita odgovore na pitanja',
 ];
+const ACTIONS_EN = [
+  'is viewing "What\'s Included"',
+  'is viewing "We\'re Accepting New Creators"',
+  'is reading about security & privacy',
+  'is viewing creator results',
+  'is exploring the earnings calculator',
+  'is viewing the live dashboard',
+  'is reading creator stories',
+  'is seeing how the system works',
+  'is exploring the guarantee',
+  'is reading the FAQ',
+];
+const ACTIONS_IT = [
+  'sta guardando "Cosa è incluso"',
+  'sta guardando "Accettiamo Nuove Creator"',
+  'sta leggendo di sicurezza e privacy',
+  'sta guardando i risultati delle creator',
+  'sta esplorando il calcolatore guadagni',
+  'sta guardando la dashboard live',
+  'sta leggendo le storie delle creator',
+  'sta vedendo come funziona il sistema',
+  'sta esplorando la garanzia',
+  'sta leggendo le FAQ',
+];
 
-const TIMES = ['upravo','pre 1 min','pre 3 min','pre 6 min','pre 10 min','pre 18 min'];
+const TIMES_SR = ['upravo','pre 1 min','pre 3 min','pre 6 min','pre 10 min','pre 18 min'];
+const TIMES_EN = ['just now','1 min ago','3 min ago','6 min ago','10 min ago','18 min ago'];
+const TIMES_IT = ['proprio ora','1 min fa','3 min fa','6 min fa','10 min fa','18 min fa'];
+
+const FROM_SR = 'iz';
+const FROM_EN = 'from';
+const FROM_IT = 'da';
 
 function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 function initials(name) { return name[0].toUpperCase(); }
 
-function generateEntry() {
-  return { name: pick(NAMES), city: pick(CITIES), action: pick(ACTIONS), time: pick(TIMES), color: pick(['#911f39','#a9875c','#6b7c93','#3d6b4f']) };
+function generateEntry(actions, times) {
+  return { name: pick(NAMES), city: pick(CITIES), action: pick(actions), time: pick(times), color: pick(['#911f39','#a9875c','#6b7c93','#3d6b4f']) };
 }
 
 export default function NotificationToast() {
+  const lang = useLang();
+  const actions = lang === 'en' ? ACTIONS_EN : lang === 'it' ? ACTIONS_IT : ACTIONS_SR;
+  const times   = lang === 'en' ? TIMES_EN   : lang === 'it' ? TIMES_IT   : TIMES_SR;
+  const from    = lang === 'en' ? FROM_EN     : lang === 'it' ? FROM_IT    : FROM_SR;
   const [entry, setEntry] = useState(null);
   const [visible, setVisible] = useState(false);
 
@@ -62,7 +97,7 @@ export default function NotificationToast() {
     // first toast after 8s, then every 18–28s (random)
     let timer;
     const show = () => {
-      setEntry(generateEntry());
+      setEntry(generateEntry(actions, times));
       setVisible(true);
       setTimeout(() => setVisible(false), 4500);
       timer = setTimeout(show, 18000 + Math.random() * 10000);
@@ -80,7 +115,7 @@ export default function NotificationToast() {
         {initials(entry.name)}
       </div>
       <div className="nt-content">
-        <p className="nt-text"><strong>{entry.name}</strong> iz {entry.city} {entry.action}</p>
+        <p className="nt-text"><strong>{entry.name}</strong> {from} {entry.city} {entry.action}</p>
         <p className="nt-time">{entry.time}</p>
       </div>
       <div className="nt-check">

@@ -39,6 +39,8 @@ const T = {
     locationTitle: 'Top tržišta',
     gender: [['Muškarci','94%',94],['Žene','4%',4],['Ostalo','2%',2]],
     locations: [['🇺🇸','SAD','42%'],['🇮🇹','Italija','28%'],['🇬🇧','UK','12%'],['🇨🇦','Kanada','8%'],['🌍','Ostalo','10%']],
+    username: 'tvoj_nalog',
+    potentialLabel: 'potencijal',
     growthLabel: '250%',
     partnershipVal: '3+ god',
     supportVal: '24/7',
@@ -80,6 +82,8 @@ const T = {
     locationTitle: 'Top markets',
     gender: [['Men','94%',94],['Women','4%',4],['Other','2%',2]],
     locations: [['🇺🇸','USA','42%'],['🇮🇹','Italy','28%'],['🇬🇧','UK','12%'],['🇨🇦','Canada','8%'],['🌍','Other','10%']],
+    username: 'your_account',
+    potentialLabel: 'potential',
     growthLabel: '250%',
     partnershipVal: '3+ yrs',
     supportVal: '24/7',
@@ -121,6 +125,8 @@ const T = {
     locationTitle: 'Mercati principali',
     gender: [['Uomini','94%',94],['Donne','4%',4],['Altro','2%',2]],
     locations: [['🇺🇸','USA','42%'],['🇮🇹','Italia','28%'],['🇬🇧','UK','12%'],['🇨🇦','Canada','8%'],['🌍','Altro','10%']],
+    username: 'tuo_account',
+    potentialLabel: 'potenziale',
     growthLabel: '250%',
     partnershipVal: '3+ anni',
     supportVal: '24/7',
@@ -169,7 +175,7 @@ export default function Kalkulator({ light = false }) {
               <div className="kalk-avatar">{t.avatar}</div>
               <div>
                 <div className="kalk-username">
-                  tvoj_nalog
+                  {t.username}
                   <svg className="kalk-verified" viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
                     <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7L6 12.6l1.5-1.5 2.6 2.6 6.4-6.4 1.5 1.5-7.9 7.9z"/>
                   </svg>
@@ -233,7 +239,7 @@ export default function Kalkulator({ light = false }) {
                 <div className="kalk-compare-card kalk-compare-card--projected">
                   <div className="kalk-compare-label">{t.compareProjectedLabel}</div>
                   <div className="kalk-compare-val">{fmt(projected)}</div>
-                  <div className="kalk-compare-note">{t.growthLabel} potencijal</div>
+                  <div className="kalk-compare-note">{t.growthLabel} {t.potentialLabel}</div>
                 </div>
               </div>
 
