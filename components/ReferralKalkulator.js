@@ -1,11 +1,47 @@
 'use client';
 import { useState } from 'react';
+import { useLang } from '@/hooks/useContent';
 
 function fmt(n) {
   return '$' + Math.round(n).toLocaleString('en-US');
 }
 
+const T = {
+  sr: {
+    avatar: 'Ti', username: 'tvoja_preporuka',
+    accountType: 'Program preporuke · do 10% mesečno',
+    sliderLabel: 'Mesečna zarada kreatorke koju preporučiš',
+    card1Label: 'Zarada kreatorke', card1Note: 'Njena mesečna zarada sa Velluto Nero',
+    card2Label: 'Tvoja provizija', card2Note: 'Do 10% - svaki mesec, automatski',
+    yearlyLabel: 'Za godinu dana to je:',
+    yearlyNote: 'Bez ijednog radnog sata - ', yearlyBold: 'jedna WhatsApp poruka', yearlyNote2: ' je sve što treba',
+    ctaBtn: 'Preporuči Kreatorku',
+  },
+  en: {
+    avatar: 'You', username: 'your_referral',
+    accountType: 'Referral programme · up to 10% monthly',
+    sliderLabel: 'Monthly revenue of the creator you refer',
+    card1Label: "Creator's earnings", card1Note: 'Her monthly revenue with Velluto Nero',
+    card2Label: 'Your commission', card2Note: 'Up to 10% — every month, automatically',
+    yearlyLabel: 'Over a year that is:',
+    yearlyNote: 'No working hours — ', yearlyBold: 'one WhatsApp message', yearlyNote2: ' is all it takes',
+    ctaBtn: 'Refer a Creator',
+  },
+  it: {
+    avatar: 'Tu', username: 'tua_segnalazione',
+    accountType: 'Programma referral · fino al 10% mensile',
+    sliderLabel: 'Ricavi mensili della creator che presenti',
+    card1Label: 'Guadagni della creator', card1Note: 'I suoi ricavi mensili con Velluto Nero',
+    card2Label: 'La tua commissione', card2Note: 'Fino al 10% — ogni mese, automaticamente',
+    yearlyLabel: 'In un anno sono:',
+    yearlyNote: 'Zero ore di lavoro — ', yearlyBold: 'un messaggio WhatsApp', yearlyNote2: ' è tutto ciò che serve',
+    ctaBtn: 'Presenta una Creator',
+  },
+};
+
 export default function ReferralKalkulator() {
+  const lang = useLang();
+  const t = T[lang] || T.sr;
   const [revenue, setRevenue] = useState(50000);
 
   const commission = revenue * 0.10;
@@ -23,15 +59,15 @@ export default function ReferralKalkulator() {
           {/* Dashboard top bar */}
           <div className="kalk-dash-top">
             <div className="kalk-dash-profile">
-              <div className="kalk-avatar">Ti</div>
+              <div className="kalk-avatar">{t.avatar}</div>
               <div>
                 <div className="kalk-username">
-                  tvoja_preporuka
+                  {t.username}
                   <svg className="kalk-verified" viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
                     <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-1.9 14.7L6 12.6l1.5-1.5 2.6 2.6 6.4-6.4 1.5 1.5-7.9 7.9z"/>
                   </svg>
                 </div>
-                <div className="kalk-account-type">Program preporuke · do 10% mesečno</div>
+                <div className="kalk-account-type">{t.accountType}</div>
               </div>
             </div>
           </div>
@@ -41,7 +77,7 @@ export default function ReferralKalkulator() {
             <div className="kalk-input-row">
               <label className="kalk-input-label">
                 <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                Mesečna zarada kreatorke koju preporučiš
+                {t.sliderLabel}
               </label>
               <div className="kalk-slider-wrap">
                 <input
@@ -59,29 +95,29 @@ export default function ReferralKalkulator() {
             {/* Comparison */}
             <div className="kalk-compare">
               <div className="kalk-compare-card kalk-compare-card--current">
-                <div className="kalk-compare-label">Zarada kreatorke</div>
-                <div className="kalk-compare-val">{fmt(revenue)}<span className="kalk-per">/mes</span></div>
-                <div className="kalk-compare-note">Njena mesečna zarada sa Velluto Nero</div>
+                <div className="kalk-compare-label">{t.card1Label}</div>
+                <div className="kalk-compare-val">{fmt(revenue)}<span className="kalk-per">/mo</span></div>
+                <div className="kalk-compare-note">{t.card1Note}</div>
               </div>
               <div className="kalk-compare-card kalk-compare-card--projected">
-                <div className="kalk-compare-label">Tvoja provizija</div>
-                <div className="kalk-compare-val">{fmt(commission)}<span className="kalk-per">/mes</span></div>
-                <div className="kalk-compare-note">Do 10% - svaki mesec, automatski</div>
+                <div className="kalk-compare-label">{t.card2Label}</div>
+                <div className="kalk-compare-val">{fmt(commission)}<span className="kalk-per">/mo</span></div>
+                <div className="kalk-compare-note">{t.card2Note}</div>
               </div>
             </div>
 
             {/* Yearly strip */}
             <div className="kalk-extra">
-              <span className="kalk-extra-label">Za godinu dana to je:</span>
+              <span className="kalk-extra-label">{t.yearlyLabel}</span>
               <span className="kalk-extra-val">+{fmt(yearly)}</span>
-              <span className="kalk-extra-yearly">Bez ijednog radnog sata - <strong>jedna WhatsApp poruka</strong> je sve što treba</span>
+              <span className="kalk-extra-yearly">{t.yearlyNote}<strong>{t.yearlyBold}</strong>{t.yearlyNote2}</span>
             </div>
 
             {/* CTA */}
             <div className="kalk-cta">
               <a href="https://wa.me/381000000000" target="_blank" rel="noopener noreferrer" className="kalk-cta-btn kalk-cta-btn--wa">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.297-.497.1-.198.05-.371-.025-.52-.074-.149-.668-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                Preporuči Kreatorku
+                {t.ctaBtn}
               </a>
             </div>
           </div>
