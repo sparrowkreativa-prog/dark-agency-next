@@ -87,7 +87,7 @@ export default function GrowthAudit() {
     <div>
       <Header />
       <main style={{ background: '#fafaf8', minHeight: '100vh', paddingBottom: 96 }}>
-        <div style={{ background: 'var(--color-dark-1)', padding: '112px 24px 56px', textAlign: 'center' }}>
+        <div style={{ background: '#1a1a1a', padding: '112px 24px 56px', textAlign: 'center' }}>
           <Link href={`${base}/resursi`} style={{ display: 'inline-block', fontSize: 13, color: 'rgba(255,255,255,0.45)', textDecoration: 'none', marginBottom: 24 }}>{t.back}</Link>
           <span style={{ display: 'block', fontSize: 11, fontWeight: 700, letterSpacing: '0.18em', color: '#a9875c', textTransform: 'uppercase', marginBottom: 20 }}>{t.eyebrow}</span>
           <h1 style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(1.8rem,4.5vw,3rem)', fontStyle: 'italic', color: '#fff', lineHeight: 1.1, margin: '0 0 20px' }}>
