@@ -1,5 +1,12 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { useLang } from '@/hooks/useContent';
+
+const TITLE_T = {
+  sr: { titleMain: 'Full Management,', titleGold: 'u Potpunosti.', quote: ['5+ Godina Iskustva.', '140+ Klijenata.', 'Nula Curenja Identiteta.'] },
+  en: { titleMain: 'Full Management,', titleGold: 'Fully Done.',   quote: ['5+ Years of Experience.', '140+ Clients.', 'Zero Identity Leaks.'] },
+  it: { titleMain: 'Full Management,', titleGold: 'Completo.',     quote: ['5+ Anni di Esperienza.', '140+ Clienti.', 'Zero Fughe di Identità.'] },
+};
 
 const ICONS = {
   'user-circle': (
@@ -87,6 +94,8 @@ function ServiceCard({ item, index, trigger }) {
 }
 
 export default function ServicesSection({ services }) {
+  const lang = useLang();
+  const tt = TITLE_T[lang] || TITLE_T.sr;
   const ref = useRef(null);
   const [trigger, setTrigger] = useState(false);
 
@@ -109,8 +118,8 @@ export default function ServicesSection({ services }) {
         <div className="section-header">
           <span className="chapter-label">{services.label}</span>
           <h2 className="section-title">
-            Full Management,<br />
-            <span style={{ color: '#a9875c' }}>u Potpunosti.</span>
+            {tt.titleMain}<br />
+            <span style={{ color: '#a9875c' }}>{tt.titleGold}</span>
           </h2>
           <p className="section-sub" style={{ maxWidth: 720 }}>{services.sub}</p>
         </div>
@@ -122,9 +131,9 @@ export default function ServicesSection({ services }) {
         </div>
 
         <div className="svc-quote">
-          <div className="svc-quote-line">5+ Godina Iskustva.</div>
-          <div className="svc-quote-line">140+ Klijenata.</div>
-          <div className="svc-quote-line svc-quote-pink">Nula Curenja Identiteta.</div>
+          <div className="svc-quote-line">{tt.quote[0]}</div>
+          <div className="svc-quote-line">{tt.quote[1]}</div>
+          <div className="svc-quote-line svc-quote-pink">{tt.quote[2]}</div>
         </div>
       </div>
 

@@ -1,5 +1,27 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import { useLang } from '@/hooks/useContent';
+
+const T = {
+  sr: {
+    label: 'DIREKTNO SA PLATFORME',
+    title1: 'Rezultati,',
+    title2: 'Ne Obećanja.',
+    disclaimer: 'Autentični, anonimizovani statistički paneli kreatorki iz našeg rostera.',
+  },
+  en: {
+    label: 'STRAIGHT FROM THE PLATFORM',
+    title1: 'Results,',
+    title2: 'Not Promises.',
+    disclaimer: 'Authentic, anonymised dashboard screenshots from creators in our roster.',
+  },
+  it: {
+    label: 'DIRETTAMENTE DALLA PIATTAFORMA',
+    title1: 'Risultati,',
+    title2: 'Non Promesse.',
+    disclaimer: 'Dashboard statistici autentici e anonimizzati delle creator nel nostro roster.',
+  },
+};
 
 /* ── Random generation helpers ── */
 function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
@@ -387,6 +409,8 @@ function OFMockup({ m, vis, idx }) {
 }
 
 export default function RezultatiScreenshots() {
+  const lang = useLang();
+  const t = T[lang] || T.sr;
   const ref = useRef(null);
   const [vis, setVis] = useState(false);
   const [mockups, setMockups] = useState(MOCKUPS);
@@ -420,9 +444,9 @@ export default function RezultatiScreenshots() {
             transition: 'opacity 0.9s ease, transform 0.9s ease',
           }}
         >
-          <span className="chapter-label">DIREKTNO SA PLATFORME</span>
+          <span className="chapter-label">{t.label}</span>
           <h2 className="rz-title">
-            Rezultati,<br /><span style={{ color: '#a9875c' }}>Ne Obećanja.</span>
+            {t.title1}<br /><span style={{ color: '#a9875c' }}>{t.title2}</span>
           </h2>
         </div>
       </div>
@@ -439,7 +463,7 @@ export default function RezultatiScreenshots() {
 
       <div className="rz-inner">
         <p className="rz-disclaimer" style={{ opacity: vis ? 1 : 0, transition: 'opacity 0.9s ease 0.5s' }}>
-          Autentični, anonimizovani statistički paneli kreatorki iz našeg rostera.
+          {t.disclaimer}
         </p>
       </div>
 
