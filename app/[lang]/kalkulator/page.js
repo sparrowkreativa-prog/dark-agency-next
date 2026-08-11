@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Kalkulator from '@/components/Kalkulator';
+import SiteFooter from '@/components/SiteFooter';
 import { useLang } from '@/hooks/useContent';
 
 const T = {
@@ -25,6 +26,7 @@ export default function KalkulatorPage() {
         </div>
         <Kalkulator />
       </main>
+      <SiteFooter />
     </div>
   );
 }

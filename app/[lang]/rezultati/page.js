@@ -505,7 +505,7 @@ export default function Rezultati() {
               <div className="footer-brand-name">{fd.nav.logo}</div>
               <p className="footer-tagline">{fd.footer.tagline}</p>
             </div>
-            <a href={fd.footer.cta.href} className="btn-outline" style={{ borderColor: '#a9875c', color: '#a9875c' }}>
+            <a href={`/${lang}/site#apply`} className="btn-outline" style={{ borderColor: '#a9875c', color: '#a9875c' }}>
               {fd.footer.cta.label} <span>→</span>
             </a>
           </div>

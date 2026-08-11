@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import Header from '@/components/Header';
+import SiteFooter from '@/components/SiteFooter';
 import { useLang } from '@/hooks/useContent';
 
 const T = {
@@ -170,6 +171,7 @@ export default function Resursi() {
           </div>
         </div>
       </main>
+      <SiteFooter />
 
       <style>{`
         .rs-page { background: #fafaf8; min-height: 100vh; padding-bottom: 96px; }
