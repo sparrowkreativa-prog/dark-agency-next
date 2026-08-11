@@ -1,5 +1,6 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/navigation';
 
 const CONTENT = {
   sr: {
@@ -31,22 +32,52 @@ const FLAGS = [
   { code: 'it', emoji: '🇮🇹', label: 'Italiano' },
 ];
 
-function detectLang() {
-  if (typeof navigator === 'undefined') return 'sr';
-  const l = (navigator.language || '').toLowerCase();
-  if (l.startsWith('it')) return 'it';
-  if (l.startsWith('en')) return 'en';
-  return 'sr';
-}
-
 export default function HomePage() {
-  const [lang, setLang] = useState('sr');
+  const [lang, setLang] = useState('en');
   const [mounted, setMounted] = useState(false);
+  const [redirecting, setRedirecting] = useState(false);
+  const router = useRouter();
+  const timerRef = useRef(null);
+  const manualRef = useRef(false);
 
   useEffect(() => {
-    setLang(detectLang());
+    // Fetch geo-detected lang from edge API
+    fetch('/api/geo')
+      .then(r => r.json())
+      .then(({ lang: detected }) => {
+        if (!manualRef.current) setLang(detected);
+        // Auto-redirect after 1.8s unless user picks manually
+        timerRef.current = setTimeout(() => {
+          if (!manualRef.current) {
+            setRedirecting(true);
+            router.push(CONTENT[detected]?.href || '/en/site');
+          }
+        }, 1800);
+      })
+      .catch(() => {
+        // Fallback: browser language
+        const l = (navigator.language || '').toLowerCase();
+        const fallback = l.startsWith('it') ? 'it' : l.startsWith('sr') || l.startsWith('hr') ? 'sr' : 'en';
+        if (!manualRef.current) setLang(fallback);
+        timerRef.current = setTimeout(() => {
+          if (!manualRef.current) {
+            setRedirecting(true);
+            router.push(CONTENT[fallback]?.href || '/en/site');
+          }
+        }, 1800);
+      });
+
     setMounted(true);
+    return () => clearTimeout(timerRef.current);
   }, []);
+
+  function pickLang(code) {
+    manualRef.current = true;
+    clearTimeout(timerRef.current);
+    setLang(code);
+    setRedirecting(true);
+    router.push(CONTENT[code].href);
+  }
 
   const c = CONTENT[lang];
 
@@ -58,40 +89,37 @@ export default function HomePage() {
       />
 
       <main className="rl-root">
-        {/* Background images */}
         <img src="/redirect-desk.jpg"   alt="" className="rl-bg rl-bg--desk"   draggable={false} />
         <img src="/redirect-mobile.jpg" alt="" className="rl-bg rl-bg--mobile" draggable={false} />
 
-        {/* Overlay content */}
         <div className={`rl-content${mounted ? ' rl-content--visible' : ''}`}>
 
-          {/* Heading */}
           <h1 className="rl-heading">
             {c.heading[0]}<br />{c.heading[1]}
           </h1>
 
-          {/* Button */}
-          <a href={c.href} className="rl-btn">
-            {c.btn} <span className="rl-arrow">→</span>
+          <a
+            href={c.href}
+            className={`rl-btn${redirecting ? ' rl-btn--redirecting' : ''}`}
+            onClick={e => { e.preventDefault(); pickLang(lang); }}
+          >
+            {redirecting ? '···' : <>{c.btn} <span className="rl-arrow">→</span></>}
           </a>
 
-          {/* Body text */}
           <p className="rl-body">
-            {c.body.split('\n').map((line, i) => (
-              <span key={i}>{line}{i < c.body.split('\n').length - 1 && <br />}</span>
+            {c.body.split('\n').map((line, i, arr) => (
+              <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
             ))}
           </p>
 
-          {/* Cities */}
           <p className="rl-cities">{c.cities}</p>
 
-          {/* Language flags */}
           <div className="rl-flags">
             {FLAGS.map(f => (
               <button
                 key={f.code}
                 className={`rl-flag${lang === f.code ? ' rl-flag--active' : ''}`}
-                onClick={() => setLang(f.code)}
+                onClick={() => pickLang(f.code)}
                 aria-label={f.label}
                 title={f.label}
               >
@@ -114,7 +142,6 @@ export default function HomePage() {
           height: 100%;
         }
 
-        /* Background */
         .rl-bg {
           position: absolute;
           inset: 0;
@@ -132,7 +159,6 @@ export default function HomePage() {
           .rl-bg--mobile { display: block; }
         }
 
-        /* Content overlay */
         .rl-content {
           position: absolute;
           inset: 0;
@@ -147,7 +173,6 @@ export default function HomePage() {
         }
         .rl-content--visible { opacity: 1; }
 
-        /* Heading */
         .rl-heading {
           font-family: 'DM Serif Display', Georgia, serif;
           font-style: italic;
@@ -159,7 +184,6 @@ export default function HomePage() {
           letter-spacing: -0.01em;
         }
 
-        /* Button */
         .rl-btn {
           display: inline-flex;
           align-items: center;
@@ -176,9 +200,12 @@ export default function HomePage() {
           border-radius: 999px;
           white-space: nowrap;
           animation: rl-pulse 2.2s ease-in-out infinite;
-          transition: background 0.2s ease;
+          transition: background 0.2s ease, min-width 0.2s ease;
+          min-width: 180px;
+          justify-content: center;
         }
         .rl-btn:hover { background: #c4a070; }
+        .rl-btn--redirecting { animation: none; opacity: 0.7; cursor: default; }
         .rl-arrow { font-size: 17px; line-height: 1; }
 
         @keyframes rl-pulse {
@@ -187,7 +214,6 @@ export default function HomePage() {
           100% { box-shadow: 0 0 0 0    rgba(169,135,92,0),   0 4px 24px rgba(169,135,92,0.4); }
         }
 
-        /* Body text */
         .rl-body {
           font-family: 'Montserrat', Arial, sans-serif;
           font-weight: 300;
@@ -199,7 +225,6 @@ export default function HomePage() {
           max-width: 560px;
         }
 
-        /* Cities */
         .rl-cities {
           font-family: 'Montserrat', Arial, sans-serif;
           font-weight: 300;
@@ -210,7 +235,6 @@ export default function HomePage() {
           text-transform: uppercase;
         }
 
-        /* Language flags */
         .rl-flags {
           display: flex;
           gap: 10px;
@@ -230,7 +254,6 @@ export default function HomePage() {
         .rl-flag:hover  { opacity: 0.8; transform: scale(1.1); }
         .rl-flag--active { opacity: 1; transform: scale(1.15); }
 
-        /* Mobile adjustments */
         @media (max-width: 640px) {
           .rl-content { gap: 16px; padding: 20px; justify-content: flex-end; padding-bottom: 48px; }
           .rl-heading { font-size: clamp(1.7rem, 8vw, 2.4rem); }
