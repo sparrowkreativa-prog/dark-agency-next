@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
+
 const CONTENT = {
   sr: {
     heading: ['Porodični biznis.', 'Vode ga žene.'],
@@ -35,47 +36,29 @@ const FLAGS = [
 export default function HomePage() {
   const [lang, setLang] = useState('en');
   const [mounted, setMounted] = useState(false);
-  const [redirecting, setRedirecting] = useState(false);
   const router = useRouter();
-  const timerRef = useRef(null);
   const manualRef = useRef(false);
 
   useEffect(() => {
-    // Fetch geo-detected lang from edge API
+    // Fetch geo-detected lang — only pre-selects content, never auto-redirects
     fetch('/api/geo')
       .then(r => r.json())
       .then(({ lang: detected }) => {
         if (!manualRef.current) setLang(detected);
-        // Auto-redirect after 1.8s unless user picks manually
-        timerRef.current = setTimeout(() => {
-          if (!manualRef.current) {
-            setRedirecting(true);
-            router.push(CONTENT[detected]?.href || '/en/site');
-          }
-        }, 1800);
       })
       .catch(() => {
         // Fallback: browser language
         const l = (navigator.language || '').toLowerCase();
         const fallback = l.startsWith('it') ? 'it' : l.startsWith('sr') || l.startsWith('hr') ? 'sr' : 'en';
         if (!manualRef.current) setLang(fallback);
-        timerRef.current = setTimeout(() => {
-          if (!manualRef.current) {
-            setRedirecting(true);
-            router.push(CONTENT[fallback]?.href || '/en/site');
-          }
-        }, 1800);
       });
 
     setMounted(true);
-    return () => clearTimeout(timerRef.current);
   }, []);
 
   function pickLang(code) {
     manualRef.current = true;
-    clearTimeout(timerRef.current);
     setLang(code);
-    setRedirecting(true);
     router.push(CONTENT[code].href);
   }
 
@@ -100,10 +83,10 @@ export default function HomePage() {
 
           <a
             href={c.href}
-            className={`rl-btn${redirecting ? ' rl-btn--redirecting' : ''}`}
+            className="rl-btn"
             onClick={e => { e.preventDefault(); pickLang(lang); }}
           >
-            {redirecting ? '···' : <>{c.btn} <span className="rl-arrow">→</span></>}
+            {c.btn} <span className="rl-arrow">→</span>
           </a>
 
           <p className="rl-body">
@@ -200,12 +183,9 @@ export default function HomePage() {
           border-radius: 999px;
           white-space: nowrap;
           animation: rl-pulse 2.2s ease-in-out infinite;
-          transition: background 0.2s ease, min-width 0.2s ease;
-          min-width: 180px;
-          justify-content: center;
+          transition: background 0.2s ease;
         }
         .rl-btn:hover { background: #c4a070; }
-        .rl-btn--redirecting { animation: none; opacity: 0.7; cursor: default; }
         .rl-arrow { font-size: 17px; line-height: 1; }
 
         @keyframes rl-pulse {
