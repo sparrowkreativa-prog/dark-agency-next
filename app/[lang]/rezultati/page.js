@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import RezultatiScreenshots from '@/components/RezultatiScreenshots';
+import Header from '@/components/Header';
 import { siteData } from '@/data/content';
 import { siteDataEn } from '@/data/content.en';
 import { siteDataIt } from '@/data/content.it';
@@ -15,10 +16,6 @@ function getFooterData(lang) {
 
 const T = {
   sr: {
-    nav: {
-      home: 'Početna', results: 'Rezultati', services: 'Usluge',
-      resources: 'Resursi', faq: 'FAQ', apply: 'Prijavi se',
-    },
     eyebrow: 'PRIMAMO SAMO 2 KLIJENTA MESEČNO',
     heroTitle1: '$11M+ Generisano.',
     heroTitle2: 'Evo Dokaza.',
@@ -89,10 +86,6 @@ const T = {
     finalMicro: 'Traje 60 sekundi · Bez obaveza',
   },
   en: {
-    nav: {
-      home: 'Home', results: 'Results', services: 'Services',
-      resources: 'Resources', faq: 'FAQ', apply: 'Apply',
-    },
     eyebrow: 'WE ACCEPT ONLY 2 CLIENTS PER MONTH',
     heroTitle1: '$11M+ Generated.',
     heroTitle2: 'Here\'s the Proof.',
@@ -163,10 +156,6 @@ const T = {
     finalMicro: 'Takes 60 seconds · No obligation',
   },
   it: {
-    nav: {
-      home: 'Home', results: 'Risultati', services: 'Servizi',
-      resources: 'Risorse', faq: 'FAQ', apply: 'Candidati',
-    },
     eyebrow: 'ACCETTIAMO SOLO 2 CLIENTI AL MESE',
     heroTitle1: '$11M+ Generati.',
     heroTitle2: 'Ecco la Prova.',
@@ -382,25 +371,7 @@ export default function Rezultati() {
 
   return (
     <div>
-      <header id="site-header" style={{ position: 'sticky', top: 0, zIndex: 100, background: '#fafaf8', borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
-        <div className="nav-container">
-          <div className="nav-logo"><Link href={`${base}/site`} style={{ fontStyle: 'italic' }}>Velluto Nero</Link></div>
-          <nav className="nav-links">
-            <ul className="nav-menu">
-              <li><Link href={`${base}/site`}>{t.nav.home}</Link></li>
-              <li><Link href={`${base}/rezultati`} style={{ color: '#a9875c' }}>{t.nav.results}</Link></li>
-              <li><Link href={`${base}/site#services`}>{t.nav.services}</Link></li>
-              <li><Link href={`${base}/resursi`}>{t.nav.resources}</Link></li>
-              <li><Link href={`${base}/site#faq`}>{t.nav.faq}</Link></li>
-            </ul>
-          </nav>
-          <div className="nav-cta">
-            <Link href={`${base}/site#apply`} className="btn-primary" style={{ padding: '10px 22px', fontSize: '14px' }}>
-              {t.nav.apply} <span className="btn-arrow">→</span>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main style={{ background: '#fafaf8', minHeight: '100vh' }}>
 
