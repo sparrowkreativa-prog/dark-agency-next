@@ -176,7 +176,7 @@ export default function Resursi() {
 
         .rs-hero {
           text-align: center;
-          padding: 72px 24px 56px;
+          padding: 112px 24px 56px;
           background: #fff;
           border-bottom: 1px solid rgba(0,0,0,0.06);
         }

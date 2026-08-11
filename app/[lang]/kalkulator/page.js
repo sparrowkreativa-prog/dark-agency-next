@@ -18,7 +18,7 @@ export default function KalkulatorPage() {
     <div>
       <Header />
       <main style={{ background: '#fff', minHeight: '100vh' }}>
-        <div style={{ textAlign: 'center', padding: '56px 24px 0' }}>
+        <div style={{ textAlign: 'center', padding: '112px 24px 0' }}>
           <Link href={`${base}/resursi`} style={{ display: 'inline-block', fontSize: 13, color: '#aaa', textDecoration: 'none', marginBottom: 20 }}>{t.back}</Link>
           <h1 style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: 'clamp(1.8rem,4vw,2.8rem)', color: '#1a1a1a', margin: '0 0 12px' }}>{t.title}</h1>
           <p style={{ fontSize: '1rem', color: '#888', margin: '0 auto 0', maxWidth: 440, lineHeight: 1.7 }}>{t.sub}</p>

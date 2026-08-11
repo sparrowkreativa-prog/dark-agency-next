@@ -129,7 +129,7 @@ export default function RedditPlaybook() {
 function PlaybookStyles() {
   return <style>{`
     .pb-page { background: #fafaf8; min-height: 100vh; }
-    .pb-hero { background: #1a1a1a; padding: 64px 24px 56px; text-align: center; }
+    .pb-hero { background: #1a1a1a; padding: 112px 24px 56px; text-align: center; }
     .pb-back { display: inline-block; font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; margin-bottom: 24px; }
     .pb-back:hover { color: rgba(255,255,255,0.7); }
     .pb-type { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: #a9875c; text-transform: uppercase; margin-bottom: 20px; }
