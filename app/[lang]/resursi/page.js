@@ -1,5 +1,7 @@
 'use client';
 import Link from 'next/link';
+import Header from '@/components/Header';
+import { useLang } from '@/hooks/useContent';
 
 const RESOURCES = [
   {
@@ -95,26 +97,12 @@ const COMING_SOON = [
 ];
 
 export default function Resursi() {
+  const lang = useLang();
+  const base = `/${lang}`;
+
   return (
     <div>
-      <header id="site-header" style={{ position: 'sticky', top: 0, zIndex: 100, background: '#fafaf8', borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
-        <div className="nav-container">
-          <div className="nav-logo"><Link href="/" style={{ fontStyle: 'italic' }}>Velluto Nero</Link></div>
-          <nav className="nav-links">
-            <ul className="nav-menu">
-              <li><Link href="/">Početna</Link></li>
-              <li><Link href="/#services">Usluge</Link></li>
-              <li><Link href="/resursi" style={{ color: '#a9875c' }}>Resursi</Link></li>
-              <li><Link href="/#faq">FAQ</Link></li>
-            </ul>
-          </nav>
-          <div className="nav-cta">
-            <Link href="/#apply" className="btn-primary" style={{ padding: '10px 22px', fontSize: '14px' }}>
-              Prijavi se <span className="btn-arrow">→</span>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <main className="rs-page">
         <div className="rs-hero">
@@ -171,7 +159,7 @@ export default function Resursi() {
           <div className="rs-cta-box">
             <h2 className="rs-cta-title">Želiš da vodimo tvoj nalog?</h2>
             <p className="rs-cta-sub">Primamo samo 2 klijentkinje mesečno. Prijavi se i vidi da li si kvalifikovana.</p>
-            <Link href="/#apply" className="btn-primary btn-large">
+            <Link href={`${base}/site#apply`} className="btn-primary btn-large">
               Prijavi se na listu čekanja <span className="btn-arrow">→</span>
             </Link>
             <p style={{ fontSize: 12, color: '#aaa', marginTop: 12 }}>60 sekundi · bez troškova unapred</p>
