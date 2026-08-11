@@ -12,21 +12,21 @@ const LANGS = [
 const NAV = {
   sr: [
     { label: 'Rezultati', href: (l) => `/${l}/rezultati` },
-    { label: 'Usluge',    href: () => '#services' },
+    { label: 'Usluge',    href: (l) => `/${l}/site#services` },
     { label: 'Resursi',   href: (l) => `/${l}/resursi` },
-    { label: 'FAQ',       href: () => '#faq' },
+    { label: 'FAQ',       href: (l) => `/${l}/site#faq` },
   ],
   en: [
     { label: 'Results',   href: (l) => `/${l}/rezultati` },
-    { label: 'Services',  href: () => '#services' },
+    { label: 'Services',  href: (l) => `/${l}/site#services` },
     { label: 'Resources', href: (l) => `/${l}/resursi` },
-    { label: 'FAQ',       href: () => '#faq' },
+    { label: 'FAQ',       href: (l) => `/${l}/site#faq` },
   ],
   it: [
     { label: 'Risultati', href: (l) => `/${l}/rezultati` },
-    { label: 'Servizi',   href: () => '#services' },
+    { label: 'Servizi',   href: (l) => `/${l}/site#services` },
     { label: 'Risorse',   href: (l) => `/${l}/resursi` },
-    { label: 'FAQ',       href: () => '#faq' },
+    { label: 'FAQ',       href: (l) => `/${l}/site#faq` },
   ],
 };
 
@@ -162,7 +162,7 @@ export default function Header({ lang }) {
         {/* Desktop: lang + CTA */}
         <div className="nav-cta">
           <LangSwitcher currentLang={currentLang} />
-          <a href="#apply" className="btn-primary" style={{ padding: '10px 22px', fontSize: '14px' }}>
+          <a href={`/${currentLang}/site#apply`} className="btn-primary" style={{ padding: '10px 22px', fontSize: '14px' }}>
             {ctaLabel} <span className="btn-arrow">→</span>
           </a>
         </div>
@@ -190,7 +190,7 @@ export default function Header({ lang }) {
               <a key={l.label} href={l.href(currentLang)} onClick={() => setOpen(false)}>{l.label}</a>
             ))}
           </nav>
-          <a href="#apply" className="btn-primary" style={{ justifyContent: 'center', marginTop: 8 }}>
+          <a href={`/${currentLang}/site#apply`} className="btn-primary" style={{ justifyContent: 'center', marginTop: 8 }}>
             {ctaLabel} <span className="btn-arrow">→</span>
           </a>
         </div>
