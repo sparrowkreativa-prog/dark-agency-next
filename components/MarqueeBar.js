@@ -1,14 +1,11 @@
 'use client';
+import { useLang } from '@/hooks/useContent';
 
-const ITEMS = [
-  'Top 0.1%',
-  'White-glove',
-  'Diskrecija',
-  'Data-driven',
-  'Chat 24/7',
-  'Bez avansa',
-  'Sopstveni CRM',
-];
+const ITEMS = {
+  sr: ['Top 0.1%', 'White-glove', 'Diskrecija', 'Data-driven', 'Chat 24/7', 'Bez avansa', 'Sopstveni CRM'],
+  en: ['Top 0.1%', 'White-glove', 'Discretion', 'Data-driven', 'Chat 24/7', 'No upfront', 'Our Own CRM'],
+  it: ['Top 0.1%', 'White-glove', 'Discrezione', 'Data-driven', 'Chat 24/7', 'Zero anticipo', 'CRM Proprietario'],
+};
 
 function Sparkle() {
   return (
@@ -30,10 +27,10 @@ function Sparkle() {
   );
 }
 
-function Strip() {
+function Strip({ items }) {
   return (
     <div className="mb-strip" aria-hidden="true">
-      {ITEMS.map((item) => (
+      {items.map((item) => (
         <div key={item} className="mb-item">
           <span className="mb-text">{item}</span>
           <Sparkle />
@@ -44,12 +41,15 @@ function Strip() {
 }
 
 export default function MarqueeBar() {
+  const lang = useLang();
+  const items = ITEMS[lang] || ITEMS.sr;
+
   return (
-    <div className="mb-outer" aria-label="Ključne prednosti">
+    <div className="mb-outer" aria-label="Key advantages">
       <div className="mb-track">
-        <Strip />
-        <Strip />
-        <Strip />
+        <Strip items={items} />
+        <Strip items={items} />
+        <Strip items={items} />
       </div>
 
       <style>{`
